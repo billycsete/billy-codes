@@ -1,3 +1,5 @@
+/*jslint node: true */
+'use strict';
 
 // var $        = require('../../../lib/jquery/jquery');
 // var Uploader = require('./Uploader');
@@ -5,8 +7,6 @@
 var Main = {
 
 	initialize : function() {
-
-		'use strict';
 
 		// Elements
 		// this.$uploaderElement = $('#uploader-element');

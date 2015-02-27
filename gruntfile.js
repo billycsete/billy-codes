@@ -1,3 +1,6 @@
+/*jslint node: true */
+'use strict';
+
 module.exports = function( grunt ) {
 
   // Project configuration.
@@ -78,7 +81,8 @@ module.exports = function( grunt ) {
         globals: {
           jQuery: true,
           console: true
-        }
+        },
+        globalstrict: true
       }
     },
 

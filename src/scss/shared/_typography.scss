@@ -1,0 +1,37 @@
+// =================================================
+//
+// Typography
+//
+// =================================================
+
+// =================================================
+// Weights
+// =================================================
+
+$normal: 400;
+$bold: 600;
+
+
+// =================================================
+// Body
+// =================================================
+
+html, body {
+	font-size: 12px;
+	font-family: 'courier new', 'courier', 'monospace';
+	color: $black;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+
+	@include media($small) {
+		font-size: 14px;
+	}
+
+	@include media($medium) {
+		font-size: 16px;
+	}
+
+	@include media($large) {
+		font-size: 18px;
+	}
+}

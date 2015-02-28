@@ -2309,6 +2309,22 @@ html {
 html *, body * {
   box-sizing: border-box; }
 
+html, body {
+  font-size: 12px;
+  font-family: 'courier new', 'courier', 'monospace';
+  color: #444;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; }
+  @media screen and (min-width: 480px) {
+    html, body {
+      font-size: 14px; } }
+  @media screen and (min-width: 760px) {
+    html, body {
+      font-size: 16px; } }
+  @media screen and (min-width: 1200px) {
+    html, body {
+      font-size: 18px; } }
+
 .header {
   position: absolute;
   z-index: 100;

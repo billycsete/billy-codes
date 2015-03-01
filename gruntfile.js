@@ -44,7 +44,7 @@ module.exports = function( grunt ) {
         dest: 'dist/js/head.js'
       },
       libs: {
-        src: ['bower_components/jquery/dist/jquery.js'],
+        src: ['bower_components/jquery/dist/jquery.js', 'bower_components/typed.js/dist/typed.min.js'],
         dest: 'dist/js/libs.js'
       }
     },

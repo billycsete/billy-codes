@@ -2329,15 +2329,8 @@ html, body {
   position: absolute;
   z-index: 100;
   top: 40px;
-  left: 40px; }
-
-.conductor {
-  position: absolute;
-  z-index: 10;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-          transform: translate3d(-50%, -50%, 0); }
+  left: 40px;
+  pointer-events: none; }
 
 .grid {
   position: absolute;
@@ -2347,12 +2340,30 @@ html, body {
   width: 100vw;
   height: 100vh; }
 
+.grid-stage {
+  position: absolute;
+  z-index: 10;
+  height: 20vh;
+  width: 20vw;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0); }
+  .grid-stage .icon {
+    font-size: 2.5rem;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0); }
+
 .grid-row {
   margin: 0;
   padding: 0;
   list-style: none;
   height: 20vh;
-  border-bottom: 1px solid red; }
+  border-bottom: 1px solid #eee; }
   .grid-row:last-child {
     border-bottom: none; }
 
@@ -2360,13 +2371,8 @@ html, body {
   float: left;
   width: 20vw;
   height: 100%;
-  border-right: 1px solid red; }
+  border-right: 1px solid #eee; }
   .grid-item:last-child {
     border-right: none; }
-
-.grid-link {
-  display: block;
-  width: 100%;
-  height: 100%; }
-  .grid-link:hover {
+  .grid-item:not(.grid-center):hover {
     background-color: #f5f5f5; }

@@ -1,11 +1,22 @@
 // =================================================
-// Conductor
+// Grid - Stage
 // =================================================
 
-.conductor {
+.grid-stage {
 	position: absolute;
 	z-index: 10;
+	height: 20vh;
+	width: 20vw;
 	top: 50%;
 	left: 50%;
 	transform: translate3d(-50%, -50%, 0);
+
+	.icon {
+		font-size: rem(40px);
+		position: absolute;
+		z-index: 10;
+		top: 50%;
+		left: 50%;
+		transform: translate3d(-50%, -50%, 0);
+	}
 }

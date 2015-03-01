@@ -108,7 +108,7 @@ module.exports = function( grunt ) {
       },
       css: {
         files: ['src/scss/**/*.scss', 'src/scss/*.scss'],
-        tasks: ['sass']
+        tasks: ['css']
       },
       html: {
         files: ['src/*.html'],
@@ -129,7 +129,6 @@ module.exports = function( grunt ) {
   grunt.loadNpmTasks('grunt-browserify');
 
   // Tasks
-  grunt.registerTask('watch', 'watch');
   grunt.registerTask('css', ['sass', 'autoprefixer']);
   grunt.registerTask('js', ['jshint', 'browserify', 'concat', 'uglify']);
   grunt.registerTask('default', ['clean:dist', 'css', 'js', 'copy']);

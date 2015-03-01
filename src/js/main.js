@@ -1,19 +1,17 @@
 /*jslint node: true */
 'use strict';
 
-// var $        = require('../../../lib/jquery/jquery');
-// var Uploader = require('./Uploader');
+var $               = require('../../bower_components/jquery/dist/jquery');
+var StageController = require('./StageController');
 
 var Main = {
 
 	initialize : function() {
 
-		// Elements
-		// this.$uploaderElement = $('#uploader-element');
-
-		// Make new uploader
-		// var loader = new Uploader( this.$uploaderElement );
-		console.log('initialized!');
+		// Initialize stage controller
+		var gridElement = $('.grid');
+		var stageElement = $('.grid-stage');
+		var stageController = new StageController( gridElement, stageElement );
 
 	}
 

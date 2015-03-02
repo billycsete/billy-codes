@@ -1,7 +1,7 @@
 /*jslint node: true */
 'use strict';
 
-var $ = require('../../bower_components/jquery/dist/jquery');
+var $     = require('../../bower_components/jquery/dist/jquery');
 
 var proto;
 
@@ -14,7 +14,7 @@ var StageController = function( gridElement, stageElement ) {
 	this.$gridItems = $('.grid-item');
 	this.$stage = stageElement;
 	this.$stageIcon = $('.icon', stageElement);
-	console.log(this.$stageIcon);
+	this.$output = $('#output');
 
 	this._init();
 };
@@ -59,7 +59,7 @@ proto._setStageIcon = function( icon ) {
 
 
 proto._setHeaderText = function( text ) {
-
+	this.$output.html(text);
 };
 
 

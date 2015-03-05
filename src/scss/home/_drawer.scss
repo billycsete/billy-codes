@@ -1,23 +1,25 @@
 // =================================================
 //
-// Grid
+// Drawer
 //
 // =================================================
 
-.grid {
+.drawer {
 	position: absolute;
 	z-index: 1;
-	top: 0;
+	bottom: 0;
 	left: 0;
 	width: 100vw;
-	height: 100vh;
+	height: 0vh;
+	background: #ccc;
 	transition: height 0.3s cubic-bezier(0.455, 0.030, 0.515, 0.955);
 
+
 	.peek-drawer & {
-		height: 99vh;
+		height: 1vh;
 	}
 
 	.open-drawer & {
-		height: 80vh;
+		height: 20vh
 	}
 }

@@ -2,9 +2,9 @@
 'use strict';
 
 var $               = require('../../bower_components/jquery/dist/jquery');
-// require('../../bower_components/typed.js/js/typed.js');
 var StageController = require('./StageController');
 var StageDrawer     = require('./StageDrawer');
+var Typewriter      = require('./Typewriter');
 
 
 
@@ -21,10 +21,12 @@ var Main = {
 		var drawerElement = $('#drawer');
 		var drawer = new StageDrawer( drawerElement );
 
-		// $('#output').typed({
-		// 	strings: ["and other stuff too."],
-		// 	contentType: 'html'
-		// });
+		var outputElement = $('#output');
+		var typewriter = new Typewriter( outputElement, {
+			initialType : 'and other stuff too.'
+		});
+
+		console.log(typewriter);
 
 
 

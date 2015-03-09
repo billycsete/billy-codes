@@ -9289,7 +9289,7 @@ var StageDrawer = function( drawerElement ) {
 	this.$drawer = drawerElement;
 	this.$triggers = $('[data-icon="briefcase"]');
 
-	console.log(this.$triggers);
+	// console.log(this.$triggers);
 
 	this._init();
 };
@@ -9353,10 +9353,92 @@ module.exports = StageDrawer;
 /*jslint node: true */
 'use strict';
 
+var $     = require('../../bower_components/jquery/dist/jquery');
+
+var proto;
+
+/**
+ * Typewriter
+ * @constructor
+ */
+var Typewriter = function( outputElement , options ) {
+	this.options = $.extend( {}, options );
+	this.$outputElement = outputElement;
+
+	this.outputText = this.options.initialType;
+	this.currentText = '';
+	this.characterIndex = 0;
+	this.isTag = false;
+
+	this._init();
+};
+
+proto = Typewriter.prototype;
+
+
+/**
+ * Show an error message
+ * @param {string} message - message to be displayed
+ */
+proto.write = function () {
+
+};
+
+proto.backspace = function () {
+
+};
+
+proto.clear = function () {
+
+};
+
+
+proto._init = function () {
+	// write the initial type
+
+
+	this._type();
+};
+
+proto._type = function () {
+	var humanize = Math.round(Math.random() * (100 - 30));
+
+	this.currentText = this.outputText.slice( 0, ++this.characterIndex );
+
+	console.log('current: ', this.currentText);
+	console.log('output: ', this.outputText);
+
+	this.$outputElement.html(this.currentText);
+
+	if (this.currentText === this.outputText) return;
+
+
+	// var character = this.currentText.slice(-1);
+	// if( character === '<' ) isTag = true;
+	// if( character === '>' ) isTag = false;
+
+	// if (this.isTag ) return type();
+
+	setTimeout( function () {
+		this._type();
+	}.bind(this), humanize);
+};
+
+
+proto._setInitialCharacters = function () {
+
+};
+
+module.exports = Typewriter;
+
+},{"../../bower_components/jquery/dist/jquery":1}],5:[function(require,module,exports){
+/*jslint node: true */
+'use strict';
+
 var $               = require('../../bower_components/jquery/dist/jquery');
-// require('../../bower_components/typed.js/js/typed.js');
 var StageController = require('./StageController');
 var StageDrawer     = require('./StageDrawer');
+var Typewriter      = require('./Typewriter');
 
 
 
@@ -9373,10 +9455,12 @@ var Main = {
 		var drawerElement = $('#drawer');
 		var drawer = new StageDrawer( drawerElement );
 
-		// $('#output').typed({
-		// 	strings: ["and other stuff too."],
-		// 	contentType: 'html'
-		// });
+		var outputElement = $('#output');
+		var typewriter = new Typewriter( outputElement, {
+			initialType : 'and other stuff too.'
+		});
+
+		console.log(typewriter);
 
 
 
@@ -9386,4 +9470,4 @@ var Main = {
 
 Main.initialize();
 
-},{"../../bower_components/jquery/dist/jquery":1,"./StageController":2,"./StageDrawer":3}]},{},[4]);
+},{"../../bower_components/jquery/dist/jquery":1,"./StageController":2,"./StageDrawer":3,"./Typewriter":4}]},{},[5]);

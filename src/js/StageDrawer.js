@@ -13,7 +13,7 @@ var StageDrawer = function( drawerElement ) {
 	this.$drawer = drawerElement;
 	this.$triggers = $('[data-icon="briefcase"]');
 
-	console.log(this.$triggers);
+	// console.log(this.$triggers);
 
 	this._init();
 };

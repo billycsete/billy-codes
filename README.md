@@ -1,2 +1,2 @@
-# chedda-codes
-http://chedda.codes
+# billy.codes
+http://billy.codes

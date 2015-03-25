@@ -2325,25 +2325,6 @@ html, body {
     html, body {
       font-size: 18px; } }
 
-.typed-cursor {
-  opacity: 1;
-  -webkit-animation: blink 0.7s infinite;
-  animation: blink 0.7s infinite; }
-
-@keyframes blink {
-  0% {
-    opacity: 1; }
-  50% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-@-webkit-keyframes blink {
-  0% {
-    opacity: 1; }
-  50% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
 .header {
   position: absolute;
   z-index: 100;
@@ -2356,6 +2337,14 @@ html, body {
   -webkit-animation: blink 0.7s infinite;
   animation: blink 0.7s infinite; }
 
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
 @keyframes blink {
   0% {
     opacity: 1; }
@@ -2363,69 +2352,10 @@ html, body {
     opacity: 0; }
   100% {
     opacity: 1; } }
-.grid {
+.codes {
   position: absolute;
   z-index: 1;
   top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  -webkit-transition: height 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-          transition: height 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
-  .peek-drawer .grid {
-    height: 99vh; }
-  .open-drawer .grid {
-    height: 80vh; }
-
-.grid-stage {
-  position: absolute;
-  z-index: 10;
-  height: 20%;
-  width: 20%;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-          transform: translate3d(-50%, -50%, 0); }
-  .grid-stage .icon {
-    font-size: 2.5rem;
-    position: absolute;
-    z-index: 10;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate3d(-50%, -50%, 0);
-            transform: translate3d(-50%, -50%, 0); }
-
-.grid-row {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  height: 20%;
-  border-bottom: 1px solid #eee; }
-  .grid-row:last-child {
-    border-bottom: none; }
-
-.grid-item {
-  float: left;
-  width: 20%;
-  height: 100%;
-  border-right: 1px solid #eee;
-  cursor: pointer; }
-  .grid-item:last-child {
-    border-right: none; }
-  .grid-item:not(.grid-center):hover {
-    background-color: #f5f5f5; }
-
-.drawer {
-  position: absolute;
-  z-index: 1;
+  right: 0;
   bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: 0vh;
-  background: #ccc;
-  -webkit-transition: height 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-          transition: height 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
-  .peek-drawer .drawer {
-    height: 1vh; }
-  .open-drawer .drawer {
-    height: 20vh; }
+  left: 0; }

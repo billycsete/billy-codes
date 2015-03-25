@@ -44,7 +44,7 @@ module.exports = function( grunt ) {
         dest: 'dist/js/head.js'
       },
       libs: {
-        src: ['bower_components/jquery/dist/jquery.js', 'bower_components/typed.js/dist/typed.min.js'],
+        src: ['bower_components/phaser/build/phaser.js', 'src/js/box2d-plugin-full.js'],
         dest: 'dist/js/libs.js'
       }
     },
@@ -73,19 +73,6 @@ module.exports = function( grunt ) {
       }
     },
 
-    // JS Hint
-    jshint: {
-      files: ['gruntfile.js', 'src/js/*'],
-      options: {
-        // options here to override JSHint defaults
-        globals: {
-          jQuery: true,
-          console: true
-        },
-        globalstrict: true
-      }
-    },
-
     // Copy
     copy: {
       main: {
@@ -93,7 +80,7 @@ module.exports = function( grunt ) {
           {
             expand: true,
             cwd: 'src/',
-            src: ['fonts/*', '*.html'],
+            src: ['fonts/*', '*.html', 'images/*'],
             dest: 'dist/'
           }
         ]
@@ -104,7 +91,7 @@ module.exports = function( grunt ) {
     watch: {
       js : {
         files: ['<%= jshint.files %>'],
-        tasks: ['jshint', 'concat', 'browserify', 'uglify']
+        tasks: ['concat', 'browserify', 'uglify']
       },
       css: {
         files: ['src/scss/**/*.scss', 'src/scss/*.scss'],
@@ -130,7 +117,7 @@ module.exports = function( grunt ) {
 
   // Tasks
   grunt.registerTask('css', ['sass', 'autoprefixer']);
-  grunt.registerTask('js', ['jshint', 'browserify', 'concat', 'uglify']);
+  grunt.registerTask('js', ['browserify', 'concat', 'uglify']);
   grunt.registerTask('default', ['clean:dist', 'css', 'js', 'copy']);
 
 };

@@ -9209,265 +9209,130 @@ return jQuery;
 /*jslint node: true */
 'use strict';
 
-var $     = require('../../bower_components/jquery/dist/jquery');
-
-var proto;
-
-/**
- * StageController
- * @constructor
- */
-var StageController = function( gridElement, stageElement ) {
-	this.$grid = gridElement;
-	this.$gridItems = $('.grid-item');
-	this.$stage = stageElement;
-	this.$stageIcon = $('.icon', stageElement);
-	this.$output = $('#output');
-
-	this._init();
-};
-
-proto = StageController.prototype;
-
-
-/**
- * Show an error message
- * @param {string} message - message to be displayed
- */
-proto._init = function( ) {
-	this._attachEvents();
-};
-
-
-proto._attachEvents = function( ) {
-	this.$gridItems.each( function( index, gridItem ) {
-		$(gridItem).on( 'mouseover', this._onHover.bind(this) );
-		$(gridItem).on( 'click', this._onClick.bind(this) );
-	}.bind(this));
-};
-
-
-proto._onHover = function( evt ) {
-	var icon = evt.target.getAttribute( 'data-icon' );
-
-	this._setStageIcon( icon );
-};
-
-
-proto._onClick = function( evt ) {
-	var text = evt.target.getAttribute( 'data-text' );
-
-	this._setHeaderText( text );
-};
-
-
-proto._setStageIcon = function( icon ) {
-	this.$stageIcon.attr('class', 'icon icon-' + icon);
-};
-
-
-proto._setHeaderText = function( text ) {
-	this.$output.html(text);
-};
-
-
-module.exports = StageController;
-
-},{"../../bower_components/jquery/dist/jquery":1}],3:[function(require,module,exports){
-/*jslint node: true */
-'use strict';
-
-var $     = require('../../bower_components/jquery/dist/jquery');
-
-var proto;
-
-/**
- * StageDrawer
- * @constructor
- */
-var StageDrawer = function( drawerElement ) {
-	this.$drawer = drawerElement;
-	this.$triggers = $('[data-icon="briefcase"]');
-
-	// console.log(this.$triggers);
-
-	this._init();
-};
-
-proto = StageDrawer.prototype;
-
-
-/**
- * Show an error message
- * @param {string} message - message to be displayed
- */
-proto._init = function( ) {
-	this._attachEvents();
-};
-
-
-proto._attachEvents = function( ) {
-	this.$triggers.each( function( index, triggerElement ) {
-		$(triggerElement).on( 'mouseover', this._onMouseOver.bind(this) );
-		$(triggerElement).on( 'mouseout', this._onMouseOut.bind(this) );
-		$(triggerElement).on( 'click', this._onClick.bind(this) );
-	}.bind(this));
-};
-
-
-proto._onMouseOver = function( evt ) {
-	console.log('mouseover ', this);
-	this.peekDrawer();
-};
-
-proto._onMouseOut = function( evt ) {
-	console.log('mouseout ', this);
-	this.unPeek();
-};
-
-
-proto._onClick = function( evt ) {
-	console.log('clicked');
-	this.toggleDrawer();
-};
-
-
-proto.toggleDrawer = function( ) {
-	$('body').toggleClass('open-drawer');
-};
-
-
-proto.peekDrawer = function( ) {
-	$('body').addClass('peek-drawer');
-};
-
-
-proto.unPeek = function( ) {
-	$('body').removeClass('peek-drawer');
-};
-
-
-module.exports = StageDrawer;
-
-},{"../../bower_components/jquery/dist/jquery":1}],4:[function(require,module,exports){
-/*jslint node: true */
-'use strict';
-
-var $     = require('../../bower_components/jquery/dist/jquery');
-
-var proto;
-
-/**
- * Typewriter
- * @constructor
- */
-var Typewriter = function( outputElement , options ) {
-	this.options = $.extend( {}, options );
-	this.$outputElement = outputElement;
-
-	this.outputText = this.options.initialType;
-	this.currentText = '';
-	this.characterIndex = 0;
-	this.isTag = false;
-
-	this._init();
-};
-
-proto = Typewriter.prototype;
-
-
-/**
- * Show an error message
- * @param {string} message - message to be displayed
- */
-proto.write = function () {
-
-};
-
-proto.backspace = function () {
-
-};
-
-proto.clear = function () {
-
-};
-
-
-proto._init = function () {
-	// write the initial type
-
-
-	this._type();
-};
-
-proto._type = function () {
-	var humanize = Math.round(Math.random() * (100 - 30));
-
-	this.currentText = this.outputText.slice( 0, ++this.characterIndex );
-
-	console.log('current: ', this.currentText);
-	console.log('output: ', this.outputText);
-
-	this.$outputElement.html(this.currentText);
-
-	if (this.currentText === this.outputText) return;
-
-
-	// var character = this.currentText.slice(-1);
-	// if( character === '<' ) isTag = true;
-	// if( character === '>' ) isTag = false;
-
-	// if (this.isTag ) return type();
-
-	setTimeout( function () {
-		this._type();
-	}.bind(this), humanize);
-};
-
-
-proto._setInitialCharacters = function () {
-
-};
-
-module.exports = Typewriter;
-
-},{"../../bower_components/jquery/dist/jquery":1}],5:[function(require,module,exports){
-/*jslint node: true */
-'use strict';
-
 var $               = require('../../bower_components/jquery/dist/jquery');
-var StageController = require('./StageController');
-var StageDrawer     = require('./StageDrawer');
-var Typewriter      = require('./Typewriter');
 
 
+var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'codes', { preload: preload, create: create });
 
-var Main = {
+function preload() {
 
-	initialize : function() {
+	// load tags
+	game.load.image('html-open', 'images/tag_html_open.png');
+	game.load.image('html-close', 'images/tag_html_close.png');
+	game.load.image('head-open', 'images/tag_head_open.png');
+	game.load.image('head-close', 'images/tag_head_close.png');
+	game.load.image('body-open', 'images/tag_body_open.png');
+	game.load.image('body-close', 'images/tag_body_close.png');
+	game.load.image('header-open', 'images/tag_header_open.png');
+	game.load.image('header-close', 'images/tag_header_close.png');
+	game.load.image('title', 'images/tag_title.png');
+	game.load.image('meta', 'images/tag_meta.png');
+	game.load.image('h1', 'images/tag_h1.png');
 
-		// Initialize stage controller
-		var gridElement = $('#grid');
-		var stageElement = $('#grid-stage');
-		var stageController = new StageController( gridElement, stageElement );
+}
 
-		// Initialize drawer
-		var drawerElement = $('#drawer');
-		var drawer = new StageDrawer( drawerElement );
+function create() {
 
-		var outputElement = $('#output');
-		var typewriter = new Typewriter( outputElement, {
-			initialType : 'and other stuff too.'
-		});
+	// Unless you specifically know your game needs to support multi-touch I would recommend setting this to 1
+	game.input.maxPointers = 1;
+	// Phaser will automatically pause if the browser tab the game is in loses focus. You can disable that here:
+	game.stage.disableVisibilityChange = true;
+	// This tells the game to resize the renderer to match the game dimensions (i.e. 100% browser width / height)
+	game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+	// viewport background color
+	game.stage.backgroundColor = '#f5f5f5';
 
-		console.log(typewriter);
+	// Enable Box2D physics
+	game.physics.startSystem(Phaser.Physics.BOX2D);
+	game.physics.box2d.setBoundsToWorld();
+	game.physics.box2d.gravity.y = 500;
+
+	console.log(game);
 
 
+	// Add tags
 
-	}
+	var htmlOpenImg = game.cache.getImage('html-open');
+	var htmlOpenSprite = game.add.sprite(300 + htmlOpenImg.width/2 , 100, 'html-open');
+	console.log(htmlOpenSprite.position);
+	htmlOpenSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(htmlOpenSprite);
 
-};
+	var headOpenImg = game.cache.getImage('head-open');
+	var headOpenSprite = game.add.sprite(330 + headOpenImg.width/2, 130, 'head-open');
+	headOpenSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(headOpenSprite);
 
-Main.initialize();
+	var titleImg = game.cache.getImage('title');
+	var titleSprite = game.add.sprite(360 + titleImg.width/2, 160, 'title');
+	titleSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(titleSprite);
 
-},{"../../bower_components/jquery/dist/jquery":1,"./StageController":2,"./StageDrawer":3,"./Typewriter":4}]},{},[5]);
+	var metaImg = game.cache.getImage('meta');
+	var metaSprite = game.add.sprite(360 + metaImg.width/2, 190, 'meta');
+	metaSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(metaSprite);
+
+	var headCloseImg = game.cache.getImage('head-close');
+	var headCloseSprite = game.add.sprite(330 + headCloseImg.width/2, 220, 'head-close');
+	headCloseSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(headCloseSprite);
+
+	var bodyOpenImg = game.cache.getImage('body-open');
+	var bodyOpenSprite = game.add.sprite(330 + bodyOpenImg.width/2, 250, 'body-open');
+	bodyOpenSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(bodyOpenSprite);
+
+	var headerOpenImg = game.cache.getImage('header-open');
+	var headerOpenSprite = game.add.sprite(360 + headerOpenImg.width/2, 280, 'header-open');
+	headerOpenSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(headerOpenSprite);
+
+	var h1Img = game.cache.getImage('h1');
+	var h1Sprite = game.add.sprite(390 + h1Img.width/2, 310, 'h1');
+	h1Sprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(h1Sprite);
+
+	var headerCloseImg = game.cache.getImage('header-close');
+	var headerCloseSprite = game.add.sprite(360 + headerCloseImg.width/2, 340, 'header-close');
+	headerCloseSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(headerCloseSprite);
+
+	var bodyCloseImg = game.cache.getImage('body-close');
+	var bodyCloseSprite = game.add.sprite(330 + bodyCloseImg.width/2, 370, 'body-close');
+	bodyCloseSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(bodyCloseSprite);
+
+	var htmlCloseImg = game.cache.getImage('html-close');
+	var htmlCloseSprite = game.add.sprite(300 + htmlCloseImg.width/2 , 400, 'html-close');
+	console.log(htmlCloseSprite.position);
+	htmlCloseSprite.anchor.setTo(0, 0.5);
+	game.physics.box2d.enable(htmlCloseSprite);
+
+
+	// Set up handlers for mouse events
+	game.input.onDown.add(mouseDragStart, this);
+	game.input.addMoveCallback(mouseDragMove, this);
+	game.input.onUp.add(mouseDragEnd, this);
+
+}
+
+function mouseDragStart() {
+
+	game.physics.box2d.mouseDragStart(game.input.mousePointer);
+
+}
+
+function mouseDragMove() {
+
+	game.physics.box2d.mouseDragMove(game.input.mousePointer);
+
+}
+
+function mouseDragEnd() {
+
+	game.physics.box2d.mouseDragEnd();
+
+}
+
+},{"../../bower_components/jquery/dist/jquery":1}]},{},[2]);

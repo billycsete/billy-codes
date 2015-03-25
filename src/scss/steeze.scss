@@ -20,7 +20,6 @@
 @import 'shared/icons';
 @import 'shared/site';
 @import 'shared/typography';
-@import 'shared/typed-cursor';
 
 
 // =================================================
@@ -28,10 +27,4 @@
 // =================================================
 
 @import 'home/header';
-
-@import 'home/grid';
-@import 'home/grid-stage';
-@import 'home/grid-row';
-@import 'home/grid-item';
-
-@import 'home/drawer';
+@import 'home/codes';

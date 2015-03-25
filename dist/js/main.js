@@ -9214,22 +9214,125 @@ var $               = require('../../bower_components/jquery/dist/jquery');
 
 var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'codes', { preload: preload, create: create });
 
+var codeLineHeight = 18;
+var codeIndentValue = 22;
+var codeLeftIndent = 20;
+var codeStartTop = 100;
+var codeCurrentPosition = codeStartTop;
+
+var htmlImages = [
+	'tag-doctype',
+	'tag-medium-open',
+	'tag-medium-close',
+	'tag-header-open',
+	'tag-header-close',
+	'tag-title',
+	'tag-meta',
+	'tag-h1'
+];
+
+var html = [
+	{
+		code : 'tag-doctype',
+		indentation : 0
+	},
+	{
+		code : 'tag-medium-open',
+		indentation : 0
+	},
+	{
+		code : 'tag-medium-open',
+		indentation : 1
+	},
+	{
+		code : 'tag-title',
+		indentation : 2
+	},
+	{
+		code : 'tag-meta',
+		indentation : 2
+	},
+	{
+		code : 'tag-medium-close',
+		indentation : 1
+	},
+	{
+		code : 'tag-medium-open',
+		indentation : 1
+	},
+	{
+		code : 'tag-header-open',
+		indentation : 2
+	},
+	{
+		code : 'tag-h1',
+		indentation : 3
+	},
+	{
+		code : 'tag-header-close',
+		indentation : 2
+	},
+	{
+		code : 'tag-header-open',
+		indentation : 2
+	},
+	{
+		code : 'tag-h1',
+		indentation : 3
+	},
+	{
+		code : 'tag-header-close',
+		indentation : 2
+	},
+	{
+		code : 'tag-header-open',
+		indentation : 2
+	},
+	{
+		code : 'tag-h1',
+		indentation : 3
+	},
+	{
+		code : 'tag-header-close',
+		indentation : 2
+	},
+	{
+		code : 'tag-medium-close',
+		indentation : 1
+	},
+	{
+		code : 'tag-medium-close',
+		indentation : 0
+	}
+];
+
+
 function preload() {
 
-	// load tags
-	game.load.image('doctype', 'images/tag_doctype.png');
-	game.load.image('html-open', 'images/tag_html_open.png');
-	game.load.image('html-close', 'images/tag_html_close.png');
-	game.load.image('head-open', 'images/tag_head_open.png');
-	game.load.image('head-close', 'images/tag_head_close.png');
-	game.load.image('body-open', 'images/tag_body_open.png');
-	game.load.image('body-close', 'images/tag_body_close.png');
-	game.load.image('header-open', 'images/tag_header_open.png');
-	game.load.image('header-close', 'images/tag_header_close.png');
-	game.load.image('title', 'images/tag_title.png');
-	game.load.image('meta', 'images/tag_meta.png');
-	game.load.image('h1', 'images/tag_h1.png');
-	game.load.image('paragraph', 'images/tag_paragraph.png');
+	htmlImages.forEach( function(imageName) {
+		game.load.image(imageName, 'images/' + imageName + '.png');
+	});
+
+	// for (var key in validation_messages) {
+	// 	if (validation_messages.hasOwnProperty(key)) {
+	// 		var obj = validation_messages[key];
+	// 	}
+	// }
+
+	// // load tags
+	// game.load.image('doctype', 'images/tag_doctype.png');
+	// game.load.image('html-open', 'images/tag_html_open.png');
+	// game.load.image('html-close', 'images/tag_html_close.png');
+	// game.load.image('head-open', 'images/tag_head_open.png');
+	// game.load.image('head-close', 'images/tag_head_close.png');
+	// game.load.image('body-open', 'images/tag_body_open.png');
+	// game.load.image('body-close', 'images/tag_body_close.png');
+	// game.load.image('header-open', 'images/tag_header_open.png');
+	// game.load.image('header-close', 'images/tag_header_close.png');
+	// game.load.image('title', 'images/tag_title.png');
+	// game.load.image('meta', 'images/tag_meta.png');
+	// game.load.image('h1', 'images/tag_h1.png');
+	// game.load.image('paragraph', 'images/tag_paragraph.png');
 
 }
 
@@ -9247,72 +9350,22 @@ function create() {
 	// Enable Box2D physics
 	game.physics.startSystem(Phaser.Physics.BOX2D);
 	game.physics.box2d.setBoundsToWorld();
-	game.physics.box2d.gravity.y = 200;
+	game.physics.box2d.gravity.y = 300;
+	game.physics.box2d.restitution = 0.8;
 
-	console.log(game);
 
+	// Add lines of code
+	html.forEach( function( htmlLine, index ) {
 
-	// Add tags
+		var image = game.cache.getImage( htmlLine.code );
+		var left = codeLeftIndent + (htmlLine.indentation * codeIndentValue) + image.width/2;
+		var top = codeStartTop + ( index * codeLineHeight );
 
-	var doctypeImg = game.cache.getImage('doctype');
-	var doctypeSprite = game.add.sprite(300 + doctypeImg.width/2 , 100, 'doctype');
-	// doctypeSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(doctypeSprite);
+		var sprite = game.add.sprite( left, top, htmlLine.code );
 
-	var htmlOpenImg = game.cache.getImage('html-open');
-	var htmlOpenSprite = game.add.sprite(300 + htmlOpenImg.width/2 , 118, 'html-open');
-	// htmlOpenSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(htmlOpenSprite);
-
-	var headOpenImg = game.cache.getImage('head-open');
-	var headOpenSprite = game.add.sprite(330 + headOpenImg.width/2, 136, 'head-open');
-	// headOpenSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(headOpenSprite);
-
-	var titleImg = game.cache.getImage('title');
-	var titleSprite = game.add.sprite(360 + titleImg.width/2, 154, 'title');
-	// titleSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(titleSprite);
-
-	var metaImg = game.cache.getImage('meta');
-	var metaSprite = game.add.sprite(360 + metaImg.width/2, 172, 'meta');
-	// metaSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(metaSprite);
-
-	var headCloseImg = game.cache.getImage('head-close');
-	var headCloseSprite = game.add.sprite(330 + headCloseImg.width/2, 190, 'head-close');
-	// headCloseSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(headCloseSprite);
-
-	var bodyOpenImg = game.cache.getImage('body-open');
-	var bodyOpenSprite = game.add.sprite(330 + bodyOpenImg.width/2, 208, 'body-open');
-	// bodyOpenSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(bodyOpenSprite);
-
-	var headerOpenImg = game.cache.getImage('header-open');
-	var headerOpenSprite = game.add.sprite(360 + headerOpenImg.width/2, 226, 'header-open');
-	// headerOpenSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(headerOpenSprite);
-
-	var h1Img = game.cache.getImage('h1');
-	var h1Sprite = game.add.sprite(390 + h1Img.width/2, 244, 'h1');
-	// h1Sprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(h1Sprite);
-
-	var headerCloseImg = game.cache.getImage('header-close');
-	var headerCloseSprite = game.add.sprite(360 + headerCloseImg.width/2, 262, 'header-close');
-	// headerCloseSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(headerCloseSprite);
-
-	var bodyCloseImg = game.cache.getImage('body-close');
-	var bodyCloseSprite = game.add.sprite(330 + bodyCloseImg.width/2, 280, 'body-close');
-	// bodyCloseSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(bodyCloseSprite);
-
-	var htmlCloseImg = game.cache.getImage('html-close');
-	var htmlCloseSprite = game.add.sprite(300 + htmlCloseImg.width/2 , 298, 'html-close');
-	// htmlCloseSprite.anchor.setTo(0, 0.5);
-	game.physics.box2d.enable(htmlCloseSprite);
+		game.physics.box2d.enable(sprite);
+		sprite.body.gravityScale = 0;
+	});
 
 
 	// Set up handlers for mouse events

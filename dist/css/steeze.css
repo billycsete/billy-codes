@@ -2311,7 +2311,7 @@ html *, body * {
 
 html, body {
   font-size: 12px;
-  font-family: 'courier new', 'courier', 'monospace';
+  font-family: 'inconsolata', 'courier new', 'courier', 'monospace';
   color: #444;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
@@ -2328,30 +2328,13 @@ html, body {
 .header {
   position: absolute;
   z-index: 100;
-  top: 40px;
-  left: 40px;
-  pointer-events: none; }
+  top: 20px;
+  left: 20px; }
+  .header h1 {
+    font-weight: normal;
+    font-size: 1.375rem;
+    color: #DBDBDA; }
 
-.typed-cursor {
-  opacity: 1;
-  -webkit-animation: blink 0.7s infinite;
-  animation: blink 0.7s infinite; }
-
-@-webkit-keyframes blink {
-  0% {
-    opacity: 1; }
-  50% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes blink {
-  0% {
-    opacity: 1; }
-  50% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
 .codes {
   position: absolute;
   z-index: 1;

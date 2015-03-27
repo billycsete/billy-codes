@@ -9209,9 +9209,9 @@ return jQuery;
 /*jslint node: true */
 'use strict';
 
-var $               = require('../../bower_components/jquery/dist/jquery');
+var $ = require('../../bower_components/jquery/dist/jquery');
 
-
+// Create new Phaser game canvas
 var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'codes', { create: create });
 
 var maxCodeLength = 300;
@@ -9221,6 +9221,7 @@ var codeIndentValue = 20;
 var codeLeftIndent = $(document).width() / 2 - 150;
 var codeStartTop = $(document).height() / 2 - 190;
 var codeCurrentPosition = codeStartTop;
+
 
 var colors = {
 	grey   : '#878985',
@@ -9249,41 +9250,58 @@ function create() {
 	game.physics.box2d.restitution = 0.8;
 
 	// Add lines of code
-	createLineOfCode(0,  90,  colors.grey, 0);
-	createLineOfCode(1,  60,  colors.pink, 0);
-	createLineOfCode(2,  60,  colors.pink, 1);
-	createLineOfCode(3,  120, colors.green, 2);
+	createLineOfCode(0,  90,  colors.grey,   0);
+	createLineOfCode(1,  60,  colors.pink,   0);
+	createLineOfCode(2,  60,  colors.pink,   1);
+	createLineOfCode(3,  120, colors.green,  2);
 	createLineOfCode(4,  100, colors.orange, 2);
-	createLineOfCode(5,  80,  colors.pink, 1);
-	createLineOfCode(6,  80,  colors.pink, 1);
-	createLineOfCode(7,  90,  colors.pink, 2);
-	createLineOfCode(8,  140, colors.green, 3);
+	createLineOfCode(5,  80,  colors.pink,   1);
+	createLineOfCode(6,  80,  colors.pink,   1);
+	createLineOfCode(7,  90,  colors.pink,   2);
+	createLineOfCode(8,  140, colors.green,  3);
 	createLineOfCode(9,  240, colors.yellow, 3);
 	createLineOfCode(10, 160, colors.yellow, 3);
-	createLineOfCode(11, 90,  colors.pink, 2);
-	createLineOfCode(12, 80,  colors.pink, 1);
-	createLineOfCode(13, 120, colors.green, 2);
-	createLineOfCode(14, 60, colors.pink, 2);
+	createLineOfCode(11, 90,  colors.pink,   2);
+	createLineOfCode(12, 80,  colors.pink,   1);
+	createLineOfCode(13, 120, colors.green,  2);
+	createLineOfCode(14, 60,  colors.pink,   2);
 	createLineOfCode(15, 100, colors.orange, 3);
 	createLineOfCode(16, 150, colors.yellow, 3);
-	createLineOfCode(17, 80, colors.orange, 3);
+	createLineOfCode(17, 80,  colors.orange, 3);
 	createLineOfCode(18, 120, colors.yellow, 3);
-	createLineOfCode(19, 60, colors.pink, 2);
-	createLineOfCode(20, 200, colors.green, 1);
-	createLineOfCode(21, 80, colors.pink, 1);
-	createLineOfCode(22, 80, colors.pink, 0);
-
-	// Add text
-	var textX = codeLeftIndent;
-	var textY = codeStartTop - 50;
-
-	var text = game.add.text(textX, textY, "billy.codes('websites');", { font: "22px Inconsolata", fill: "#DBDBDA", align: "left" });
+	createLineOfCode(19, 60,  colors.pink,   2);
+	createLineOfCode(20, 200, colors.green,  1);
+	createLineOfCode(21, 80,  colors.pink,   1);
+	createLineOfCode(22, 80,  colors.pink,   0);
 
 	// Set up handlers for mouse events
 	game.input.onDown.add(mouseDragStart, this);
 	game.input.addMoveCallback(mouseDragMove, this);
 	game.input.onUp.add(mouseDragEnd, this);
 
+	// Do stuff when the browser is resized
+	game.scale.onSizeChange.add(sizeChange, this);
+
+	// Align the HTML type with the lines of code
+	setTypePosition();
+}
+
+
+function setTypePosition( ) {
+	// Add text
+	var textX = $(document).width() / 2 - 150;
+	var textY = $(document).height() / 2 - 260;
+
+	$('#header').css({
+		'top' : textY + 'px',
+		'left' : textX + 'px'
+	});
+}
+
+
+function sizeChange( ) {
+	console.log('size changed!');
+	// setTypePosition();
 }
 
 
@@ -9315,12 +9333,12 @@ function createLineOfCode( lineNumber, length, color, indentation ) {
 
 
 function mouseDragStart() {
-	game.physics.box2d.mouseDragStart(game.input.mousePointer);
+	game.physics.box2d.mouseDragStart(game.input.activePointer);
 }
 
 
 function mouseDragMove() {
-	game.physics.box2d.mouseDragMove(game.input.mousePointer);
+	game.physics.box2d.mouseDragMove(game.input.activePointer);
 }
 
 

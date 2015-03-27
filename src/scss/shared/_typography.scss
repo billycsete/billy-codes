@@ -4,13 +4,6 @@
 //
 // =================================================
 
-// =================================================
-// Weights
-// =================================================
-
-$normal: 400;
-$bold: 600;
-
 
 // =================================================
 // Body
@@ -18,7 +11,7 @@ $bold: 600;
 
 html, body {
 	font-size: 12px;
-	font-family: 'courier new', 'courier', 'monospace';
+	font-family: 'inconsolata', 'courier new', 'courier', 'monospace';
 	color: $black;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;

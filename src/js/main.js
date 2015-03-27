@@ -11,7 +11,7 @@ var codeLineHeight = 10;
 var codeLineHeightSpacing = 6;
 var codeIndentValue = 20;
 var codeLeftIndent = $(document).width() / 2 - 150;
-var codeStartTop = $(document).height() / 2 - 190;
+var codeStartTop = $(document).height() / 2 - 160;
 var codeCurrentPosition = codeStartTop;
 
 
@@ -82,7 +82,7 @@ function create() {
 function setTypePosition( ) {
 	// Add text
 	var textX = $(document).width() / 2 - 150;
-	var textY = $(document).height() / 2 - 260;
+	var textY = $(document).height() / 2 - 230;
 
 	$('#header').css({
 		'top' : textY + 'px',

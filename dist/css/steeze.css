@@ -2334,6 +2334,8 @@ html, body {
     font-weight: normal;
     font-size: 1.375rem;
     color: #DBDBDA; }
+  .header .argument {
+    color: #E6DB73; }
 
 .codes {
   position: absolute;

@@ -2303,7 +2303,7 @@ th {
 
 /* '' */
 html {
-  background: none;
+  background: #444;
   height: 100%; }
 
 html *, body * {

@@ -4,129 +4,24 @@
 var $               = require('../../bower_components/jquery/dist/jquery');
 
 
-var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'codes', { preload: preload, create: create });
+var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'codes', { create: create });
 
-var codeLineHeight = 18;
-var codeIndentValue = 22;
-var codeLeftIndent = 20;
-var codeStartTop = 100;
+var maxCodeLength = 300;
+var codeLineHeight = 10;
+var codeLineHeightSpacing = 6;
+var codeIndentValue = 20;
+var codeLeftIndent = $(document).width() / 2 - 150;
+var codeStartTop = $(document).height() / 2 - 190;
 var codeCurrentPosition = codeStartTop;
 
-var htmlImages = [
-	'tag-doctype',
-	'tag-medium-open',
-	'tag-medium-close',
-	'tag-header-open',
-	'tag-header-close',
-	'tag-title',
-	'tag-meta',
-	'tag-h1'
-];
+var colors = {
+	grey   : '#878985',
+	pink   : '#ED2D73',
+	green  : '#A8CE38',
+	orange : '#F79624',
+	yellow : '#E6DB73'
+};
 
-var html = [
-	{
-		code : 'tag-doctype',
-		indentation : 0
-	},
-	{
-		code : 'tag-medium-open',
-		indentation : 0
-	},
-	{
-		code : 'tag-medium-open',
-		indentation : 1
-	},
-	{
-		code : 'tag-title',
-		indentation : 2
-	},
-	{
-		code : 'tag-meta',
-		indentation : 2
-	},
-	{
-		code : 'tag-medium-close',
-		indentation : 1
-	},
-	{
-		code : 'tag-medium-open',
-		indentation : 1
-	},
-	{
-		code : 'tag-header-open',
-		indentation : 2
-	},
-	{
-		code : 'tag-h1',
-		indentation : 3
-	},
-	{
-		code : 'tag-header-close',
-		indentation : 2
-	},
-	{
-		code : 'tag-header-open',
-		indentation : 2
-	},
-	{
-		code : 'tag-h1',
-		indentation : 3
-	},
-	{
-		code : 'tag-header-close',
-		indentation : 2
-	},
-	{
-		code : 'tag-header-open',
-		indentation : 2
-	},
-	{
-		code : 'tag-h1',
-		indentation : 3
-	},
-	{
-		code : 'tag-header-close',
-		indentation : 2
-	},
-	{
-		code : 'tag-medium-close',
-		indentation : 1
-	},
-	{
-		code : 'tag-medium-close',
-		indentation : 0
-	}
-];
-
-
-function preload() {
-
-	htmlImages.forEach( function(imageName) {
-		game.load.image(imageName, 'images/' + imageName + '.png');
-	});
-
-	// for (var key in validation_messages) {
-	// 	if (validation_messages.hasOwnProperty(key)) {
-	// 		var obj = validation_messages[key];
-	// 	}
-	// }
-
-	// // load tags
-	// game.load.image('doctype', 'images/tag_doctype.png');
-	// game.load.image('html-open', 'images/tag_html_open.png');
-	// game.load.image('html-close', 'images/tag_html_close.png');
-	// game.load.image('head-open', 'images/tag_head_open.png');
-	// game.load.image('head-close', 'images/tag_head_close.png');
-	// game.load.image('body-open', 'images/tag_body_open.png');
-	// game.load.image('body-close', 'images/tag_body_close.png');
-	// game.load.image('header-open', 'images/tag_header_open.png');
-	// game.load.image('header-close', 'images/tag_header_close.png');
-	// game.load.image('title', 'images/tag_title.png');
-	// game.load.image('meta', 'images/tag_meta.png');
-	// game.load.image('h1', 'images/tag_h1.png');
-	// game.load.image('paragraph', 'images/tag_paragraph.png');
-
-}
 
 function create() {
 
@@ -137,7 +32,7 @@ function create() {
 	// This tells the game to resize the renderer to match the game dimensions (i.e. 100% browser width / height)
 	game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
 	// viewport background color
-	game.stage.backgroundColor = '#FCF7E6';
+	game.stage.backgroundColor = '#222222';
 
 	// Enable Box2D physics
 	game.physics.startSystem(Phaser.Physics.BOX2D);
@@ -145,20 +40,36 @@ function create() {
 	game.physics.box2d.gravity.y = 300;
 	game.physics.box2d.restitution = 0.8;
 
-
 	// Add lines of code
-	html.forEach( function( htmlLine, index ) {
+	createLineOfCode(0,  90,  colors.grey, 0);
+	createLineOfCode(1,  60,  colors.pink, 0);
+	createLineOfCode(2,  60,  colors.pink, 1);
+	createLineOfCode(3,  120, colors.green, 2);
+	createLineOfCode(4,  100, colors.orange, 2);
+	createLineOfCode(5,  80,  colors.pink, 1);
+	createLineOfCode(6,  80,  colors.pink, 1);
+	createLineOfCode(7,  90,  colors.pink, 2);
+	createLineOfCode(8,  140, colors.green, 3);
+	createLineOfCode(9,  240, colors.yellow, 3);
+	createLineOfCode(10, 160, colors.yellow, 3);
+	createLineOfCode(11, 90,  colors.pink, 2);
+	createLineOfCode(12, 80,  colors.pink, 1);
+	createLineOfCode(13, 120, colors.green, 2);
+	createLineOfCode(14, 60, colors.pink, 2);
+	createLineOfCode(15, 100, colors.orange, 3);
+	createLineOfCode(16, 150, colors.yellow, 3);
+	createLineOfCode(17, 80, colors.orange, 3);
+	createLineOfCode(18, 120, colors.yellow, 3);
+	createLineOfCode(19, 60, colors.pink, 2);
+	createLineOfCode(20, 200, colors.green, 1);
+	createLineOfCode(21, 80, colors.pink, 1);
+	createLineOfCode(22, 80, colors.pink, 0);
 
-		var image = game.cache.getImage( htmlLine.code );
-		var left = codeLeftIndent + (htmlLine.indentation * codeIndentValue) + image.width/2;
-		var top = codeStartTop + ( index * codeLineHeight );
+	// Add text
+	var textX = codeLeftIndent;
+	var textY = codeStartTop - 50;
 
-		var sprite = game.add.sprite( left, top, htmlLine.code );
-
-		game.physics.box2d.enable(sprite);
-		sprite.body.gravityScale = 0;
-	});
-
+	var text = game.add.text(textX, textY, "billy.codes('websites');", { font: "22px Inconsolata", fill: "#DBDBDA", align: "left" });
 
 	// Set up handlers for mouse events
 	game.input.onDown.add(mouseDragStart, this);
@@ -167,20 +78,44 @@ function create() {
 
 }
 
-function mouseDragStart() {
 
-	game.physics.box2d.mouseDragStart(game.input.mousePointer);
+function createLineOfCode( lineNumber, length, color, indentation ) {
+	// TODO: guard against code that would be too long for iphone 5
+	// var length = length;
+	// // make sure the code fits on an iPhone 5
+	// if( length + indentation * codeIndentValue > maxCodeLength ) {
+	// 	length = maxCodeLength;
+	// }
 
+	var code = game.add.bitmapData(length, codeLineHeight);
+
+	code.ctx.beginPath();
+	code.ctx.rect(0, 0, length, codeLineHeight);
+	code.ctx.fillStyle = color;
+	code.ctx.fill();
+
+	var x = codeLeftIndent + ( indentation * codeIndentValue ) + length/2;
+	var y = codeStartTop + ( lineNumber * (codeLineHeight + codeLineHeightSpacing) );
+
+	var sprite = game.add.sprite(x, y, code);
+
+	// add physics to the line of code
+	game.physics.box2d.enable(sprite);
+	// have the code floating in place initially
+	sprite.body.gravityScale = 0;
 }
+
+
+function mouseDragStart() {
+	game.physics.box2d.mouseDragStart(game.input.mousePointer);
+}
+
 
 function mouseDragMove() {
-
 	game.physics.box2d.mouseDragMove(game.input.mousePointer);
-
 }
 
+
 function mouseDragEnd() {
-
 	game.physics.box2d.mouseDragEnd();
-
 }

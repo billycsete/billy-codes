@@ -4,7 +4,7 @@
 var $ = require('../../bower_components/jquery/dist/jquery');
 
 // Create new Phaser game canvas
-var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'codes', { create: create });
+var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'codes', { create: create, update: update });
 
 var maxCodeLength = 300;
 var codeLineHeight = 10;
@@ -23,6 +23,8 @@ var colors = {
 	yellow : '#E6DB73'
 };
 
+var LinesOfCode;
+
 
 function create() {
 
@@ -40,6 +42,11 @@ function create() {
 	game.physics.box2d.setBoundsToWorld();
 	game.physics.box2d.gravity.y = 300;
 	game.physics.box2d.restitution = 0.8;
+
+	// Create group
+	LinesOfCode = game.add.group();
+	LinesOfCode.enableBody = true;
+	LinesOfCode.physicsBodyType = Phaser.Physics.BOX2D;
 
 	// Add lines of code
 	createLineOfCode(0,  90,  colors.grey,   0);
@@ -79,6 +86,17 @@ function create() {
 }
 
 
+function update( ) {
+	if (game.input.activePointer.isDown)
+	{
+		//  First is the callback
+		//  Second is the context in which the callback runs, in this case game.physics.arcade
+		//  Third is the parameter the callback expects - it is always sent the Group child as the first parameter
+		LinesOfCode.forEach(game.physics.arcade.moveToPointer, game.physics.arcade, false, 2000);
+	}
+}
+
+
 function setTypePosition( ) {
 	// Add text
 	var textX = $(document).width() / 2 - 150;
@@ -115,22 +133,26 @@ function createLineOfCode( lineNumber, length, color, indentation ) {
 	var x = codeLeftIndent + ( indentation * codeIndentValue ) + length/2;
 	var y = codeStartTop + ( lineNumber * (codeLineHeight + codeLineHeightSpacing) );
 
-	var sprite = game.add.sprite(x, y, code);
+	var sprite = LinesOfCode.create(x, y, code);
 
 	// add physics to the line of code
-	game.physics.box2d.enable(sprite);
+	// game.physics.box2d.enable(sprite);
 	// have the code floating in place initially
-	sprite.body.gravityScale = 0;
+	// sprite.body.gravityScale = 0;
 }
 
 
 function mouseDragStart() {
 	game.physics.box2d.mouseDragStart(game.input.activePointer);
+
+	// console.log(game.input.activePointer.x);
 }
 
 
 function mouseDragMove() {
 	game.physics.box2d.mouseDragMove(game.input.activePointer);
+
+	// console.log(game.input.activePointer);
 }
 
 

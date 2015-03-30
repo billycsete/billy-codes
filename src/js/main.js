@@ -138,7 +138,7 @@ function createLineOfCode( lineNumber, length, color, indentation ) {
 	// add physics to the line of code
 	// game.physics.box2d.enable(sprite);
 	// have the code floating in place initially
-	// sprite.body.gravityScale = 0;
+	sprite.body.gravityScale = 0;
 }
 
 

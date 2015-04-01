@@ -1926,24 +1926,24 @@ if (!Object.defineProperty)
 	}
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @define {boolean}
  */
 box2d.DEBUG = false;
 
-/** 
- * @export 
+/**
+ * @export
  * @define {boolean}
  */
 box2d.ENABLE_ASSERTS = box2d.DEBUG;
 
-/** 
- * @export 
- * @return {void} 
- * @param {boolean} condition 
- * @param {string=} opt_message 
- * @param {...} var_args 
+/**
+ * @export
+ * @return {void}
+ * @param {boolean} condition
+ * @param {string=} opt_message
+ * @param {...} var_args
  */
 box2d.b2Assert = function (condition, opt_message, var_args)
 {
@@ -1953,210 +1953,210 @@ box2d.b2Assert = function (condition, opt_message, var_args)
 		{
 			debugger;
 		}
-	
+
 		//goog.asserts.assert(condition, opt_message, var_args);
 	}
 }
 
 /**
- * @export 
- * @const 
- * @type {number} 
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxFloat = 1E+37; // FLT_MAX instead of Number.MAX_VALUE;
 /**
- * @export 
- * @const 
- * @type {number} 
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_epsilon = 1E-5; // FLT_EPSILON instead of Number.MIN_VALUE;
 /**
- * @export 
- * @const 
- * @type {number} 
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_epsilon_sq = (box2d.b2_epsilon * box2d.b2_epsilon);
 /**
- * @export 
- * @const 
- * @type {number} 
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_pi = Math.PI;
 
 /**
- * Global tuning constants based on meters-kilograms-seconds 
- * (MKS) units. 
+ * Global tuning constants based on meters-kilograms-seconds
+ * (MKS) units.
  */
 
 // Collision
 
-/** 
- * The maximum number of contact points between two convex 
- * shapes. Do not change this value. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * The maximum number of contact points between two convex
+ * shapes. Do not change this value.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxManifoldPoints = 2;
 
-/** 
- * The maximum number of vertices on a convex polygon. You 
- * cannot increase this too much because b2BlockAllocator has a 
- * maximum object size. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * The maximum number of vertices on a convex polygon. You
+ * cannot increase this too much because b2BlockAllocator has a
+ * maximum object size.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxPolygonVertices = 8;
 
-/** 
- * This is used to fatten AABBs in the dynamic tree. This allows 
- * proxies to move by a small amount without triggering a tree 
- * adjustment. 
- * This is in meters. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * This is used to fatten AABBs in the dynamic tree. This allows
+ * proxies to move by a small amount without triggering a tree
+ * adjustment.
+ * This is in meters.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_aabbExtension = 0.1;
 
-/** 
- * This is used to fatten AABBs in the dynamic tree. This is 
- * used to predict the future position based on the current 
- * displacement. 
- * This is a dimensionless multiplier. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * This is used to fatten AABBs in the dynamic tree. This is
+ * used to predict the future position based on the current
+ * displacement.
+ * This is a dimensionless multiplier.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_aabbMultiplier = 2;
 
-/** 
- * A small length used as a collision and constraint tolerance. 
- * Usually it is chosen to be numerically significant, but 
- * visually insignificant. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * A small length used as a collision and constraint tolerance.
+ * Usually it is chosen to be numerically significant, but
+ * visually insignificant.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_linearSlop = 0.008; //0.005;
 
-/** 
- * A small angle used as a collision and constraint tolerance. 
- * Usually it is chosen to be numerically significant, but 
- * visually insignificant. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * A small angle used as a collision and constraint tolerance.
+ * Usually it is chosen to be numerically significant, but
+ * visually insignificant.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_angularSlop = 2 / 180 * box2d.b2_pi;
 
-/** 
- * The radius of the polygon/edge shape skin. This should not be 
- * modified. Making this smaller means polygons will have an 
- * insufficient buffer for continuous collision. 
+/**
+ * The radius of the polygon/edge shape skin. This should not be
+ * modified. Making this smaller means polygons will have an
+ * insufficient buffer for continuous collision.
  * Making it larger may create artifacts for vertex collision.
- * @export 
- * @const 
- * @type {number} 
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_polygonRadius = 2 * box2d.b2_linearSlop;
 
-/** 
- * Maximum number of sub-steps per contact in continuous physics 
- * simulation. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * Maximum number of sub-steps per contact in continuous physics
+ * simulation.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxSubSteps = 8;
 
 
 // Dynamics
 
-/** 
- * Maximum number of contacts to be handled to solve a TOI 
- * impact. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * Maximum number of contacts to be handled to solve a TOI
+ * impact.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxTOIContacts = 32;
 
-/** 
- * A velocity threshold for elastic collisions. Any collision 
- * with a relative linear velocity below this threshold will be 
- * treated as inelastic. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * A velocity threshold for elastic collisions. Any collision
+ * with a relative linear velocity below this threshold will be
+ * treated as inelastic.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_velocityThreshold = 1;
 
-/** 
- * The maximum linear position correction used when solving 
- * constraints. This helps to prevent overshoot. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * The maximum linear position correction used when solving
+ * constraints. This helps to prevent overshoot.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxLinearCorrection = 0.2;
 
-/** 
- * The maximum angular position correction used when solving 
- * constraints. This helps to prevent overshoot. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * The maximum angular position correction used when solving
+ * constraints. This helps to prevent overshoot.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxAngularCorrection = 8 / 180 * box2d.b2_pi;
 
-/** 
- * The maximum linear velocity of a body. This limit is very 
- * large and is used to prevent numerical problems. You 
- * shouldn't need to adjust this. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * The maximum linear velocity of a body. This limit is very
+ * large and is used to prevent numerical problems. You
+ * shouldn't need to adjust this.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxTranslation = 2;
-/** 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxTranslationSquared = box2d.b2_maxTranslation * box2d.b2_maxTranslation;
 
-/** 
- * The maximum angular velocity of a body. This limit is very 
- * large and is used to prevent numerical problems. You 
- * shouldn't need to adjust this. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * The maximum angular velocity of a body. This limit is very
+ * large and is used to prevent numerical problems. You
+ * shouldn't need to adjust this.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxRotation = 0.5 * box2d.b2_pi;
-/** 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_maxRotationSquared = box2d.b2_maxRotation * box2d.b2_maxRotation;
 
-/** 
- * This scale factor controls how fast overlap is resolved. 
- * Ideally this would be 1 so that overlap is removed in one 
- * time step. However using values close to 1 often lead to 
- * overshoot. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * This scale factor controls how fast overlap is resolved.
+ * Ideally this would be 1 so that overlap is removed in one
+ * time step. However using values close to 1 often lead to
+ * overshoot.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_baumgarte = 0.2;
-/** 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_toiBaumgarte = 0.75;
 
@@ -2164,77 +2164,77 @@ box2d.b2_toiBaumgarte = 0.75;
 
 // Sleep
 
-/** 
- * The time that a body must be still before it will go to 
- * sleep. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * The time that a body must be still before it will go to
+ * sleep.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_timeToSleep = 0.5;
 
-/** 
- * A body cannot sleep if its linear velocity is above this 
- * tolerance. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * A body cannot sleep if its linear velocity is above this
+ * tolerance.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_linearSleepTolerance = 0.01;
 
-/** 
- * A body cannot sleep if its angular velocity is above this 
- * tolerance. 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * A body cannot sleep if its angular velocity is above this
+ * tolerance.
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_angularSleepTolerance = 2 / 180 * box2d.b2_pi;
 
 // Memory Allocation
 
-/** 
- * Implement this function to use your own memory allocator. 
- * @export 
- * @return {*} 
- * @param {number} size 
+/**
+ * Implement this function to use your own memory allocator.
+ * @export
+ * @return {*}
+ * @param {number} size
  */
 box2d.b2Alloc = function (size)
 {
 	return null;
 }
 
-/** 
- * If you implement b2Alloc, you should also implement this 
- * function. 
- * @export  
- * @return {void} 
- * @param {*} mem 
+/**
+ * If you implement b2Alloc, you should also implement this
+ * function.
+ * @export
+ * @return {void}
+ * @param {*} mem
  */
 box2d.b2Free = function (mem)
 {
 }
 
-/** 
- * Logging function. 
+/**
+ * Logging function.
  * You can modify this to use your logging facility.
- * @export 
- * @return {void} 
- * @param {...string|number|boolean} var_args 
+ * @export
+ * @return {void}
+ * @param {...string|number|boolean} var_args
  */
 box2d.b2Log = function (var_args)
 {
-	goog.global.console.log.apply(null, arguments);
+	// goog.global.console.log.apply(null, arguments);
 }
 
-/** 
- * Version numberinf scheme See 
- * http://en.wikipedia.org/wiki/Software_versioning 
- * @export 
+/**
+ * Version numberinf scheme See
+ * http://en.wikipedia.org/wiki/Software_versioning
+ * @export
  * @constructor
- * @param {number=} major 
- * @param {number=} minor 
- * @param {number=} revision 
+ * @param {number=} major
+ * @param {number=} minor
+ * @param {number=} revision
  */
 box2d.b2Version = function (major, minor, revision)
 {
@@ -2244,23 +2244,23 @@ box2d.b2Version = function (major, minor, revision)
 };
 
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Version.prototype.major = 0; ///< significant changes
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Version.prototype.minor = 0; ///< incremental changes
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Version.prototype.revision = 0; ///< bug fixes
 
 /**
- * @export 
+ * @export
  * @return {string}
  */
 box2d.b2Version.prototype.toString = function ()
@@ -2268,24 +2268,24 @@ box2d.b2Version.prototype.toString = function ()
 	return this.major + "." + this.minor + "." + this.revision;
 }
 
-/** 
- * Current version. 
- * @export 
- * @const 
- * @type {box2d.b2Version} 
+/**
+ * Current version.
+ * @export
+ * @const
+ * @type {box2d.b2Version}
  */
 box2d.b2_version = new box2d.b2Version(2, 3, 0);
-/** 
- * @export 
- * @const 
- * @type {number} 
+/**
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_changelist = 278;
 
-/** 
- * @export 
- * @return {number} 
- * @param {string} v 
+/**
+ * @export
+ * @return {number}
+ * @param {string} v
  */
 box2d.b2ParseInt = function (v)
 {
@@ -2293,20 +2293,20 @@ box2d.b2ParseInt = function (v)
 }
 
 /**
- * @export 
- * @return {number} 
- * @param {string} v 
+ * @export
+ * @return {number}
+ * @param {string} v
  */
 box2d.b2ParseUInt = function (v)
 {
 	return box2d.b2Abs(parseInt(v, 10));
 }
 
-/** 
- * @export 
- * @return {Array.<*>} 
- * @param {number=} length 
- * @param {function(number): *=} init 
+/**
+ * @export
+ * @return {Array.<*>}
+ * @param {number=} length
+ * @param {function(number): *=} init
  */
 box2d.b2MakeArray = function (length, init)
 {
@@ -2322,9 +2322,9 @@ box2d.b2MakeArray = function (length, init)
 	return a;
 }
 
-/** 
- * @export 
- * @return {Array.<number>} 
+/**
+ * @export
+ * @return {Array.<number>}
  * @param {number=} length
  */
 box2d.b2MakeNumberArray = function (length)
@@ -2355,23 +2355,23 @@ goog.provide('box2d.b2Math');
 goog.require('box2d.b2Settings');
 
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2_pi_over_180 = box2d.b2_pi / 180.0;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2_180_over_pi = 180.0 / box2d.b2_pi;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2_two_pi = 2.0 * box2d.b2_pi;
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  * @param {number} n
  */
@@ -2381,7 +2381,7 @@ box2d.b2Abs = function (n)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} a
  * @param {number} b
@@ -2392,7 +2392,7 @@ box2d.b2Min = function (a, b)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} a
  * @param {number} b
@@ -2403,7 +2403,7 @@ box2d.b2Max = function (a, b)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} a
  * @param {number} lo
@@ -2415,8 +2415,8 @@ box2d.b2Clamp = function (a, lo, hi)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {Array.<number>} a
  * @param {Array.<number>} b
  */
@@ -2428,10 +2428,10 @@ box2d.b2Swap = function (a, b)
 	b[0] = tmp;
 }
 
-/** 
- * This function is used to ensure that a floating point number 
- * is not a NaN or infinity. 
- * @export 
+/**
+ * This function is used to ensure that a floating point number
+ * is not a NaN or infinity.
+ * @export
  * @return {boolean}
  * @param {number} n
  */
@@ -2441,8 +2441,8 @@ box2d.b2IsValid = function (n)
 }
 
 /**
- * @export 
- * @return {number} 
+ * @export
+ * @return {number}
  * @param {number} n
  */
 box2d.b2Sq = function (n)
@@ -2450,9 +2450,9 @@ box2d.b2Sq = function (n)
 	return n * n;
 }
 
-/** 
- * This is a approximate yet fast inverse square-root. 
- * @export 
+/**
+ * This is a approximate yet fast inverse square-root.
+ * @export
  * @return {number}
  * @param {number} n
  */
@@ -2462,7 +2462,7 @@ box2d.b2InvSqrt = function (n)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} n
  */
@@ -2472,7 +2472,7 @@ box2d.b2Sqrt = function (n)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} x
  * @param {number} y
@@ -2483,7 +2483,7 @@ box2d.b2Pow = function (x, y)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} degrees
  */
@@ -2493,7 +2493,7 @@ box2d.b2DegToRad = function (degrees)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} radians
  */
@@ -2503,7 +2503,7 @@ box2d.b2RadToDeg = function (radians)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} radians
  */
@@ -2513,7 +2513,7 @@ box2d.b2Cos = function (radians)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} radians
  */
@@ -2523,7 +2523,7 @@ box2d.b2Sin = function (radians)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} n
  */
@@ -2533,7 +2533,7 @@ box2d.b2Acos = function (n)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} n
  */
@@ -2543,7 +2543,7 @@ box2d.b2Asin = function (n)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} y
  * @param {number} x
@@ -2553,15 +2553,15 @@ box2d.b2Atan2 = function (y, x)
 	return Math.atan2(y, x);
 }
 
-/** 
- * Next Largest Power of 2 
- * Given a binary integer value x, the next largest power of 2 
- * can be computed by a SWAR algorithm that recursively "folds" 
- * the upper bits into the lower bits. This process yields a bit 
- * vector with the same most significant 1 as x, but all 1's 
- * below it. Adding 1 to that value yields the next largest 
- * power of 2. For a 32-bit value: 
- * @export 
+/**
+ * Next Largest Power of 2
+ * Given a binary integer value x, the next largest power of 2
+ * can be computed by a SWAR algorithm that recursively "folds"
+ * the upper bits into the lower bits. This process yields a bit
+ * vector with the same most significant 1 as x, but all 1's
+ * below it. Adding 1 to that value yields the next largest
+ * power of 2. For a 32-bit value:
+ * @export
  * @return {number}
  * @param {number} x
  */
@@ -2576,7 +2576,7 @@ box2d.b2NextPowerOfTwo = function (x)
 }
 
 /**
- * @export 
+ * @export
  * @return {boolean}
  * @param {number} x
  */
@@ -2586,7 +2586,7 @@ box2d.b2IsPowerOfTwo = function (x)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2Random = function ()
@@ -2595,7 +2595,7 @@ box2d.b2Random = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {number} lo
  * @param {number} hi
@@ -2605,10 +2605,10 @@ box2d.b2RandomRange = function (lo, hi)
 	return (hi - lo) * Math.random() + lo;
 }
 
-/** 
- * A 2D column vector. 
- * @export 
- * @constructor 
+/**
+ * A 2D column vector.
+ * @export
+ * @constructor
  * @param {number=} x
  * @param {number=} y
  */
@@ -2622,70 +2622,70 @@ box2d.b2Vec2 = function (x, y)
 }
 
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Vec2.prototype.x = 0.0;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Vec2.prototype.y = 0.0;
 
 //	/**
-//	 * @type {Float32Array} 
+//	 * @type {Float32Array}
 //	 */
 //	box2d.b2Vec2.prototype.a;
-//	
+//
 //	box2d.b2Vec2.prototype.__defineGetter__('x', function () { return this.a[0]; });
 //	box2d.b2Vec2.prototype.__defineGetter__('y', function () { return this.a[1]; });
 //	box2d.b2Vec2.prototype.__defineSetter__('x', function (n) { this.a[0] = n; });
 //	box2d.b2Vec2.prototype.__defineSetter__('y', function (n) { this.a[1] = n; });
 
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Vec2_zero = new box2d.b2Vec2();
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Vec2.ZERO = new box2d.b2Vec2();
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Vec2.UNITX = new box2d.b2Vec2(1.0, 0.0);
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Vec2.UNITY = new box2d.b2Vec2(0.0, 1.0);
 
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Vec2.s_t0 = new box2d.b2Vec2();
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Vec2.s_t1 = new box2d.b2Vec2();
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Vec2.s_t2 = new box2d.b2Vec2();
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Vec2.s_t3 = new box2d.b2Vec2();
 
 /**
- * @export 
+ * @export
  * @return {Array.<box2d.b2Vec2>}
  * @param {number=} length
  */
@@ -2695,7 +2695,7 @@ box2d.b2Vec2.MakeArray = function (length)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  */
 box2d.b2Vec2.prototype.Clone = function ()
@@ -2703,9 +2703,9 @@ box2d.b2Vec2.prototype.Clone = function ()
 	return new box2d.b2Vec2(this.x, this.y);
 }
 
-/** 
- * Set this vector to all zeros. 
- * @export 
+/**
+ * Set this vector to all zeros.
+ * @export
  * @return {box2d.b2Vec2}
  */
 box2d.b2Vec2.prototype.SetZero = function ()
@@ -2715,9 +2715,9 @@ box2d.b2Vec2.prototype.SetZero = function ()
 	return this;
 }
 
-/** 
- * Set this vector to some specified coordinates. 
- * @export 
+/**
+ * Set this vector to some specified coordinates.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} x
  * @param {number} y
@@ -2730,7 +2730,7 @@ box2d.b2Vec2.prototype.SetXY = function (x, y)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} other
  */
@@ -2742,9 +2742,9 @@ box2d.b2Vec2.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * Add a vector to this vector. 
- * @export 
+/**
+ * Add a vector to this vector.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  */
@@ -2756,10 +2756,10 @@ box2d.b2Vec2.prototype.SelfAdd = function (v)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
- * @param {number} x 
- * @param {number} y 
+ * @param {number} x
+ * @param {number} y
  */
 box2d.b2Vec2.prototype.SelfAddXY = function (x, y)
 {
@@ -2768,9 +2768,9 @@ box2d.b2Vec2.prototype.SelfAddXY = function (x, y)
 	return this;
 }
 
-/** 
- * Subtract a vector from this vector. 
- * @export 
+/**
+ * Subtract a vector from this vector.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  */
@@ -2782,10 +2782,10 @@ box2d.b2Vec2.prototype.SelfSub = function (v)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
- * @param {number} x 
- * @param {number} y 
+ * @param {number} x
+ * @param {number} y
  */
 box2d.b2Vec2.prototype.SelfSubXY = function (x, y)
 {
@@ -2794,9 +2794,9 @@ box2d.b2Vec2.prototype.SelfSubXY = function (x, y)
 	return this;
 }
 
-/** 
- * Multiply this vector by a scalar. 
- * @export 
+/**
+ * Multiply this vector by a scalar.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} s
  */
@@ -2807,9 +2807,9 @@ box2d.b2Vec2.prototype.SelfMul = function (s)
 	return this;
 }
 
-/** 
- * this += s * v 
- * @export 
+/**
+ * this += s * v
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} s
  * @param {box2d.b2Vec2} v
@@ -2821,9 +2821,9 @@ box2d.b2Vec2.prototype.SelfMulAdd = function (s, v)
 	return this;
 }
 
-/** 
- * this -= s * v 
- * @export 
+/**
+ * this -= s * v
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} s
  * @param {box2d.b2Vec2} v
@@ -2836,7 +2836,7 @@ box2d.b2Vec2.prototype.SelfMulSub = function (s, v)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} v
  */
@@ -2846,7 +2846,7 @@ box2d.b2Vec2.prototype.Dot = function (v)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} v
  */
@@ -2855,9 +2855,9 @@ box2d.b2Vec2.prototype.Cross = function (v)
 	return this.x * v.y - this.y * v.x;
 }
 
-/** 
- * Get the length of this vector (the norm). 
- * @export 
+/**
+ * Get the length of this vector (the norm).
+ * @export
  * @return {number}
  */
 box2d.b2Vec2.prototype.Length = function ()
@@ -2866,16 +2866,16 @@ box2d.b2Vec2.prototype.Length = function ()
 	return Math.sqrt(x * x + y * y);
 }
 
-/** 
- * @export 
- * @return {number} 
+/**
+ * @export
+ * @return {number}
  */
 box2d.b2Vec2.prototype.GetLength = box2d.b2Vec2.prototype.Length;
 
-/** 
- * Get the length squared. For performance, use this instead of 
- * b2Vec2::Length (if possible). 
- * @export 
+/**
+ * Get the length squared. For performance, use this instead of
+ * b2Vec2::Length (if possible).
+ * @export
  * @return {number}
  */
 box2d.b2Vec2.prototype.LengthSquared = function ()
@@ -2884,15 +2884,15 @@ box2d.b2Vec2.prototype.LengthSquared = function ()
 	return (x * x + y * y);
 }
 
-/** 
- * @export 
- * @return {number} 
+/**
+ * @export
+ * @return {number}
  */
 box2d.b2Vec2.prototype.GetLengthSquared = box2d.b2Vec2.prototype.LengthSquared;
 
-/** 
- * Convert this vector into a unit vector. Returns the length. 
- * @export 
+/**
+ * Convert this vector into a unit vector. Returns the length.
+ * @export
  * @return {number}
  */
 box2d.b2Vec2.prototype.Normalize = function ()
@@ -2908,7 +2908,7 @@ box2d.b2Vec2.prototype.Normalize = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  */
 box2d.b2Vec2.prototype.SelfNormalize = function ()
@@ -2924,7 +2924,7 @@ box2d.b2Vec2.prototype.SelfNormalize = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} c
  * @param {number} s
@@ -2938,7 +2938,7 @@ box2d.b2Vec2.prototype.SelfRotate = function (c, s)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} radians
  */
@@ -2948,7 +2948,7 @@ box2d.b2Vec2.prototype.SelfRotateRadians = function (radians)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} degrees
  */
@@ -2957,9 +2957,9 @@ box2d.b2Vec2.prototype.SelfRotateDegrees = function (degrees)
 	return this.SelfRotateRadians(box2d.b2DegToRad(degrees));
 }
 
-/** 
- * Does this vector contain finite coordinates? 
- * @export 
+/**
+ * Does this vector contain finite coordinates?
+ * @export
  * @return {boolean}
  */
 box2d.b2Vec2.prototype.IsValid = function ()
@@ -2968,7 +2968,7 @@ box2d.b2Vec2.prototype.IsValid = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} s
  */
@@ -2981,7 +2981,7 @@ box2d.b2Vec2.prototype.SelfCrossVS = function (s)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} s
  */
@@ -2994,7 +2994,7 @@ box2d.b2Vec2.prototype.SelfCrossSV = function (s)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  */
@@ -3006,7 +3006,7 @@ box2d.b2Vec2.prototype.SelfMinV = function (v)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  */
@@ -3018,7 +3018,7 @@ box2d.b2Vec2.prototype.SelfMaxV = function (v)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  */
 box2d.b2Vec2.prototype.SelfAbs = function ()
@@ -3029,7 +3029,7 @@ box2d.b2Vec2.prototype.SelfAbs = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  */
 box2d.b2Vec2.prototype.SelfNeg = function ()
@@ -3039,10 +3039,10 @@ box2d.b2Vec2.prototype.SelfNeg = function ()
 	return this;
 }
 
-/** 
- * Get the skew vector such that dot(skew_vec, other) === 
- * cross(vec, other) 
- * @export 
+/**
+ * Get the skew vector such that dot(skew_vec, other) ===
+ * cross(vec, other)
+ * @export
  * @return {box2d.b2Vec2}
  */
 box2d.b2Vec2.prototype.SelfSkew = function ()
@@ -3054,7 +3054,7 @@ box2d.b2Vec2.prototype.SelfSkew = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  * @param {box2d.b2Vec2} out
@@ -3067,7 +3067,7 @@ box2d.b2AbsV = function (v, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3081,7 +3081,7 @@ box2d.b2MinV = function (a, b, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3095,7 +3095,7 @@ box2d.b2MaxV = function (a, b, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  * @param {box2d.b2Vec2} lo
@@ -3110,7 +3110,7 @@ box2d.b2ClampV = function (v, lo, hi, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  * @param {number} c
@@ -3125,8 +3125,8 @@ box2d.b2RotateV = function (v, c, s, out)
 	return out;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  * @param {number} radians
@@ -3138,7 +3138,7 @@ box2d.b2RotateRadiansV = function (v, radians, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  * @param {number} degrees
@@ -3149,10 +3149,10 @@ box2d.b2RotateDegreesV = function (v, degrees, out)
 	return box2d.b2RotateRadiansV(v, box2d.b2DegToRad(degrees), out);
 }
 
-/** 
- * Perform the dot product on two vectors. 
- * a.x * b.x + a.y * b.y 
- * @export 
+/**
+ * Perform the dot product on two vectors.
+ * a.x * b.x + a.y * b.y
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3162,10 +3162,10 @@ box2d.b2DotVV = function (a, b)
 	return a.x * b.x + a.y * b.y;
 }
 
-/** 
- * Perform the cross product on two vectors. In 2D this produces a scalar. 
- * a.x * b.y - a.y * b.x 
- * @export 
+/**
+ * Perform the cross product on two vectors. In 2D this produces a scalar.
+ * a.x * b.y - a.y * b.x
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3175,10 +3175,10 @@ box2d.b2CrossVV = function (a, b)
 	return a.x * b.y - a.y * b.x;
 }
 
-/** 
- * Perform the cross product on a vector and a scalar. In 2D 
- * this produces a vector. 
- * @export 
+/**
+ * Perform the cross product on a vector and a scalar. In 2D
+ * this produces a vector.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  * @param {number} s
@@ -3193,8 +3193,8 @@ box2d.b2CrossVS = function (v, s, out)
 }
 
 /**
- * box2d.b2CrossVS(v, 1.0, out) 
- * @export 
+ * box2d.b2CrossVS(v, 1.0, out)
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  * @param {box2d.b2Vec2} out
@@ -3207,10 +3207,10 @@ box2d.b2CrossVOne = function (v, out)
 	return out;
 }
 
-/** 
- * Perform the cross product on a scalar and a vector. In 2D 
- * this produces a vector. 
- * @export 
+/**
+ * Perform the cross product on a scalar and a vector. In 2D
+ * this produces a vector.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} s
  * @param {box2d.b2Vec2} v
@@ -3224,9 +3224,9 @@ box2d.b2CrossSV = function (s, v, out)
 	return out;
 }
 
-/** 
- * box2d.b2CrossSV(1.0, v, out) 
- * @export 
+/**
+ * box2d.b2CrossSV(1.0, v, out)
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  * @param {box2d.b2Vec2} out
@@ -3239,9 +3239,9 @@ box2d.b2CrossOneV = function (v, out)
 	return out;
 }
 
-/** 
- * Add two vectors component-wise. 
- * @export 
+/**
+ * Add two vectors component-wise.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3249,9 +3249,9 @@ box2d.b2CrossOneV = function (v, out)
  */
 box2d.b2AddVV = function (a, b, out) { out.x = a.x + b.x; out.y = a.y + b.y; return out; }
 
-/** 
- * Subtract two vectors component-wise. 
- * @export 
+/**
+ * Subtract two vectors component-wise.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3260,7 +3260,7 @@ box2d.b2AddVV = function (a, b, out) { out.x = a.x + b.x; out.y = a.y + b.y; ret
 box2d.b2SubVV = function (a, b, out) { out.x = a.x - b.x; out.y = a.y - b.y; return out; }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} s
  * @param {box2d.b2Vec2} v
@@ -3268,9 +3268,9 @@ box2d.b2SubVV = function (a, b, out) { out.x = a.x - b.x; out.y = a.y - b.y; ret
  */
 box2d.b2MulSV = function (s, v, out) { out.x = v.x * s; out.y = v.y * s; return out; }
 
-/** 
+/**
  * out = a + (s * b)
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} a
  * @param {number} s
@@ -3278,9 +3278,9 @@ box2d.b2MulSV = function (s, v, out) { out.x = v.x * s; out.y = v.y * s; return 
  * @param {box2d.b2Vec2} out
  */
 box2d.b2AddVMulSV = function (a, s, b, out) { out.x = a.x + (s * b.x); out.y = a.y + (s * b.y); return out; }
-/** 
+/**
  * out = a - (s * b)
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} a
  * @param {number} s
@@ -3289,14 +3289,14 @@ box2d.b2AddVMulSV = function (a, s, b, out) { out.x = a.x + (s * b.x); out.y = a
  */
 box2d.b2SubVMulSV = function (a, s, b, out) { out.x = a.x - (s * b.x); out.y = a.y - (s * b.y); return out; }
 
-/** 
- * out = a + b2CrossSV(s, v) 
- * @export 
- * @return {box2d.b2Vec2} 
+/**
+ * out = a + b2CrossSV(s, v)
+ * @export
+ * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} a
  * @param {number} s
  * @param {box2d.b2Vec2} v
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2AddVCrossSV = function (a, s, v, out)
 {
@@ -3306,9 +3306,9 @@ box2d.b2AddVCrossSV = function (a, s, v, out)
 	return out;
 }
 
-/** 
- * Get the center of two vectors. 
- * @export 
+/**
+ * Get the center of two vectors.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3316,9 +3316,9 @@ box2d.b2AddVCrossSV = function (a, s, v, out)
  */
 box2d.b2MidVV = function (a, b, out) { out.x = (a.x + b.x) * 0.5; out.y = (a.y + b.y) * 0.5; return out; }
 
-/** 
- * Get the extent of two vectors (half-widths). 
- * @export 
+/**
+ * Get the extent of two vectors (half-widths).
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3327,7 +3327,7 @@ box2d.b2MidVV = function (a, b, out) { out.x = (a.x + b.x) * 0.5; out.y = (a.y +
 box2d.b2ExtVV = function (a, b, out) { out.x = (b.x - a.x) * 0.5; out.y = (b.y - a.y) * 0.5; return out; }
 
 /**
- * @export 
+ * @export
  * @return {boolean}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3338,7 +3338,7 @@ box2d.b2IsEqualToV = function (a, b)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3351,7 +3351,7 @@ box2d.b2DistanceVV = function (a, b)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} a
  * @param {box2d.b2Vec2} b
@@ -3364,16 +3364,16 @@ box2d.b2DistanceSquaredVV = function (a, b)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} v
  * @param {box2d.b2Vec2} out
  */
 box2d.b2NegV = function (v, out) { out.x = -v.x; out.y = -v.y; return out; }
 
-/** 
- * @export 
- * @constructor 
+/**
+ * @export
+ * @constructor
  * @param {number=} x
  * @param {number=} y
  * @param {number=} z
@@ -3390,26 +3390,26 @@ box2d.b2Vec3 = function (x, y, z)
 }
 
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Vec3.prototype.x = 0.0;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Vec3.prototype.y = 0.0;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Vec3.prototype.z = 0.0;
 
 //	/**
-//	 * @type {Float32Array} 
+//	 * @type {Float32Array}
 //	 */
 //	box2d.b2Vec3.prototype.a;
-//	
+//
 //	box2d.b2Vec3.prototype.__defineGetter__('x', function () { return this.a[0]; });
 //	box2d.b2Vec3.prototype.__defineGetter__('y', function () { return this.a[1]; });
 //	box2d.b2Vec3.prototype.__defineGetter__('z', function () { return this.a[2]; });
@@ -3418,18 +3418,18 @@ box2d.b2Vec3.prototype.z = 0.0;
 //	box2d.b2Vec3.prototype.__defineSetter__('z', function (n) { this.a[2] = n; });
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec3}
  */
 box2d.b2Vec3.ZERO = new box2d.b2Vec3();
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec3}
  */
 box2d.b2Vec3.s_t0 = new box2d.b2Vec3();
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
  */
 box2d.b2Vec3.prototype.Clone = function ()
@@ -3438,7 +3438,7 @@ box2d.b2Vec3.prototype.Clone = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
  */
 box2d.b2Vec3.prototype.SetZero = function ()
@@ -3450,7 +3450,7 @@ box2d.b2Vec3.prototype.SetZero = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
  * @param {number} x
  * @param {number} y
@@ -3465,7 +3465,7 @@ box2d.b2Vec3.prototype.SetXYZ = function (x, y, z)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
  * @param {box2d.b2Vec3} other
  */
@@ -3479,7 +3479,7 @@ box2d.b2Vec3.prototype.Copy = function (other)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
  */
 box2d.b2Vec3.prototype.SelfNeg = function ()
@@ -3491,7 +3491,7 @@ box2d.b2Vec3.prototype.SelfNeg = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
  * @param {box2d.b2Vec3} v
  */
@@ -3504,11 +3504,11 @@ box2d.b2Vec3.prototype.SelfAdd = function (v)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
- * @param {number} x 
- * @param {number} y 
- * @param {number} z 
+ * @param {number} x
+ * @param {number} y
+ * @param {number} z
  */
 box2d.b2Vec3.prototype.SelfAddXYZ = function (x, y, z)
 {
@@ -3519,7 +3519,7 @@ box2d.b2Vec3.prototype.SelfAddXYZ = function (x, y, z)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
  * @param {box2d.b2Vec3} v
  */
@@ -3532,11 +3532,11 @@ box2d.b2Vec3.prototype.SelfSub = function (v)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
- * @param {number} x 
- * @param {number} y 
- * @param {number} z 
+ * @param {number} x
+ * @param {number} y
+ * @param {number} z
  */
 box2d.b2Vec3.prototype.SelfSubXYZ = function (x, y, z)
 {
@@ -3547,7 +3547,7 @@ box2d.b2Vec3.prototype.SelfSubXYZ = function (x, y, z)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
  * @param {number} s
  */
@@ -3559,9 +3559,9 @@ box2d.b2Vec3.prototype.SelfMul = function (s)
 	return this;
 }
 
-/** 
- * Perform the dot product on two vectors. 
- * @export 
+/**
+ * Perform the dot product on two vectors.
+ * @export
  * @return {number}
  * @param {box2d.b2Vec3} a
  * @param {box2d.b2Vec3} b
@@ -3571,9 +3571,9 @@ box2d.b2DotV3V3 = function (a, b)
 	return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
-/** 
- * Perform the cross product on two vectors. 
- * @export 
+/**
+ * Perform the cross product on two vectors.
+ * @export
  * @return {box2d.b2Vec3}
  * @param {box2d.b2Vec3} a
  * @param {box2d.b2Vec3} b
@@ -3589,10 +3589,10 @@ box2d.b2CrossV3V3 = function (a, b, out)
 	return out;
 }
 
-/** 
- * A 2-by-2 matrix. Stored in column-major order. 
- * @export 
- * @constructor 
+/**
+ * A 2-by-2 matrix. Stored in column-major order.
+ * @export
+ * @constructor
  */
 box2d.b2Mat22 = function ()
 {
@@ -3601,24 +3601,24 @@ box2d.b2Mat22 = function ()
 }
 
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Mat22.prototype.ex = null;
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Mat22.prototype.ey = null;
 
 /**
- * @export 
- * @type {box2d.b2Mat22} 
+ * @export
+ * @type {box2d.b2Mat22}
  */
 box2d.b2Mat22.IDENTITY = new box2d.b2Mat22();
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  */
 box2d.b2Mat22.prototype.Clone = function ()
@@ -3626,9 +3626,9 @@ box2d.b2Mat22.prototype.Clone = function ()
 	return new box2d.b2Mat22().Copy(this);
 }
 
-/** 
- * Construct this matrix using columns. 
- * @export 
+/**
+ * Construct this matrix using columns.
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Vec2} c1
  * @param {box2d.b2Vec2} c2
@@ -3638,9 +3638,9 @@ box2d.b2Mat22.FromVV = function (c1, c2)
 	return new box2d.b2Mat22().SetVV(c1, c2);
 }
 
-/** 
- * Construct this matrix using scalars. 
- * @export 
+/**
+ * Construct this matrix using scalars.
+ * @export
  * @return {box2d.b2Mat22}
  * @param {number} r1c1 or ex.x
  * @param {number} r1c2 or ey.x
@@ -3652,10 +3652,10 @@ box2d.b2Mat22.FromSSSS = function (r1c1, r1c2, r2c1, r2c2)
 	return new box2d.b2Mat22().SetSSSS(r1c1, r1c2, r2c1, r2c2);
 }
 
-/** 
- * Construct this matrix using an angle. This matrix becomes an 
- * orthonormal rotation matrix. 
- * @export 
+/**
+ * Construct this matrix using an angle. This matrix becomes an
+ * orthonormal rotation matrix.
+ * @export
  * @return {box2d.b2Mat22}
  * @param {number} radians
  */
@@ -3664,9 +3664,9 @@ box2d.b2Mat22.FromAngleRadians = function (radians)
 	return new box2d.b2Mat22().SetAngleRadians(radians);
 }
 
-/** 
- * Initialize this matrix using scalars. 
- * @export 
+/**
+ * Initialize this matrix using scalars.
+ * @export
  * @return {box2d.b2Mat22}
  * @param {number} r1c1 or ex.x
  * @param {number} r1c2 or ey.x
@@ -3680,9 +3680,9 @@ box2d.b2Mat22.prototype.SetSSSS = function (r1c1, r1c2, r2c1, r2c2)
 	return this;
 }
 
-/** 
- * Initialize this matrix using columns. 
- * @export 
+/**
+ * Initialize this matrix using columns.
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Vec2} c1
  * @param {box2d.b2Vec2} c2
@@ -3694,10 +3694,10 @@ box2d.b2Mat22.prototype.SetVV = function (c1, c2)
 	return this;
 }
 
-/** 
- * Initialize this matrix using an angle. This matrix becomes an 
- * orthonormal rotation matrix. 
- * @export 
+/**
+ * Initialize this matrix using an angle. This matrix becomes an
+ * orthonormal rotation matrix.
+ * @export
  * @return {box2d.b2Mat22}
  * @param {number} radians
  */
@@ -3715,7 +3715,7 @@ box2d.b2Mat22.prototype.SetAngleRadians = box2d.b2Mat22.prototype.SetAngle;
 box2d.b2Mat22.prototype.SetAngleDegrees = function (angle) { return this.SetAngle(box2d.b2DegToRad(angle)); }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Mat22} other
  */
@@ -3727,9 +3727,9 @@ box2d.b2Mat22.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * Set this to the identity matrix. 
- * @export 
+/**
+ * Set this to the identity matrix.
+ * @export
  * @return {box2d.b2Mat22}
  */
 box2d.b2Mat22.prototype.SetIdentity = function ()
@@ -3739,9 +3739,9 @@ box2d.b2Mat22.prototype.SetIdentity = function ()
 	return this;
 }
 
-/** 
- * Set this matrix to all zeros. 
- * @export 
+/**
+ * Set this matrix to all zeros.
+ * @export
  * @return {box2d.b2Mat22}
  */
 box2d.b2Mat22.prototype.SetZero = function ()
@@ -3751,10 +3751,10 @@ box2d.b2Mat22.prototype.SetZero = function ()
 	return this;
 }
 
-/** 
- * Extract the angle from this matrix (assumed to be a rotation 
- * matrix). 
- * @export 
+/**
+ * Extract the angle from this matrix (assumed to be a rotation
+ * matrix).
+ * @export
  * @return {number}
  */
 box2d.b2Mat22.prototype.GetAngle = function ()
@@ -3765,7 +3765,7 @@ box2d.b2Mat22.prototype.GetAngle = function ()
 box2d.b2Mat22.prototype.GetAngleRadians = box2d.b2Mat22.prototype.GetAngle;
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Mat22} out
  */
@@ -3787,10 +3787,10 @@ box2d.b2Mat22.prototype.GetInverse = function (out)
 	return out;
 }
 
-/** 
- * Solve A * x = b, where b is a column vector. This is more 
- * efficient than computing the inverse in one-shot cases. 
- * @export 
+/**
+ * Solve A * x = b, where b is a column vector. This is more
+ * efficient than computing the inverse in one-shot cases.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} b_x
  * @param {number} b_y
@@ -3811,7 +3811,7 @@ box2d.b2Mat22.prototype.Solve = function (b_x, b_y, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  */
 box2d.b2Mat22.prototype.SelfAbs = function ()
@@ -3822,7 +3822,7 @@ box2d.b2Mat22.prototype.SelfAbs = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  */
 box2d.b2Mat22.prototype.SelfInv = function ()
@@ -3831,7 +3831,7 @@ box2d.b2Mat22.prototype.SelfInv = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Mat22} M
  */
@@ -3843,7 +3843,7 @@ box2d.b2Mat22.prototype.SelfAddM = function (M)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Mat22} M
  */
@@ -3855,7 +3855,7 @@ box2d.b2Mat22.prototype.SelfSubM = function (M)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Mat22} M
  * @param {box2d.b2Mat22} out
@@ -3870,11 +3870,11 @@ box2d.b2AbsM = function (M, out)
 	return out;
 }
 
-/** 
- * Multiply a matrix times a vector. If a rotation matrix is 
- * provided, then this transforms the vector from one frame to 
- * another. 
- * @export 
+/**
+ * Multiply a matrix times a vector. If a rotation matrix is
+ * provided, then this transforms the vector from one frame to
+ * another.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Mat22} M
  * @param {box2d.b2Vec2} v
@@ -3889,11 +3889,11 @@ box2d.b2MulMV = function (M, v, out)
 	return out;
 }
 
-/** 
- * Multiply a matrix transpose times a vector. If a rotation 
- * matrix is provided, then this transforms the vector from one 
- * frame to another (inverse transform). 
- * @export 
+/**
+ * Multiply a matrix transpose times a vector. If a rotation
+ * matrix is provided, then this transforms the vector from one
+ * frame to another (inverse transform).
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Mat22} M
  * @param {box2d.b2Vec2} v
@@ -3909,7 +3909,7 @@ box2d.b2MulTMV = function (M, v, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Mat22} A
  * @param {box2d.b2Mat22} B
@@ -3927,7 +3927,7 @@ box2d.b2AddMM = function (A, B, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Mat22} A
  * @param {box2d.b2Mat22} B
@@ -3947,7 +3947,7 @@ box2d.b2MulMM = function (A, B, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat22}
  * @param {box2d.b2Mat22} A
  * @param {box2d.b2Mat22} B
@@ -3966,10 +3966,10 @@ box2d.b2MulTMM = function (A, B, out)
 	return out;
 }
 
-/** 
- * A 3-by-3 matrix. Stored in column-major order. 
- * @export 
- * @constructor 
+/**
+ * A 3-by-3 matrix. Stored in column-major order.
+ * @export
+ * @constructor
  */
 box2d.b2Mat33 = function ()
 {
@@ -3979,29 +3979,29 @@ box2d.b2Mat33 = function ()
 }
 
 /**
- * @export 
- * @type {box2d.b2Vec3} 
+ * @export
+ * @type {box2d.b2Vec3}
  */
 box2d.b2Mat33.prototype.ex = null;
 /**
- * @export 
- * @type {box2d.b2Vec3} 
+ * @export
+ * @type {box2d.b2Vec3}
  */
 box2d.b2Mat33.prototype.ey = null;
 /**
- * @export 
- * @type {box2d.b2Vec3} 
+ * @export
+ * @type {box2d.b2Vec3}
  */
 box2d.b2Mat33.prototype.ez = null;
 
 /**
- * @export 
- * @type {box2d.b2Mat33} 
+ * @export
+ * @type {box2d.b2Mat33}
  */
 box2d.b2Mat33.IDENTITY = new box2d.b2Mat33();
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat33}
  */
 box2d.b2Mat33.prototype.Clone = function ()
@@ -4010,7 +4010,7 @@ box2d.b2Mat33.prototype.Clone = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat33}
  * @param {box2d.b2Vec3} c1
  * @param {box2d.b2Vec3} c2
@@ -4025,7 +4025,7 @@ box2d.b2Mat33.prototype.SetVVV = function (c1, c2, c3)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat33}
  * @param {box2d.b2Mat33} other
  */
@@ -4039,7 +4039,7 @@ box2d.b2Mat33.prototype.Copy = function (other)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat33}
  */
 box2d.b2Mat33.prototype.SetIdentity = function ()
@@ -4050,9 +4050,9 @@ box2d.b2Mat33.prototype.SetIdentity = function ()
 	return this;
 }
 
-/** 
- * Set this matrix to all zeros. 
- * @export 
+/**
+ * Set this matrix to all zeros.
+ * @export
  * @return {box2d.b2Mat33}
  */
 box2d.b2Mat33.prototype.SetZero = function ()
@@ -4064,7 +4064,7 @@ box2d.b2Mat33.prototype.SetZero = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Mat33}
  * @param {box2d.b2Mat33} M
  */
@@ -4076,10 +4076,10 @@ box2d.b2Mat33.prototype.SelfAddM = function (M)
 	return this;
 }
 
-/** 
- * Solve A * x = b, where b is a column vector. This is more 
- * efficient than computing the inverse in one-shot cases. 
- * @export 
+/**
+ * Solve A * x = b, where b is a column vector. This is more
+ * efficient than computing the inverse in one-shot cases.
+ * @export
  * @return {box2d.b2Vec3}
  * @param {number} b_x
  * @param {number} b_y
@@ -4102,11 +4102,11 @@ box2d.b2Mat33.prototype.Solve33 = function (b_x, b_y, b_z, out)
 	return out;
 }
 
-/** 
- * Solve A * x = b, where b is a column vector. This is more 
- * efficient than computing the inverse in one-shot cases. Solve 
- * only the upper 2-by-2 matrix equation. 
- * @export 
+/**
+ * Solve A * x = b, where b is a column vector. This is more
+ * efficient than computing the inverse in one-shot cases. Solve
+ * only the upper 2-by-2 matrix equation.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {number} b_x
  * @param {number} b_y
@@ -4126,12 +4126,12 @@ box2d.b2Mat33.prototype.Solve22 = function (b_x, b_y, out)
 	return out;
 }
 
-/** 
- * Get the inverse of this matrix as a 2-by-2. 
+/**
+ * Get the inverse of this matrix as a 2-by-2.
  * Returns the zero matrix if singular.
- * @export 
- * @return {void} 
- * @param {box2d.b2Mat33} M 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Mat33} M
  */
 box2d.b2Mat33.prototype.GetInverse22 = function (M)
 {
@@ -4147,12 +4147,12 @@ box2d.b2Mat33.prototype.GetInverse22 = function (M)
 	M.ez.x =      0.0; M.ez.y =      0.0; M.ez.z = 0.0;
 }
 
-/** 
- * Get the symmetric inverse of this matrix as a 3-by-3. 
+/**
+ * Get the symmetric inverse of this matrix as a 3-by-3.
  * Returns the zero matrix if singular.
- * @export 
- * @return {void} 
- * @param {box2d.b2Mat33} M 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Mat33} M
  */
 box2d.b2Mat33.prototype.GetSymInverse33 = function (M)
 {
@@ -4179,9 +4179,9 @@ box2d.b2Mat33.prototype.GetSymInverse33 = function (M)
 	M.ez.z = det * (a11 * a22 - a12 * a12);
 }
 
-/** 
- * Multiply a matrix times a vector. 
- * @export 
+/**
+ * Multiply a matrix times a vector.
+ * @export
  * @return {box2d.b2Vec3}
  * @param {box2d.b2Mat33} A
  * @param {box2d.b2Vec3} v
@@ -4196,7 +4196,7 @@ box2d.b2MulM33V3 = function (A, v, out)
 	return out;
 }
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec3}
  * @param {box2d.b2Mat33} A
  * @param {number} x
@@ -4212,7 +4212,7 @@ box2d.b2MulM33XYZ = function (A, x, y, z, out)
 	return out;
 }
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Mat33} A
  * @param {box2d.b2Vec2} v
@@ -4226,7 +4226,7 @@ box2d.b2MulM33V2 = function (A, v, out)
 	return out;
 }
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Mat33} A
  * @param {number} x
@@ -4240,12 +4240,12 @@ box2d.b2MulM33XY = function (A, x, y, out)
 	return out;
 }
 
-/** 
- * Rotation 
- * Initialize from an angle in radians 
- * @export 
- * @constructor 
- * @param {number=} angle 
+/**
+ * Rotation
+ * Initialize from an angle in radians
+ * @export
+ * @constructor
+ * @param {number=} angle
  */
 box2d.b2Rot = function (angle)
 {
@@ -4260,29 +4260,29 @@ box2d.b2Rot = function (angle)
 }
 
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Rot.prototype.angle = 0.0;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Rot.prototype.s = 0.0;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Rot.prototype.c = 1.0;
 
 /**
- * @export 
- * @type {box2d.b2Rot} 
+ * @export
+ * @type {box2d.b2Rot}
  */
 box2d.b2Rot.IDENTITY = new box2d.b2Rot();
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Rot}
  */
 box2d.b2Rot.prototype.Clone = function ()
@@ -4290,10 +4290,10 @@ box2d.b2Rot.prototype.Clone = function ()
 	return new box2d.b2Rot().Copy(this);
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Rot}
- * @param {box2d.b2Rot} other 
+ * @param {box2d.b2Rot} other
  */
 box2d.b2Rot.prototype.Copy = function (other)
 {
@@ -4303,11 +4303,11 @@ box2d.b2Rot.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * Set using an angle in radians. 
- * @export 
- * @return {box2d.b2Rot} 
- * @param {number} angle 
+/**
+ * Set using an angle in radians.
+ * @export
+ * @return {box2d.b2Rot}
+ * @param {number} angle
  */
 box2d.b2Rot.prototype.SetAngle = function (angle)
 {
@@ -4325,10 +4325,10 @@ box2d.b2Rot.prototype.SetAngleRadians = box2d.b2Rot.prototype.SetAngle;
 
 box2d.b2Rot.prototype.SetAngleDegrees = function (angle) { return this.SetAngle(box2d.b2DegToRad(angle)); }
 
-/** 
- * Set to the identity rotation 
- * @export 
- * @return {box2d.b2Rot} 
+/**
+ * Set to the identity rotation
+ * @export
+ * @return {box2d.b2Rot}
  */
 box2d.b2Rot.prototype.SetIdentity = function ()
 {
@@ -4338,9 +4338,9 @@ box2d.b2Rot.prototype.SetIdentity = function ()
 	return this;
 }
 
-/** 
- * Get the angle in radians 
- * @export 
+/**
+ * Get the angle in radians
+ * @export
  * @return {number}
  */
 box2d.b2Rot.prototype.GetAngle = function ()
@@ -4353,11 +4353,11 @@ box2d.b2Rot.prototype.GetAngleRadians = box2d.b2Rot.prototype.GetAngle;
 
 box2d.b2Rot.prototype.GetAngleDegrees = function () { return box2d.b2RadToDeg(this.GetAngle()); }
 
-/** 
- * Get the x-axis 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * Get the x-axis
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Rot.prototype.GetXAxis = function (out)
 {
@@ -4366,11 +4366,11 @@ box2d.b2Rot.prototype.GetXAxis = function (out)
 	return out;
 }
 
-/** 
- * Get the y-axis 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * Get the y-axis
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Rot.prototype.GetYAxis = function (out)
 {
@@ -4379,13 +4379,13 @@ box2d.b2Rot.prototype.GetYAxis = function (out)
 	return out;
 }
 
-/** 
- * Multiply two rotations: q * r 
- * @export 
- * @return {box2d.b2Rot} 
+/**
+ * Multiply two rotations: q * r
+ * @export
+ * @return {box2d.b2Rot}
  * @param {box2d.b2Rot} q
  * @param {box2d.b2Rot} r
- * @param {box2d.b2Rot} out 
+ * @param {box2d.b2Rot} out
  */
 box2d.b2MulRR = function (q, r, out)
 {
@@ -4403,13 +4403,13 @@ box2d.b2MulRR = function (q, r, out)
 	return out;
 }
 
-/** 
- * Transpose multiply two rotations: qT * r 
- * @export 
- * @return {box2d.b2Rot} 
+/**
+ * Transpose multiply two rotations: qT * r
+ * @export
+ * @return {box2d.b2Rot}
  * @param {box2d.b2Rot} q
  * @param {box2d.b2Rot} r
- * @param {box2d.b2Rot} out 
+ * @param {box2d.b2Rot} out
  */
 box2d.b2MulTRR = function (q, r, out)
 {
@@ -4427,13 +4427,13 @@ box2d.b2MulTRR = function (q, r, out)
 	return out;
 }
 
-/** 
- * Rotate a vector 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Rot} q 
- * @param {box2d.b2Vec2} v 
- * @param {box2d.b2Vec2} out 
+/**
+ * Rotate a vector
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Rot} q
+ * @param {box2d.b2Vec2} v
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2MulRV = function (q, v, out)
 {
@@ -4444,13 +4444,13 @@ box2d.b2MulRV = function (q, v, out)
 	return out;
 }
 
-/** 
- * Inverse rotate a vector 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Rot} q 
- * @param {box2d.b2Vec2} v 
- * @param {box2d.b2Vec2} out 
+/**
+ * Inverse rotate a vector
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Rot} q
+ * @param {box2d.b2Vec2} v
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2MulTRV = function (q, v, out)
 {
@@ -4461,11 +4461,11 @@ box2d.b2MulTRV = function (q, v, out)
 	return out;
 }
 
-/** 
- * A transform contains translation and rotation. It is used to 
- * represent the position and orientation of rigid frames. 
- * @export 
- * @constructor 
+/**
+ * A transform contains translation and rotation. It is used to
+ * represent the position and orientation of rigid frames.
+ * @export
+ * @constructor
  */
 box2d.b2Transform = function ()
 {
@@ -4474,24 +4474,24 @@ box2d.b2Transform = function ()
 }
 
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Transform.prototype.p = null;
 /**
- * @export 
- * @type {box2d.b2Rot} 
+ * @export
+ * @type {box2d.b2Rot}
  */
 box2d.b2Transform.prototype.q = null;
 
 /**
- * @export 
- * @type {box2d.b2Transform} 
+ * @export
+ * @type {box2d.b2Transform}
  */
 box2d.b2Transform.IDENTITY = new box2d.b2Transform();
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Transform}
  */
 box2d.b2Transform.prototype.Clone = function ()
@@ -4500,7 +4500,7 @@ box2d.b2Transform.prototype.Clone = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Transform}
  * @param {box2d.b2Transform} other
  */
@@ -4512,9 +4512,9 @@ box2d.b2Transform.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * Set this to the identity transform. 
- * @export 
+/**
+ * Set this to the identity transform.
+ * @export
  * @return {box2d.b2Transform}
  */
 box2d.b2Transform.prototype.SetIdentity = function ()
@@ -4524,9 +4524,9 @@ box2d.b2Transform.prototype.SetIdentity = function ()
 	return this;
 }
 
-/** 
- * Set this based on the position and angle. 
- * @export 
+/**
+ * Set this based on the position and angle.
+ * @export
  * @return {box2d.b2Transform}
  * @param {box2d.b2Vec2} position
  * @param {box2d.b2Rot} q
@@ -4539,7 +4539,7 @@ box2d.b2Transform.prototype.SetPositionRotation = function (position, q)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Transform}
  * @param {box2d.b2Vec2} pos
  * @param {number} a
@@ -4552,7 +4552,7 @@ box2d.b2Transform.prototype.SetPositionAngleRadians = function (pos, a)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Transform}
  * @param {box2d.b2Vec2} position
  */
@@ -4563,7 +4563,7 @@ box2d.b2Transform.prototype.SetPosition = function (position)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Transform}
  * @param {number} x
  * @param {number} y
@@ -4575,7 +4575,7 @@ box2d.b2Transform.prototype.SetPositionXY = function (x, y)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Transform}
  * @param {box2d.b2Rot} rotation
  */
@@ -4586,7 +4586,7 @@ box2d.b2Transform.prototype.SetRotation = function (rotation)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Transform}
  * @param {number} radians
  */
@@ -4597,7 +4597,7 @@ box2d.b2Transform.prototype.SetRotationAngleRadians = function (radians)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  */
 box2d.b2Transform.prototype.GetPosition = function ()
@@ -4606,7 +4606,7 @@ box2d.b2Transform.prototype.GetPosition = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Rot}
  */
 box2d.b2Transform.prototype.GetRotation = function ()
@@ -4615,7 +4615,7 @@ box2d.b2Transform.prototype.GetRotation = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2Transform.prototype.GetRotationAngle = function ()
@@ -4626,7 +4626,7 @@ box2d.b2Transform.prototype.GetRotationAngle = function ()
 box2d.b2Transform.prototype.GetRotationAngleRadians = box2d.b2Transform.prototype.GetRotationAngle;
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2Transform.prototype.GetAngle = function ()
@@ -4637,7 +4637,7 @@ box2d.b2Transform.prototype.GetAngle = function ()
 box2d.b2Transform.prototype.GetAngleRadians = box2d.b2Transform.prototype.GetAngle;
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Transform} T
  * @param {box2d.b2Vec2} v
@@ -4657,7 +4657,7 @@ box2d.b2MulXV = function (T, v, out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Transform} T
  * @param {box2d.b2Vec2} v
@@ -4682,11 +4682,11 @@ box2d.b2MulTXV = function (T, v, out)
 /**
  * v2 = A.q.Rot(B.q.Rot(v1) + B.p) + A.p
  *    = (A.q * B.q).Rot(v1) + A.q.Rot(B.p) + A.p
- * @export 
+ * @export
  * @return {box2d.b2Transform}
  * @param {box2d.b2Transform} A
  * @param {box2d.b2Transform} B
- * @param {box2d.b2Transform} out 
+ * @param {box2d.b2Transform} out
  */
 box2d.b2MulXX = function (A, B, out)
 {
@@ -4698,11 +4698,11 @@ box2d.b2MulXX = function (A, B, out)
 /**
  * v2 = A.q' * (B.q * v1 + B.p - A.p)
  *    = A.q' * B.q * v1 + A.q' * (B.p - A.p)
- * @export 
+ * @export
  * @return {box2d.b2Transform}
  * @param {box2d.b2Transform} A
  * @param {box2d.b2Transform} B
- * @param {box2d.b2Transform} out 
+ * @param {box2d.b2Transform} out
  */
 box2d.b2MulTXX = function (A, B, out)
 {
@@ -4716,8 +4716,8 @@ box2d.b2MulTXX = function (A, B, out)
  * Shapes are defined with respect to the body origin, which may
  * no coincide with the center of mass. However, to support dynamics
  * we must interpolate the center of mass position.
- * @export 
- * @constructor 
+ * @export
+ * @constructor
  */
 box2d.b2Sweep = function ()
 {
@@ -4727,41 +4727,41 @@ box2d.b2Sweep = function ()
 };
 
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Sweep.prototype.localCenter = null; ///< local center of mass position
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Sweep.prototype.c0 = null; ///< center world positions
 /**
- * @export 
- * @type {box2d.b2Vec2} 
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2Sweep.prototype.c = null;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Sweep.prototype.a0 = 0.0; ///< world angles
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Sweep.prototype.a = 0.0;
 
 /**
  * Fraction of the current time step in the range [0,1]
  * c0 and a0 are the positions at alpha0.
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Sweep.prototype.alpha0 = 0.0;
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Sweep}
  */
 box2d.b2Sweep.prototype.Clone = function ()
@@ -4770,7 +4770,7 @@ box2d.b2Sweep.prototype.Clone = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Sweep}
  * @param {box2d.b2Sweep} other
  */
@@ -4786,9 +4786,9 @@ box2d.b2Sweep.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * Get the interpolated transform at a specific time. 
- * @export 
+/**
+ * Get the interpolated transform at a specific time.
+ * @export
  * @return {box2d.b2Transform}
  * @param {box2d.b2Transform} xf
  * @param {number} beta is a factor in [0,1], where 0 indicates alpha0.
@@ -4806,10 +4806,10 @@ box2d.b2Sweep.prototype.GetTransform = function (xf, beta)
 	return xf;
 }
 
-/** 
- * Advance the sweep forward, yielding a new initial state. 
- * @export 
- * @return {void} 
+/**
+ * Advance the sweep forward, yielding a new initial state.
+ * @export
+ * @return {void}
  * @param {number} alpha the new initial time.
  */
 box2d.b2Sweep.prototype.Advance = function (alpha)
@@ -4822,11 +4822,11 @@ box2d.b2Sweep.prototype.Advance = function (alpha)
 	this.alpha0 = alpha;
 }
 
-/** 
- * Normalize an angle in radians to be between -pi and pi 
- * (actually 0 and 2*pi) 
- * @export 
- * @return {void} 
+/**
+ * Normalize an angle in radians to be between -pi and pi
+ * (actually 0 and 2*pi)
+ * @export
+ * @return {void}
  */
 box2d.b2Sweep.prototype.Normalize = function ()
 {
@@ -4857,137 +4857,137 @@ goog.provide('box2d.b2Controller');
 
 goog.require('box2d.b2Settings');
 
-/** 
- * A controller edge is used to connect bodies and controllers 
- * together in a bipartite graph. 
- * @export 
- * @constructor 
+/**
+ * A controller edge is used to connect bodies and controllers
+ * together in a bipartite graph.
+ * @export
+ * @constructor
  */
 box2d.b2ControllerEdge = function ()
 {
 };
 
 /**
- * @export 
- * @type {box2d.b2Controller} 
+ * @export
+ * @type {box2d.b2Controller}
  */
 box2d.b2ControllerEdge.prototype.controller = null; ///< provides quick access to other end of this edge.
 /**
- * @export 
- * @type {box2d.b2Body} 
+ * @export
+ * @type {box2d.b2Body}
  */
 box2d.b2ControllerEdge.prototype.body = null; ///< the body
 /**
- * @export 
- * @type {box2d.b2ControllerEdge} 
+ * @export
+ * @type {box2d.b2ControllerEdge}
  */
 box2d.b2ControllerEdge.prototype.prevBody = null; ///< the previous controller edge in the controllers's joint list
 /**
- * @export 
- * @type {box2d.b2ControllerEdge} 
+ * @export
+ * @type {box2d.b2ControllerEdge}
  */
 box2d.b2ControllerEdge.prototype.nextBody = null; ///< the next controller edge in the controllers's joint list
 /**
- * @export 
- * @type {box2d.b2ControllerEdge} 
+ * @export
+ * @type {box2d.b2ControllerEdge}
  */
 box2d.b2ControllerEdge.prototype.prevController = null; ///< the previous controller edge in the body's joint list
 /**
- * @export 
- * @type {box2d.b2ControllerEdge} 
+ * @export
+ * @type {box2d.b2ControllerEdge}
  */
 box2d.b2ControllerEdge.prototype.nextController = null; ///< the next controller edge in the body's joint list
 
-/** 
- * Base class for controllers. Controllers are a convience for 
- * encapsulating common per-step functionality. 
- * @export 
- * @constructor 
+/**
+ * Base class for controllers. Controllers are a convience for
+ * encapsulating common per-step functionality.
+ * @export
+ * @constructor
  */
 box2d.b2Controller = function ()
 {
 };
 
 /**
- * @export 
- * @type {box2d.b2World} 
+ * @export
+ * @type {box2d.b2World}
  */
 box2d.b2Controller.prototype.m_world = null;
 /**
- * @export 
- * @type {box2d.b2ControllerEdge} 
+ * @export
+ * @type {box2d.b2ControllerEdge}
  */
 box2d.b2Controller.prototype.m_bodyList = null;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Controller.prototype.m_bodyCount = 0;
 /**
- * @export 
- * @type {box2d.b2Controller} 
+ * @export
+ * @type {box2d.b2Controller}
  */
 box2d.b2Controller.prototype.m_prev = null;
 /**
- * @export 
- * @type {box2d.b2Controller} 
+ * @export
+ * @type {box2d.b2Controller}
  */
 box2d.b2Controller.prototype.m_next = null;
 
-/** 
- * Controllers override this to implement per-step 
- * functionality. 
- * @export 
- * @return {void} 
- * @param {box2d.b2TimeStep} step 
+/**
+ * Controllers override this to implement per-step
+ * functionality.
+ * @export
+ * @return {void}
+ * @param {box2d.b2TimeStep} step
  */
 box2d.b2Controller.prototype.Step = function (step)
 {
 }
 
-/** 
- * Controllers override this to provide debug drawing. 
- * @export 
- * @return {void} 
+/**
+ * Controllers override this to provide debug drawing.
+ * @export
+ * @return {void}
  * @param {box2d.b2Draw} debugDraw
  */
 box2d.b2Controller.prototype.Draw = function (debugDraw)
 {
 }
 
-/** 
- * Get the next controller in the world's body list. 
- * @export 
- * @return {box2d.b2Controller} 
+/**
+ * Get the next controller in the world's body list.
+ * @export
+ * @return {box2d.b2Controller}
  */
 box2d.b2Controller.prototype.GetNext = function ()
 {
 	return this.m_next;
 }
 
-/** 
- * Get the previous controller in the world's body list. 
- * @export 
- * @return {box2d.b2Controller} 
+/**
+ * Get the previous controller in the world's body list.
+ * @export
+ * @return {box2d.b2Controller}
  */
 box2d.b2Controller.prototype.GetPrev = function ()
 {
 	return this.m_prev;
 }
 
-/** 
- * Get the parent world of this body. 
- * @export 
- * @return {box2d.b2World} 
+/**
+ * Get the parent world of this body.
+ * @export
+ * @return {box2d.b2World}
  */
 box2d.b2Controller.prototype.GetWorld = function ()
 {
 	return this.m_world;
 }
 
-/** 
- * Get the attached body list 
- * @export 
+/**
+ * Get the attached body list
+ * @export
  * @return {box2d.b2ControllerEdge}
  */
 box2d.b2Controller.prototype.GetBodyList = function ()
@@ -4995,9 +4995,9 @@ box2d.b2Controller.prototype.GetBodyList = function ()
 	return this.m_bodyList;
 }
 
-/** 
- * Adds a body to the controller list. 
- * @export 
+/**
+ * Adds a body to the controller list.
+ * @export
  * @return {void}
  * @param {box2d.b2Body} body
  */
@@ -5025,9 +5025,9 @@ box2d.b2Controller.prototype.AddBody = function (body)
 	++body.m_controllerCount;
 }
 
-/** 
- * Removes a body from the controller list. 
- * @export 
+/**
+ * Removes a body from the controller list.
+ * @export
  * @return {void}
  * @param {box2d.b2Body} body
  */
@@ -5063,9 +5063,9 @@ box2d.b2Controller.prototype.RemoveBody = function (body)
 	--body.m_controllerCount;
 }
 
-/** 
- * Removes all bodies from the controller list. 
- * @export 
+/**
+ * Removes all bodies from the controller list.
+ * @export
  * @return {void}
  */
 box2d.b2Controller.prototype.Clear = function ()
@@ -5102,11 +5102,11 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Controller');
 goog.require('box2d.b2Math');
 
-/** 
- * Applies a force every frame 
- * @export 
- * @constructor 
- * @extends {box2d.b2Controller} 
+/**
+ * Applies a force every frame
+ * @export
+ * @constructor
+ * @extends {box2d.b2Controller}
  */
 box2d.b2ConstantAccelController = function ()
 {
@@ -5117,18 +5117,18 @@ box2d.b2ConstantAccelController = function ()
 
 goog.inherits(box2d.b2ConstantAccelController, box2d.b2Controller);
 
-/** 
- * The acceleration to apply 
- * @export 
- * @type {box2d.b2Vec2} 
+/**
+ * The acceleration to apply
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2ConstantAccelController.prototype.A = null;
 
-/** 
- * @see box2d.b2Controller::Step 
- * @export 
- * @return {void} 
- * @param {box2d.b2TimeStep} step 
+/**
+ * @see box2d.b2Controller::Step
+ * @export
+ * @return {void}
+ * @param {box2d.b2TimeStep} step
  */
 box2d.b2ConstantAccelController.prototype.Step = function (step)
 {
@@ -5166,11 +5166,11 @@ goog.provide('box2d.b2Joint');
 goog.require('box2d.b2Settings');
 goog.require('box2d.b2Math');
 
-/** 
- * @export 
+/**
+ * @export
  * @enum
  */
-box2d.b2JointType = 
+box2d.b2JointType =
 {
 	e_unknownJoint		: 0,
 	e_revoluteJoint		: 1,
@@ -5200,11 +5200,11 @@ goog.exportProperty(box2d.b2JointType, 'e_ropeJoint'     , box2d.b2JointType.e_r
 goog.exportProperty(box2d.b2JointType, 'e_motorJoint'    , box2d.b2JointType.e_motorJoint    );
 goog.exportProperty(box2d.b2JointType, 'e_areaJoint'     , box2d.b2JointType.e_areaJoint     );
 
-/** 
- * @export 
+/**
+ * @export
  * @enum
  */
-box2d.b2LimitState = 
+box2d.b2LimitState =
 {
 	e_inactiveLimit	: 0,
 	e_atLowerLimit	: 1,
@@ -5216,8 +5216,8 @@ goog.exportProperty(box2d.b2LimitState, 'e_atLowerLimit' , box2d.b2LimitState.e_
 goog.exportProperty(box2d.b2LimitState, 'e_atUpperLimit' , box2d.b2LimitState.e_atUpperLimit );
 goog.exportProperty(box2d.b2LimitState, 'e_equalLimits'  , box2d.b2LimitState.e_equalLimits  );
 
-/** 
- * @export 
+/**
+ * @export
  * @constructor
  */
 box2d.b2Jacobian = function ()
@@ -5226,23 +5226,23 @@ box2d.b2Jacobian = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2Jacobian.prototype.linear = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Jacobian.prototype.angularA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Jacobian.prototype.angularB = 0;
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Jacobian}
  */
 box2d.b2Jacobian.prototype.SetZero = function ()
@@ -5253,8 +5253,8 @@ box2d.b2Jacobian.prototype.SetZero = function ()
 	return this;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Jacobian}
  * @param {box2d.b2Vec2} x
  * @param {number} a1
@@ -5268,13 +5268,13 @@ box2d.b2Jacobian.prototype.Set = function (x, a1, a2)
 	return this;
 }
 
-/** 
- * A joint edge is used to connect bodies and joints together in 
- * a joint graph where each body is a node and each joint is an 
- * edge. A joint edge belongs to a doubly linked list maintained 
- * in each attached body. Each joint has two joint nodes, one 
- * for each attached body. 
- * @export 
+/**
+ * A joint edge is used to connect bodies and joints together in
+ * a joint graph where each body is a node and each joint is an
+ * edge. A joint edge belongs to a doubly linked list maintained
+ * in each attached body. Each joint has two joint nodes, one
+ * for each attached body.
+ * @export
  * @constructor
  */
 box2d.b2JointEdge = function ()
@@ -5282,78 +5282,78 @@ box2d.b2JointEdge = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2JointEdge.prototype.other = null; ///< provides quick access to the other body attached.
 /**
- * @export 
+ * @export
  * @type {box2d.b2Joint}
  */
 box2d.b2JointEdge.prototype.joint = null; ///< the joint
 /**
- * @export 
+ * @export
  * @type {box2d.b2JointEdge}
  */
 box2d.b2JointEdge.prototype.prev = null; ///< the previous joint edge in the body's joint list
 /**
- * @export 
+ * @export
  * @type {box2d.b2JointEdge}
  */
 box2d.b2JointEdge.prototype.next = null; ///< the next joint edge in the body's joint list
 
-/** 
- * Joint definitions are used to construct joints. 
- * @export 
- * @constructor 
- * @param {box2d.b2JointType} type 
+/**
+ * Joint definitions are used to construct joints.
+ * @export
+ * @constructor
+ * @param {box2d.b2JointType} type
  */
 box2d.b2JointDef = function (type)
 {
 	this.type = type;
 }
 
-/** 
+/**
  * The joint type is set automatically for concrete joint types.
- * @export 
+ * @export
  * @type {box2d.b2JointType}
  */
 box2d.b2JointDef.prototype.type = box2d.b2JointType.e_unknownJoint;
 
-/** 
- * Use this to attach application specific data to your joints. 
- * @export 
+/**
+ * Use this to attach application specific data to your joints.
+ * @export
  * @type {*}
  */
 box2d.b2JointDef.prototype.userData = null;
 
-/** 
- * The first attached body. 
- * @export 
+/**
+ * The first attached body.
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2JointDef.prototype.bodyA = null;
 
-/** 
- * The second attached body. 
- * @export 
+/**
+ * The second attached body.
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2JointDef.prototype.bodyB = null;
 
-/** 
- * Set this flag to true if the attached bodies should collide. 
- * @export 
+/**
+ * Set this flag to true if the attached bodies should collide.
+ * @export
  * @type {boolean}
  */
 box2d.b2JointDef.prototype.collideConnected = false;
 
-/** 
- * The base joint class. Joints are used to constraint two 
- * bodies together in various fashions. Some joints also feature 
- * limits and motors. 
- * @export 
- * @constructor 
+/**
+ * The base joint class. Joints are used to constraint two
+ * bodies together in various fashions. Some joints also feature
+ * limits and motors.
+ * @export
+ * @constructor
  */
 box2d.b2Joint = function (def)
 {
@@ -5371,67 +5371,67 @@ box2d.b2Joint = function (def)
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2JointType}
  */
 box2d.b2Joint.prototype.m_type = box2d.b2JointType.e_unknownJoint;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Joint}
  */
 box2d.b2Joint.prototype.m_prev = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Joint}
  */
 box2d.b2Joint.prototype.m_next = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2JointEdge}
  */
 box2d.b2Joint.prototype.m_edgeA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2JointEdge}
  */
 box2d.b2Joint.prototype.m_edgeB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2Joint.prototype.m_bodyA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2Joint.prototype.m_bodyB = null;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Joint.prototype.m_index = 0;
 
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2Joint.prototype.m_islandFlag = false;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2Joint.prototype.m_collideConnected = false;
 
 /**
- * @export 
+ * @export
  * @type {*}
  */
 box2d.b2Joint.prototype.m_userData = null;
 
-/** 
- * Get the anchor point on bodyA in world coordinates. 
- * @export 
+/**
+ * Get the anchor point on bodyA in world coordinates.
+ * @export
  * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} out
  */
@@ -5440,10 +5440,10 @@ box2d.b2Joint.prototype.GetAnchorA = function (out)
 	return out.SetZero();
 }
 
-/** 
- * Get the anchor point on bodyB in world coordinates. 
- * @export 
- * @return {box2d.b2Vec2} 
+/**
+ * Get the anchor point on bodyB in world coordinates.
+ * @export
+ * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} out
  */
 box2d.b2Joint.prototype.GetAnchorB = function (out)
@@ -5451,12 +5451,12 @@ box2d.b2Joint.prototype.GetAnchorB = function (out)
 	return out.SetZero();
 }
 
-/** 
- * Get the reaction force on bodyB at the joint anchor in 
- * Newtons. 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * Get the reaction force on bodyB at the joint anchor in
+ * Newtons.
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2Joint.prototype.GetReactionForce = function (inv_dt, out)
@@ -5464,60 +5464,60 @@ box2d.b2Joint.prototype.GetReactionForce = function (inv_dt, out)
 	return out.SetZero();
 }
 
-/** 
- * Get the reaction torque on bodyB in N*m. 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * Get the reaction torque on bodyB in N*m.
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2Joint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return 0;
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2SolverData} data 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2Joint.prototype.InitVelocityConstraints = function (data)
 {
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2SolverData} data 
+ * @export
+ * @return {void}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2Joint.prototype.SolveVelocityConstraints = function (data)
 {
 }
 
-/** 
- * This returns true if the position errors are within 
- * tolerance. 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+/**
+ * This returns true if the position errors are within
+ * tolerance.
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2Joint.prototype.SolvePositionConstraints = function (data)
 {
 	return false;
 }
 
-/** 
- * Get the type of the concrete joint. 
- * @export 
- * @return {box2d.b2JointType} 
+/**
+ * Get the type of the concrete joint.
+ * @export
+ * @return {box2d.b2JointType}
  */
 box2d.b2Joint.prototype.GetType = function ()
 {
 	return this.m_type;
 }
 
-/** 
- * Get the first body attached to this joint. 
- * @export 
+/**
+ * Get the first body attached to this joint.
+ * @export
  * @return {box2d.b2Body}
  */
 box2d.b2Joint.prototype.GetBodyA = function ()
@@ -5525,9 +5525,9 @@ box2d.b2Joint.prototype.GetBodyA = function ()
 	return this.m_bodyA;
 }
 
-/** 
- * Get the second body attached to this joint. 
- * @export 
+/**
+ * Get the second body attached to this joint.
+ * @export
  * @return {box2d.b2Body}
  */
 box2d.b2Joint.prototype.GetBodyB = function ()
@@ -5535,43 +5535,43 @@ box2d.b2Joint.prototype.GetBodyB = function ()
 	return this.m_bodyB;
 }
 
-/** 
- * Get the next joint the world joint list. 
- * @export 
- * @return {box2d.b2Joint} 
+/**
+ * Get the next joint the world joint list.
+ * @export
+ * @return {box2d.b2Joint}
  */
 box2d.b2Joint.prototype.GetNext = function ()
 {
 	return this.m_next;
 }
 
-/** 
- * Get the user data pointer. 
- * @export 
- * @return {*} 
+/**
+ * Get the user data pointer.
+ * @export
+ * @return {*}
  */
 box2d.b2Joint.prototype.GetUserData = function ()
 {
 	return this.m_userData;
 }
 
-/** 
- * Set the user data pointer. 
- * @export 
- * @return {void} 
- * @param {*} data 
+/**
+ * Set the user data pointer.
+ * @export
+ * @return {void}
+ * @param {*} data
  */
 box2d.b2Joint.prototype.SetUserData = function (data)
 {
 	this.m_userData = data;
 }
 
-/** 
- * Get collide connected. 
- * Note: modifying the collide connect flag won't work correctly 
- * because the flag is only checked when fixture AABBs begin to 
- * overlap. 
- * @export 
+/**
+ * Get collide connected.
+ * Note: modifying the collide connect flag won't work correctly
+ * because the flag is only checked when fixture AABBs begin to
+ * overlap.
+ * @export
  * @return {boolean}
  */
 box2d.b2Joint.prototype.GetCollideConnected = function ()
@@ -5579,9 +5579,9 @@ box2d.b2Joint.prototype.GetCollideConnected = function ()
 	return this.m_collideConnected;
 }
 
-/** 
- * Dump this joint to the log file. 
- * @export 
+/**
+ * Dump this joint to the log file.
+ * @export
  * @return {void}
  */
 box2d.b2Joint.prototype.Dump = function ()
@@ -5592,20 +5592,20 @@ box2d.b2Joint.prototype.Dump = function ()
 	}
 }
 
-/** 
- * Short-cut function to determine if either body is inactive. 
- * @export 
- * @return {boolean} 
+/**
+ * Short-cut function to determine if either body is inactive.
+ * @export
+ * @return {boolean}
  */
 box2d.b2Joint.prototype.IsActive = function ()
 {
 	return this.m_bodyA.IsActive() && this.m_bodyB.IsActive();
 }
 
-/** 
- * Shift the origin for any points stored in world coordinates. 
- * @export 
- * @return {void} 
+/**
+ * Shift the origin for any points stored in world coordinates.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} newOrigin
  */
 box2d.b2Joint.prototype.ShiftOrigin = function (newOrigin)
@@ -5636,21 +5636,21 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Joint');
 goog.require('box2d.b2Math');
 
-/** 
- * Revolute joint definition. This requires defining an anchor 
- * point where the bodies are joined. The definition uses local 
- * anchor points so that the initial configuration can violate 
- * the constraint slightly. You also need to specify the initial 
- * relative angle for joint limits. This helps when saving and 
- * loading a game. 
- * The local anchor points are measured from the body's origin 
- * rather than the center of mass because: 
- * 1. you might not know where the center of mass will be. 
- * 2. if you add/remove shapes from a body and recompute the 
- * mass, the joints will be broken. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Revolute joint definition. This requires defining an anchor
+ * point where the bodies are joined. The definition uses local
+ * anchor points so that the initial configuration can violate
+ * the constraint slightly. You also need to specify the initial
+ * relative angle for joint limits. This helps when saving and
+ * loading a game.
+ * The local anchor points are measured from the body's origin
+ * rather than the center of mass because:
+ * 1. you might not know where the center of mass will be.
+ * 2. if you add/remove shapes from a body and recompute the
+ * mass, the joints will be broken.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2RevoluteJointDef = function ()
 {
@@ -5662,78 +5662,78 @@ box2d.b2RevoluteJointDef = function ()
 
 goog.inherits(box2d.b2RevoluteJointDef, box2d.b2JointDef);
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJointDef.prototype.localAnchorA = null;
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJointDef.prototype.localAnchorB = null;
 
-/** 
- * The bodyB angle minus bodyA angle in the reference state 
- * (radians). 
- * @export 
+/**
+ * The bodyB angle minus bodyA angle in the reference state
+ * (radians).
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJointDef.prototype.referenceAngle = 0;
 
-/** 
- * A flag to enable joint limits. 
- * @export 
+/**
+ * A flag to enable joint limits.
+ * @export
  * @type {boolean}
  */
 box2d.b2RevoluteJointDef.prototype.enableLimit = false;
 
-/** 
- * The lower angle for the joint limit (radians). 
- * @export 
+/**
+ * The lower angle for the joint limit (radians).
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJointDef.prototype.lowerAngle = 0;
 
-/** 
- * The upper angle for the joint limit (radians). 
- * @export 
+/**
+ * The upper angle for the joint limit (radians).
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJointDef.prototype.upperAngle = 0;
 
-/** 
- * A flag to enable the joint motor. 
- * @export 
+/**
+ * A flag to enable the joint motor.
+ * @export
  * @type {boolean}
  */
 box2d.b2RevoluteJointDef.prototype.enableMotor = false;
 
-/** 
- * The desired motor speed. Usually in radians per second. 
- * @export 
+/**
+ * The desired motor speed. Usually in radians per second.
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJointDef.prototype.motorSpeed = 0;
 
-/** 
- * The maximum motor torque used to achieve the desired motor 
- * speed. 
- * Usually in N-m. 
- * @export 
+/**
+ * The maximum motor torque used to achieve the desired motor
+ * speed.
+ * Usually in N-m.
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJointDef.prototype.maxMotorTorque = 0;
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Body} bA 
- * @param {box2d.b2Body} bB 
- * @param {box2d.b2Vec2} anchor 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Body} bA
+ * @param {box2d.b2Body} bB
+ * @param {box2d.b2Vec2} anchor
  */
 box2d.b2RevoluteJointDef.prototype.Initialize = function (bA, bB, anchor)
 {
@@ -5744,19 +5744,19 @@ box2d.b2RevoluteJointDef.prototype.Initialize = function (bA, bB, anchor)
 	this.referenceAngle = this.bodyB.GetAngleRadians() - this.bodyA.GetAngleRadians();
 }
 
-/** 
- * A revolute joint constrains two bodies to share a common 
- * point while they are free to rotate about the point. The 
- * relative rotation about the shared point is the joint angle. 
- * You can limit the relative rotation with a joint limit that 
- * specifies a lower and upper angle. You can use a motor to 
- * drive the relative rotation about the shared point. A maximum 
- * motor torque is provided so that infinite forces are not 
- * generated. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2RevoluteJointDef} def 
+/**
+ * A revolute joint constrains two bodies to share a common
+ * point while they are free to rotate about the point. The
+ * relative rotation about the shared point is the joint angle.
+ * You can limit the relative rotation with a joint limit that
+ * specifies a lower and upper angle. You can use a motor to
+ * drive the relative rotation about the shared point. A maximum
+ * motor torque is provided so that infinite forces are not
+ * generated.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2RevoluteJointDef} def
  */
 box2d.b2RevoluteJoint = function (def)
 {
@@ -5798,159 +5798,159 @@ goog.inherits(box2d.b2RevoluteJoint, box2d.b2Joint);
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJoint.prototype.m_localAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJoint.prototype.m_localAnchorB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec3}
  */
 box2d.b2RevoluteJoint.prototype.m_impulse = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_motorImpulse = 0;
 
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2RevoluteJoint.prototype.m_enableMotor = false;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_maxMotorTorque = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_motorSpeed = 0;
 
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2RevoluteJoint.prototype.m_enableLimit = false;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_referenceAngle = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_lowerAngle = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_upperAngle = 0;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJoint.prototype.m_rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJoint.prototype.m_rB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJoint.prototype.m_localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_invIB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat33}
  */
 box2d.b2RevoluteJoint.prototype.m_mass = null; // effective mass for point-to-point constraint.
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RevoluteJoint.prototype.m_motorMass = 0; // effective mass for motor/limit angular constraint.
 /**
- * @export 
+ * @export
  * @type {box2d.b2LimitState}
  */
 box2d.b2RevoluteJoint.prototype.m_limitState = box2d.b2LimitState.e_inactiveLimit;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2RevoluteJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2RevoluteJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJoint.prototype.m_lalcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RevoluteJoint.prototype.m_lalcB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2RevoluteJoint.prototype.m_K = null;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2RevoluteJoint.prototype.InitVelocityConstraints = function (data)
@@ -6081,9 +6081,9 @@ box2d.b2RevoluteJoint.prototype.InitVelocityConstraints = function (data)
 }
 box2d.b2RevoluteJoint.prototype.InitVelocityConstraints.s_P = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2RevoluteJoint.prototype.SolveVelocityConstraints = function (data)
@@ -6219,10 +6219,10 @@ box2d.b2RevoluteJoint.prototype.SolveVelocityConstraints.s_impulse3 = new box2d.
 box2d.b2RevoluteJoint.prototype.SolveVelocityConstraints.s_reduced = new box2d.b2Vec2();
 box2d.b2RevoluteJoint.prototype.SolveVelocityConstraints.s_impulse2 = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+/**
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2RevoluteJoint.prototype.SolvePositionConstraints = function (data)
 {
@@ -6287,10 +6287,10 @@ box2d.b2RevoluteJoint.prototype.SolvePositionConstraints = function (data)
 		var rB = box2d.b2MulRV(qB, this.m_lalcB, this.m_rB);
 
 //		b2Vec2 C = cB + rB - cA - rA;
-		var C = 
+		var C =
 			box2d.b2SubVV(
-				box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0), 
-				box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1), 
+				box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0),
+				box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1),
 				box2d.b2RevoluteJoint.prototype.SolvePositionConstraints.s_C);
 //		positionError = C.Length();
 		positionError = C.GetLength();
@@ -6320,38 +6320,38 @@ box2d.b2RevoluteJoint.prototype.SolvePositionConstraints = function (data)
 	data.positions[this.m_indexA].a = aA;
 //	data.positions[this.m_indexB].c = cB;
 	data.positions[this.m_indexB].a = aB;
-	
+
 	return positionError <= box2d.b2_linearSlop && angularError <= box2d.b2_angularSlop;
 }
 box2d.b2RevoluteJoint.prototype.SolvePositionConstraints.s_C = new box2d.b2Vec2();
 box2d.b2RevoluteJoint.prototype.SolvePositionConstraints.s_impulse = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2RevoluteJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetWorldPoint(this.m_localAnchorA, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2RevoluteJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * Get the reaction force given the inverse time step. 
+/**
+ * Get the reaction force given the inverse time step.
  * Unit is N.
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2RevoluteJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -6361,44 +6361,44 @@ box2d.b2RevoluteJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return out.SetXY(inv_dt * this.m_impulse.x, inv_dt * this.m_impulse.y);
 }
 
-/** 
- * Get the reaction torque due to the joint limit given the 
- * inverse time step. 
- * Unit is N*m. 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * Get the reaction torque due to the joint limit given the
+ * inverse time step.
+ * Unit is N*m.
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2RevoluteJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return inv_dt * this.m_impulse.z;
 }
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2RevoluteJoint.prototype.GetLocalAnchorA = function (out) { return out.Copy(this.m_localAnchorA); }
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2=} out 
+ * @param {box2d.b2Vec2=} out
  */
 box2d.b2RevoluteJoint.prototype.GetLocalAnchorB = function (out) { return out.Copy(this.m_localAnchorB); }
 
-/** 
- * Get the reference angle. 
- * @export 
+/**
+ * Get the reference angle.
+ * @export
  * @return {number}
  */
 box2d.b2RevoluteJoint.prototype.GetReferenceAngle = function () { return this.m_referenceAngle; }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2RevoluteJoint.prototype.GetJointAngleRadians = function ()
@@ -6409,8 +6409,8 @@ box2d.b2RevoluteJoint.prototype.GetJointAngleRadians = function ()
 	return this.m_bodyB.m_sweep.a - this.m_bodyA.m_sweep.a - this.m_referenceAngle;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2RevoluteJoint.prototype.GetJointSpeed = function ()
@@ -6421,8 +6421,8 @@ box2d.b2RevoluteJoint.prototype.GetJointSpeed = function ()
 	return this.m_bodyB.m_angularVelocity - this.m_bodyA.m_angularVelocity;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {boolean}
  */
 box2d.b2RevoluteJoint.prototype.IsMotorEnabled = function ()
@@ -6430,9 +6430,9 @@ box2d.b2RevoluteJoint.prototype.IsMotorEnabled = function ()
 	return this.m_enableMotor;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {boolean} flag
  */
 box2d.b2RevoluteJoint.prototype.EnableMotor = function (flag)
@@ -6445,20 +6445,20 @@ box2d.b2RevoluteJoint.prototype.EnableMotor = function (flag)
 	}
 }
 
-/** 
- * Get the current motor torque given the inverse time step. 
- * Unit is N*m. 
- * @export 
+/**
+ * Get the current motor torque given the inverse time step.
+ * Unit is N*m.
+ * @export
  * @return {number}
- * @param {number} inv_dt 
+ * @param {number} inv_dt
  */
 box2d.b2RevoluteJoint.prototype.GetMotorTorque = function (inv_dt)
 {
 	return inv_dt * this.m_motorImpulse;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2RevoluteJoint.prototype.GetMotorSpeed = function ()
@@ -6466,9 +6466,9 @@ box2d.b2RevoluteJoint.prototype.GetMotorSpeed = function ()
 	return this.m_motorSpeed;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {number} torque
  */
 box2d.b2RevoluteJoint.prototype.SetMaxMotorTorque = function (torque)
@@ -6476,14 +6476,14 @@ box2d.b2RevoluteJoint.prototype.SetMaxMotorTorque = function (torque)
 	this.m_maxMotorTorque = torque;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2RevoluteJoint.prototype.GetMaxMotorTorque = function () { return this.m_maxMotorTorque; }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {boolean}
  */
 box2d.b2RevoluteJoint.prototype.IsLimitEnabled = function ()
@@ -6491,9 +6491,9 @@ box2d.b2RevoluteJoint.prototype.IsLimitEnabled = function ()
 	return this.m_enableLimit;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {boolean} flag
  */
 box2d.b2RevoluteJoint.prototype.EnableLimit = function (flag)
@@ -6507,8 +6507,8 @@ box2d.b2RevoluteJoint.prototype.EnableLimit = function (flag)
 	}
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2RevoluteJoint.prototype.GetLowerLimit = function ()
@@ -6516,8 +6516,8 @@ box2d.b2RevoluteJoint.prototype.GetLowerLimit = function ()
 	return this.m_lowerAngle;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2RevoluteJoint.prototype.GetUpperLimit = function ()
@@ -6525,15 +6525,15 @@ box2d.b2RevoluteJoint.prototype.GetUpperLimit = function ()
 	return this.m_upperAngle;
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {number} lower 
- * @param {number} upper 
+/**
+ * @export
+ * @return {void}
+ * @param {number} lower
+ * @param {number} upper
  */
 box2d.b2RevoluteJoint.prototype.SetLimits = function (lower, upper)
 {
-	
+
 	if (lower !== this.m_lowerAngle || upper !== this.m_upperAngle)
 	{
 		this.m_bodyA.SetAwake(true);
@@ -6544,9 +6544,9 @@ box2d.b2RevoluteJoint.prototype.SetLimits = function (lower, upper)
 	}
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {number} speed
  */
 box2d.b2RevoluteJoint.prototype.SetMotorSpeed = function (speed)
@@ -6559,9 +6559,9 @@ box2d.b2RevoluteJoint.prototype.SetMotorSpeed = function (speed)
 	}
 }
 
-/** 
- * Dump to b2Log. 
- * @export 
+/**
+ * Dump to b2Log.
+ * @export
  * @return {void}
  */
 box2d.b2RevoluteJoint.prototype.Dump = function ()
@@ -6570,7 +6570,7 @@ box2d.b2RevoluteJoint.prototype.Dump = function ()
 	{
 		var indexA = this.m_bodyA.m_islandIndex;
 		var indexB = this.m_bodyB.m_islandIndex;
-	
+
 		box2d.b2Log("  /*box2d.b2RevoluteJointDef*/ var jd = new box2d.b2RevoluteJointDef();\n");
 		box2d.b2Log("  jd.bodyA = bodies[%d];\n", indexA);
 		box2d.b2Log("  jd.bodyB = bodies[%d];\n", indexB);
@@ -6612,17 +6612,17 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Joint');
 goog.require('box2d.b2Math');
 
-/** 
- * Prismatic joint definition. This requires defining a line of 
- * motion using an axis and an anchor point. The definition uses 
- * local anchor points and a local axis so that the initial 
- * configuration can violate the constraint slightly. The joint 
- * translation is zero when the local anchor points coincide in 
- * world space. Using local anchors and a local axis helps when 
- * saving and loading a game. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Prismatic joint definition. This requires defining a line of
+ * motion using an axis and an anchor point. The definition uses
+ * local anchor points and a local axis so that the initial
+ * configuration can violate the constraint slightly. The joint
+ * translation is zero when the local anchor points coincide in
+ * world space. Using local anchors and a local axis helps when
+ * saving and loading a game.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2PrismaticJointDef = function ()
 {
@@ -6635,86 +6635,86 @@ box2d.b2PrismaticJointDef = function ()
 
 goog.inherits(box2d.b2PrismaticJointDef, box2d.b2JointDef);
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJointDef.prototype.localAnchorA = null;
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJointDef.prototype.localAnchorB = null;
 
-/** 
- * The local translation unit axis in bodyA. 
- * @export 
+/**
+ * The local translation unit axis in bodyA.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJointDef.prototype.localAxisA = null;
 
-/** 
- * The constrained angle between the bodies: bodyB_angle - 
- * bodyA_angle. 
- * @export 
+/**
+ * The constrained angle between the bodies: bodyB_angle -
+ * bodyA_angle.
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJointDef.prototype.referenceAngle = 0;
 
-/** 
- * Enable/disable the joint limit. 
- * @export 
+/**
+ * Enable/disable the joint limit.
+ * @export
  * @type {boolean}
  */
 box2d.b2PrismaticJointDef.prototype.enableLimit = false;
 
-/** 
- * The lower translation limit, usually in meters. 
- * @export 
+/**
+ * The lower translation limit, usually in meters.
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJointDef.prototype.lowerTranslation = 0;
 
-/** 
- * The upper translation limit, usually in meters. 
- * @export 
+/**
+ * The upper translation limit, usually in meters.
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJointDef.prototype.upperTranslation = 0;
 
-/** 
- * Enable/disable the joint motor. 
- * @export 
+/**
+ * Enable/disable the joint motor.
+ * @export
  * @type {boolean}
  */
 box2d.b2PrismaticJointDef.prototype.enableMotor = false;
 
-/** 
- * The maximum motor torque, usually in N-m. 
- * @export 
+/**
+ * The maximum motor torque, usually in N-m.
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJointDef.prototype.maxMotorForce = 0;
 
-/** 
- * The desired motor speed in radians per second. 
- * @export 
+/**
+ * The desired motor speed in radians per second.
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJointDef.prototype.motorSpeed = 0;
 
-/** 
- * Initialize the bodies, anchors, axis, and reference angle 
- * using the world anchor and unit world axis. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Body} bA 
- * @param {box2d.b2Body} bB 
- * @param {box2d.b2Vec2} anchor 
- * @param {box2d.b2Vec2} axis 
+/**
+ * Initialize the bodies, anchors, axis, and reference angle
+ * using the world anchor and unit world axis.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Body} bA
+ * @param {box2d.b2Body} bB
+ * @param {box2d.b2Vec2} anchor
+ * @param {box2d.b2Vec2} axis
  */
 box2d.b2PrismaticJointDef.prototype.Initialize = function (bA, bB, anchor, axis)
 {
@@ -6726,16 +6726,16 @@ box2d.b2PrismaticJointDef.prototype.Initialize = function (bA, bB, anchor, axis)
 	this.referenceAngle = this.bodyB.GetAngleRadians() - this.bodyA.GetAngleRadians();
 }
 
-/** 
- * A prismatic joint. This joint provides one degree of freedom: 
- * translation along an axis fixed in bodyA. Relative rotation 
- * is prevented. You can use a joint limit to restrict the range 
- * of motion and a joint motor to drive the motion or to model 
- * joint friction. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2PrismaticJointDef} def 
+/**
+ * A prismatic joint. This joint provides one degree of freedom:
+ * translation along an axis fixed in bodyA. Relative rotation
+ * is prevented. You can use a joint limit to restrict the range
+ * of motion and a joint motor to drive the motion or to model
+ * joint friction.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2PrismaticJointDef} def
  */
 box2d.b2PrismaticJoint = function (def)
 {
@@ -6774,202 +6774,202 @@ goog.inherits(box2d.b2PrismaticJoint, box2d.b2Joint);
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_localAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_localAnchorB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_localXAxisA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_localYAxisA = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_referenceAngle = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec3}
  */
 box2d.b2PrismaticJoint.prototype.m_impulse = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_motorImpulse = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_lowerTranslation = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_upperTranslation = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_maxMotorForce = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_motorSpeed = 0;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2PrismaticJoint.prototype.m_enableLimit = false;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2PrismaticJoint.prototype.m_enableMotor = false;
 /**
- * @export 
+ * @export
  * @type {box2d.b2LimitState}
  */
 box2d.b2PrismaticJoint.prototype.m_limitState = box2d.b2LimitState.e_inactiveLimit;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_invIB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_axis = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_perp = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_s1 = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_s2 = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_a1 = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_a2 = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat33}
  */
 box2d.b2PrismaticJoint.prototype.m_K = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat33}
  */
 box2d.b2PrismaticJoint.prototype.m_K3 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2PrismaticJoint.prototype.m_K2 = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PrismaticJoint.prototype.m_motorMass = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2PrismaticJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2PrismaticJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_lalcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_lalcB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PrismaticJoint.prototype.m_rB = null;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2PrismaticJoint.prototype.InitVelocityConstraints = function (data)
@@ -7114,8 +7114,8 @@ box2d.b2PrismaticJoint.prototype.InitVelocityConstraints = function (data)
 
 //		b2Vec2 P = m_impulse.x * m_perp + (m_motorImpulse + m_impulse.z) * m_axis;
 		var P = box2d.b2AddVV(
-			box2d.b2MulSV(this.m_impulse.x, this.m_perp, box2d.b2Vec2.s_t0), 
-			box2d.b2MulSV((this.m_motorImpulse + this.m_impulse.z), this.m_axis, box2d.b2Vec2.s_t1), 
+			box2d.b2MulSV(this.m_impulse.x, this.m_perp, box2d.b2Vec2.s_t0),
+			box2d.b2MulSV((this.m_motorImpulse + this.m_impulse.z), this.m_axis, box2d.b2Vec2.s_t1),
 			box2d.b2PrismaticJoint.prototype.InitVelocityConstraints.s_P);
 //		float32 LA = m_impulse.x * m_s1 + m_impulse.y + (m_motorImpulse + m_impulse.z) * m_a1;
 		var LA = this.m_impulse.x * this.m_s1 + this.m_impulse.y + (this.m_motorImpulse + this.m_impulse.z) * this.m_a1;
@@ -7144,9 +7144,9 @@ box2d.b2PrismaticJoint.prototype.InitVelocityConstraints = function (data)
 box2d.b2PrismaticJoint.prototype.InitVelocityConstraints.s_d = new box2d.b2Vec2();
 box2d.b2PrismaticJoint.prototype.InitVelocityConstraints.s_P = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2PrismaticJoint.prototype.SolveVelocityConstraints = function (data)
@@ -7285,10 +7285,10 @@ box2d.b2PrismaticJoint.prototype.SolveVelocityConstraints.s_f1 = new box2d.b2Vec
 box2d.b2PrismaticJoint.prototype.SolveVelocityConstraints.s_df3 = new box2d.b2Vec3();
 box2d.b2PrismaticJoint.prototype.SolveVelocityConstraints.s_df2 = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+/**
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2PrismaticJoint.prototype.SolvePositionConstraints = function (data)
 {
@@ -7298,7 +7298,7 @@ box2d.b2PrismaticJoint.prototype.SolvePositionConstraints = function (data)
 	/*float32*/ var aB = data.positions[this.m_indexB].a;
 
 	/*box2d.b2Rot*/ var qA = this.m_qA.SetAngleRadians(aA), qB = this.m_qB.SetAngleRadians(aB);
-	
+
 	/*float32*/ var mA = this.m_invMassA, mB = this.m_invMassB;
 	/*float32*/ var iA = this.m_invIA, iB = this.m_invIB;
 
@@ -7432,8 +7432,8 @@ box2d.b2PrismaticJoint.prototype.SolvePositionConstraints = function (data)
 
 //	b2Vec2 P = impulse.x * perp + impulse.z * axis;
 	var P = box2d.b2AddVV(
-		box2d.b2MulSV(impulse.x, perp, box2d.b2Vec2.s_t0), 
-		box2d.b2MulSV(impulse.z, axis, box2d.b2Vec2.s_t1), 
+		box2d.b2MulSV(impulse.x, perp, box2d.b2Vec2.s_t0),
+		box2d.b2MulSV(impulse.z, axis, box2d.b2Vec2.s_t1),
 		box2d.b2PrismaticJoint.prototype.SolvePositionConstraints.s_P);
 //	float32 LA = impulse.x * s1 + impulse.y + impulse.z * a1;
 	var LA = impulse.x * s1 + impulse.y + impulse.z * a1;
@@ -7459,30 +7459,30 @@ box2d.b2PrismaticJoint.prototype.SolvePositionConstraints.s_impulse = new box2d.
 box2d.b2PrismaticJoint.prototype.SolvePositionConstraints.s_impulse1 = new box2d.b2Vec2();;
 box2d.b2PrismaticJoint.prototype.SolvePositionConstraints.s_P = new box2d.b2Vec2();;
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PrismaticJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetWorldPoint(this.m_localAnchorA, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PrismaticJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2PrismaticJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -7491,49 +7491,49 @@ box2d.b2PrismaticJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return out.SetXY(inv_dt * (this.m_impulse.x * this.m_perp.x + (this.m_motorImpulse + this.m_impulse.z) * this.m_axis.x), inv_dt * (this.m_impulse.x * this.m_perp.y + (this.m_motorImpulse + this.m_impulse.z) * this.m_axis.y));
 }
 
-/** 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2PrismaticJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return inv_dt * this.m_impulse.y;
 }
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PrismaticJoint.prototype.GetLocalAnchorA = function (out) { return out.Copy(this.m_localAnchorA); }
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PrismaticJoint.prototype.GetLocalAnchorB = function (out) { return out.Copy(this.m_localAnchorB); }
 
-/** 
- * The local joint axis relative to bodyA. 
- * @export 
+/**
+ * The local joint axis relative to bodyA.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PrismaticJoint.prototype.GetLocalAxisA = function (out) { return out.Copy(this.m_localXAxisA); }
 
-/** 
- * Get the reference angle. 
- * @export 
+/**
+ * Get the reference angle.
+ * @export
  * @return {number}
  */
 box2d.b2PrismaticJoint.prototype.GetReferenceAngle = function () { return this.m_referenceAngle; }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2PrismaticJoint.prototype.GetJointTranslation = function ()
@@ -7556,8 +7556,8 @@ box2d.b2PrismaticJoint.prototype.GetJointTranslation.s_pB = new box2d.b2Vec2();
 box2d.b2PrismaticJoint.prototype.GetJointTranslation.s_d = new box2d.b2Vec2();
 box2d.b2PrismaticJoint.prototype.GetJointTranslation.s_axis = new box2d.b2Vec2();
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2PrismaticJoint.prototype.GetJointSpeed = function ()
@@ -7586,19 +7586,19 @@ box2d.b2PrismaticJoint.prototype.GetJointSpeed = function ()
 	var wB = bB.m_angularVelocity;
 
 //	float32 speed = b2Dot(d, b2Cross(wA, axis)) + b2Dot(axis, vB + b2Cross(wB, rB) - vA - b2Cross(wA, rA));
-	var speed = 
-		box2d.b2DotVV(d, box2d.b2CrossSV(wA, axis, box2d.b2Vec2.s_t0)) + 
+	var speed =
+		box2d.b2DotVV(d, box2d.b2CrossSV(wA, axis, box2d.b2Vec2.s_t0)) +
 		box2d.b2DotVV(
-			axis, 
+			axis,
 			box2d.b2SubVV(
 				box2d.b2AddVCrossSV(vB, wB, rB, box2d.b2Vec2.s_t0),
-				box2d.b2AddVCrossSV(vA, wA, rA, box2d.b2Vec2.s_t1), 
+				box2d.b2AddVCrossSV(vA, wA, rA, box2d.b2Vec2.s_t1),
 				box2d.b2Vec2.s_t0));
 	return speed;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {boolean}
  */
 box2d.b2PrismaticJoint.prototype.IsLimitEnabled = function ()
@@ -7606,9 +7606,9 @@ box2d.b2PrismaticJoint.prototype.IsLimitEnabled = function ()
 	return this.m_enableLimit;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {boolean} flag
  */
 box2d.b2PrismaticJoint.prototype.EnableLimit = function (flag)
@@ -7622,8 +7622,8 @@ box2d.b2PrismaticJoint.prototype.EnableLimit = function (flag)
 	}
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2PrismaticJoint.prototype.GetLowerLimit = function ()
@@ -7631,8 +7631,8 @@ box2d.b2PrismaticJoint.prototype.GetLowerLimit = function ()
 	return this.m_lowerTranslation;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2PrismaticJoint.prototype.GetUpperLimit = function ()
@@ -7640,11 +7640,11 @@ box2d.b2PrismaticJoint.prototype.GetUpperLimit = function ()
 	return this.m_upperTranslation;
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {number} upper 
- * @param {number} lower 
+/**
+ * @export
+ * @return {void}
+ * @param {number} upper
+ * @param {number} lower
  */
 box2d.b2PrismaticJoint.prototype.SetLimits = function (lower, upper)
 {
@@ -7658,8 +7658,8 @@ box2d.b2PrismaticJoint.prototype.SetLimits = function (lower, upper)
 	}
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {boolean}
  */
 box2d.b2PrismaticJoint.prototype.IsMotorEnabled = function ()
@@ -7667,9 +7667,9 @@ box2d.b2PrismaticJoint.prototype.IsMotorEnabled = function ()
 	return this.m_enableMotor;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {boolean} flag
  */
 box2d.b2PrismaticJoint.prototype.EnableMotor = function (flag)
@@ -7679,10 +7679,10 @@ box2d.b2PrismaticJoint.prototype.EnableMotor = function (flag)
 	this.m_enableMotor = flag;
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {number} speed 
+/**
+ * @export
+ * @return {void}
+ * @param {number} speed
  */
 box2d.b2PrismaticJoint.prototype.SetMotorSpeed = function (speed)
 {
@@ -7691,8 +7691,8 @@ box2d.b2PrismaticJoint.prototype.SetMotorSpeed = function (speed)
 	this.m_motorSpeed = speed;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2PrismaticJoint.prototype.GetMotorSpeed = function ()
@@ -7700,9 +7700,9 @@ box2d.b2PrismaticJoint.prototype.GetMotorSpeed = function ()
 	return this.m_motorSpeed;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {number} force
  */
 box2d.b2PrismaticJoint.prototype.SetMaxMotorForce = function (force)
@@ -7712,25 +7712,25 @@ box2d.b2PrismaticJoint.prototype.SetMaxMotorForce = function (force)
 	this.m_maxMotorForce = force;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2PrismaticJoint.prototype.GetMaxMotorForce = function () { return this.m_maxMotorForce; }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
- * @param {number} inv_dt 
+ * @param {number} inv_dt
  */
 box2d.b2PrismaticJoint.prototype.GetMotorForce = function (inv_dt)
 {
 	return inv_dt * this.m_motorImpulse;
 }
 
-/** 
- * Dump to b2Log 
- * @export 
+/**
+ * Dump to b2Log
+ * @export
  * @return {void}
  */
 box2d.b2PrismaticJoint.prototype.Dump = function ()
@@ -7739,7 +7739,7 @@ box2d.b2PrismaticJoint.prototype.Dump = function ()
 	{
 		var indexA = this.m_bodyA.m_islandIndex;
 		var indexB = this.m_bodyB.m_islandIndex;
-	
+
 		box2d.b2Log("  /*box2d.b2PrismaticJointDef*/ var jd = new box2d.b2PrismaticJointDef();\n");
 		box2d.b2Log("  jd.bodyA = bodies[%d];\n", indexA);
 		box2d.b2Log("  jd.bodyB = bodies[%d];\n", indexB);
@@ -7784,12 +7784,12 @@ goog.require('box2d.b2Math');
 goog.require('box2d.b2RevoluteJoint');
 goog.require('box2d.b2PrismaticJoint');
 
-/** 
- * Gear joint definition. This definition requires two existing 
- * revolute or prismatic joints (any combination will work). 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Gear joint definition. This definition requires two existing
+ * revolute or prismatic joints (any combination will work).
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2GearJointDef = function ()
 {
@@ -7798,44 +7798,44 @@ box2d.b2GearJointDef = function ()
 
 goog.inherits(box2d.b2GearJointDef, box2d.b2JointDef);
 
-/** 
- * The first revolute/prismatic joint attached to the gear 
- * joint. 
- * @export 
+/**
+ * The first revolute/prismatic joint attached to the gear
+ * joint.
+ * @export
  * @type {box2d.b2Joint}
  */
 box2d.b2GearJointDef.prototype.joint1 = null;
 
-/** 
- * The second revolute/prismatic joint attached to the gear 
- * joint. 
- * @export 
+/**
+ * The second revolute/prismatic joint attached to the gear
+ * joint.
+ * @export
  * @type {box2d.b2Joint}
  */
 box2d.b2GearJointDef.prototype.joint2 = null;
 
-/** 
- * The gear ratio. 
- * @see box2d.b2GearJoint for explanation. 
- * @export 
+/**
+ * The gear ratio.
+ * @see box2d.b2GearJoint for explanation.
+ * @export
  * @type {number}
  */
 box2d.b2GearJointDef.prototype.ratio = 1;
 
-/** 
- * A gear joint is used to connect two joints together. Either 
- * joint can be a revolute or prismatic joint. You specify a 
- * gear ratio to bind the motions together: 
- * coordinateA + ratio * coordinateB = constant 
- * The ratio can be negative or positive. If one joint is a 
- * revolute joint and the other joint is a prismatic joint, then 
- * the ratio will have units of length or units of 1/length. 
- * warning You have to manually destroy the gear joint if jointA 
- * or jointB is destroyed. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2GearJointDef} def 
+/**
+ * A gear joint is used to connect two joints together. Either
+ * joint can be a revolute or prismatic joint. You specify a
+ * gear ratio to bind the motions together:
+ * coordinateA + ratio * coordinateB = constant
+ * The ratio can be negative or positive. If one joint is a
+ * revolute joint and the other joint is a prismatic joint, then
+ * the ratio will have units of length or units of 1/length.
+ * warning You have to manually destroy the gear joint if jointA
+ * or jointB is destroyed.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2GearJointDef} def
  */
 box2d.b2GearJoint = function (def)
 {
@@ -7901,7 +7901,7 @@ box2d.b2GearJoint = function (def)
 		var pA = box2d.b2MulTRV(
 			xfC.q,
 			box2d.b2AddVV(
-				box2d.b2MulRV(xfA.q, this.m_localAnchorA, box2d.b2Vec2.s_t0), 
+				box2d.b2MulRV(xfA.q, this.m_localAnchorA, box2d.b2Vec2.s_t0),
 				box2d.b2SubVV(xfA.p, xfC.p, box2d.b2Vec2.s_t1),
 				box2d.b2Vec2.s_t0),
 			box2d.b2Vec2.s_t0); // pA uses s_t0
@@ -7942,7 +7942,7 @@ box2d.b2GearJoint = function (def)
 		var pB = box2d.b2MulTRV(
 			xfD.q,
 			box2d.b2AddVV(
-				box2d.b2MulRV(xfB.q, this.m_localAnchorB, box2d.b2Vec2.s_t0), 
+				box2d.b2MulRV(xfB.q, this.m_localAnchorB, box2d.b2Vec2.s_t0),
 				box2d.b2SubVV(xfB.p, xfD.p, box2d.b2Vec2.s_t1),
 				box2d.b2Vec2.s_t0),
 			box2d.b2Vec2.s_t0); // pB uses s_t0
@@ -7960,23 +7960,23 @@ box2d.b2GearJoint = function (def)
 goog.inherits(box2d.b2GearJoint, box2d.b2Joint);
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Joint}
  */
 box2d.b2GearJoint.prototype.m_joint1 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Joint}
  */
 box2d.b2GearJoint.prototype.m_joint2 = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2JointType}
  */
 box2d.b2GearJoint.prototype.m_typeA = box2d.b2JointType.e_unknownJoint;
 /**
- * @export 
+ * @export
  * @type {box2d.b2JointType}
  */
 box2d.b2GearJoint.prototype.m_typeB = box2d.b2JointType.e_unknownJoint;
@@ -7984,231 +7984,231 @@ box2d.b2GearJoint.prototype.m_typeB = box2d.b2JointType.e_unknownJoint;
 // Body A is connected to body C
 // Body B is connected to body D
 /**
- * @export 
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2GearJoint.prototype.m_bodyC = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2GearJoint.prototype.m_bodyD = null;
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_localAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_localAnchorB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_localAnchorC = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_localAnchorD = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_localAxisC = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_localAxisD = null;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_referenceAngleA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_referenceAngleB = 0;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_constant = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_ratio = 0;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_impulse = 0;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_indexC = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_indexD = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_lcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_lcB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_lcC = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_lcD = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_mA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_mB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_mC = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_mD = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_iA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_iB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_iC = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_iD = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_JvAC = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_JvBD = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_JwA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_JwB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_JwC = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_JwD = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GearJoint.prototype.m_mass = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2GearJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2GearJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2GearJoint.prototype.m_qC = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2GearJoint.prototype.m_qD = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_lalcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_lalcB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_lalcC = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2GearJoint.prototype.m_lalcD = null;
@@ -8252,9 +8252,9 @@ box2d.b2GearJoint.prototype.InitVelocityConstraints = function (data)
 	/*float32*/ var wD = data.velocities[this.m_indexD].w;
 
 //	box2d.b2Rot qA(aA), qB(aB), qC(aC), qD(aD);
-	var qA = this.m_qA.SetAngleRadians(aA), 
-		qB = this.m_qB.SetAngleRadians(aB), 
-		qC = this.m_qC.SetAngleRadians(aC), 
+	var qA = this.m_qA.SetAngleRadians(aA),
+		qB = this.m_qB.SetAngleRadians(aB),
+		qC = this.m_qC.SetAngleRadians(aC),
 		qD = this.m_qD.SetAngleRadians(aD);
 
 	this.m_mass = 0;
@@ -8364,8 +8364,8 @@ box2d.b2GearJoint.prototype.SolveVelocityConstraints = function (data)
 	/*float32*/ var wD = data.velocities[this.m_indexD].w;
 
 //	float32 Cdot = b2Dot(m_JvAC, vA - vC) + b2Dot(m_JvBD, vB - vD);
-	var Cdot = 
-		box2d.b2DotVV(this.m_JvAC, box2d.b2SubVV(vA, vC, box2d.b2Vec2.s_t0)) + 
+	var Cdot =
+		box2d.b2DotVV(this.m_JvAC, box2d.b2SubVV(vA, vC, box2d.b2Vec2.s_t0)) +
 		box2d.b2DotVV(this.m_JvBD, box2d.b2SubVV(vB, vD, box2d.b2Vec2.s_t0));
 	Cdot += (this.m_JwA * wA - this.m_JwC * wC) + (this.m_JwB * wB - this.m_JwD * wD);
 
@@ -8395,10 +8395,10 @@ box2d.b2GearJoint.prototype.SolveVelocityConstraints = function (data)
 	data.velocities[this.m_indexD].w = wD;
 }
 
-/** 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+/**
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2GearJoint.prototype.SolvePositionConstraints = function (data)
 {
@@ -8412,9 +8412,9 @@ box2d.b2GearJoint.prototype.SolvePositionConstraints = function (data)
 	/*float32*/ var aD = data.positions[this.m_indexD].a;
 
 //	box2d.b2Rot qA(aA), qB(aB), qC(aC), qD(aD);
-	var qA = this.m_qA.SetAngleRadians(aA), 
-		qB = this.m_qB.SetAngleRadians(aB), 
-		qC = this.m_qC.SetAngleRadians(aC), 
+	var qA = this.m_qA.SetAngleRadians(aA),
+		qB = this.m_qB.SetAngleRadians(aB),
+		qC = this.m_qC.SetAngleRadians(aC),
 		qD = this.m_qD.SetAngleRadians(aD);
 
 	/*float32*/ var linearError = 0;
@@ -8456,8 +8456,8 @@ box2d.b2GearJoint.prototype.SolvePositionConstraints = function (data)
 		var pA = box2d.b2MulTRV(
 			qC,
 			box2d.b2AddVV(
-				rA, 
-				box2d.b2SubVV(cA, cC, box2d.b2Vec2.s_t0), 
+				rA,
+				box2d.b2SubVV(cA, cC, box2d.b2Vec2.s_t0),
 				box2d.b2Vec2.s_t0),
 			box2d.b2Vec2.s_t0); // pA uses s_t0
 //		coordinateA = b2Dot(pA - pC, m_localAxisC);
@@ -8495,8 +8495,8 @@ box2d.b2GearJoint.prototype.SolvePositionConstraints = function (data)
 		var pB = box2d.b2MulTRV(
 			qD,
 			box2d.b2AddVV(
-				rB, 
-				box2d.b2SubVV(cB, cD, box2d.b2Vec2.s_t0), 
+				rB,
+				box2d.b2SubVV(cB, cD, box2d.b2Vec2.s_t0),
 				box2d.b2Vec2.s_t0),
 			box2d.b2Vec2.s_t0); // pB uses s_t0
 //		coordinateB = b2Dot(pB - pD, m_localAxisD);
@@ -8542,30 +8542,30 @@ box2d.b2GearJoint.prototype.SolvePositionConstraints.s_rB = new box2d.b2Vec2();
 box2d.b2GearJoint.prototype.SolvePositionConstraints.s_rC = new box2d.b2Vec2();
 box2d.b2GearJoint.prototype.SolvePositionConstraints.s_rD = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2GearJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetWorldPoint(this.m_localAnchorA, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2GearJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2GearJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -8575,10 +8575,10 @@ box2d.b2GearJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return box2d.b2MulSV(inv_dt * this.m_impulse, this.m_JvAC, out);
 }
 
-/** 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2GearJoint.prototype.GetReactionTorque = function (inv_dt)
 {
@@ -8587,22 +8587,22 @@ box2d.b2GearJoint.prototype.GetReactionTorque = function (inv_dt)
 	return inv_dt * this.m_impulse * this.m_JwA;
 }
 
-/** 
- * Get the first joint. 
- * @export 
+/**
+ * Get the first joint.
+ * @export
  * @return {box2d.b2Joint}
  */
 box2d.b2GearJoint.prototype.GetJoint1 = function () { return this.m_joint1; }
 
-/** 
- * Get the second joint. 
- * @export 
+/**
+ * Get the second joint.
+ * @export
  * @return {box2d.b2Joint}
  */
 box2d.b2GearJoint.prototype.GetJoint2 = function () { return this.m_joint2; }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2GearJoint.prototype.GetRatio = function ()
@@ -8610,9 +8610,9 @@ box2d.b2GearJoint.prototype.GetRatio = function ()
 	return this.m_ratio;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {number} ratio
  */
 box2d.b2GearJoint.prototype.SetRatio = function (ratio)
@@ -8621,9 +8621,9 @@ box2d.b2GearJoint.prototype.SetRatio = function (ratio)
 	this.m_ratio = ratio;
 }
 
-/** 
- * Dump joint to dmLog 
- * @export 
+/**
+ * Dump joint to dmLog
+ * @export
  * @return {void}
  */
 box2d.b2GearJoint.prototype.Dump = function ()
@@ -8632,10 +8632,10 @@ box2d.b2GearJoint.prototype.Dump = function ()
 	{
 		var indexA = this.m_bodyA.m_islandIndex;
 		var indexB = this.m_bodyB.m_islandIndex;
-	
+
 		var index1 = this.m_joint1.m_index;
 		var index2 = this.m_joint2.m_index;
-	
+
 		box2d.b2Log("  /*box2d.b2GearJointDef*/ var jd = new box2d.b2GearJointDef();\n");
 		box2d.b2Log("  jd.bodyA = bodies[%d];\n", indexA);
 		box2d.b2Log("  jd.bodyB = bodies[%d];\n", indexB);
@@ -8670,10 +8670,10 @@ goog.provide('box2d.b2Distance');
 goog.require('box2d.b2Settings');
 goog.require('box2d.b2Math');
 
-/** 
- * A distance proxy is used by the GJK algorithm. 
+/**
+ * A distance proxy is used by the GJK algorithm.
  * It encapsulates any shape.
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2DistanceProxy = function ()
@@ -8682,29 +8682,29 @@ box2d.b2DistanceProxy = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Vec2>}
  */
 box2d.b2DistanceProxy.prototype.m_buffer = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Vec2>}
  */
 box2d.b2DistanceProxy.prototype.m_vertices = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceProxy.prototype.m_count = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceProxy.prototype.m_radius = 0;
 
 /**
- * @export 
- * @return {box2d.b2DistanceProxy} 
+ * @export
+ * @return {box2d.b2DistanceProxy}
  */
 box2d.b2DistanceProxy.prototype.Reset = function ()
 {
@@ -8714,12 +8714,12 @@ box2d.b2DistanceProxy.prototype.Reset = function ()
 	return this;
 }
 
-/** 
- * Initialize the proxy using the given shape. The shape must 
- * remain in scope while the proxy is in use. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Shape} shape 
+/**
+ * Initialize the proxy using the given shape. The shape must
+ * remain in scope while the proxy is in use.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Shape} shape
  * @param {number} index
  */
 box2d.b2DistanceProxy.prototype.SetShape = function (shape, index)
@@ -8727,11 +8727,11 @@ box2d.b2DistanceProxy.prototype.SetShape = function (shape, index)
 	shape.SetupDistanceProxy(this, index);
 }
 
-/** 
- * Get the supporting vertex index in the given direction. 
- * @export 
- * @return {number} 
- * @param {box2d.b2Vec2} d 
+/**
+ * Get the supporting vertex index in the given direction.
+ * @export
+ * @return {number}
+ * @param {box2d.b2Vec2} d
  */
 box2d.b2DistanceProxy.prototype.GetSupport = function (d)
 {
@@ -8750,12 +8750,12 @@ box2d.b2DistanceProxy.prototype.GetSupport = function (d)
 	return bestIndex;
 }
 
-/** 
- * Get the supporting vertex in the given direction. 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} d 
- * @param {box2d.b2Vec2} out 
+/**
+ * Get the supporting vertex in the given direction.
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} d
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2DistanceProxy.prototype.GetSupportVertex = function (d, out)
 {
@@ -8774,9 +8774,9 @@ box2d.b2DistanceProxy.prototype.GetSupportVertex = function (d, out)
 	return out.Copy(this.m_vertices[bestIndex]);
 }
 
-/** 
- * Get the vertex count. 
- * @export 
+/**
+ * Get the vertex count.
+ * @export
  * @return {number}
  */
 box2d.b2DistanceProxy.prototype.GetVertexCount = function ()
@@ -8784,11 +8784,11 @@ box2d.b2DistanceProxy.prototype.GetVertexCount = function ()
 	return this.m_count;
 }
 
-/** 
- * Get a vertex by index. Used by box2d.b2Distance. 
- * @export 
+/**
+ * Get a vertex by index. Used by box2d.b2Distance.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {number} index 
+ * @param {number} index
  */
 box2d.b2DistanceProxy.prototype.GetVertex = function (index)
 {
@@ -8796,10 +8796,10 @@ box2d.b2DistanceProxy.prototype.GetVertex = function (index)
 	return this.m_vertices[index];
 }
 
-/** 
- * Used to warm start box2d.b2Distance. 
+/**
+ * Used to warm start box2d.b2Distance.
  * Set count to zero on first call.
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2SimplexCache = function ()
@@ -8809,29 +8809,29 @@ box2d.b2SimplexCache = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2SimplexCache.prototype.metric = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2SimplexCache.prototype.count = 0;
 /**
- * @export 
+ * @export
  * @type {Array.<number>}
  */
 box2d.b2SimplexCache.prototype.indexA = null;
 /**
- * @export 
+ * @export
  * @type {Array.<number>}
  */
 box2d.b2SimplexCache.prototype.indexB = null;
 
 /**
- * @export 
- * @return {box2d.b2SimplexCache} 
+ * @export
+ * @return {box2d.b2SimplexCache}
  */
 box2d.b2SimplexCache.prototype.Reset = function ()
 {
@@ -8840,10 +8840,10 @@ box2d.b2SimplexCache.prototype.Reset = function ()
 	return this;
 }
 
-/** 
- * Input for box2d.b2Distance. 
- * You have to option to use the shape radii in the computation. 
- * @export 
+/**
+ * Input for box2d.b2Distance.
+ * You have to option to use the shape radii in the computation.
+ * @export
  * @constructor
  */
 box2d.b2DistanceInput = function ()
@@ -8855,34 +8855,34 @@ box2d.b2DistanceInput = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2DistanceProxy}
  */
 box2d.b2DistanceInput.prototype.proxyA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2DistanceProxy}
  */
 box2d.b2DistanceInput.prototype.proxyB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Transform}
  */
 box2d.b2DistanceInput.prototype.transformA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Transform}
  */
 box2d.b2DistanceInput.prototype.transformB = null;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2DistanceInput.prototype.useRadii = false;
 
 /**
- * @export 
- * @return {box2d.b2DistanceInput} 
+ * @export
+ * @return {box2d.b2DistanceInput}
  */
 box2d.b2DistanceInput.prototype.Reset = function ()
 {
@@ -8894,10 +8894,10 @@ box2d.b2DistanceInput.prototype.Reset = function ()
 	return this;
 }
 
-/** 
- * Output for box2d.b2Distance. 
- * @export 
- * @constructor 
+/**
+ * Output for box2d.b2Distance.
+ * @export
+ * @constructor
  */
 box2d.b2DistanceOutput = function ()
 {
@@ -8906,29 +8906,29 @@ box2d.b2DistanceOutput = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceOutput.prototype.pointA = null;	///< closest point on shapeA
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceOutput.prototype.pointB = null;	///< closest point on shapeB
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceOutput.prototype.distance = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceOutput.prototype.iterations = 0; ///< number of GJK iterations used
 
 /**
- * @export 
- * @return {box2d.b2DistanceOutput} 
+ * @export
+ * @return {box2d.b2DistanceOutput}
  */
 box2d.b2DistanceOutput.prototype.Reset = function ()
 {
@@ -8940,28 +8940,28 @@ box2d.b2DistanceOutput.prototype.Reset = function ()
 }
 
 /**
- * GJK using Voronoi regions (Christer Ericson) and Barycentric 
- * coordinates. 
+ * GJK using Voronoi regions (Christer Ericson) and Barycentric
+ * coordinates.
  */
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2_gjkCalls = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2_gjkIters = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2_gjkMaxIters = 0;
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2SimplexVertex = function ()
@@ -8972,40 +8972,40 @@ box2d.b2SimplexVertex = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2SimplexVertex.prototype.wA = null; // support point in proxyA
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2SimplexVertex.prototype.wB = null; // support point in proxyB
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2SimplexVertex.prototype.w = null; // wB - wA
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2SimplexVertex.prototype.a = 0; // barycentric coordinate for closest point
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2SimplexVertex.prototype.indexA = 0; // wA index
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2SimplexVertex.prototype.indexB = 0; // wB index
 
 /**
- * @export 
- * @return {box2d.b2SimplexVertex} 
- * @param {box2d.b2SimplexVertex} other 
+ * @export
+ * @return {box2d.b2SimplexVertex}
+ * @param {box2d.b2SimplexVertex} other
  */
 box2d.b2SimplexVertex.prototype.Copy = function (other)
 {
@@ -9019,7 +9019,7 @@ box2d.b2SimplexVertex.prototype.Copy = function (other)
 }
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2Simplex = function ()
@@ -9034,39 +9034,39 @@ box2d.b2Simplex = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2SimplexVertex}
  */
 box2d.b2Simplex.prototype.m_v1 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2SimplexVertex}
  */
 box2d.b2Simplex.prototype.m_v2 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2SimplexVertex}
  */
 box2d.b2Simplex.prototype.m_v3 = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2SimplexVertex>}
  */
 box2d.b2Simplex.prototype.m_vertices = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Simplex.prototype.m_count = 0;
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2SimplexCache} cache 
- * @param {box2d.b2DistanceProxy} proxyA 
- * @param {box2d.b2Transform} transformA 
- * @param {box2d.b2DistanceProxy} proxyB 
- * @param {box2d.b2Transform} transformB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2SimplexCache} cache
+ * @param {box2d.b2DistanceProxy} proxyA
+ * @param {box2d.b2Transform} transformA
+ * @param {box2d.b2DistanceProxy} proxyB
+ * @param {box2d.b2Transform} transformB
  */
 box2d.b2Simplex.prototype.ReadCache = function (cache, proxyA, transformA, proxyB, transformB)
 {
@@ -9118,9 +9118,9 @@ box2d.b2Simplex.prototype.ReadCache = function (cache, proxyA, transformA, proxy
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2SimplexCache} cache 
+ * @export
+ * @return {void}
+ * @param {box2d.b2SimplexCache} cache
  */
 box2d.b2Simplex.prototype.WriteCache = function (cache)
 {
@@ -9134,10 +9134,10 @@ box2d.b2Simplex.prototype.WriteCache = function (cache)
 	}
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Simplex.prototype.GetSearchDirection = function (out)
 {
@@ -9169,9 +9169,9 @@ box2d.b2Simplex.prototype.GetSearchDirection = function (out)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Simplex.prototype.GetClosestPoint = function (out)
 {
@@ -9186,7 +9186,7 @@ box2d.b2Simplex.prototype.GetClosestPoint = function (out)
 
 	case 2:
 		return out.SetXY(
-			this.m_v1.a * this.m_v1.w.x + this.m_v2.a * this.m_v2.w.x, 
+			this.m_v1.a * this.m_v1.w.x + this.m_v2.a * this.m_v2.w.x,
 			this.m_v1.a * this.m_v1.w.y + this.m_v2.a * this.m_v2.w.y);
 
 	case 3:
@@ -9199,10 +9199,10 @@ box2d.b2Simplex.prototype.GetClosestPoint = function (out)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} pA
- * @param {box2d.b2Vec2} pB 
+ * @param {box2d.b2Vec2} pB
  */
 box2d.b2Simplex.prototype.GetWitnessPoints = function (pA, pB)
 {
@@ -9236,7 +9236,7 @@ box2d.b2Simplex.prototype.GetWitnessPoints = function (pA, pB)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2Simplex.prototype.GetMetric = function ()
@@ -9262,7 +9262,7 @@ box2d.b2Simplex.prototype.GetMetric = function ()
 	}
 }
 
-/** 
+/**
  * Solve a line segment using barycentric coordinates.
  *
  * p = a1 * w1 + a2 * w2
@@ -9286,9 +9286,9 @@ box2d.b2Simplex.prototype.GetMetric = function ()
  * Solution
  * a1 = d12_1 / d12
  * a2 = d12_2 / d12
- *  
- * @export 
- * @return {void} 
+ *
+ * @export
+ * @return {void}
  */
 box2d.b2Simplex.prototype.Solve2 = function ()
 {
@@ -9330,8 +9330,8 @@ box2d.b2Simplex.prototype.Solve2 = function ()
  * - edge points[0]-points[2]
  * - edge points[1]-points[2]
  * - inside the triangle
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2Simplex.prototype.Solve3 = function ()
 {
@@ -9445,15 +9445,15 @@ box2d.b2Simplex.s_e12 = new box2d.b2Vec2();
 box2d.b2Simplex.s_e13 = new box2d.b2Vec2();
 box2d.b2Simplex.s_e23 = new box2d.b2Vec2();
 
-/** 
+/**
  * Compute the closest points between two shapes. Supports any combination of:
  * box2d.b2CircleShape, box2d.b2PolygonShape, box2d.b2EdgeShape. The simplex cache is input/output.
  * On the first call set box2d.b2SimplexCache.count to zero.
- * @export 
- * @param {box2d.b2DistanceOutput} output 
- * @param {box2d.b2SimplexCache} cache 
- * @param {box2d.b2DistanceInput} input 
- * @return {void} 
+ * @export
+ * @param {box2d.b2DistanceOutput} output
+ * @param {box2d.b2SimplexCache} cache
+ * @param {box2d.b2DistanceInput} input
+ * @return {void}
  */
 box2d.b2Distance = function (output, cache, input)
 {
@@ -9649,14 +9649,14 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Joint');
 goog.require('box2d.b2Math');
 
-/** 
- * Weld joint definition. You need to specify local anchor 
- * points where they are attached and the relative body angle. 
- * The position of the anchor points is important for computing 
- * the reaction torque. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Weld joint definition. You need to specify local anchor
+ * points where they are attached and the relative body angle.
+ * The position of the anchor points is important for computing
+ * the reaction torque.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2WeldJointDef = function ()
 {
@@ -9668,49 +9668,49 @@ box2d.b2WeldJointDef = function ()
 
 goog.inherits(box2d.b2WeldJointDef, box2d.b2JointDef);
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJointDef.prototype.localAnchorA = null;
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJointDef.prototype.localAnchorB = null;
 
-/** 
- * The bodyB angle minus bodyA angle in the reference state 
- * (radians). 
- * @export 
+/**
+ * The bodyB angle minus bodyA angle in the reference state
+ * (radians).
+ * @export
  * @type {number}
  */
 box2d.b2WeldJointDef.prototype.referenceAngle = 0;
 
-/** 
- * The mass-spring-damper frequency in Hertz. Rotation only. 
- * Disable softness with a value of 0. 
- * @export 
+/**
+ * The mass-spring-damper frequency in Hertz. Rotation only.
+ * Disable softness with a value of 0.
+ * @export
  * @type {number}
  */
 box2d.b2WeldJointDef.prototype.frequencyHz = 0;
 
-/** 
- * The damping ratio. 0 = no damping, 1 = critical damping. 
- * @export 
+/**
+ * The damping ratio. 0 = no damping, 1 = critical damping.
+ * @export
  * @type {number}
  */
 box2d.b2WeldJointDef.prototype.dampingRatio = 0;
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Body} bA 
- * @param {box2d.b2Body} bB 
- * @param {box2d.b2Vec2} anchor 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Body} bA
+ * @param {box2d.b2Body} bB
+ * @param {box2d.b2Vec2} anchor
  */
 box2d.b2WeldJointDef.prototype.Initialize = function (bA, bB, anchor)
 {
@@ -9721,14 +9721,14 @@ box2d.b2WeldJointDef.prototype.Initialize = function (bA, bB, anchor)
 	this.referenceAngle = this.bodyB.GetAngleRadians() - this.bodyA.GetAngleRadians();
 }
 
-/** 
- * A weld joint essentially glues two bodies together. A weld 
- * joint may distort somewhat because the island constraint 
- * solver is approximate. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2WeldJointDef} def 
+/**
+ * A weld joint essentially glues two bodies together. A weld
+ * joint may distort somewhat because the island constraint
+ * solver is approximate.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2WeldJointDef} def
  */
 box2d.b2WeldJoint = function (def)
 {
@@ -9758,127 +9758,127 @@ box2d.b2WeldJoint = function (def)
 goog.inherits(box2d.b2WeldJoint, box2d.b2Joint);
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_frequencyHz = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_dampingRatio = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_bias = 0;
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJoint.prototype.m_localAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJoint.prototype.m_localAnchorB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_referenceAngle = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_gamma = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec3}
  */
 box2d.b2WeldJoint.prototype.m_impulse = null;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJoint.prototype.m_rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJoint.prototype.m_rB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJoint.prototype.m_localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WeldJoint.prototype.m_invIB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat33}
  */
 box2d.b2WeldJoint.prototype.m_mass = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2WeldJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2WeldJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJoint.prototype.m_lalcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WeldJoint.prototype.m_lalcB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat33}
  */
 box2d.b2WeldJoint.prototype.m_K = null;
@@ -9999,9 +9999,9 @@ box2d.b2WeldJoint.prototype.InitVelocityConstraints = function (data)
 }
 box2d.b2WeldJoint.prototype.InitVelocityConstraints.s_P = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2WeldJoint.prototype.SolveVelocityConstraints = function (data)
@@ -10057,18 +10057,18 @@ box2d.b2WeldJoint.prototype.SolveVelocityConstraints = function (data)
 			box2d.b2WeldJoint.prototype.SolveVelocityConstraints.s_Cdot1)
 		/*float32*/ var Cdot2 = wB - wA;
 //		b2Vec3 var Cdot(Cdot1.x, Cdot1.y, Cdot2);
-	
+
 //		b2Vec3 impulse = -b2Mul(m_mass, Cdot);
 		var impulse = box2d.b2MulM33XYZ(this.m_mass, Cdot1.x, Cdot1.y, Cdot2, box2d.b2WeldJoint.prototype.SolveVelocityConstraints.s_impulse).SelfNeg();
 		this.m_impulse.SelfAdd(impulse);
-	
+
 //		box2d.b2Vec2 P(impulse.x, impulse.y);
 		var P = box2d.b2WeldJoint.prototype.SolveVelocityConstraints.s_P.SetXY(impulse.x, impulse.y);
-	
+
 //		vA -= mA * P;
 		vA.SelfMulSub(mA, P);
 		wA -= iA * (box2d.b2CrossVV(this.m_rA, P) + impulse.z);
-	
+
 //		vB += mB * P;
 		vB.SelfMulAdd(mB, P);
 		wB += iB * (box2d.b2CrossVV(this.m_rB, P) + impulse.z);
@@ -10085,9 +10085,9 @@ box2d.b2WeldJoint.prototype.SolveVelocityConstraints.s_impulse = new box2d.b2Vec
 box2d.b2WeldJoint.prototype.SolveVelocityConstraints.s_P = new box2d.b2Vec2();
 
 /**
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2WeldJoint.prototype.SolvePositionConstraints = function (data)
 {
@@ -10124,10 +10124,10 @@ box2d.b2WeldJoint.prototype.SolvePositionConstraints = function (data)
 	if (this.m_frequencyHz > 0)
 	{
 //		b2Vec2 C1 =  cB + rB - cA - rA;
-		var C1 = 
+		var C1 =
 			box2d.b2SubVV(
-				box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0), 
-				box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1), 
+				box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0),
+				box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1),
 				box2d.b2WeldJoint.prototype.SolvePositionConstraints.s_C1);
 		positionError = C1.GetLength();
 		angularError = 0;
@@ -10146,28 +10146,28 @@ box2d.b2WeldJoint.prototype.SolvePositionConstraints = function (data)
 	else
 	{
 //		b2Vec2 C1 =  cB + rB - cA - rA;
-		var C1 = 
+		var C1 =
 			box2d.b2SubVV(
-				box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0), 
-				box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1), 
+				box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0),
+				box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1),
 				box2d.b2WeldJoint.prototype.SolvePositionConstraints.s_C1);
 		/*float32*/ var C2 = aB - aA - this.m_referenceAngle;
-	
+
 		positionError = C1.GetLength();
 		angularError = box2d.b2Abs(C2);
-	
+
 //		b2Vec3 C(C1.x, C1.y, C2);
-	
+
 //		b2Vec3 impulse = -K.Solve33(C);
 		/*box2d.b2Vec3*/ var impulse = K.Solve33(C1.x, C1.y, C2, box2d.b2WeldJoint.prototype.SolvePositionConstraints.s_impulse).SelfNeg();
-	
+
 //		b2Vec2 P(impulse.x, impulse.y);
 		var P = box2d.b2WeldJoint.prototype.SolvePositionConstraints.s_P.SetXY(impulse.x, impulse.y);
-	
+
 //		cA -= mA * P;
 		cA.SelfMulSub(mA, P);
 		aA -= iA * (box2d.b2CrossVV(this.m_rA, P) + impulse.z);
-	
+
 //		cB += mB * P;
 		cB.SelfMulAdd(mB, P);
 		aB += iB * (box2d.b2CrossVV(this.m_rB, P) + impulse.z);
@@ -10184,30 +10184,30 @@ box2d.b2WeldJoint.prototype.SolvePositionConstraints.s_C1 = new box2d.b2Vec2();
 box2d.b2WeldJoint.prototype.SolvePositionConstraints.s_P = new box2d.b2Vec2();
 box2d.b2WeldJoint.prototype.SolvePositionConstraints.s_impulse = new box2d.b2Vec3();
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2WeldJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetWorldPoint(this.m_localAnchorA, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2WeldJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2WeldJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -10217,66 +10217,66 @@ box2d.b2WeldJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return out.SetXY(inv_dt * this.m_impulse.x, inv_dt * this.m_impulse.y);
 }
 
-/** 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2WeldJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return inv_dt * this.m_impulse.z;
 }
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2WeldJoint.prototype.GetLocalAnchorA = function (out) { return out.Copy(this.m_localAnchorA); }
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2WeldJoint.prototype.GetLocalAnchorB = function (out) { return out.Copy(this.m_localAnchorB); }
 
-/** 
- * Get the reference angle. 
- * @export 
+/**
+ * Get the reference angle.
+ * @export
  * @return {number}
  */
 box2d.b2WeldJoint.prototype.GetReferenceAngle = function () { return this.m_referenceAngle; }
 
-/** 
- * Set/get frequency in Hz. 
- * @return {void} 
- * @param {number} hz 
+/**
+ * Set/get frequency in Hz.
+ * @return {void}
+ * @param {number} hz
  */
 box2d.b2WeldJoint.prototype.SetFrequency = function (hz) { this.m_frequencyHz = hz; }
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2WeldJoint.prototype.GetFrequency = function () { return this.m_frequencyHz; }
 
-/** 
- * Set/get damping ratio. 
- * @return {void} 
- * @param {number} ratio 
+/**
+ * Set/get damping ratio.
+ * @return {void}
+ * @param {number} ratio
  */
 box2d.b2WeldJoint.prototype.SetDampingRatio = function (ratio) { this.m_dampingRatio = ratio; }
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2WeldJoint.prototype.GetDampingRatio = function () { return this.m_dampingRatio; }
 
-/** 
- * Dump to b2Log 
- * @export 
+/**
+ * Dump to b2Log
+ * @export
  * @return {void}
  */
 box2d.b2WeldJoint.prototype.Dump = function ()
@@ -10285,7 +10285,7 @@ box2d.b2WeldJoint.prototype.Dump = function ()
 	{
 		var indexA = this.m_bodyA.m_islandIndex;
 		var indexB = this.m_bodyB.m_islandIndex;
-	
+
 		box2d.b2Log("  /*box2d.b2WeldJointDef*/ var jd = new box2d.b2WeldJointDef();\n");
 		box2d.b2Log("  jd.bodyA = bodies[%d];\n", indexA);
 		box2d.b2Log("  jd.bodyB = bodies[%d];\n", indexB);
@@ -10323,14 +10323,14 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Joint');
 goog.require('box2d.b2Math');
 
-/** 
- * Rope joint definition. This requires two body anchor points 
- * and a maximum lengths. 
- * Note: by default the connected objects will not collide. see 
- * collideConnected in box2d.b2JointDef. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Rope joint definition. This requires two body anchor points
+ * and a maximum lengths.
+ * Note: by default the connected objects will not collide. see
+ * collideConnected in box2d.b2JointDef.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2RopeJointDef = function ()
 {
@@ -10342,42 +10342,42 @@ box2d.b2RopeJointDef = function ()
 
 goog.inherits(box2d.b2RopeJointDef, box2d.b2JointDef);
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJointDef.prototype.localAnchorA = null;
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJointDef.prototype.localAnchorB = null;
 
-/** 
- * The maximum length of the rope. 
- * Warning: this must be larger than box2d.b2_linearSlop or the 
- * joint will have no effect. 
- * @export 
+/**
+ * The maximum length of the rope.
+ * Warning: this must be larger than box2d.b2_linearSlop or the
+ * joint will have no effect.
+ * @export
  * @type {number}
  */
 box2d.b2RopeJointDef.prototype.maxLength = 0;
 
-/** 
- * A rope joint enforces a maximum distance between two points 
- * on two bodies. It has no other effect. 
- * Warning: if you attempt to change the maximum length during 
- * the simulation you will get some non-physical behavior. A 
- * model that would allow you to dynamically modify the length 
- * would have some sponginess, so I chose not to implement it 
- * that way. See box2d.b2DistanceJoint if you want to 
- * dynamically control length. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2RopeJointDef} def 
+/**
+ * A rope joint enforces a maximum distance between two points
+ * on two bodies. It has no other effect.
+ * Warning: if you attempt to change the maximum length during
+ * the simulation you will get some non-physical behavior. A
+ * model that would allow you to dynamically modify the length
+ * would have some sponginess, so I chose not to implement it
+ * that way. See box2d.b2DistanceJoint if you want to
+ * dynamically control length.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2RopeJointDef} def
  */
 box2d.b2RopeJoint = function (def)
 {
@@ -10403,122 +10403,122 @@ goog.inherits(box2d.b2RopeJoint, box2d.b2Joint);
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJoint.prototype.m_localAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJoint.prototype.m_localAnchorB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_maxLength = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_length = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_impulse = 0;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJoint.prototype.m_u = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJoint.prototype.m_rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJoint.prototype.m_rB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJoint.prototype.m_localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_invIB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RopeJoint.prototype.m_mass = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2LimitState}
  */
 box2d.b2RopeJoint.prototype.m_state = box2d.b2LimitState.e_inactiveLimit;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2RopeJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2RopeJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJoint.prototype.m_lalcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RopeJoint.prototype.m_lalcB = null;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2RopeJoint.prototype.InitVelocityConstraints = function (data)
@@ -10610,9 +10610,9 @@ box2d.b2RopeJoint.prototype.InitVelocityConstraints = function (data)
 }
 box2d.b2RopeJoint.prototype.InitVelocityConstraints.s_P = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2RopeJoint.prototype.SolveVelocityConstraints = function (data)
@@ -10661,10 +10661,10 @@ box2d.b2RopeJoint.prototype.SolveVelocityConstraints.s_vpA = new box2d.b2Vec2();
 box2d.b2RopeJoint.prototype.SolveVelocityConstraints.s_vpB = new box2d.b2Vec2();
 box2d.b2RopeJoint.prototype.SolveVelocityConstraints.s_P = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+/**
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2RopeJoint.prototype.SolvePositionConstraints = function (data)
 {
@@ -10709,30 +10709,30 @@ box2d.b2RopeJoint.prototype.SolvePositionConstraints = function (data)
 }
 box2d.b2RopeJoint.prototype.SolvePositionConstraints.s_P = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2RopeJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetWorldPoint(this.m_localAnchorA, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2RopeJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2RopeJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -10742,50 +10742,50 @@ box2d.b2RopeJoint.prototype.GetReactionForce = function (inv_dt, out)
 //	return out.SetXY(inv_dt * this.m_linearImpulse.x, inv_dt * this.m_linearImpulse.y);
 }
 
-/** 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2RopeJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return 0;
 }
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2RopeJoint.prototype.GetLocalAnchorA = function (out) { return out.Copy(this.m_localAnchorA); }
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2RopeJoint.prototype.GetLocalAnchorB = function (out) { return out.Copy(this.m_localAnchorB); }
 
-/** 
- * Set/Get the maximum length of the rope. 
- * @export 
- * @return {void} 
+/**
+ * Set/Get the maximum length of the rope.
+ * @export
+ * @return {void}
  * @param {number} length
  */
 box2d.b2RopeJoint.prototype.SetMaxLength = function (length) { this.m_maxLength = length; }
-/** 
- * @export 
- * @return {number} 
+/**
+ * @export
+ * @return {number}
  */
 box2d.b2RopeJoint.prototype.GetMaxLength = function ()
 {
 	return this.m_maxLength;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2LimitState}
  */
 box2d.b2RopeJoint.prototype.GetLimitState = function ()
@@ -10793,9 +10793,9 @@ box2d.b2RopeJoint.prototype.GetLimitState = function ()
 	return this.m_state;
 }
 
-/** 
- * Dump joint to dmLog 
- * @export 
+/**
+ * Dump joint to dmLog
+ * @export
  * @return {void}
  */
 box2d.b2RopeJoint.prototype.Dump = function ()
@@ -10804,7 +10804,7 @@ box2d.b2RopeJoint.prototype.Dump = function ()
 	{
 		var indexA = this.m_bodyA.m_islandIndex;
 		var indexB = this.m_bodyB.m_islandIndex;
-	
+
 		box2d.b2Log("  /*box2d.b2RopeJointDef*/ var jd = new box2d.b2RopeJointDef();\n");
 		box2d.b2Log("  jd.bodyA = bodies[%d];\n", indexA);
 		box2d.b2Log("  jd.bodyB = bodies[%d];\n", indexB);
@@ -10840,11 +10840,11 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Controller');
 goog.require('box2d.b2Math');
 
-/** 
- * Applies simplified gravity between every pair of bodies 
- * @export 
- * @constructor 
- * @extends {box2d.b2Controller} 
+/**
+ * Applies simplified gravity between every pair of bodies
+ * @export
+ * @constructor
+ * @extends {box2d.b2Controller}
  */
 box2d.b2GravityController = function ()
 {
@@ -10853,24 +10853,24 @@ box2d.b2GravityController = function ()
 
 goog.inherits(box2d.b2GravityController, box2d.b2Controller);
 
-/** 
- * Specifies the strength of the gravitiation force 
- * @export 
- * @type {number} 
+/**
+ * Specifies the strength of the gravitiation force
+ * @export
+ * @type {number}
  */
 box2d.b2GravityController.prototype.G = 1;
-/** 
- * If true, gravity is proportional to r^-2, otherwise r^-1 
- * @export 
- * @type {boolean} 
+/**
+ * If true, gravity is proportional to r^-2, otherwise r^-1
+ * @export
+ * @type {boolean}
  */
 box2d.b2GravityController.prototype.invSqr = true;
 
-/** 
- * @see b2Controller::Step 
- * @export 
- * @return {void} 
- * @param {box2d.b2TimeStep} step 
+/**
+ * @see b2Controller::Step
+ * @export
+ * @return {void}
+ * @param {box2d.b2TimeStep} step
  */
 box2d.b2GravityController.prototype.Step = function (step)
 {
@@ -10951,9 +10951,9 @@ goog.provide('box2d.b2TimeStep');
 
 goog.require('box2d.b2Settings');
 
-/** 
- * Profiling data. Times are in milliseconds. 
- * @export 
+/**
+ * Profiling data. Times are in milliseconds.
+ * @export
  * @constructor
  */
 box2d.b2Profile = function ()
@@ -10961,48 +10961,48 @@ box2d.b2Profile = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Profile.prototype.step = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Profile.prototype.collide = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Profile.prototype.solve = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Profile.prototype.solveInit = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Profile.prototype.solveVelocity = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Profile.prototype.solvePosition = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Profile.prototype.broadphase = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Profile.prototype.solveTOI = 0;
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Profile}
  */
 box2d.b2Profile.prototype.Reset = function ()
@@ -11018,9 +11018,9 @@ box2d.b2Profile.prototype.Reset = function ()
 	return this;
 }
 
-/** 
- * This is an internal structure. 
- * @export 
+/**
+ * This is an internal structure.
+ * @export
  * @constructor
  */
 box2d.b2TimeStep = function ()
@@ -11028,44 +11028,44 @@ box2d.b2TimeStep = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2TimeStep.prototype.dt = 0; // time step
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2TimeStep.prototype.inv_dt = 0; // inverse time step (0 if dt === 0).
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2TimeStep.prototype.dtRatio = 0; // dt * inv_dt0
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2TimeStep.prototype.velocityIterations = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2TimeStep.prototype.positionIterations = 0;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2TimeStep.prototype.warmStarting = false;
 
-/** 
- * @export 
- * @return {box2d.b2TimeStep} 
- * @param {box2d.b2TimeStep} step 
+/**
+ * @export
+ * @return {box2d.b2TimeStep}
+ * @param {box2d.b2TimeStep} step
  */
 box2d.b2TimeStep.prototype.Copy = function (step)
 {
-	this.dt = step.dt;				// time step                        
+	this.dt = step.dt;				// time step
 	this.inv_dt = step.inv_dt;  	// inverse time step (0 if dt === 0).
 	this.dtRatio = step.dtRatio;	// dt * inv_dt0
 	this.positionIterations = step.positionIterations;
@@ -11074,10 +11074,10 @@ box2d.b2TimeStep.prototype.Copy = function (step)
 	return this;
 }
 
-/** 
- * This is an internal structure. 
- * @export 
- * @constructor 
+/**
+ * This is an internal structure.
+ * @export
+ * @constructor
  */
 box2d.b2Position = function ()
 {
@@ -11085,30 +11085,30 @@ box2d.b2Position = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2Position.prototype.c = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Position.prototype.a = 0;
 
-/** 
- * @export 
+/**
+ * @export
  * @return {Array.<box2d.b2Position>}
- * @param {number} length 
+ * @param {number} length
  */
 box2d.b2Position.MakeArray = function (length)
 {
 	return box2d.b2MakeArray(length, function (i) { return new box2d.b2Position(); } );
 }
 
-/** 
- * This is an internal structure. 
- * @export 
- * @constructor 
+/**
+ * This is an internal structure.
+ * @export
+ * @constructor
  */
 box2d.b2Velocity = function ()
 {
@@ -11116,29 +11116,29 @@ box2d.b2Velocity = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2Velocity.prototype.v = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Velocity.prototype.w = 0;
 
-/** 
- * @export 
+/**
+ * @export
  * @return {Array.<box2d.b2Velocity>}
- * @param {number} length 
+ * @param {number} length
  */
 box2d.b2Velocity.MakeArray = function (length)
 {
 	return box2d.b2MakeArray(length, function (i) { return new box2d.b2Velocity(); } );
 }
 
-/** 
- * Solver Data 
- * @export 
+/**
+ * Solver Data
+ * @export
  * @constructor
  */
 box2d.b2SolverData = function ()
@@ -11147,17 +11147,17 @@ box2d.b2SolverData = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2TimeStep}
  */
 box2d.b2SolverData.prototype.step = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Position>}
  */
 box2d.b2SolverData.prototype.positions = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Velocity>}
  */
 box2d.b2SolverData.prototype.velocities = null;
@@ -11187,15 +11187,15 @@ goog.require('box2d.b2Math');
 goog.require('box2d.b2Distance');
 
 /**
- * Structures and functions used for computing contact points, 
- * distance queries, and TOI queries. 
+ * Structures and functions used for computing contact points,
+ * distance queries, and TOI queries.
  */
 
-/** 
- * @export 
+/**
+ * @export
  * @enum
  */
-box2d.b2ContactFeatureType = 
+box2d.b2ContactFeatureType =
 {
 	e_vertex	: 0,
 	e_face		: 1
@@ -11203,12 +11203,12 @@ box2d.b2ContactFeatureType =
 goog.exportProperty(box2d.b2ContactFeatureType, 'e_vertex', box2d.b2ContactFeatureType.e_vertex);
 goog.exportProperty(box2d.b2ContactFeatureType, 'e_face'  , box2d.b2ContactFeatureType.e_face  );
 
-/** 
- * The features that intersect to form the contact point 
+/**
+ * The features that intersect to form the contact point
  * This must be 4 bytes or less.
- * @export 
- * @constructor 
- * @param {box2d.b2ContactID} id 
+ * @export
+ * @constructor
+ * @param {box2d.b2ContactID} id
  */
 box2d.b2ContactFeature = function (id)
 {
@@ -11216,27 +11216,27 @@ box2d.b2ContactFeature = function (id)
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactID}
  */
 box2d.b2ContactFeature.prototype._id = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
-box2d.b2ContactFeature.prototype._indexA = 0; ///< Feature index on shapeA   
+box2d.b2ContactFeature.prototype._indexA = 0; ///< Feature index on shapeA
 /**
- * @export 
+ * @export
  * @type {number}
  */
-box2d.b2ContactFeature.prototype._indexB = 0; ///< Feature index on shapeB   
+box2d.b2ContactFeature.prototype._indexB = 0; ///< Feature index on shapeB
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactFeature.prototype._typeA = 0; ///< The feature type on shapeA
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactFeature.prototype._typeB = 0; ///< The feature type on shapeB
@@ -11321,10 +11321,10 @@ Object.defineProperty(
 	}
 );
 
-/** 
- * Contact ids to facilitate warm starting. 
- * @export 
- * @constructor 
+/**
+ * Contact ids to facilitate warm starting.
+ * @export
+ * @constructor
  */
 box2d.b2ContactID = function ()
 {
@@ -11332,18 +11332,18 @@ box2d.b2ContactID = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactFeature}
  */
 box2d.b2ContactID.prototype.cf = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactID.prototype.key = 0; ///< Used to quickly compare contact ids.
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2ContactID}
  * @param {box2d.b2ContactID} o
  */
@@ -11354,7 +11354,7 @@ box2d.b2ContactID.prototype.Copy = function (o)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2ContactID}
  */
 box2d.b2ContactID.prototype.Clone = function ()
@@ -11396,7 +11396,7 @@ Object.defineProperty(
  * This structure is stored across time steps, so we keep it small.
  * Note: the impulses are used for internal caching and may not
  * provide reliable contact forces, especially for high speed collisions.
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2ManifoldPoint = function ()
@@ -11406,30 +11406,30 @@ box2d.b2ManifoldPoint = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ManifoldPoint.prototype.localPoint = null; ///< usage depends on manifold type
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ManifoldPoint.prototype.normalImpulse = 0; ///< the non-penetration impulse
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ManifoldPoint.prototype.tangentImpulse = 0; ///< the friction impulse
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactID}
  */
 box2d.b2ManifoldPoint.prototype.id = null; ///< uniquely identifies a contact point between two shapes
 
 /**
- * @export 
+ * @export
  * @return {Array.<box2d.b2ManifoldPoint>}
- * @param {number} length 
+ * @param {number} length
  */
 box2d.b2ManifoldPoint.MakeArray = function (length)
 {
@@ -11437,8 +11437,8 @@ box2d.b2ManifoldPoint.MakeArray = function (length)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2ManifoldPoint.prototype.Reset = function ()
 {
@@ -11449,9 +11449,9 @@ box2d.b2ManifoldPoint.prototype.Reset = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2ManifoldPoint}
- * @param {box2d.b2ManifoldPoint} o 
+ * @param {box2d.b2ManifoldPoint} o
  */
 box2d.b2ManifoldPoint.prototype.Copy = function (o)
 {
@@ -11462,11 +11462,11 @@ box2d.b2ManifoldPoint.prototype.Copy = function (o)
 	return this;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @enum
  */
-box2d.b2ManifoldType = 
+box2d.b2ManifoldType =
 {
 	e_unknown	: -1,
 	e_circles	: 0,
@@ -11478,7 +11478,7 @@ goog.exportProperty(box2d.b2ManifoldType, 'e_circles', box2d.b2ManifoldType.e_ci
 goog.exportProperty(box2d.b2ManifoldType, 'e_faceA'  , box2d.b2ManifoldType.e_faceA  );
 goog.exportProperty(box2d.b2ManifoldType, 'e_faceB'  , box2d.b2ManifoldType.e_faceB  );
 
-/** 
+/**
  * A manifold for two touching convex shapes.
  * Box2D supports multiple types of contact:
  * - clip point versus plane with radius
@@ -11495,7 +11495,7 @@ goog.exportProperty(box2d.b2ManifoldType, 'e_faceB'  , box2d.b2ManifoldType.e_fa
  * account for movement, which is critical for continuous physics.
  * All contact scenarios must be expressed in one of these types.
  * This structure is stored across time steps, so we keep it small.
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2Manifold = function ()
@@ -11508,34 +11508,34 @@ box2d.b2Manifold = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2ManifoldPoint>}
  */
 box2d.b2Manifold.prototype.points = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2Manifold.prototype.localNormal = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2Manifold.prototype.localPoint = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2ManifoldType}
  */
 box2d.b2Manifold.prototype.type = box2d.b2ManifoldType.e_unknown;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Manifold.prototype.pointCount = 0;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  */
 box2d.b2Manifold.prototype.Reset = function ()
 {
@@ -11550,10 +11550,10 @@ box2d.b2Manifold.prototype.Reset = function ()
 	this.pointCount = 0;
 }
 
-/** 
- * @export 
- * @return {box2d.b2Manifold} 
- * @param {box2d.b2Manifold} o 
+/**
+ * @export
+ * @return {box2d.b2Manifold}
+ * @param {box2d.b2Manifold} o
  */
 box2d.b2Manifold.prototype.Copy = function (o)
 {
@@ -11570,7 +11570,7 @@ box2d.b2Manifold.prototype.Copy = function (o)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Manifold}
  */
 box2d.b2Manifold.prototype.Clone = function ()
@@ -11578,10 +11578,10 @@ box2d.b2Manifold.prototype.Clone = function ()
 	return new box2d.b2Manifold().Copy(this);
 }
 
-/** 
- * This is used to compute the current state of a contact 
- * manifold. 
- * @export 
+/**
+ * This is used to compute the current state of a contact
+ * manifold.
+ * @export
  * @constructor
  */
 box2d.b2WorldManifold = function ()
@@ -11592,33 +11592,33 @@ box2d.b2WorldManifold = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WorldManifold.prototype.normal = null; ///< world vector pointing from A to B
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Vec2>}
  */
 box2d.b2WorldManifold.prototype.points = null; ///< world contact point (point of intersection)
 /**
- * @export 
+ * @export
  * @type {Array.<number>}
  */
 box2d.b2WorldManifold.prototype.separations = null; ///< a negative value indicates overlap, in meters
 
-/** 
- * Evaluate the manifold with supplied transforms. This assumes 
- * modest motion from the original state. This does not change 
- * the point count, impulses, etc. The radii must come from the 
- * shapes that generated the manifold. 
- * @export 
+/**
+ * Evaluate the manifold with supplied transforms. This assumes
+ * modest motion from the original state. This does not change
+ * the point count, impulses, etc. The radii must come from the
+ * shapes that generated the manifold.
+ * @export
  * @param {box2d.b2Manifold} manifold
  * @param {box2d.b2Transform} xfA
  * @param {number} radiusA
  * @param {box2d.b2Transform} xfB
- * @param {number} radiusB 
- * @return {void} 
+ * @param {number} radiusB
+ * @return {void}
  */
 box2d.b2WorldManifold.prototype.Initialize = function (manifold, xfA, radiusA, xfB, radiusB)
 {
@@ -11691,12 +11691,12 @@ box2d.b2WorldManifold.prototype.Initialize.s_cB = new box2d.b2Vec2();
 box2d.b2WorldManifold.prototype.Initialize.s_planePoint = new box2d.b2Vec2();
 box2d.b2WorldManifold.prototype.Initialize.s_clipPoint = new box2d.b2Vec2();
 
-/** 
- * This is used for determining the state of contact points. 
- * @export 
+/**
+ * This is used for determining the state of contact points.
+ * @export
  * @enum
  */
-box2d.b2PointState = 
+box2d.b2PointState =
 {
 	b2_nullState	: 0, ///< point does not exist
 	b2_addState		: 1, ///< point was added in the update
@@ -11708,17 +11708,17 @@ goog.exportProperty(box2d.b2PointState, 'b2_addState    ', box2d.b2PointState.b2
 goog.exportProperty(box2d.b2PointState, 'b2_persistState', box2d.b2PointState.b2_persistState);
 goog.exportProperty(box2d.b2PointState, 'b2_removeState ', box2d.b2PointState.b2_removeState );
 
-/** 
- * Compute the point states given two manifolds. The states 
- * pertain to the transition from manifold1 to manifold2. So 
- * state1 is either persist or remove while state2 is either add 
- * or persist. 
- * @export 
+/**
+ * Compute the point states given two manifolds. The states
+ * pertain to the transition from manifold1 to manifold2. So
+ * state1 is either persist or remove while state2 is either add
+ * or persist.
+ * @export
  * @return {void}
- * @param {Array.<box2d.b2PointState>} state1 
- * @param {Array.<box2d.b2PointState>} state2 
- * @param {box2d.b2Manifold} manifold1 
- * @param {box2d.b2Manifold} manifold2 
+ * @param {Array.<box2d.b2PointState>} state1
+ * @param {Array.<box2d.b2PointState>} state2
+ * @param {box2d.b2Manifold} manifold1
+ * @param {box2d.b2Manifold} manifold2
  */
 box2d.b2GetPointStates = function (state1, state2, manifold1, manifold2)
 {
@@ -11767,9 +11767,9 @@ box2d.b2GetPointStates = function (state1, state2, manifold1, manifold2)
 	}
 }
 
-/** 
- * Used for computing contact manifolds. 
- * @export 
+/**
+ * Used for computing contact manifolds.
+ * @export
  * @constructor
  */
 box2d.b2ClipVertex = function ()
@@ -11779,20 +11779,20 @@ box2d.b2ClipVertex = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ClipVertex.prototype.v = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactID}
  */
 box2d.b2ClipVertex.prototype.id = null;
 
 /**
- * @export 
- * @return {Array.<box2d.b2ClipVertex>} 
- * @param {number=} length 
+ * @export
+ * @return {Array.<box2d.b2ClipVertex>}
+ * @param {number=} length
  */
 box2d.b2ClipVertex.MakeArray = function (length)
 {
@@ -11800,9 +11800,9 @@ box2d.b2ClipVertex.MakeArray = function (length)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2ClipVertex}
- * @param {box2d.b2ClipVertex} other 
+ * @param {box2d.b2ClipVertex} other
  */
 box2d.b2ClipVertex.prototype.Copy = function (other)
 {
@@ -11811,10 +11811,10 @@ box2d.b2ClipVertex.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * Ray-cast input data. The ray extends from p1 to p1 + 
- * maxFraction * (p2 - p1). 
- * @export 
+/**
+ * Ray-cast input data. The ray extends from p1 to p1 +
+ * maxFraction * (p2 - p1).
+ * @export
  * @constructor
  */
 box2d.b2RayCastInput = function ()
@@ -11825,24 +11825,24 @@ box2d.b2RayCastInput = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RayCastInput.prototype.p1 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RayCastInput.prototype.p2 = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RayCastInput.prototype.maxFraction = 1;
 
 /**
- * @export 
- * @return {box2d.b2RayCastInput} 
+ * @export
+ * @return {box2d.b2RayCastInput}
  * @param {box2d.b2RayCastInput} o
  */
 box2d.b2RayCastInput.prototype.Copy = function (o)
@@ -11853,10 +11853,10 @@ box2d.b2RayCastInput.prototype.Copy = function (o)
 	return this;
 }
 
-/** 
- * Ray-cast output data. The ray hits at p1 + fraction * (p2 - 
- * p1), where p1 and p2 come from box2d.b2RayCastInput. 
- * @export 
+/**
+ * Ray-cast output data. The ray hits at p1 + fraction * (p2 -
+ * p1), where p1 and p2 come from box2d.b2RayCastInput.
+ * @export
  * @constructor
  */
 box2d.b2RayCastOutput = function ()
@@ -11866,20 +11866,20 @@ box2d.b2RayCastOutput = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2RayCastOutput.prototype.normal = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2RayCastOutput.prototype.fraction = 0;
 
 /**
- * @export 
- * @return {box2d.b2RayCastOutput} 
- * @param {box2d.b2RayCastOutput} o 
+ * @export
+ * @return {box2d.b2RayCastOutput}
+ * @param {box2d.b2RayCastOutput} o
  */
 box2d.b2RayCastOutput.prototype.Copy = function (o)
 {
@@ -11888,9 +11888,9 @@ box2d.b2RayCastOutput.prototype.Copy = function (o)
 	return this;
 }
 
-/** 
- * An axis aligned bounding box. 
- * @export 
+/**
+ * An axis aligned bounding box.
+ * @export
  * @constructor
  */
 box2d.b2AABB = function ()
@@ -11903,31 +11903,31 @@ box2d.b2AABB = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2AABB.prototype.lowerBound = null; ///< the lower vertex
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2AABB.prototype.upperBound = null; ///< the upper vertex
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2AABB.prototype.m_out_center = null; // access using GetCenter()
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2AABB.prototype.m_out_extent = null; // access using GetExtents()
 
 /**
- * @export 
- * @return {box2d.b2AABB} 
- * @param {box2d.b2AABB} o 
+ * @export
+ * @return {box2d.b2AABB}
+ * @param {box2d.b2AABB} o
  */
 box2d.b2AABB.prototype.Copy = function (o)
 {
@@ -11936,9 +11936,9 @@ box2d.b2AABB.prototype.Copy = function (o)
 	return this;
 }
 
-/** 
- * Verify that the bounds are sorted. 
- * @export 
+/**
+ * Verify that the bounds are sorted.
+ * @export
  * @return {boolean}
  */
 box2d.b2AABB.prototype.IsValid = function ()
@@ -11950,9 +11950,9 @@ box2d.b2AABB.prototype.IsValid = function ()
 	return valid;
 }
 
-/** 
- * Get the center of the AABB. 
- * @export 
+/**
+ * Get the center of the AABB.
+ * @export
  * @return {box2d.b2Vec2}
  */
 box2d.b2AABB.prototype.GetCenter = function ()
@@ -11960,20 +11960,20 @@ box2d.b2AABB.prototype.GetCenter = function ()
 	return box2d.b2MidVV(this.lowerBound, this.upperBound, this.m_out_center);
 }
 
-/** 
- * Get the extents of the AABB (half-widths). 
- * @export 
- * @return {box2d.b2Vec2} 
+/**
+ * Get the extents of the AABB (half-widths).
+ * @export
+ * @return {box2d.b2Vec2}
  */
 box2d.b2AABB.prototype.GetExtents = function ()
 {
 	return box2d.b2ExtVV(this.lowerBound, this.upperBound, this.m_out_extent);
 }
 
-/** 
- * Get the perimeter length 
- * @export 
- * @return {number} 
+/**
+ * Get the perimeter length
+ * @export
+ * @return {number}
  */
 box2d.b2AABB.prototype.GetPerimeter = function ()
 {
@@ -11982,10 +11982,10 @@ box2d.b2AABB.prototype.GetPerimeter = function ()
 	return 2 * (wx + wy);
 }
 
-/** 
- * Combine an AABB into this one. 
- * @export 
- * @return {box2d.b2AABB} 
+/**
+ * Combine an AABB into this one.
+ * @export
+ * @return {box2d.b2AABB}
  * @param {box2d.b2AABB} aabb
  */
 box2d.b2AABB.prototype.Combine1 = function (aabb)
@@ -11997,10 +11997,10 @@ box2d.b2AABB.prototype.Combine1 = function (aabb)
 	return this;
 }
 
-/** 
- * Combine two AABBs into this one. 
- * @export 
- * @return {box2d.b2AABB} 
+/**
+ * Combine two AABBs into this one.
+ * @export
+ * @return {box2d.b2AABB}
  * @param {box2d.b2AABB} aabb1
  * @param {box2d.b2AABB} aabb2
  */
@@ -12014,7 +12014,7 @@ box2d.b2AABB.prototype.Combine2 = function (aabb1, aabb2)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2AABB}
  * @param {box2d.b2AABB} aabb1
  * @param {box2d.b2AABB} aabb2
@@ -12026,11 +12026,11 @@ box2d.b2AABB.Combine = function (aabb1, aabb2, out)
 	return out;
 }
 
-/** 
- * Does this aabb contain the provided AABB. 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2AABB} aabb 
+/**
+ * Does this aabb contain the provided AABB.
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2AABB} aabb
  */
 box2d.b2AABB.prototype.Contains = function (aabb)
 {
@@ -12042,9 +12042,9 @@ box2d.b2AABB.prototype.Contains = function (aabb)
 	return result;
 }
 
-/** 
- * From Real-time Collision Detection, p179. 
- * @export 
+/**
+ * From Real-time Collision Detection, p179.
+ * @export
  * @return {boolean}
  * @param {box2d.b2RayCastOutput} output
  * @param {box2d.b2RayCastInput} input
@@ -12161,9 +12161,9 @@ box2d.b2AABB.prototype.RayCast = function (output, input)
 }
 
 /**
- * @export 
- * @return {boolean} 
- * @param {box2d.b2AABB} other 
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2AABB} other
  */
 box2d.b2AABB.prototype.TestOverlap = function (other)
 {
@@ -12182,10 +12182,10 @@ box2d.b2AABB.prototype.TestOverlap = function (other)
 }
 
 /**
- * @export 
- * @return {boolean} 
+ * @export
+ * @return {boolean}
  * @param {box2d.b2AABB} a
- * @param {box2d.b2AABB} b 
+ * @param {box2d.b2AABB} b
  */
 box2d.b2TestOverlapAABB = function (a, b)
 {
@@ -12203,16 +12203,16 @@ box2d.b2TestOverlapAABB = function (a, b)
 	return true;
 }
 
-/** 
- * Clipping for contact manifolds. 
- * Sutherland-Hodgman clipping. 
- * @export 
- * @return {number} 
- * @param {Array.<box2d.b2ClipVertex>} vOut 
+/**
+ * Clipping for contact manifolds.
+ * Sutherland-Hodgman clipping.
+ * @export
+ * @return {number}
+ * @param {Array.<box2d.b2ClipVertex>} vOut
  * @param {Array.<box2d.b2ClipVertex>} vIn
- * @param {box2d.b2Vec2} normal 
- * @param {number} offset 
- * @param {number} vertexIndexA 
+ * @param {box2d.b2Vec2} normal
+ * @param {number} offset
+ * @param {number} vertexIndexA
  */
 box2d.b2ClipSegmentToLine = function (vOut, vIn, normal, offset, vertexIndexA)
 {
@@ -12252,12 +12252,12 @@ box2d.b2ClipSegmentToLine = function (vOut, vIn, normal, offset, vertexIndexA)
 }
 
 /**
- * @export 
- * @return {boolean} 
- * @param {box2d.b2Shape} shapeA 
- * @param {box2d.b2Shape} shapeB 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2Transform} xfB 
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2Shape} shapeA
+ * @param {box2d.b2Shape} shapeB
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2TestOverlapShape = function (shapeA, indexA, shapeB, indexB, xfA, xfB)
 {
@@ -12303,10 +12303,10 @@ goog.provide('box2d.b2Timer');
 
 goog.require('box2d.b2Settings');
 
-/** 
- * Timer for profiling. This has platform specific code and may 
- * not work on every platform. 
- * @export 
+/**
+ * Timer for profiling. This has platform specific code and may
+ * not work on every platform.
+ * @export
  * @constructor
  */
 box2d.b2Timer = function ()
@@ -12315,13 +12315,13 @@ box2d.b2Timer = function ()
 }
 
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Timer.prototype.m_start = 0;
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Timer}
  */
 box2d.b2Timer.prototype.Reset = function ()
@@ -12331,7 +12331,7 @@ box2d.b2Timer.prototype.Reset = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2Timer.prototype.GetMilliseconds = function ()
@@ -12340,7 +12340,7 @@ box2d.b2Timer.prototype.GetMilliseconds = function ()
 }
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2Counter = function ()
@@ -12348,24 +12348,24 @@ box2d.b2Counter = function ()
 }
 
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Counter.prototype.m_count = 0;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Counter.prototype.m_min_count = 0;
 /**
- * @export 
- * @type {number} 
+ * @export
+ * @type {number}
  */
 box2d.b2Counter.prototype.m_max_count = 0;
 
 /**
- * @export 
- * @return {number} 
+ * @export
+ * @return {number}
  */
 box2d.b2Counter.prototype.GetCount = function ()
 {
@@ -12373,26 +12373,26 @@ box2d.b2Counter.prototype.GetCount = function ()
 }
 
 /**
- * @export 
- * @return {number} 
+ * @export
+ * @return {number}
  */
 box2d.b2Counter.prototype.GetMinCount = function ()
 {
 	return this.m_min_count;
 }
 
-/** 
- * @export 
- * @return {number} 
+/**
+ * @export
+ * @return {number}
  */
 box2d.b2Counter.prototype.GetMaxCount = function ()
 {
 	return this.m_max_count;
 }
 
-/** 
- * @export 
- * @return {number} 
+/**
+ * @export
+ * @return {number}
  */
 box2d.b2Counter.prototype.ResetCount = function ()
 {
@@ -12402,8 +12402,8 @@ box2d.b2Counter.prototype.ResetCount = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2Counter.prototype.ResetMinCount = function ()
 {
@@ -12411,8 +12411,8 @@ box2d.b2Counter.prototype.ResetMinCount = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2Counter.prototype.ResetMaxCount = function ()
 {
@@ -12420,8 +12420,8 @@ box2d.b2Counter.prototype.ResetMaxCount = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2Counter.prototype.Increment = function ()
 {
@@ -12434,8 +12434,8 @@ box2d.b2Counter.prototype.Increment = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2Counter.prototype.Decrement = function ()
 {
@@ -12508,8 +12508,8 @@ box2d.b2_toiRootIters = 0;
  */
 box2d.b2_toiMaxRootIters = 0;
 
-/** 
- * Input parameters for b2TimeOfImpact 
+/**
+ * Input parameters for b2TimeOfImpact
  * @export
  * @constructor
  */
@@ -12548,10 +12548,10 @@ box2d.b2TOIInput.prototype.sweepB = null;
 box2d.b2TOIInput.prototype.tMax = 0; // defines sweep interval [0, tMax]
 
 /**
- * @export 
+ * @export
  * @enum
  */
-box2d.b2TOIOutputState = 
+box2d.b2TOIOutputState =
 {
 	e_unknown		: 0,
 	e_failed		: 1,
@@ -12565,8 +12565,8 @@ goog.exportProperty(box2d.b2TOIOutputState, 'e_overlapped', box2d.b2TOIOutputSta
 goog.exportProperty(box2d.b2TOIOutputState, 'e_touching'  , box2d.b2TOIOutputState.e_touching  );
 goog.exportProperty(box2d.b2TOIOutputState, 'e_separated' , box2d.b2TOIOutputState.e_separated );
 
-/** 
- * Output parameters for b2TimeOfImpact. 
+/**
+ * Output parameters for b2TimeOfImpact.
  * @export
  * @constructor
  */
@@ -12586,10 +12586,10 @@ box2d.b2TOIOutput.prototype.state = box2d.b2TOIOutputState.e_unknown;
 box2d.b2TOIOutput.prototype.t = 0;
 
 /**
- * @export 
+ * @export
  * @enum
  */
-box2d.b2SeparationFunctionType = 
+box2d.b2SeparationFunctionType =
 {
 	e_unknown	: -1,
 	e_points	: 0,
@@ -12649,8 +12649,8 @@ box2d.b2SeparationFunction.prototype.m_localPoint = null;
  */
 box2d.b2SeparationFunction.prototype.m_axis = null;
 
-/** 
- * TODO_ERIN might not need to return the separation 
+/**
+ * TODO_ERIN might not need to return the separation
  * @export
  * @return {number}
  * @param {box2d.b2SimplexCache} cache
@@ -12871,13 +12871,13 @@ box2d.b2SeparationFunction.prototype.Evaluate = function (indexA, indexB, t)
 }
 
 /**
- * Compute the upper bound on time before two shapes penetrate. 
+ * Compute the upper bound on time before two shapes penetrate.
  * Time is represented as a fraction between [0,tMax]. This uses
- * a swept separating axis and may miss some intermediate, 
- * non-tunneling collision. If you change the time interval, you 
- * should call this function again. 
- * Note: use box2d.b2Distance to compute the contact point and 
- * normal at the time of impact. 
+ * a swept separating axis and may miss some intermediate,
+ * non-tunneling collision. If you change the time interval, you
+ * should call this function again.
+ * Note: use box2d.b2Distance to compute the contact point and
+ * normal at the time of impact.
  * @export
  * @return {void}
  * @param {box2d.b2TOIOutput} output
@@ -13228,7 +13228,7 @@ box2d.b2ContactEdge.prototype.next = null; ///< the next contact edge in the bod
  * Flags stored in m_flags
  * @enum
  */
-box2d.b2ContactFlag = 
+box2d.b2ContactFlag =
 {
 	e_none			: 0,
 	e_islandFlag	: 0x0001, /// Used when crawling contact graph when forming islands.
@@ -13774,9 +13774,9 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Contact');
 
 /**
- * @export 
- * @constructor 
- * @extends {box2d.b2Contact} 
+ * @export
+ * @constructor
+ * @extends {box2d.b2Contact}
  */
 box2d.b2PolygonAndCircleContact = function ()
 {
@@ -13786,9 +13786,9 @@ box2d.b2PolygonAndCircleContact = function ()
 goog.inherits(box2d.b2PolygonAndCircleContact, box2d.b2Contact);
 
 /**
- * @export 
- * @return {box2d.b2Contact} 
- * @param allocator 
+ * @export
+ * @return {box2d.b2Contact}
+ * @param allocator
  */
 box2d.b2PolygonAndCircleContact.Create = function (allocator)
 {
@@ -13796,18 +13796,18 @@ box2d.b2PolygonAndCircleContact.Create = function (allocator)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
- * @param allocator 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
+ * @param allocator
  */
 box2d.b2PolygonAndCircleContact.Destroy = function (contact, allocator)
 {
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Fixture} fixtureA
  * @param {box2d.b2Fixture} fixtureB
  */
@@ -13819,11 +13819,11 @@ box2d.b2PolygonAndCircleContact.prototype.Reset = function (fixtureA, indexA, fi
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2Transform} xfB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2PolygonAndCircleContact.prototype.Evaluate = function (manifold, xfA, xfB)
 {
@@ -13832,8 +13832,8 @@ box2d.b2PolygonAndCircleContact.prototype.Evaluate = function (manifold, xfA, xf
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeA instanceof box2d.b2PolygonShape); }
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeB instanceof box2d.b2CircleShape); }
 	box2d.b2CollidePolygonAndCircle(
-		manifold, 
-		(shapeA instanceof box2d.b2PolygonShape)? shapeA : null, xfA, 
+		manifold,
+		(shapeA instanceof box2d.b2PolygonShape)? shapeA : null, xfA,
 		(shapeB instanceof box2d.b2CircleShape)? shapeB : null, xfB);
 }
 
@@ -13861,9 +13861,9 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Contact');
 
 /**
- * @export 
- * @constructor 
- * @extends {box2d.b2Contact} 
+ * @export
+ * @constructor
+ * @extends {box2d.b2Contact}
  */
 box2d.b2EdgeAndPolygonContact = function ()
 {
@@ -13873,9 +13873,9 @@ box2d.b2EdgeAndPolygonContact = function ()
 goog.inherits(box2d.b2EdgeAndPolygonContact, box2d.b2Contact);
 
 /**
- * @export 
- * @return {box2d.b2Contact} 
- * @param allocator 
+ * @export
+ * @return {box2d.b2Contact}
+ * @param allocator
  */
 box2d.b2EdgeAndPolygonContact.Create = function (allocator)
 {
@@ -13883,18 +13883,18 @@ box2d.b2EdgeAndPolygonContact.Create = function (allocator)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
- * @param allocator 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
+ * @param allocator
  */
 box2d.b2EdgeAndPolygonContact.Destroy = function (contact, allocator)
 {
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Fixture} fixtureA
  * @param {box2d.b2Fixture} fixtureB
  */
@@ -13906,11 +13906,11 @@ box2d.b2EdgeAndPolygonContact.prototype.Reset = function (fixtureA, indexA, fixt
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2Transform} xfB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2EdgeAndPolygonContact.prototype.Evaluate = function (manifold, xfA, xfB)
 {
@@ -13919,8 +13919,8 @@ box2d.b2EdgeAndPolygonContact.prototype.Evaluate = function (manifold, xfA, xfB)
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeA instanceof box2d.b2EdgeShape); }
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeB instanceof box2d.b2PolygonShape); }
 	box2d.b2CollideEdgeAndPolygon(
-		manifold, 
-		(shapeA instanceof box2d.b2EdgeShape)? shapeA : null, xfA, 
+		manifold,
+		(shapeA instanceof box2d.b2EdgeShape)? shapeA : null, xfA,
 		(shapeB instanceof box2d.b2PolygonShape)? shapeB : null, xfB);
 }
 
@@ -13948,9 +13948,9 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Math');
 goog.require('box2d.b2Distance');
 
-/** 
- * This holds the mass data computed for a shape. 
- * @export 
+/**
+ * This holds the mass data computed for a shape.
+ * @export
  * @constructor
  */
 box2d.b2MassData = function ()
@@ -13958,33 +13958,33 @@ box2d.b2MassData = function ()
 	this.center = new box2d.b2Vec2(0, 0);
 };
 
-/** 
- * The mass of the shape, usually in kilograms. 
- * @export 
+/**
+ * The mass of the shape, usually in kilograms.
+ * @export
  * @type {number}
  */
 box2d.b2MassData.prototype.mass = 0;
 
-/** 
- * The position of the shape's centroid relative to the shape's 
- * origin. 
- * @export 
+/**
+ * The position of the shape's centroid relative to the shape's
+ * origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MassData.prototype.center = null;
 
-/** 
- * The rotational inertia of the shape about the local origin. 
- * @export 
+/**
+ * The rotational inertia of the shape about the local origin.
+ * @export
  * @type {number}
  */
 box2d.b2MassData.prototype.I = 0;
 
-/** 
- * @export 
+/**
+ * @export
  * @enum
  */
-box2d.b2ShapeType = 
+box2d.b2ShapeType =
 {
 	e_unknown			: -1,
 	e_circleShape		: 0,
@@ -14000,16 +14000,16 @@ goog.exportProperty(box2d.b2ShapeType, 'e_polygonShape'  , box2d.b2ShapeType.e_p
 goog.exportProperty(box2d.b2ShapeType, 'e_chainShape'    , box2d.b2ShapeType.e_chainShape    );
 goog.exportProperty(box2d.b2ShapeType, 'e_shapeTypeCount', box2d.b2ShapeType.e_shapeTypeCount);
 
-/** 
- * A shape is used for collision detection. You can create a 
- * shape however you like. 
- * Shapes used for simulation in box2d.b2World are created 
- * automatically when a box2d.b2Fixture is created. Shapes may 
- * encapsulate a one or more child shapes. 
- * @export 
- * @constructor 
- * @param {box2d.b2ShapeType} type 
- * @param {number} radius 
+/**
+ * A shape is used for collision detection. You can create a
+ * shape however you like.
+ * Shapes used for simulation in box2d.b2World are created
+ * automatically when a box2d.b2Fixture is created. Shapes may
+ * encapsulate a one or more child shapes.
+ * @export
+ * @constructor
+ * @param {box2d.b2ShapeType} type
+ * @param {number} radius
  */
 box2d.b2Shape = function (type, radius)
 {
@@ -14018,19 +14018,19 @@ box2d.b2Shape = function (type, radius)
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2ShapeType}
  */
 box2d.b2Shape.prototype.m_type = box2d.b2ShapeType.e_unknown;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Shape.prototype.m_radius = 0;
 
-/** 
- * Clone the concrete shape using the provided allocator. 
- * @export 
+/**
+ * Clone the concrete shape using the provided allocator.
+ * @export
  * @return {box2d.b2Shape}
  */
 box2d.b2Shape.prototype.Clone = function ()
@@ -14040,9 +14040,9 @@ box2d.b2Shape.prototype.Clone = function ()
 }
 
 /**
- * @export 
- * @return {box2d.b2Shape} 
- * @param {box2d.b2Shape} other 
+ * @export
+ * @return {box2d.b2Shape}
+ * @param {box2d.b2Shape} other
  */
 box2d.b2Shape.prototype.Copy = function (other)
 {
@@ -14051,10 +14051,10 @@ box2d.b2Shape.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * Get the type of this shape. You can use this to down cast to 
- * the concrete shape. 
- * @export 
+/**
+ * Get the type of this shape. You can use this to down cast to
+ * the concrete shape.
+ * @export
  * @return {box2d.b2ShapeType} the shape type.
  */
 box2d.b2Shape.prototype.GetType = function ()
@@ -14062,9 +14062,9 @@ box2d.b2Shape.prototype.GetType = function ()
 	return this.m_type;
 }
 
-/** 
- * Get the number of child primitives. 
- * @export 
+/**
+ * Get the number of child primitives.
+ * @export
  * @return {number}
  */
 box2d.b2Shape.prototype.GetChildCount = function ()
@@ -14073,11 +14073,11 @@ box2d.b2Shape.prototype.GetChildCount = function ()
 	return 0;
 }
 
-/** 
- * Test a point for containment in this shape. This only works 
- * for convex shapes. 
- * @export 
- * @return {boolean} 
+/**
+ * Test a point for containment in this shape. This only works
+ * for convex shapes.
+ * @export
+ * @return {boolean}
  * @param {box2d.b2Transform} xf the shape world transform.
  * @param {box2d.b2Vec2} p a point in world coordinates.
  */
@@ -14087,10 +14087,10 @@ box2d.b2Shape.prototype.TestPoint = function (xf, p)
 	return false;
 }
 
-/** 
- * Cast a ray against a child shape. 
- * @export 
- * @return {boolean} 
+/**
+ * Cast a ray against a child shape.
+ * @export
+ * @return {boolean}
  * @param {box2d.b2RayCastOutput} output the ray-cast results.
  * @param {box2d.b2RayCastInput} input the ray-cast input parameters.
  * @param {box2d.b2Transform} transform the transform to be applied to the shape.
@@ -14102,11 +14102,11 @@ box2d.b2Shape.prototype.RayCast = function (output, input, transform, childIndex
 	return false;
 }
 
-/** 
- * Given a transform, compute the associated axis aligned 
- * bounding box for a child shape. 
- * @export 
- * @return {void} 
+/**
+ * Given a transform, compute the associated axis aligned
+ * bounding box for a child shape.
+ * @export
+ * @return {void}
  * @param {box2d.b2AABB} aabb returns the axis aligned box.
  * @param {box2d.b2Transform} xf the world transform of the shape.
  * @param {number} childIndex the child shape
@@ -14116,12 +14116,12 @@ box2d.b2Shape.prototype.ComputeAABB = function (aabb, xf, childIndex)
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(false, "pure virtual"); }
 }
 
-/** 
- * Compute the mass properties of this shape using its 
- * dimensions and density. 
+/**
+ * Compute the mass properties of this shape using its
+ * dimensions and density.
  * The inertia tensor is computed about the local origin.
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2MassData} massData returns the mass data for this shape.
  * @param {number} density the density in kilograms per meter squared.
  */
@@ -14131,9 +14131,9 @@ box2d.b2Shape.prototype.ComputeMass = function (massData, density)
 }
 
 /**
- * @return {void} 
- * @param {box2d.b2DistanceProxy} proxy 
- * @param {number} index 
+ * @return {void}
+ * @param {box2d.b2DistanceProxy} proxy
+ * @param {number} index
  */
 box2d.b2Shape.prototype.SetupDistanceProxy = function (proxy, index)
 {
@@ -14141,7 +14141,7 @@ box2d.b2Shape.prototype.SetupDistanceProxy = function (proxy, index)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} normal
  * @param {number} offset
@@ -14154,9 +14154,9 @@ box2d.b2Shape.prototype.ComputeSubmergedArea = function (normal, offset, xf, c)
 	return 0;
 }
 
-/** 
- * Dump this shape to the log file. 
- * @export 
+/**
+ * Dump this shape to the log file.
+ * @export
  * @return {void}
  */
 box2d.b2Shape.prototype.Dump = function ()
@@ -14186,15 +14186,15 @@ goog.provide('box2d.b2PolygonShape');
 
 goog.require('box2d.b2Shape');
 
-/** 
- * A convex polygon. It is assumed that the interior of the 
- * polygon is to the left of each edge. 
- * Polygons have a maximum number of vertices equal to 
- * box2d.b2_maxPolygonVertices. In most cases you should not 
- * need many vertices for a convex polygon. 
- * @export 
+/**
+ * A convex polygon. It is assumed that the interior of the
+ * polygon is to the left of each edge.
+ * Polygons have a maximum number of vertices equal to
+ * box2d.b2_maxPolygonVertices. In most cases you should not
+ * need many vertices for a convex polygon.
+ * @export
  * @constructor
- * @extends {box2d.b2Shape} 
+ * @extends {box2d.b2Shape}
  */
 box2d.b2PolygonShape = function ()
 {
@@ -14208,30 +14208,30 @@ box2d.b2PolygonShape = function ()
 goog.inherits(box2d.b2PolygonShape, box2d.b2Shape);
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PolygonShape.prototype.m_centroid = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Vec2>}
  */
 box2d.b2PolygonShape.prototype.m_vertices = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Vec2>}
  */
 box2d.b2PolygonShape.prototype.m_normals = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PolygonShape.prototype.m_count = 0;
 
-/** 
- * Implement box2d.b2Shape. 
- * @export 
- * @return {box2d.b2Shape} 
+/**
+ * Implement box2d.b2Shape.
+ * @export
+ * @return {box2d.b2Shape}
  */
 box2d.b2PolygonShape.prototype.Clone = function ()
 {
@@ -14239,8 +14239,8 @@ box2d.b2PolygonShape.prototype.Clone = function ()
 }
 
 /**
- * @export 
- * @return {box2d.b2Shape} 
+ * @export
+ * @return {box2d.b2Shape}
  * @param {box2d.b2Shape} other
  */
 box2d.b2PolygonShape.prototype.Copy = function (other)
@@ -14259,11 +14259,11 @@ box2d.b2PolygonShape.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * Build vertices to represent an axis-aligned box centered on 
- * the local origin. 
- * @export 
- * @return {box2d.b2PolygonShape} 
+/**
+ * Build vertices to represent an axis-aligned box centered on
+ * the local origin.
+ * @export
+ * @return {box2d.b2PolygonShape}
  * @param {number} hx the half-width.
  * @param {number} hy the half-height.
  */
@@ -14282,10 +14282,10 @@ box2d.b2PolygonShape.prototype.SetAsBox = function (hx, hy)
 	return this;
 }
 
-/** 
- * Build vertices to represent an oriented box. 
- * @export 
- * @return {box2d.b2PolygonShape} 
+/**
+ * Build vertices to represent an oriented box.
+ * @export
+ * @return {box2d.b2PolygonShape}
  * @param {number} hx the half-width.
  * @param {number} hy the half-height.
  * @param {box2d.b2Vec2} center the center of the box in local coordinates.
@@ -14321,12 +14321,12 @@ box2d.b2PolygonShape.prototype.SetAsOrientedBox = function (hx, hy, center, angl
 /**
  * Create a convex hull from the given array of local points.
  * The count must be in the range [3, b2_maxPolygonVertices].
- * warning the points may be re-ordered, even if they form a 
- * convex polygon 
- * warning collinear points are handled but not removed. 
- * Collinear points may lead to poor stacking behavior. 
- * @export 
- * @return {box2d.b2PolygonShape} 
+ * warning the points may be re-ordered, even if they form a
+ * convex polygon
+ * warning collinear points are handled but not removed.
+ * Collinear points may lead to poor stacking behavior.
+ * @export
+ * @return {box2d.b2PolygonShape}
  * @param {Array.<box2d.b2Vec2>} vertices
  * @param {number=} count
  */
@@ -14339,7 +14339,7 @@ box2d.b2PolygonShape.prototype.Set = function (vertices, count)
 	{
 		return this.SetAsBox(1, 1);
 	}
-	
+
 	var n = box2d.b2Min(count, box2d.b2_maxPolygonVertices);
 
 	// Perform welding and copy vertices into local buffer.
@@ -14429,7 +14429,7 @@ box2d.b2PolygonShape.prototype.Set = function (vertices, count)
 			break;
 		}
 	}
-	
+
 	this.m_count = m;
 
 	// Copy vertices.
@@ -14459,10 +14459,10 @@ box2d.b2PolygonShape.prototype.Set.s_r = new box2d.b2Vec2();
 box2d.b2PolygonShape.prototype.Set.s_v = new box2d.b2Vec2();
 
 /**
- * @export 
- * @return {box2d.b2PolygonShape} 
+ * @export
+ * @return {box2d.b2PolygonShape}
  * @param {Array.<box2d.b2Vec2>} vertices
- * @param {number=} count 
+ * @param {number=} count
  */
 box2d.b2PolygonShape.prototype.SetAsVector = function (vertices, count)
 {
@@ -14471,10 +14471,10 @@ box2d.b2PolygonShape.prototype.SetAsVector = function (vertices, count)
 }
 
 /**
- * @export 
- * @return {box2d.b2PolygonShape} 
+ * @export
+ * @return {box2d.b2PolygonShape}
  * @param {Array.<box2d.b2Vec2>} vertices
- * @param {number=} count 
+ * @param {number=} count
  */
 box2d.b2PolygonShape.prototype.SetAsArray = function (vertices, count)
 {
@@ -14482,9 +14482,9 @@ box2d.b2PolygonShape.prototype.SetAsArray = function (vertices, count)
 	return this;
 }
 
-/** 
- * Implement box2d.b2Shape. 
- * @export 
+/**
+ * Implement box2d.b2Shape.
+ * @export
  * @return {number}
  */
 box2d.b2PolygonShape.prototype.GetChildCount = function ()
@@ -14492,9 +14492,9 @@ box2d.b2PolygonShape.prototype.GetChildCount = function ()
 	return 1;
 }
 
-/** 
- * @see box2d.b2Shape::TestPoint 
- * @export 
+/**
+ * @see box2d.b2Shape::TestPoint
+ * @export
  * @return {boolean}
  * @param {box2d.b2Transform} xf
  * @param {box2d.b2Vec2} p
@@ -14516,14 +14516,14 @@ box2d.b2PolygonShape.prototype.TestPoint = function (xf, p)
 }
 box2d.b2PolygonShape.prototype.TestPoint.s_pLocal = new box2d.b2Vec2();
 
-/** 
- * Implement box2d.b2Shape. 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2RayCastOutput} output 
- * @param {box2d.b2RayCastInput} input 
- * @param {box2d.b2Transform} xf 
- * @param {number} childIndex 
+/**
+ * Implement box2d.b2Shape.
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2RayCastOutput} output
+ * @param {box2d.b2RayCastInput} input
+ * @param {box2d.b2Transform} xf
+ * @param {number} childIndex
  */
 box2d.b2PolygonShape.prototype.RayCast = function (output, input, xf, childIndex)
 {
@@ -14597,13 +14597,13 @@ box2d.b2PolygonShape.prototype.RayCast.s_p1 = new box2d.b2Vec2();
 box2d.b2PolygonShape.prototype.RayCast.s_p2 = new box2d.b2Vec2();
 box2d.b2PolygonShape.prototype.RayCast.s_d = new box2d.b2Vec2();
 
-/** 
- * @see box2d.b2Shape::ComputeAABB 
- * @export 
- * @return {void} 
- * @param {box2d.b2AABB} aabb 
- * @param {box2d.b2Transform} xf 
- * @param {number} childIndex 
+/**
+ * @see box2d.b2Shape::ComputeAABB
+ * @export
+ * @return {void}
+ * @param {box2d.b2AABB} aabb
+ * @param {box2d.b2Transform} xf
+ * @param {number} childIndex
  */
 box2d.b2PolygonShape.prototype.ComputeAABB = function (aabb, xf, childIndex)
 {
@@ -14623,12 +14623,12 @@ box2d.b2PolygonShape.prototype.ComputeAABB = function (aabb, xf, childIndex)
 }
 box2d.b2PolygonShape.prototype.ComputeAABB.s_v = new box2d.b2Vec2();
 
-/** 
- * @see box2d.b2Shape::ComputeMass 
- * @export 
- * @return {void} 
- * @param {box2d.b2MassData} massData 
- * @param {number} density 
+/**
+ * @see box2d.b2Shape::ComputeMass
+ * @export
+ * @return {void}
+ * @param {box2d.b2MassData} massData
+ * @param {number} density
  */
 box2d.b2PolygonShape.prototype.ComputeMass = function (massData, density)
 {
@@ -14710,7 +14710,7 @@ box2d.b2PolygonShape.prototype.ComputeMass = function (massData, density)
 
 	// Inertia tensor relative to the local origin (point s).
 	massData.I = density * I;
-	
+
 	// Shift to center of mass then to original body origin.
 	massData.I += massData.mass * (box2d.b2DotVV(massData.center, massData.center) - box2d.b2DotVV(center, center));
 }
@@ -14719,9 +14719,9 @@ box2d.b2PolygonShape.prototype.ComputeMass.s_s = new box2d.b2Vec2();
 box2d.b2PolygonShape.prototype.ComputeMass.s_e1 = new box2d.b2Vec2();
 box2d.b2PolygonShape.prototype.ComputeMass.s_e2 = new box2d.b2Vec2();
 
-/** 
- * Validate convexity. This is a very time consuming operation. 
- * @export 
+/**
+ * Validate convexity. This is a very time consuming operation.
+ * @export
  * @return {boolean} true if valid
  */
 box2d.b2PolygonShape.prototype.Validate = function ()
@@ -14755,9 +14755,9 @@ box2d.b2PolygonShape.prototype.Validate.s_e = new box2d.b2Vec2();
 box2d.b2PolygonShape.prototype.Validate.s_v = new box2d.b2Vec2();
 
 /**
- * @return {void} 
- * @param {box2d.b2DistanceProxy} proxy 
- * @param {number} index 
+ * @return {void}
+ * @param {box2d.b2DistanceProxy} proxy
+ * @param {number} index
  */
 box2d.b2PolygonShape.prototype.SetupDistanceProxy = function (proxy, index)
 {
@@ -14767,7 +14767,7 @@ box2d.b2PolygonShape.prototype.SetupDistanceProxy = function (proxy, index)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} normal
  * @param {number} offset
@@ -14845,10 +14845,10 @@ box2d.b2PolygonShape.prototype.ComputeSubmergedArea = function (normal, offset, 
 	var outoLamdda = (0 - depths[outoIndex]) / (depths[outoIndex2] - depths[outoIndex]);
 
 	var intoVec = box2d.b2PolygonShape.prototype.ComputeSubmergedArea.s_intoVec.SetXY(
-		this.m_vertices[intoIndex].x * (1 - intoLamdda) + this.m_vertices[intoIndex2].x * intoLamdda, 
+		this.m_vertices[intoIndex].x * (1 - intoLamdda) + this.m_vertices[intoIndex2].x * intoLamdda,
 		this.m_vertices[intoIndex].y * (1 - intoLamdda) + this.m_vertices[intoIndex2].y * intoLamdda);
 	var outoVec = box2d.b2PolygonShape.prototype.ComputeSubmergedArea.s_outoVec.SetXY(
-		this.m_vertices[outoIndex].x * (1 - outoLamdda) + this.m_vertices[outoIndex2].x * outoLamdda, 
+		this.m_vertices[outoIndex].x * (1 - outoLamdda) + this.m_vertices[outoIndex2].x * outoLamdda,
 		this.m_vertices[outoIndex].y * (1 - outoLamdda) + this.m_vertices[outoIndex2].y * outoLamdda);
 
 	// Initialize accumulator
@@ -14889,9 +14889,9 @@ box2d.b2PolygonShape.prototype.ComputeSubmergedArea.s_intoVec = new box2d.b2Vec2
 box2d.b2PolygonShape.prototype.ComputeSubmergedArea.s_outoVec = new box2d.b2Vec2();
 box2d.b2PolygonShape.prototype.ComputeSubmergedArea.s_center = new box2d.b2Vec2();
 
-/** 
- * Dump this shape to the log file. 
- * @export 
+/**
+ * Dump this shape to the log file.
+ * @export
  * @return {void}
  */
 box2d.b2PolygonShape.prototype.Dump = function ()
@@ -14906,11 +14906,11 @@ box2d.b2PolygonShape.prototype.Dump = function ()
 }
 
 /**
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {Array.<box2d.b2Vec2>} vs 
- * @param {number} count 
- * @param {box2d.b2Vec2} out 
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {Array.<box2d.b2Vec2>} vs
+ * @param {number} count
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PolygonShape.ComputeCentroid = function (vs, count, out)
 {
@@ -15042,40 +15042,40 @@ goog.provide('box2d.b2CollideEdge');
 
 goog.require('box2d.b2Collision');
 
-/** 
- * Compute the collision manifold between an edge and a circle. 
- * Compute contact points for edge versus circle. 
+/**
+ * Compute the collision manifold between an edge and a circle.
+ * Compute contact points for edge versus circle.
  * This accounts for edge connectivity.
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
  * @param {box2d.b2EdgeShape} edgeA
  * @param {box2d.b2Transform} xfA
  * @param {box2d.b2CircleShape} circleB
- * @param {box2d.b2Transform} xfB 
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2CollideEdgeAndCircle = function (manifold, edgeA, xfA, circleB, xfB)
 {
 	manifold.pointCount = 0;
-	
+
 	// Compute circle in frame of edge
 	/** @type {box2d.b2Vec2} */ var Q = box2d.b2MulTXV(xfA, box2d.b2MulXV(xfB, circleB.m_p, box2d.b2Vec2.s_t0), box2d.b2CollideEdgeAndCircle.s_Q);
-	
+
 	/** @type {box2d.b2Vec2} */ var A = edgeA.m_vertex1;
 	/** @type {box2d.b2Vec2} */ var B = edgeA.m_vertex2;
 	/** @type {box2d.b2Vec2} */ var e = box2d.b2SubVV(B, A, box2d.b2CollideEdgeAndCircle.s_e);
-	
+
 	// Barycentric coordinates
 	/** @type {number} */ var u = box2d.b2DotVV(e, box2d.b2SubVV(B, Q, box2d.b2Vec2.s_t0));
 	/** @type {number} */ var v = box2d.b2DotVV(e, box2d.b2SubVV(Q, A, box2d.b2Vec2.s_t0));
-	
+
 	/** @type {number} */ var radius = edgeA.m_radius + circleB.m_radius;
-	
+
 //	/** @type {box2d.b2ContactFeature} */ var cf = new box2d.b2ContactFeature();
 	/** @type {box2d.b2ContactID} */ var id = box2d.b2CollideEdgeAndCircle.s_id;
 	id.cf.indexB = 0;
 	id.cf.typeB = box2d.b2ContactFeatureType.e_vertex;
-	
+
 	// Region A
 	if (v <= 0)
 	{
@@ -15086,7 +15086,7 @@ box2d.b2CollideEdgeAndCircle = function (manifold, edgeA, xfA, circleB, xfB)
 		{
 			return;
 		}
-		
+
 		// Is there an edge connected to A?
 		if (edgeA.m_hasVertex0)
 		{
@@ -15094,14 +15094,14 @@ box2d.b2CollideEdgeAndCircle = function (manifold, edgeA, xfA, circleB, xfB)
 			/** @type {box2d.b2Vec2} */ var B1 = A;
 			/** @type {box2d.b2Vec2} */ var e1 = box2d.b2SubVV(B1, A1, box2d.b2CollideEdgeAndCircle.s_e1);
 			/** @type {number} */ var u1 = box2d.b2DotVV(e1, box2d.b2SubVV(B1, Q, box2d.b2Vec2.s_t0));
-			
+
 			// Is the circle in Region AB of the previous edge?
 			if (u1 > 0)
 			{
 				return;
 			}
 		}
-		
+
 		id.cf.indexA = 0;
 		id.cf.typeA = box2d.b2ContactFeatureType.e_vertex;
 		manifold.pointCount = 1;
@@ -15114,7 +15114,7 @@ box2d.b2CollideEdgeAndCircle = function (manifold, edgeA, xfA, circleB, xfB)
 		manifold.points[0].localPoint.Copy(circleB.m_p);
 		return;
 	}
-	
+
 	// Region B
 	if (u <= 0)
 	{
@@ -15125,7 +15125,7 @@ box2d.b2CollideEdgeAndCircle = function (manifold, edgeA, xfA, circleB, xfB)
 		{
 			return;
 		}
-		
+
 		// Is there an edge connected to B?
 		if (edgeA.m_hasVertex3)
 		{
@@ -15133,14 +15133,14 @@ box2d.b2CollideEdgeAndCircle = function (manifold, edgeA, xfA, circleB, xfB)
 			/** @type {box2d.b2Vec2} */ var A2 = B;
 			/** @type {box2d.b2Vec2} */ var e2 = box2d.b2SubVV(B2, A2, box2d.b2CollideEdgeAndCircle.s_e2);
 			/** @type {number} */ var v2 = box2d.b2DotVV(e2, box2d.b2SubVV(Q, A2, box2d.b2Vec2.s_t0));
-			
+
 			// Is the circle in Region AB of the next edge?
 			if (v2 > 0)
 			{
 				return;
 			}
 		}
-		
+
 		id.cf.indexA = 1;
 		id.cf.typeA = box2d.b2ContactFeatureType.e_vertex;
 		manifold.pointCount = 1;
@@ -15153,7 +15153,7 @@ box2d.b2CollideEdgeAndCircle = function (manifold, edgeA, xfA, circleB, xfB)
 		manifold.points[0].localPoint.Copy(circleB.m_p);
 		return;
 	}
-	
+
 	// Region AB
 	/** @type {number} */ var den = box2d.b2DotVV(e, e);
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(den > 0); }
@@ -15166,14 +15166,14 @@ box2d.b2CollideEdgeAndCircle = function (manifold, edgeA, xfA, circleB, xfB)
 	{
 		return;
 	}
-	
+
 	/** @type {box2d.b2Vec2} */ var n = box2d.b2CollideEdgeAndCircle.s_n.SetXY(-e.y, e.x);
 	if (box2d.b2DotVV(n, box2d.b2SubVV(Q, A, box2d.b2Vec2.s_t0)) < 0)
 	{
 		n.SetXY(-n.x, -n.y);
 	}
 	n.Normalize();
-	
+
 	id.cf.indexA = 0;
 	id.cf.typeA = box2d.b2ContactFeatureType.e_face;
 	manifold.pointCount = 1;
@@ -15194,24 +15194,24 @@ box2d.b2CollideEdgeAndCircle.s_P = new box2d.b2Vec2();
 box2d.b2CollideEdgeAndCircle.s_n = new box2d.b2Vec2();
 box2d.b2CollideEdgeAndCircle.s_id = new box2d.b2ContactID();
 
-/** 
- * @export 
+/**
+ * @export
  * @enum
  */
-box2d.b2EPAxisType = 
+box2d.b2EPAxisType =
 {
-	e_unknown	: 0, 
-	e_edgeA		: 1, 
+	e_unknown	: 0,
+	e_edgeA		: 1,
 	e_edgeB		: 2
 };
 goog.exportProperty(box2d.b2EPAxisType, 'e_unknown', box2d.b2EPAxisType.e_unknown);
 goog.exportProperty(box2d.b2EPAxisType, 'e_edgeA'  , box2d.b2EPAxisType.e_edgeA  );
 goog.exportProperty(box2d.b2EPAxisType, 'e_edgeB'  , box2d.b2EPAxisType.e_edgeB  );
-	
-/** 
- * This structure is used to keep track of the best separating 
- * axis. 
- * @export 
+
+/**
+ * This structure is used to keep track of the best separating
+ * axis.
+ * @export
  * @constructor
  */
 box2d.b2EPAxis = function ()
@@ -15219,24 +15219,24 @@ box2d.b2EPAxis = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2EPAxisType}
  */
 box2d.b2EPAxis.prototype.type = box2d.b2EPAxisType.e_unknown;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2EPAxis.prototype.index = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2EPAxis.prototype.separation = 0;
 
-/** 
- * This holds polygon B expressed in frame A. 
- * @export 
+/**
+ * This holds polygon B expressed in frame A.
+ * @export
  * @constructor
  */
 box2d.b2TempPolygon = function ()
@@ -15247,89 +15247,89 @@ box2d.b2TempPolygon = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Vec2>}
  */
 box2d.b2TempPolygon.prototype.vertices = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Vec2>}
  */
 box2d.b2TempPolygon.prototype.normals = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2TempPolygon.prototype.count = 0;
 
-/** 
- * Reference face used for clipping 
- * @export 
+/**
+ * Reference face used for clipping
+ * @export
  * @constructor
  */
 box2d.b2ReferenceFace = function ()
 {
 	this.i1 = 0;
 	this.i2 = 0;
-	
+
 	this.v1 = new box2d.b2Vec2();
 	this.v2 = new box2d.b2Vec2();
-	
+
 	this.normal = new box2d.b2Vec2();
-	
+
 	this.sideNormal1 = new box2d.b2Vec2();
 	this.sideOffset1 = 0;
-	
+
 	this.sideNormal2 = new box2d.b2Vec2();
 	this.sideOffset2 = 0;
 };
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ReferenceFace.prototype.i1 = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ReferenceFace.prototype.i2 = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ReferenceFace.prototype.v1 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ReferenceFace.prototype.v2 = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ReferenceFace.prototype.normal = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ReferenceFace.prototype.sideNormal1 = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ReferenceFace.prototype.sideOffset1 = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ReferenceFace.prototype.sideNormal2 = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ReferenceFace.prototype.sideOffset2 = 0;
@@ -15338,7 +15338,7 @@ box2d.b2ReferenceFace.prototype.sideOffset2 = 0;
  * @export
  * @enum
  */
-box2d.b2EPColliderVertexType = 
+box2d.b2EPColliderVertexType =
 {
 	e_isolated	: 0,
 	e_concave	: 1,
@@ -15347,17 +15347,17 @@ box2d.b2EPColliderVertexType =
 goog.exportProperty(box2d.b2EPColliderVertexType, 'e_isolated', box2d.b2EPColliderVertexType.e_isolated);
 goog.exportProperty(box2d.b2EPColliderVertexType, 'e_concave' , box2d.b2EPColliderVertexType.e_concave );
 goog.exportProperty(box2d.b2EPColliderVertexType, 'e_convex'  , box2d.b2EPColliderVertexType.e_convex  );
-	
-/** 
- * This class collides and edge and a polygon, taking into 
- * account edge adjacency. 
- * @export 
+
+/**
+ * This class collides and edge and a polygon, taking into
+ * account edge adjacency.
+ * @export
  * @constructor
  */
 box2d.b2EPCollider = function ()
 {
 	this.m_polygonB = new box2d.b2TempPolygon();
-	
+
 	this.m_xf = new box2d.b2Transform();
 	this.m_centroidB = new box2d.b2Vec2();
 	this.m_v0 = new box2d.b2Vec2(), this.m_v1 = new box2d.b2Vec2(), this.m_v2 = new box2d.b2Vec2(), this.m_v3 = new box2d.b2Vec2();
@@ -15370,93 +15370,93 @@ box2d.b2EPCollider = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2TempPolygon}
  */
 box2d.b2EPCollider.prototype.m_polygonB = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Transform}
  */
 box2d.b2EPCollider.prototype.m_xf = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_centroidB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_v0 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_v1 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_v2 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_v3 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_normal0 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_normal1 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_normal2 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_normal = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2EPColliderVertexType}
  */
 box2d.b2EPCollider.prototype.m_type1 = box2d.b2EPColliderVertexType.e_isolated;
 /**
- * @export 
+ * @export
  * @type {box2d.b2EPColliderVertexType}
  */
 box2d.b2EPCollider.prototype.m_type2 = box2d.b2EPColliderVertexType.e_isolated;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_lowerLimit = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EPCollider.prototype.m_upperLimit = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2EPCollider.prototype.m_radius = 0;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2EPCollider.prototype.m_front = false;
 
-/** 
+/**
  * Algorithm:
  * 1. Classify v1 and v2
  * 2. Classify polygon centroid as front or back
@@ -15466,28 +15466,28 @@ box2d.b2EPCollider.prototype.m_front = false;
  * 6. Visit each separating axes, only accept axes within the range
  * 7. Return if _any_ axis indicates separation
  * 8. Clip
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
- * @param {box2d.b2EdgeShape} edgeA 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2PolygonShape} polygonB 
- * @param {box2d.b2Transform} xfB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
+ * @param {box2d.b2EdgeShape} edgeA
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2PolygonShape} polygonB
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB, xfB)
 {
 	box2d.b2MulTXX(xfA, xfB, this.m_xf);
-	
+
 	box2d.b2MulXV(this.m_xf, polygonB.m_centroid, this.m_centroidB);
-	
+
 	this.m_v0.Copy(edgeA.m_vertex0);
 	this.m_v1.Copy(edgeA.m_vertex1);
 	this.m_v2.Copy(edgeA.m_vertex2);
 	this.m_v3.Copy(edgeA.m_vertex3);
-	
+
 	/** @type {boolean} */ var hasVertex0 = edgeA.m_hasVertex0;
 	/** @type {boolean} */ var hasVertex3 = edgeA.m_hasVertex3;
-	
+
 	/** @type {box2d.b2Vec2} */ var edge1 = box2d.b2SubVV(this.m_v2, this.m_v1, box2d.b2EPCollider.s_edge1);
 	edge1.Normalize();
 	this.m_normal1.SetXY(edge1.y, -edge1.x);
@@ -15496,7 +15496,7 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 	/** @type {number} */ var offset2 = 0;
 	/** @type {boolean} */ var convex1 = false;
 	/** @type {boolean} */ var convex2 = false;
-	
+
 	// Is there a preceding edge?
 	if (hasVertex0)
 	{
@@ -15506,7 +15506,7 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 		convex1 = box2d.b2CrossVV(edge0, edge1) >= 0;
 		offset0 = box2d.b2DotVV(this.m_normal0, box2d.b2SubVV(this.m_centroidB, this.m_v0, box2d.b2Vec2.s_t0));
 	}
-	
+
 	// Is there a following edge?
 	if (hasVertex3)
 	{
@@ -15516,7 +15516,7 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 		convex2 = box2d.b2CrossVV(edge1, edge2) > 0;
 		offset2 = box2d.b2DotVV(this.m_normal2, box2d.b2SubVV(this.m_centroidB, this.m_v2, box2d.b2Vec2.s_t0));
 	}
-	
+
 	// Determine front or back collision. Determine collision normal limits.
 	if (hasVertex0 && hasVertex3)
 	{
@@ -15653,7 +15653,7 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 				this.m_lowerLimit.Copy(this.m_normal2).SelfNeg();
 				this.m_upperLimit.Copy(this.m_normal1);
 			}
-		}		
+		}
 	}
 	else
 	{
@@ -15671,7 +15671,7 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 			this.m_upperLimit.Copy(this.m_normal1);
 		}
 	}
-	
+
 	// Get polygonB in frameA
 	this.m_polygonB.count = polygonB.m_count;
 	for (var i = 0, ict = polygonB.m_count; i < ict; ++i)
@@ -15679,34 +15679,34 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 		box2d.b2MulXV(this.m_xf, polygonB.m_vertices[i], this.m_polygonB.vertices[i]);
 		box2d.b2MulRV(this.m_xf.q, polygonB.m_normals[i], this.m_polygonB.normals[i]);
 	}
-	
+
 	this.m_radius = 2 * box2d.b2_polygonRadius;
-	
+
 	manifold.pointCount = 0;
-	
+
 	/** @type {box2d.b2EPAxis} */ var edgeAxis = this.ComputeEdgeSeparation(box2d.b2EPCollider.s_edgeAxis);
-	
+
 	// If no valid normal can be found than this edge should not collide.
 	if (edgeAxis.type === box2d.b2EPAxisType.e_unknown)
 	{
 		return;
 	}
-	
+
 	if (edgeAxis.separation > this.m_radius)
 	{
 		return;
 	}
-	
+
 	/** @type {box2d.b2EPAxis} */ var polygonAxis = this.ComputePolygonSeparation(box2d.b2EPCollider.s_polygonAxis);
 	if (polygonAxis.type !== box2d.b2EPAxisType.e_unknown && polygonAxis.separation > this.m_radius)
 	{
 		return;
 	}
-	
+
 	// Use hysteresis for jitter reduction.
 	/** @type {number} */ var k_relativeTol = 0.98;
 	/** @type {number} */ var k_absoluteTol = 0.001;
-	
+
 	/** @type {box2d.b2EPAxis} */ var primaryAxis;
 	if (polygonAxis.type === box2d.b2EPAxisType.e_unknown)
 	{
@@ -15720,13 +15720,13 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 	{
 		primaryAxis = edgeAxis;
 	}
-	
+
 	/** @type {Array.<box2d.b2ClipVertex>} */ var ie = box2d.b2EPCollider.s_ie;
 	/** @type {box2d.b2ReferenceFace} */ var rf = box2d.b2EPCollider.s_rf;
 	if (primaryAxis.type === box2d.b2EPAxisType.e_edgeA)
 	{
 		manifold.type = box2d.b2ManifoldType.e_faceA;
-		
+
 		// Search for the polygon normal that is most anti-parallel to the edge normal.
 		/** @type {number} */ var bestIndex = 0;
 		/** @type {number} */ var bestValue = box2d.b2DotVV(this.m_normal, this.m_polygonB.normals[0]);
@@ -15739,24 +15739,24 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 				bestIndex = i;
 			}
 		}
-		
+
 		/** @type {number} */ var i1 = bestIndex;
 		/** @type {number} */ var i2 = (i1 + 1) % this.m_polygonB.count;
-		
+
 		var ie0 = ie[0];
 		ie0.v.Copy(this.m_polygonB.vertices[i1]);
 		ie0.id.cf.indexA = 0;
 		ie0.id.cf.indexB = i1;
 		ie0.id.cf.typeA = box2d.b2ContactFeatureType.e_face;
 		ie0.id.cf.typeB = box2d.b2ContactFeatureType.e_vertex;
-		
+
 		var ie1 = ie[1];
 		ie1.v.Copy(this.m_polygonB.vertices[i2]);
 		ie1.id.cf.indexA = 0;
 		ie1.id.cf.indexB = i2;
 		ie1.id.cf.typeA = box2d.b2ContactFeatureType.e_face;
 		ie1.id.cf.typeB = box2d.b2ContactFeatureType.e_vertex;
-		
+
 		if (this.m_front)
 		{
 			rf.i1 = 0;
@@ -15772,59 +15772,59 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 			rf.v1.Copy(this.m_v2);
 			rf.v2.Copy(this.m_v1);
 			rf.normal.Copy(this.m_normal1).SelfNeg();
-		}		
+		}
 	}
 	else
 	{
 		manifold.type = box2d.b2ManifoldType.e_faceB;
-		
+
 		var ie0 = ie[0];
 		ie0.v.Copy(this.m_v1);
 		ie0.id.cf.indexA = 0;
 		ie0.id.cf.indexB = primaryAxis.index;
 		ie0.id.cf.typeA = box2d.b2ContactFeatureType.e_vertex;
 		ie0.id.cf.typeB = box2d.b2ContactFeatureType.e_face;
-		
+
 		var ie1 = ie[1];
 		ie1.v.Copy(this.m_v2);
 		ie1.id.cf.indexA = 0;
-		ie1.id.cf.indexB = primaryAxis.index;		
+		ie1.id.cf.indexB = primaryAxis.index;
 		ie1.id.cf.typeA = box2d.b2ContactFeatureType.e_vertex;
 		ie1.id.cf.typeB = box2d.b2ContactFeatureType.e_face;
-		
+
 		rf.i1 = primaryAxis.index;
 		rf.i2 = (rf.i1 + 1) % this.m_polygonB.count;
 		rf.v1.Copy(this.m_polygonB.vertices[rf.i1]);
 		rf.v2.Copy(this.m_polygonB.vertices[rf.i2]);
 		rf.normal.Copy(this.m_polygonB.normals[rf.i1]);
 	}
-	
+
 	rf.sideNormal1.SetXY(rf.normal.y, -rf.normal.x);
 	rf.sideNormal2.Copy(rf.sideNormal1).SelfNeg();
 	rf.sideOffset1 = box2d.b2DotVV(rf.sideNormal1, rf.v1);
 	rf.sideOffset2 = box2d.b2DotVV(rf.sideNormal2, rf.v2);
-	
+
 	// Clip incident edge against extruded edge1 side edges.
 	/** @type {Array.<box2d.b2ClipVertex>} */ var clipPoints1 = box2d.b2EPCollider.s_clipPoints1;
 	/** @type {Array.<box2d.b2ClipVertex>} */ var clipPoints2 = box2d.b2EPCollider.s_clipPoints2;
 	/** @type {number} */ var np = 0;
-	
+
 	// Clip to box side 1
 	np = box2d.b2ClipSegmentToLine(clipPoints1, ie, rf.sideNormal1, rf.sideOffset1, rf.i1);
-	
+
 	if (np < box2d.b2_maxManifoldPoints)
 	{
 		return;
 	}
-	
+
 	// Clip to negative box side 1
 	np = box2d.b2ClipSegmentToLine(clipPoints2, clipPoints1, rf.sideNormal2, rf.sideOffset2, rf.i2);
-	
+
 	if (np < box2d.b2_maxManifoldPoints)
 	{
 		return;
 	}
-	
+
 	// Now clipPoints2 contains the clipped points.
 	if (primaryAxis.type === box2d.b2EPAxisType.e_edgeA)
 	{
@@ -15836,18 +15836,18 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 		manifold.localNormal.Copy(polygonB.m_normals[rf.i1]);
 		manifold.localPoint.Copy(polygonB.m_vertices[rf.i1]);
 	}
-	
+
 	/** @type {number} */ var pointCount = 0;
 	for (var i = 0, ict = box2d.b2_maxManifoldPoints; i < ict; ++i)
 	{
 		/** @type {number} */ var separation;
-		
+
 		separation = box2d.b2DotVV(rf.normal, box2d.b2SubVV(clipPoints2[i].v, rf.v1, box2d.b2Vec2.s_t0));
-		
+
 		if (separation <= this.m_radius)
 		{
 			/** @type {box2d.b2ManifoldPoint} */ var cp = manifold.points[pointCount];
-			
+
 			if (primaryAxis.type === box2d.b2EPAxisType.e_edgeA)
 			{
 				box2d.b2MulTXV(this.m_xf, clipPoints2[i].v, cp.localPoint);
@@ -15861,11 +15861,11 @@ box2d.b2EPCollider.prototype.Collide = function (manifold, edgeA, xfA, polygonB,
 				cp.id.cf.indexA = clipPoints2[i].id.cf.indexB;
 				cp.id.cf.indexB = clipPoints2[i].id.cf.indexA;
 			}
-			
+
 			++pointCount;
 		}
 	}
-	
+
 	manifold.pointCount = pointCount;
 }
 
@@ -15880,9 +15880,9 @@ box2d.b2EPCollider.s_edgeAxis = new box2d.b2EPAxis();
 box2d.b2EPCollider.s_polygonAxis = new box2d.b2EPAxis();
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2EPAxis}
- * @param {box2d.b2EPAxis} out 
+ * @param {box2d.b2EPAxis} out
  */
 box2d.b2EPCollider.prototype.ComputeEdgeSeparation = function (out)
 {
@@ -15890,7 +15890,7 @@ box2d.b2EPCollider.prototype.ComputeEdgeSeparation = function (out)
 	axis.type = box2d.b2EPAxisType.e_edgeA;
 	axis.index = this.m_front ? 0 : 1;
 	axis.separation = box2d.b2_maxFloat;
-	
+
 	for (var i = 0, ict = this.m_polygonB.count; i < ict; ++i)
 	{
 		/** @type {number} */ var s = box2d.b2DotVV(this.m_normal, box2d.b2SubVV(this.m_polygonB.vertices[i], this.m_v1, box2d.b2Vec2.s_t0));
@@ -15899,14 +15899,14 @@ box2d.b2EPCollider.prototype.ComputeEdgeSeparation = function (out)
 			axis.separation = s;
 		}
 	}
-	
+
 	return axis;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2EPAxis}
- * @param {box2d.b2EPAxis} out 
+ * @param {box2d.b2EPAxis} out
  */
 box2d.b2EPCollider.prototype.ComputePolygonSeparation = function (out)
 {
@@ -15920,11 +15920,11 @@ box2d.b2EPCollider.prototype.ComputePolygonSeparation = function (out)
 	for (var i = 0, ict = this.m_polygonB.count; i < ict; ++i)
 	{
 		/** @type {box2d.b2Vec2} */ var n = box2d.b2NegV(this.m_polygonB.normals[i], box2d.b2EPCollider.s_n);
-		
+
 		/** @type {number} */ var s1 = box2d.b2DotVV(n, box2d.b2SubVV(this.m_polygonB.vertices[i], this.m_v1, box2d.b2Vec2.s_t0));
 		/** @type {number} */ var s2 = box2d.b2DotVV(n, box2d.b2SubVV(this.m_polygonB.vertices[i], this.m_v2, box2d.b2Vec2.s_t0));
 		/** @type {number} */ var s = box2d.b2Min(s1, s2);
-		
+
 		if (s > this.m_radius)
 		{
 			// No collision
@@ -15933,7 +15933,7 @@ box2d.b2EPCollider.prototype.ComputePolygonSeparation = function (out)
 			axis.separation = s;
 			return axis;
 		}
-		
+
 		// Adjacency
 		if (box2d.b2DotVV(n, perp) >= 0)
 		{
@@ -15949,7 +15949,7 @@ box2d.b2EPCollider.prototype.ComputePolygonSeparation = function (out)
 				continue;
 			}
 		}
-		
+
 		if (s > axis.separation)
 		{
 			axis.type = box2d.b2EPAxisType.e_edgeB;
@@ -15957,21 +15957,21 @@ box2d.b2EPCollider.prototype.ComputePolygonSeparation = function (out)
 			axis.separation = s;
 		}
 	}
-	
+
 	return axis;
 }
 box2d.b2EPCollider.s_n = new box2d.b2Vec2();
 box2d.b2EPCollider.s_perp = new box2d.b2Vec2();
 
-/** 
+/**
  * Compute the collision manifold between an edge and a polygon.
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
  * @param {box2d.b2EdgeShape} edgeA
  * @param {box2d.b2Transform} xfA
  * @param {box2d.b2PolygonShape} polygonB
- * @param {box2d.b2Transform} xfB 
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2CollideEdgeAndPolygon = function (manifold, edgeA, xfA, polygonB, xfB)
 {
@@ -16002,13 +16002,13 @@ goog.provide('box2d.b2EdgeShape');
 
 goog.require('box2d.b2Shape');
 
-/** 
- * A line segment (edge) shape. These can be connected in chains 
- * or loops to other edge shapes. The connectivity information 
- * is used to ensure correct contact normals. 
- * @export 
+/**
+ * A line segment (edge) shape. These can be connected in chains
+ * or loops to other edge shapes. The connectivity information
+ * is used to ensure correct contact normals.
+ * @export
  * @constructor
- * @extends {box2d.b2Shape} 
+ * @extends {box2d.b2Shape}
  */
 box2d.b2EdgeShape = function ()
 {
@@ -16023,47 +16023,47 @@ box2d.b2EdgeShape = function ()
 
 goog.inherits(box2d.b2EdgeShape, box2d.b2Shape);
 
-/** 
- * These are the edge vertices 
- * @export 
+/**
+ * These are the edge vertices
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EdgeShape.prototype.m_vertex1 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EdgeShape.prototype.m_vertex2 = null;
 
-/** 
- * Optional adjacent vertices. These are used for smooth 
- * collision. 
- * @export 
+/**
+ * Optional adjacent vertices. These are used for smooth
+ * collision.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EdgeShape.prototype.m_vertex0 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2EdgeShape.prototype.m_vertex3 = null;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2EdgeShape.prototype.m_hasVertex0 = false;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2EdgeShape.prototype.m_hasVertex3 = false;
 
-/** 
- * Set this as an isolated edge. 
- * @export 
- * @return {box2d.b2EdgeShape} 
+/**
+ * Set this as an isolated edge.
+ * @export
+ * @return {box2d.b2EdgeShape}
  * @param {box2d.b2Vec2} v1
- * @param {box2d.b2Vec2} v2 
+ * @param {box2d.b2Vec2} v2
  */
 box2d.b2EdgeShape.prototype.Set = function (v1, v2)
 {
@@ -16076,10 +16076,10 @@ box2d.b2EdgeShape.prototype.Set = function (v1, v2)
 
 box2d.b2EdgeShape.prototype.SetAsEdge = box2d.b2EdgeShape.prototype.Set;
 
-/** 
- * Implement box2d.b2Shape. 
- * @export 
- * @return {box2d.b2Shape} 
+/**
+ * Implement box2d.b2Shape.
+ * @export
+ * @return {box2d.b2Shape}
  */
 box2d.b2EdgeShape.prototype.Clone = function ()
 {
@@ -16087,8 +16087,8 @@ box2d.b2EdgeShape.prototype.Clone = function ()
 }
 
 /**
- * @export 
- * @return {box2d.b2Shape} 
+ * @export
+ * @return {box2d.b2Shape}
  * @param {box2d.b2Shape} other
  */
 box2d.b2EdgeShape.prototype.Copy = function (other)
@@ -16107,9 +16107,9 @@ box2d.b2EdgeShape.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * @see box2d.b2Shape::GetChildCount 
- * @export 
+/**
+ * @see box2d.b2Shape::GetChildCount
+ * @export
  * @return {number}
  */
 box2d.b2EdgeShape.prototype.GetChildCount = function ()
@@ -16117,9 +16117,9 @@ box2d.b2EdgeShape.prototype.GetChildCount = function ()
 	return 1;
 }
 
-/** 
- * @see box2d.b2Shape::TestPoint 
- * @export 
+/**
+ * @see box2d.b2Shape::TestPoint
+ * @export
  * @return {boolean}
  * @param {box2d.b2Transform} xf
  * @param {box2d.b2Vec2} p
@@ -16129,18 +16129,18 @@ box2d.b2EdgeShape.prototype.TestPoint = function (xf, p)
 	return false;
 }
 
-/** 
+/**
  * Implement box2d.b2Shape.
  * p = p1 + t * d
  * v = v1 + s * e
  * p1 + t * d = v1 + s * e
  * s * e - t * d = p1 - v1
- * @export 
- * @return {boolean} 
- * @param {box2d.b2RayCastOutput} output 
- * @param {box2d.b2RayCastInput} input 
- * @param {box2d.b2Transform} xf 
- * @param {number} childIndex 
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2RayCastOutput} output
+ * @param {box2d.b2RayCastInput} input
+ * @param {box2d.b2Transform} xf
+ * @param {number} childIndex
  */
 box2d.b2EdgeShape.prototype.RayCast = function (output, input, xf, childIndex)
 {
@@ -16203,13 +16203,13 @@ box2d.b2EdgeShape.prototype.RayCast.s_e = new box2d.b2Vec2();
 box2d.b2EdgeShape.prototype.RayCast.s_q = new box2d.b2Vec2();
 box2d.b2EdgeShape.prototype.RayCast.s_r = new box2d.b2Vec2();
 
-/** 
- * @see box2d.b2Shape::ComputeAABB 
- * @export 
- * @return {void} 
- * @param {box2d.b2AABB} aabb 
- * @param {box2d.b2Transform} xf 
- * @param {number} childIndex 
+/**
+ * @see box2d.b2Shape::ComputeAABB
+ * @export
+ * @return {void}
+ * @param {box2d.b2AABB} aabb
+ * @param {box2d.b2Transform} xf
+ * @param {number} childIndex
  */
 box2d.b2EdgeShape.prototype.ComputeAABB = function (aabb, xf, childIndex)
 {
@@ -16226,12 +16226,12 @@ box2d.b2EdgeShape.prototype.ComputeAABB = function (aabb, xf, childIndex)
 box2d.b2EdgeShape.prototype.ComputeAABB.s_v1 = new box2d.b2Vec2();
 box2d.b2EdgeShape.prototype.ComputeAABB.s_v2 = new box2d.b2Vec2();
 
-/** 
- * @see box2d.b2Shape::ComputeMass 
- * @export 
- * @return {void} 
- * @param {box2d.b2MassData} massData 
- * @param {number} density 
+/**
+ * @see box2d.b2Shape::ComputeMass
+ * @export
+ * @return {void}
+ * @param {box2d.b2MassData} massData
+ * @param {number} density
  */
 box2d.b2EdgeShape.prototype.ComputeMass = function (massData, density)
 {
@@ -16241,9 +16241,9 @@ box2d.b2EdgeShape.prototype.ComputeMass = function (massData, density)
 }
 
 /**
- * @return {void} 
- * @param {box2d.b2DistanceProxy} proxy 
- * @param {number} index 
+ * @return {void}
+ * @param {box2d.b2DistanceProxy} proxy
+ * @param {number} index
  */
 box2d.b2EdgeShape.prototype.SetupDistanceProxy = function (proxy, index)
 {
@@ -16255,7 +16255,7 @@ box2d.b2EdgeShape.prototype.SetupDistanceProxy = function (proxy, index)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} normal
  * @param {number} offset
@@ -16268,9 +16268,9 @@ box2d.b2EdgeShape.prototype.ComputeSubmergedArea = function (normal, offset, xf,
 	return 0;
 }
 
-/** 
- * Dump this shape to the log file. 
- * @export 
+/**
+ * Dump this shape to the log file.
+ * @export
  * @return {void}
  */
 box2d.b2EdgeShape.prototype.Dump = function ()
@@ -16308,16 +16308,16 @@ goog.provide('box2d.b2ChainShape');
 goog.require('box2d.b2Shape');
 goog.require('box2d.b2EdgeShape');
 
-/** 
+/**
  * A chain shape is a free form sequence of line segments.
  * The chain has two-sided collision, so you can use inside and outside collision.
  * Therefore, you may use any winding order.
  * Since there may be many vertices, they are allocated using b2Alloc.
  * Connectivity information is used to create smooth collisions.
  * WARNING: The chain will not collide properly if there are self-intersections.
- * @export 
+ * @export
  * @constructor
- * @extends {box2d.b2Shape} 
+ * @extends {box2d.b2Shape}
  */
 box2d.b2ChainShape = function ()
 {
@@ -16329,45 +16329,45 @@ box2d.b2ChainShape = function ()
 
 goog.inherits(box2d.b2ChainShape, box2d.b2Shape);
 
-/** 
- * The vertices. Owned by this class. 
- * @export 
+/**
+ * The vertices. Owned by this class.
+ * @export
  * @type {Array.<box2d.b2Vec2>}
  */
 box2d.b2ChainShape.prototype.m_vertices = null;
 
-/** 
- * The vertex count. 
- * @export 
+/**
+ * The vertex count.
+ * @export
  * @type {number}
  */
 box2d.b2ChainShape.prototype.m_count = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ChainShape.prototype.m_prevVertex = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ChainShape.prototype.m_nextVertex = null;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2ChainShape.prototype.m_hasPrevVertex = false;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2ChainShape.prototype.m_hasNextVertex = false;
 
-/** 
- * Create a loop. This automatically adjusts connectivity. 
- * @export 
- * @return {box2d.b2ChainShape} 
+/**
+ * Create a loop. This automatically adjusts connectivity.
+ * @export
+ * @return {box2d.b2ChainShape}
  * @param {Array.<box2d.b2Vec2>} vertices an array of vertices, these are copied
  * @param {number=} count the vertex count
  */
@@ -16401,10 +16401,10 @@ box2d.b2ChainShape.prototype.CreateLoop = function (vertices, count)
 	return this;
 }
 
-/** 
- * Create a chain with isolated end vertices. 
- * @export 
- * @return {box2d.b2ChainShape} 
+/**
+ * Create a chain with isolated end vertices.
+ * @export
+ * @return {box2d.b2ChainShape}
  * @param {Array.<box2d.b2Vec2>} vertices an array of vertices, these are copied
  * @param {number=} count the vertex count
  */
@@ -16442,9 +16442,9 @@ box2d.b2ChainShape.prototype.CreateChain = function (vertices, count)
 /**
  * Establish connectivity to a vertex that precedes the first vertex.
  * Don't call this for loops.
- * @export 
- * @return {box2d.b2ChainShape} 
- * @param {box2d.b2Vec2} prevVertex 
+ * @export
+ * @return {box2d.b2ChainShape}
+ * @param {box2d.b2Vec2} prevVertex
  */
 box2d.b2ChainShape.prototype.SetPrevVertex = function (prevVertex)
 {
@@ -16456,9 +16456,9 @@ box2d.b2ChainShape.prototype.SetPrevVertex = function (prevVertex)
 /**
  * Establish connectivity to a vertex that follows the last vertex.
  * Don't call this for loops.
- * @export 
- * @return {box2d.b2ChainShape} 
- * @param {box2d.b2Vec2} nextVertex 
+ * @export
+ * @return {box2d.b2ChainShape}
+ * @param {box2d.b2Vec2} nextVertex
  */
 box2d.b2ChainShape.prototype.SetNextVertex = function (nextVertex)
 {
@@ -16467,10 +16467,10 @@ box2d.b2ChainShape.prototype.SetNextVertex = function (nextVertex)
 	return this;
 }
 
-/** 
- * Implement box2d.b2Shape. Vertices are cloned using b2Alloc. 
- * @export 
- * @return {box2d.b2Shape} 
+/**
+ * Implement box2d.b2Shape. Vertices are cloned using b2Alloc.
+ * @export
+ * @return {box2d.b2Shape}
  */
 box2d.b2ChainShape.prototype.Clone = function ()
 {
@@ -16478,8 +16478,8 @@ box2d.b2ChainShape.prototype.Clone = function ()
 }
 
 /**
- * @export 
- * @return {box2d.b2Shape} 
+ * @export
+ * @return {box2d.b2Shape}
  * @param {box2d.b2Shape} other
  */
 box2d.b2ChainShape.prototype.Copy = function (other)
@@ -16497,9 +16497,9 @@ box2d.b2ChainShape.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * @see box2d.b2Shape::GetChildCount 
- * @export 
+/**
+ * @see box2d.b2Shape::GetChildCount
+ * @export
  * @return {number}
  */
 box2d.b2ChainShape.prototype.GetChildCount = function ()
@@ -16508,12 +16508,12 @@ box2d.b2ChainShape.prototype.GetChildCount = function ()
 	return this.m_count - 1;
 }
 
-/** 
- * Get a child edge. 
- * @export 
- * @return {void} 
- * @param {box2d.b2EdgeShape} edge 
- * @param {number} index 
+/**
+ * Get a child edge.
+ * @export
+ * @return {void}
+ * @param {box2d.b2EdgeShape} edge
+ * @param {number} index
  */
 box2d.b2ChainShape.prototype.GetChildEdge = function (edge, index)
 {
@@ -16551,7 +16551,7 @@ box2d.b2ChainShape.prototype.GetChildEdge = function (edge, index)
 /**
  * This always return false.
  * @see box2d.b2Shape::TestPoint
- * @export 
+ * @export
  * @return {boolean}
  * @param {box2d.b2Transform} xf
  * @param {box2d.b2Vec2} p
@@ -16561,14 +16561,14 @@ box2d.b2ChainShape.prototype.TestPoint = function (xf, p)
 	return false;
 }
 
-/** 
- * Implement box2d.b2Shape. 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2RayCastOutput} output 
- * @param {box2d.b2RayCastInput} input 
- * @param {box2d.b2Transform} xf 
- * @param {number} childIndex 
+/**
+ * Implement box2d.b2Shape.
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2RayCastOutput} output
+ * @param {box2d.b2RayCastInput} input
+ * @param {box2d.b2Transform} xf
+ * @param {number} childIndex
  */
 box2d.b2ChainShape.prototype.RayCast = function (output, input, xf, childIndex)
 {
@@ -16582,18 +16582,18 @@ box2d.b2ChainShape.prototype.RayCast = function (output, input, xf, childIndex)
 	return edgeShape.RayCast(output, input, xf, 0);
 }
 /**
- * @export 
+ * @export
  * @type {box2d.b2EdgeShape}
  */
 box2d.b2ChainShape.s_edgeShape = new box2d.b2EdgeShape();
 
-/** 
- * @see box2d.b2Shape::ComputeAABB 
- * @export 
- * @return {void} 
- * @param {box2d.b2AABB} aabb 
- * @param {box2d.b2Transform} xf 
- * @param {number} childIndex 
+/**
+ * @see box2d.b2Shape::ComputeAABB
+ * @export
+ * @return {void}
+ * @param {box2d.b2AABB} aabb
+ * @param {box2d.b2Transform} xf
+ * @param {number} childIndex
  */
 box2d.b2ChainShape.prototype.ComputeAABB = function (aabb, xf, childIndex)
 {
@@ -16609,22 +16609,22 @@ box2d.b2ChainShape.prototype.ComputeAABB = function (aabb, xf, childIndex)
 	box2d.b2MaxV(v1, v2, aabb.upperBound);
 }
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ChainShape.prototype.ComputeAABB.s_v1 = new box2d.b2Vec2();
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ChainShape.prototype.ComputeAABB.s_v2 = new box2d.b2Vec2();
 
-/** 
- * @see box2d.b2Shape::ComputeMass 
- * @export 
- * @return {void} 
- * @param {box2d.b2MassData} massData 
- * @param {number} density 
+/**
+ * @see box2d.b2Shape::ComputeMass
+ * @export
+ * @return {void}
+ * @param {box2d.b2MassData} massData
+ * @param {number} density
  */
 box2d.b2ChainShape.prototype.ComputeMass = function (massData, density)
 {
@@ -16634,9 +16634,9 @@ box2d.b2ChainShape.prototype.ComputeMass = function (massData, density)
 }
 
 /**
- * @return {void} 
- * @param {box2d.b2DistanceProxy} proxy 
- * @param {number} index 
+ * @return {void}
+ * @param {box2d.b2DistanceProxy} proxy
+ * @param {number} index
  */
 box2d.b2ChainShape.prototype.SetupDistanceProxy = function (proxy, index)
 {
@@ -16658,7 +16658,7 @@ box2d.b2ChainShape.prototype.SetupDistanceProxy = function (proxy, index)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} normal
  * @param {number} offset
@@ -16671,9 +16671,9 @@ box2d.b2ChainShape.prototype.ComputeSubmergedArea = function (normal, offset, xf
 	return 0;
 }
 
-/** 
- * Dump this shape to the log file. 
- * @export 
+/**
+ * Dump this shape to the log file.
+ * @export
  * @return {void}
  */
 box2d.b2ChainShape.prototype.Dump = function ()
@@ -16717,10 +16717,10 @@ goog.require('box2d.b2CollideEdge');
 goog.require('box2d.b2ChainShape');
 goog.require('box2d.b2PolygonShape');
 
-/** 
- * @export 
- * @constructor 
- * @extends {box2d.b2Contact} 
+/**
+ * @export
+ * @constructor
+ * @extends {box2d.b2Contact}
  */
 box2d.b2ChainAndPolygonContact = function ()
 {
@@ -16729,10 +16729,10 @@ box2d.b2ChainAndPolygonContact = function ()
 
 goog.inherits(box2d.b2ChainAndPolygonContact, box2d.b2Contact);
 
-/** 
- * @export 
- * @return {box2d.b2Contact} 
- * @param allocator 
+/**
+ * @export
+ * @return {box2d.b2Contact}
+ * @param allocator
  */
 box2d.b2ChainAndPolygonContact.Create = function (allocator)
 {
@@ -16740,18 +16740,18 @@ box2d.b2ChainAndPolygonContact.Create = function (allocator)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
- * @param allocator 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
+ * @param allocator
  */
 box2d.b2ChainAndPolygonContact.Destroy = function (contact, allocator)
 {
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Fixture} fixtureA
  * @param {box2d.b2Fixture} fixtureB
  */
@@ -16763,11 +16763,11 @@ box2d.b2ChainAndPolygonContact.prototype.Reset = function (fixtureA, indexA, fix
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2Transform} xfB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2ChainAndPolygonContact.prototype.Evaluate = function (manifold, xfA, xfB)
 {
@@ -16779,8 +16779,8 @@ box2d.b2ChainAndPolygonContact.prototype.Evaluate = function (manifold, xfA, xfB
 	/*box2d.b2EdgeShape*/ var edge = box2d.b2ChainAndPolygonContact.prototype.Evaluate.s_edge;
 	chain.GetChildEdge(edge, this.m_indexA);
 	box2d.b2CollideEdgeAndPolygon(
-		manifold, 
-		edge, xfA, 
+		manifold,
+		edge, xfA,
 		(shapeB instanceof box2d.b2PolygonShape)? shapeB : null, xfB);
 }
 box2d.b2ChainAndPolygonContact.prototype.Evaluate.s_edge = new box2d.b2EdgeShape();
@@ -17098,9 +17098,9 @@ goog.require('box2d.b2Contact');
 goog.require('box2d.b2CollidePolygon');
 
 /**
- * @export 
- * @constructor 
- * @extends {box2d.b2Contact} 
+ * @export
+ * @constructor
+ * @extends {box2d.b2Contact}
  */
 box2d.b2PolygonContact = function ()
 {
@@ -17110,9 +17110,9 @@ box2d.b2PolygonContact = function ()
 goog.inherits(box2d.b2PolygonContact, box2d.b2Contact);
 
 /**
- * @export 
- * @return {box2d.b2Contact} 
- * @param allocator 
+ * @export
+ * @return {box2d.b2Contact}
+ * @param allocator
  */
 box2d.b2PolygonContact.Create = function (allocator)
 {
@@ -17120,18 +17120,18 @@ box2d.b2PolygonContact.Create = function (allocator)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
- * @param allocator 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
+ * @param allocator
  */
 box2d.b2PolygonContact.Destroy = function (contact, allocator)
 {
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Fixture} fixtureA
  * @param {box2d.b2Fixture} fixtureB
  */
@@ -17141,11 +17141,11 @@ box2d.b2PolygonContact.prototype.Reset = function (fixtureA, indexA, fixtureB, i
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2Transform} xfB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2PolygonContact.prototype.Evaluate = function (manifold, xfA, xfB)
 {
@@ -17154,8 +17154,8 @@ box2d.b2PolygonContact.prototype.Evaluate = function (manifold, xfA, xfB)
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeA instanceof box2d.b2PolygonShape); }
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeB instanceof box2d.b2PolygonShape); }
 	box2d.b2CollidePolygons(
-		manifold, 
-		(shapeA instanceof box2d.b2PolygonShape)? shapeA : null, xfA, 
+		manifold,
+		(shapeA instanceof box2d.b2PolygonShape)? shapeA : null, xfA,
 		(shapeB instanceof box2d.b2PolygonShape)? shapeB : null, xfB);
 }
 
@@ -17181,15 +17181,15 @@ goog.provide('box2d.b2CollideCircle');
 
 goog.require('box2d.b2Collision');
 
-/** 
- * Compute the collision manifold between two circles. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
- * @param {box2d.b2CircleShape} circleA 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2CircleShape} circleB 
- * @param {box2d.b2Transform} xfB 
+/**
+ * Compute the collision manifold between two circles.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
+ * @param {box2d.b2CircleShape} circleA
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2CircleShape} circleB
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2CollideCircles = function (manifold, circleA, xfA, circleB, xfB)
 {
@@ -17216,11 +17216,11 @@ box2d.b2CollideCircles = function (manifold, circleA, xfA, circleB, xfB)
 box2d.b2CollideCircles.s_pA = new box2d.b2Vec2();
 box2d.b2CollideCircles.s_pB = new box2d.b2Vec2();
 
-/** 
- * Compute the collision manifold between a polygon and a 
- * circle. 
- * @export 
- * @return {void} 
+/**
+ * Compute the collision manifold between a polygon and a
+ * circle.
+ * @export
+ * @return {void}
  * @param {box2d.b2Manifold} manifold
  * @param {box2d.b2PolygonShape} polygonA
  * @param {box2d.b2Transform} xfA
@@ -17355,9 +17355,9 @@ goog.require('box2d.b2Contact');
 goog.require('box2d.b2CollideCircle');
 
 /**
- * @export 
- * @constructor 
- * @extends {box2d.b2Contact} 
+ * @export
+ * @constructor
+ * @extends {box2d.b2Contact}
  */
 box2d.b2CircleContact = function ()
 {
@@ -17367,9 +17367,9 @@ box2d.b2CircleContact = function ()
 goog.inherits(box2d.b2CircleContact, box2d.b2Contact);
 
 /**
- * @export 
- * @return {box2d.b2Contact} 
- * @param allocator 
+ * @export
+ * @return {box2d.b2Contact}
+ * @param allocator
  */
 box2d.b2CircleContact.Create = function (allocator)
 {
@@ -17377,22 +17377,22 @@ box2d.b2CircleContact.Create = function (allocator)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
- * @param allocator 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
+ * @param allocator
  */
 box2d.b2CircleContact.Destroy = function (contact, allocator)
 {
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Fixture} fixtureA
- * @param {number} indexA 
+ * @param {number} indexA
  * @param {box2d.b2Fixture} fixtureB
- * @param {number} indexB 
+ * @param {number} indexB
  */
 box2d.b2CircleContact.prototype.Reset = function (fixtureA, indexA, fixtureB, indexB)
 {
@@ -17400,11 +17400,11 @@ box2d.b2CircleContact.prototype.Reset = function (fixtureA, indexA, fixtureB, in
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2Transform} xfB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2CircleContact.prototype.Evaluate = function (manifold, xfA, xfB)
 {
@@ -17413,8 +17413,8 @@ box2d.b2CircleContact.prototype.Evaluate = function (manifold, xfA, xfB)
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeA instanceof box2d.b2CircleShape); }
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeB instanceof box2d.b2CircleShape); }
 	box2d.b2CollideCircles(
-		manifold, 
-		(shapeA instanceof box2d.b2CircleShape)? shapeA : null, xfA, 
+		manifold,
+		(shapeA instanceof box2d.b2CircleShape)? shapeA : null, xfA,
 		(shapeB instanceof box2d.b2CircleShape)? shapeB : null, xfB);
 }
 
@@ -17442,10 +17442,10 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Contact');
 goog.require('box2d.b2CollideEdge');
 
-/** 
- * @export 
- * @constructor 
- * @extends {box2d.b2Contact} 
+/**
+ * @export
+ * @constructor
+ * @extends {box2d.b2Contact}
  */
 box2d.b2ChainAndCircleContact = function ()
 {
@@ -17454,29 +17454,29 @@ box2d.b2ChainAndCircleContact = function ()
 
 goog.inherits(box2d.b2ChainAndCircleContact, box2d.b2Contact);
 
-/** 
- * @export 
- * @return {box2d.b2Contact} 
- * @param allocator 
+/**
+ * @export
+ * @return {box2d.b2Contact}
+ * @param allocator
  */
 box2d.b2ChainAndCircleContact.Create = function (allocator)
 {
 	return new box2d.b2ChainAndCircleContact();
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
- * @param allocator 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
+ * @param allocator
  */
 box2d.b2ChainAndCircleContact.Destroy = function (contact, allocator)
 {
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2Fixture} fixtureA
  * @param {box2d.b2Fixture} fixtureB
  */
@@ -17488,11 +17488,11 @@ box2d.b2ChainAndCircleContact.prototype.Reset = function (fixtureA, indexA, fixt
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2Transform} xfB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2ChainAndCircleContact.prototype.Evaluate = function (manifold, xfA, xfB)
 {
@@ -17504,8 +17504,8 @@ box2d.b2ChainAndCircleContact.prototype.Evaluate = function (manifold, xfA, xfB)
 	/*box2d.b2EdgeShape*/ var edge = box2d.b2ChainAndCircleContact.prototype.Evaluate.s_edge;
 	chain.GetChildEdge(edge, this.m_indexA);
 	box2d.b2CollideEdgeAndCircle(
-		manifold, 
-		edge, xfA, 
+		manifold,
+		edge, xfA,
 		(shapeB instanceof box2d.b2CircleShape)? shapeB : null, xfB);
 }
 box2d.b2ChainAndCircleContact.prototype.Evaluate.s_edge = new box2d.b2EdgeShape();
@@ -17535,9 +17535,9 @@ goog.require('box2d.b2Contact');
 goog.require('box2d.b2CollideEdge');
 
 /**
- * @export 
- * @constructor 
- * @extends {box2d.b2Contact} 
+ * @export
+ * @constructor
+ * @extends {box2d.b2Contact}
  */
 box2d.b2EdgeAndCircleContact = function ()
 {
@@ -17547,28 +17547,28 @@ box2d.b2EdgeAndCircleContact = function ()
 goog.inherits(box2d.b2EdgeAndCircleContact, box2d.b2Contact);
 
 /**
- * @export 
- * @return {box2d.b2Contact} 
- * @param allocator 
+ * @export
+ * @return {box2d.b2Contact}
+ * @param allocator
  */
 box2d.b2EdgeAndCircleContact.Create = function (allocator)
 {
 	return new box2d.b2EdgeAndCircleContact();
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
- * @param allocator 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
+ * @param allocator
  */
 box2d.b2EdgeAndCircleContact.Destroy = function (contact, allocator)
 {
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Fixture} fixtureA
  * @param {box2d.b2Fixture} fixtureB
  */
@@ -17580,11 +17580,11 @@ box2d.b2EdgeAndCircleContact.prototype.Reset = function (fixtureA, indexA, fixtu
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Manifold} manifold 
- * @param {box2d.b2Transform} xfA 
- * @param {box2d.b2Transform} xfB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Manifold} manifold
+ * @param {box2d.b2Transform} xfA
+ * @param {box2d.b2Transform} xfB
  */
 box2d.b2EdgeAndCircleContact.prototype.Evaluate = function (manifold, xfA, xfB)
 {
@@ -17593,8 +17593,8 @@ box2d.b2EdgeAndCircleContact.prototype.Evaluate = function (manifold, xfA, xfB)
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeA instanceof box2d.b2EdgeShape); }
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(shapeB instanceof box2d.b2CircleShape); }
 	box2d.b2CollideEdgeAndCircle(
-		manifold, 
-		(shapeA instanceof box2d.b2EdgeShape)? shapeA : null, xfA, 
+		manifold,
+		(shapeA instanceof box2d.b2EdgeShape)? shapeA : null, xfA,
 		(shapeB instanceof box2d.b2CircleShape)? shapeB : null, xfB);
 }
 
@@ -17630,7 +17630,7 @@ goog.require('box2d.b2ChainAndCircleContact');
 goog.require('box2d.b2ChainAndPolygonContact');
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2VelocityConstraintPoint = function ()
@@ -17640,45 +17640,45 @@ box2d.b2VelocityConstraintPoint = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2VelocityConstraintPoint.prototype.rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2VelocityConstraintPoint.prototype.rB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2VelocityConstraintPoint.prototype.normalImpulse = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2VelocityConstraintPoint.prototype.tangentImpulse = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2VelocityConstraintPoint.prototype.normalMass = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2VelocityConstraintPoint.prototype.tangentMass = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2VelocityConstraintPoint.prototype.velocityBias = 0;
 
 /**
- * @export 
+ * @export
  * @return {Array.<box2d.b2VelocityConstraintPoint>}
- * @param {number} length 
+ * @param {number} length
  */
 box2d.b2VelocityConstraintPoint.MakeArray = function (length)
 {
@@ -17686,7 +17686,7 @@ box2d.b2VelocityConstraintPoint.MakeArray = function (length)
 }
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2ContactVelocityConstraint = function ()
@@ -17699,90 +17699,90 @@ box2d.b2ContactVelocityConstraint = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2VelocityConstraintPoint>}
  */
 box2d.b2ContactVelocityConstraint.prototype.points = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ContactVelocityConstraint.prototype.normal = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ContactVelocityConstraint.prototype.tangent = null; // compute from normal
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2ContactVelocityConstraint.prototype.normalMass = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2ContactVelocityConstraint.prototype.K = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.indexB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.invIB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.friction = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.restitution = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.tangentSpeed = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.pointCount = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactVelocityConstraint.prototype.contactIndex = 0;
 
 /**
- * @export 
+ * @export
  * @return {Array.<box2d.b2ContactVelocityConstraint>}
- * @param {number} length 
+ * @param {number} length
  */
 box2d.b2ContactVelocityConstraint.MakeArray = function (length)
 {
@@ -17790,7 +17790,7 @@ box2d.b2ContactVelocityConstraint.MakeArray = function (length)
 }
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2ContactPositionConstraint = function ()
@@ -17803,85 +17803,85 @@ box2d.b2ContactPositionConstraint = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Vec2>}
  */
 box2d.b2ContactPositionConstraint.prototype.localPoints = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ContactPositionConstraint.prototype.localNormal = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ContactPositionConstraint.prototype.localPoint = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactPositionConstraint.prototype.indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactPositionConstraint.prototype.indexB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactPositionConstraint.prototype.invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactPositionConstraint.prototype.invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ContactPositionConstraint.prototype.localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2ContactPositionConstraint.prototype.localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactPositionConstraint.prototype.invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactPositionConstraint.prototype.invIB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2ManifoldType}
  */
 box2d.b2ContactPositionConstraint.prototype.type = box2d.b2ManifoldType.e_unknown;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactPositionConstraint.prototype.radiusA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactPositionConstraint.prototype.radiusB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactPositionConstraint.prototype.pointCount = 0;
 
 /**
- * @export 
+ * @export
  * @return {Array.<box2d.b2ContactPositionConstraint>}
- * @param {number} length 
+ * @param {number} length
  */
 box2d.b2ContactPositionConstraint.MakeArray = function (length)
 {
@@ -17889,7 +17889,7 @@ box2d.b2ContactPositionConstraint.MakeArray = function (length)
 }
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2ContactSolverDef = function ()
@@ -17898,38 +17898,38 @@ box2d.b2ContactSolverDef = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2TimeStep}
  */
 box2d.b2ContactSolverDef.prototype.step = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Contact>}
  */
 box2d.b2ContactSolverDef.prototype.contacts = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactSolverDef.prototype.count = 0;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Position>}
  */
 box2d.b2ContactSolverDef.prototype.positions = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Velocity>}
  */
 box2d.b2ContactSolverDef.prototype.velocities = null;
 /**
- * @export 
+ * @export
  * @type {*}
  */
 box2d.b2ContactSolverDef.prototype.allocator = null;
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2ContactSolver = function ()
@@ -17940,50 +17940,50 @@ box2d.b2ContactSolver = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2TimeStep}
  */
 box2d.b2ContactSolver.prototype.m_step = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Position>}
  */
 box2d.b2ContactSolver.prototype.m_positions = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Velocity>}
  */
 box2d.b2ContactSolver.prototype.m_velocities = null;
 /**
- * @export 
+ * @export
  * @type {*}
  */
 box2d.b2ContactSolver.prototype.m_allocator = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2ContactPositionConstraint>}
  */
 box2d.b2ContactSolver.prototype.m_positionConstraints = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2ContactVelocityConstraint>}
  */
 box2d.b2ContactSolver.prototype.m_velocityConstraints = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Contact>}
  */
 box2d.b2ContactSolver.prototype.m_contacts = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactSolver.prototype.m_count = 0;
 
-/** 
- * @export 
- * @return {box2d.b2ContactSolver} 
- * @param {box2d.b2ContactSolverDef} def 
+/**
+ * @export
+ * @return {box2d.b2ContactSolver}
+ * @param {box2d.b2ContactSolverDef} def
  */
 box2d.b2ContactSolver.prototype.Initialize = function (def)
 {
@@ -18102,7 +18102,7 @@ box2d.b2ContactSolver.prototype.Initialize = function (def)
 		{
 			cp = manifold.points[j];
 			vcp = vc.points[j];
-	
+
 			if (this.m_step.warmStarting)
 			{
 				vcp.normalImpulse = this.m_step.dtRatio * cp.normalImpulse;
@@ -18128,10 +18128,10 @@ box2d.b2ContactSolver.prototype.Initialize = function (def)
 }
 
 /**
- * Initialize position dependent portions of the velocity 
- * constraints. 
- * @export 
- * @return {void} 
+ * Initialize position dependent portions of the velocity
+ * constraints.
+ * @export
+ * @return {void}
  */
 box2d.b2ContactSolver.prototype.InitializeVelocityConstraints = function ()
 {
@@ -18276,10 +18276,10 @@ box2d.b2ContactSolver.prototype.InitializeVelocityConstraints = function ()
 			vcp.velocityBias = 0;
 //			float32 vRel = b2Dot(vc->normal, vB + b2Cross(wB, vcp->rB) - vA - b2Cross(wA, vcp->rA));
 			vRel = box2d.b2DotVV(
-				vc.normal, 
+				vc.normal,
 				box2d.b2SubVV(
 					box2d.b2AddVCrossSV(vB, wB, vcp.rB, box2d.b2Vec2.s_t0),
-					box2d.b2AddVCrossSV(vA, wA, vcp.rA, box2d.b2Vec2.s_t1), 
+					box2d.b2AddVCrossSV(vA, wA, vcp.rA, box2d.b2Vec2.s_t1),
 					box2d.b2Vec2.s_t0));
 			if (vRel < (-box2d.b2_velocityThreshold))
 			{
@@ -18324,9 +18324,9 @@ box2d.b2ContactSolver.prototype.InitializeVelocityConstraints.s_xfA = new box2d.
 box2d.b2ContactSolver.prototype.InitializeVelocityConstraints.s_xfB = new box2d.b2Transform();
 box2d.b2ContactSolver.prototype.InitializeVelocityConstraints.s_worldManifold = new box2d.b2WorldManifold();
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  */
 box2d.b2ContactSolver.prototype.WarmStart = function ()
 {
@@ -18383,8 +18383,8 @@ box2d.b2ContactSolver.prototype.WarmStart = function ()
 			vcp = vc.points[j];
 //			b2Vec2 P = vcp->normalImpulse * normal + vcp->tangentImpulse * tangent;
 			box2d.b2AddVV(
-				box2d.b2MulSV(vcp.normalImpulse, normal, box2d.b2Vec2.s_t0), 
-				box2d.b2MulSV(vcp.tangentImpulse, tangent, box2d.b2Vec2.s_t1), 
+				box2d.b2MulSV(vcp.normalImpulse, normal, box2d.b2Vec2.s_t0),
+				box2d.b2MulSV(vcp.tangentImpulse, tangent, box2d.b2Vec2.s_t1),
 				P);
 //			wA -= iA * b2Cross(vcp->rA, P);
 			wA -= iA * box2d.b2CrossVV(vcp.rA, P);
@@ -18405,8 +18405,8 @@ box2d.b2ContactSolver.prototype.WarmStart = function ()
 box2d.b2ContactSolver.prototype.WarmStart.s_P = new box2d.b2Vec2();
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2ContactSolver.prototype.SolveVelocityConstraints = function ()
 {
@@ -18494,8 +18494,8 @@ box2d.b2ContactSolver.prototype.SolveVelocityConstraints = function ()
 			// Relative velocity at contact
 //			b2Vec2 dv = vB + b2Cross(wB, vcp->rB) - vA - b2Cross(wA, vcp->rA);
 			box2d.b2SubVV(
-				box2d.b2AddVCrossSV(vB, wB, vcp.rB, box2d.b2Vec2.s_t0), 
-				box2d.b2AddVCrossSV(vA, wA, vcp.rA, box2d.b2Vec2.s_t1), 
+				box2d.b2AddVCrossSV(vB, wB, vcp.rB, box2d.b2Vec2.s_t0),
+				box2d.b2AddVCrossSV(vA, wA, vcp.rA, box2d.b2Vec2.s_t1),
 				dv);
 
 			// Compute tangent force
@@ -18532,8 +18532,8 @@ box2d.b2ContactSolver.prototype.SolveVelocityConstraints = function ()
 			// Relative velocity at contact
 //			b2Vec2 dv = vB + b2Cross(wB, vcp->rB) - vA - b2Cross(wA, vcp->rA);
 			box2d.b2SubVV(
-				box2d.b2AddVCrossSV(vB, wB, vcp.rB, box2d.b2Vec2.s_t0), 
-				box2d.b2AddVCrossSV(vA, wA, vcp.rA, box2d.b2Vec2.s_t1), 
+				box2d.b2AddVCrossSV(vB, wB, vcp.rB, box2d.b2Vec2.s_t0),
+				box2d.b2AddVCrossSV(vA, wA, vcp.rA, box2d.b2Vec2.s_t1),
 				dv);
 
 			// Compute normal impulse
@@ -18574,17 +18574,17 @@ box2d.b2ContactSolver.prototype.SolveVelocityConstraints = function ()
 			// implies that we must have in any solution either vn_i = 0 or x_i = 0. So for the 2D contact problem the cases
 			// vn1 = 0 and vn2 = 0, x1 = 0 and x2 = 0, x1 = 0 and vn2 = 0, x2 = 0 and vn1 = 0 need to be tested. The first valid
 			// solution that satisfies the problem is chosen.
-			// 
+			//
 			// In order to account of the accumulated impulse 'a' (because of the iterative nature of the solver which only requires
 			// that the accumulated impulse is clamped and not the incremental impulse) we change the impulse variable (x_i).
 			//
 			// Substitute:
-			// 
+			//
 			// x = a + d
-			// 
+			//
 			// a := old total impulse
 			// x := new total impulse
-			// d := incremental impulse 
+			// d := incremental impulse
 			//
 			// For the current iteration we extend the formula for the incremental impulse
 			// to compute the new total impulse:
@@ -18605,13 +18605,13 @@ box2d.b2ContactSolver.prototype.SolveVelocityConstraints = function ()
 			// Relative velocity at contact
 //			b2Vec2 dv1 = vB + b2Cross(wB, cp1->rB) - vA - b2Cross(wA, cp1->rA);
 			box2d.b2SubVV(
-				box2d.b2AddVCrossSV(vB, wB, cp1.rB, box2d.b2Vec2.s_t0), 
-				box2d.b2AddVCrossSV(vA, wA, cp1.rA, box2d.b2Vec2.s_t1), 
+				box2d.b2AddVCrossSV(vB, wB, cp1.rB, box2d.b2Vec2.s_t0),
+				box2d.b2AddVCrossSV(vA, wA, cp1.rA, box2d.b2Vec2.s_t1),
 				dv1);
 //			b2Vec2 dv2 = vB + b2Cross(wB, cp2->rB) - vA - b2Cross(wA, cp2->rA);
 			box2d.b2SubVV(
-				box2d.b2AddVCrossSV(vB, wB, cp2.rB, box2d.b2Vec2.s_t0), 
-				box2d.b2AddVCrossSV(vA, wA, cp2.rA, box2d.b2Vec2.s_t1), 
+				box2d.b2AddVCrossSV(vB, wB, cp2.rB, box2d.b2Vec2.s_t0),
+				box2d.b2AddVCrossSV(vA, wA, cp2.rA, box2d.b2Vec2.s_t1),
 				dv2);
 
 			// Compute normal velocity
@@ -18694,7 +18694,7 @@ box2d.b2ContactSolver.prototype.SolveVelocityConstraints = function ()
 				//
 				// Case 2: vn1 = 0 and x2 = 0
 				//
-				//   0 = a11 * x1 + a12 * 0 + b1' 
+				//   0 = a11 * x1 + a12 * 0 + b1'
 				// vn2 = a21 * x1 + a22 * 0 + b2'
 				//
 				x.x = (-cp1.normalMass * b.x);
@@ -18746,7 +18746,7 @@ box2d.b2ContactSolver.prototype.SolveVelocityConstraints = function ()
 				//
 				// Case 3: vn2 = 0 and x1 = 0
 				//
-				// vn1 = a11 * 0 + a12 * x2 + b1' 
+				// vn1 = a11 * 0 + a12 * x2 + b1'
 				//   0 = a21 * 0 + a22 * x2 + b2'
 				//
 				x.x = 0;
@@ -18796,7 +18796,7 @@ box2d.b2ContactSolver.prototype.SolveVelocityConstraints = function ()
 
 				//
 				// Case 4: x1 = 0 and x2 = 0
-				// 
+				//
 				// vn1 = b1
 				// vn2 = b2;
 				x.x = 0;
@@ -18857,8 +18857,8 @@ box2d.b2ContactSolver.prototype.SolveVelocityConstraints.s_P2 = new box2d.b2Vec2
 box2d.b2ContactSolver.prototype.SolveVelocityConstraints.s_P1P2 = new box2d.b2Vec2();
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2ContactSolver.prototype.StoreImpulses = function ()
 {
@@ -18884,7 +18884,7 @@ box2d.b2ContactSolver.prototype.StoreImpulses = function ()
 }
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2PositionSolverManifold = function ()
@@ -18894,28 +18894,28 @@ box2d.b2PositionSolverManifold = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PositionSolverManifold.prototype.normal = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PositionSolverManifold.prototype.point = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PositionSolverManifold.prototype.separation = 0;
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2ContactPositionConstraint} pc 
- * @param {box2d.b2Transform} xfA 
+ * @export
+ * @return {void}
+ * @param {box2d.b2ContactPositionConstraint} pc
+ * @param {box2d.b2Transform} xfA
  * @param {box2d.b2Transform} xfB
- * @param {number} index 
+ * @param {number} index
  */
 box2d.b2PositionSolverManifold.prototype.Initialize = function (pc, xfA, xfB, index)
 {
@@ -18986,9 +18986,9 @@ box2d.b2PositionSolverManifold.prototype.Initialize.s_pointB = new box2d.b2Vec2(
 box2d.b2PositionSolverManifold.prototype.Initialize.s_planePoint = new box2d.b2Vec2();
 box2d.b2PositionSolverManifold.prototype.Initialize.s_clipPoint = new box2d.b2Vec2();
 
-/** 
- * Sequential solver. 
- * @export 
+/**
+ * Sequential solver.
+ * @export
  * @return {boolean}
  */
 box2d.b2ContactSolver.prototype.SolvePositionConstraints = function ()
@@ -19125,12 +19125,12 @@ box2d.b2ContactSolver.prototype.SolvePositionConstraints.s_rA = new box2d.b2Vec2
 box2d.b2ContactSolver.prototype.SolvePositionConstraints.s_rB = new box2d.b2Vec2();
 box2d.b2ContactSolver.prototype.SolvePositionConstraints.s_P = new box2d.b2Vec2();
 
-/** 
- * Sequential position solver for position constraints. 
- * @export 
- * @return {boolean} 
- * @param {number} toiIndexA 
- * @param {number} toiIndexB 
+/**
+ * Sequential position solver for position constraints.
+ * @export
+ * @return {boolean}
+ * @param {number} toiIndexA
+ * @param {number} toiIndexB
  */
 box2d.b2ContactSolver.prototype.SolveTOIPositionConstraints = function (toiIndexA, toiIndexB)
 {
@@ -19299,59 +19299,59 @@ goog.provide('box2d.b2WorldCallbacks');
 
 goog.require('box2d.b2Settings');
 
-/** 
- * Joints and fixtures are destroyed when their associated body 
- * is destroyed. Implement this listener so that you may nullify 
- * references to these joints and shapes. 
- * @export 
+/**
+ * Joints and fixtures are destroyed when their associated body
+ * is destroyed. Implement this listener so that you may nullify
+ * references to these joints and shapes.
+ * @export
  * @constructor
  */
 box2d.b2DestructionListener = function ()
 {
 };
 
-/** 
- * Called when any joint is about to be destroyed due to the 
- * destruction of one of its attached bodies. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Joint} joint 
+/**
+ * Called when any joint is about to be destroyed due to the
+ * destruction of one of its attached bodies.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Joint} joint
  */
 box2d.b2DestructionListener.prototype.SayGoodbyeJoint = function (joint)
 {
 }
 
-/** 
- * Called when any fixture is about to be destroyed due to the 
- * destruction of its parent body. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Fixture} fixture 
+/**
+ * Called when any fixture is about to be destroyed due to the
+ * destruction of its parent body.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Fixture} fixture
  */
 box2d.b2DestructionListener.prototype.SayGoodbyeFixture = function (fixture)
 {
 }
 
-/** 
- * Implement this class to provide collision filtering. In other 
- * words, you can implement this class if you want finer control 
- * over contact creation. 
- * @export 
+/**
+ * Implement this class to provide collision filtering. In other
+ * words, you can implement this class if you want finer control
+ * over contact creation.
+ * @export
  * @constructor
  */
 box2d.b2ContactFilter = function ()
 {
 };
 
-/** 
- * Return true if contact calculations should be performed 
- * between these two shapes. 
- * warning for performance reasons this is only called when the 
- * AABBs begin to overlap. 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2Fixture} fixtureA 
- * @param {box2d.b2Fixture} fixtureB 
+/**
+ * Return true if contact calculations should be performed
+ * between these two shapes.
+ * warning for performance reasons this is only called when the
+ * AABBs begin to overlap.
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2Fixture} fixtureA
+ * @param {box2d.b2Fixture} fixtureB
  */
 box2d.b2ContactFilter.prototype.ShouldCollide = function (fixtureA, fixtureB)
 {
@@ -19369,12 +19369,12 @@ box2d.b2ContactFilter.prototype.ShouldCollide = function (fixtureA, fixtureB)
 
 box2d.b2ContactFilter.b2_defaultFilter = new box2d.b2ContactFilter();
 
-/** 
- * Contact impulses for reporting. Impulses are used instead of 
- * forces because sub-step forces may approach infinity for 
- * rigid body collisions. These match up one-to-one with the 
- * contact points in b2Manifold. 
- * @export 
+/**
+ * Contact impulses for reporting. Impulses are used instead of
+ * forces because sub-step forces may approach infinity for
+ * rigid body collisions. These match up one-to-one with the
+ * contact points in b2Manifold.
+ * @export
  * @constructor
  */
 box2d.b2ContactImpulse = function ()
@@ -19387,79 +19387,79 @@ box2d.b2ContactImpulse.prototype.normalImpulses = null;
 box2d.b2ContactImpulse.prototype.tangentImpulses = null;
 box2d.b2ContactImpulse.prototype.count = 0;
 
-/** 
- * Implement this class to get contact information. You can use 
- * these results for things like sounds and game logic. You can 
- * also get contact results by traversing the contact lists 
- * after the time step. However, you might miss some contacts 
- * because continuous physics leads to sub-stepping. 
- * Additionally you may receive multiple callbacks for the same 
- * contact in a single time step. 
- * You should strive to make your callbacks efficient because 
- * there may be many callbacks per time step. 
- * warning You cannot create/destroy Box2D entities inside these 
- * callbacks. 
- * @export 
+/**
+ * Implement this class to get contact information. You can use
+ * these results for things like sounds and game logic. You can
+ * also get contact results by traversing the contact lists
+ * after the time step. However, you might miss some contacts
+ * because continuous physics leads to sub-stepping.
+ * Additionally you may receive multiple callbacks for the same
+ * contact in a single time step.
+ * You should strive to make your callbacks efficient because
+ * there may be many callbacks per time step.
+ * warning You cannot create/destroy Box2D entities inside these
+ * callbacks.
+ * @export
  * @constructor
  */
 box2d.b2ContactListener = function ()
 {
 };
 
-/** 
- * Called when two fixtures begin to touch. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
+/**
+ * Called when two fixtures begin to touch.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
  */
 box2d.b2ContactListener.prototype.BeginContact = function (contact)
 {
 }
 
-/** 
- * Called when two fixtures cease to touch. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
+/**
+ * Called when two fixtures cease to touch.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
  */
 box2d.b2ContactListener.prototype.EndContact = function (contact)
 {
 }
 
-/** 
- * This is called after a contact is updated. This allows you to 
- * inspect a contact before it goes to the solver. If you are 
- * careful, you can modify the contact manifold (e.g. disable 
- * contact). 
- * A copy of the old manifold is provided so that you can detect 
- * changes. 
- * Note: this is called only for awake bodies. 
- * Note: this is called even when the number of contact points 
- * is zero. 
- * Note: this is not called for sensors. 
- * Note: if you set the number of contact points to zero, you 
- * will not get an EndContact callback. However, you may get a 
- * BeginContact callback the next step. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
- * @param {box2d.b2Manifold} oldManifold 
+/**
+ * This is called after a contact is updated. This allows you to
+ * inspect a contact before it goes to the solver. If you are
+ * careful, you can modify the contact manifold (e.g. disable
+ * contact).
+ * A copy of the old manifold is provided so that you can detect
+ * changes.
+ * Note: this is called only for awake bodies.
+ * Note: this is called even when the number of contact points
+ * is zero.
+ * Note: this is not called for sensors.
+ * Note: if you set the number of contact points to zero, you
+ * will not get an EndContact callback. However, you may get a
+ * BeginContact callback the next step.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
+ * @param {box2d.b2Manifold} oldManifold
  */
 box2d.b2ContactListener.prototype.PreSolve = function (contact, oldManifold)
 {
 }
 
-/** 
- * This lets you inspect a contact after the solver is finished. 
- * This is useful for inspecting impulses. 
- * Note: the contact manifold does not include time of impact 
- * impulses, which can be arbitrarily large if the sub-step is 
- * small. Hence the impulse is provided explicitly in a separate 
- * data structure. 
- * Note: this is only called for contacts that are touching, 
- * solid, and awake. 
- * @export 
- * @return {void} 
+/**
+ * This lets you inspect a contact after the solver is finished.
+ * This is useful for inspecting impulses.
+ * Note: the contact manifold does not include time of impact
+ * impulses, which can be arbitrarily large if the sub-step is
+ * small. Hence the impulse is provided explicitly in a separate
+ * data structure.
+ * Note: this is only called for contacts that are touching,
+ * solid, and awake.
+ * @export
+ * @return {void}
  * @param {box2d.b2Contact} contact
  * @param {box2d.b2ContactImpulse} impulse
  */
@@ -19468,24 +19468,24 @@ box2d.b2ContactListener.prototype.PostSolve = function (contact, impulse)
 }
 
 /**
- * @export 
- * @type {box2d.b2ContactListener} 
+ * @export
+ * @type {box2d.b2ContactListener}
  */
 box2d.b2ContactListener.b2_defaultListener = new box2d.b2ContactListener();
 
-/** 
- * Callback class for AABB queries. 
- * See b2World::Query 
- * @export 
+/**
+ * Callback class for AABB queries.
+ * See b2World::Query
+ * @export
  * @constructor
  */
 box2d.b2QueryCallback = function ()
 {
 }
 
-/** 
- * Called for each fixture found in the query AABB. 
- * @export 
+/**
+ * Called for each fixture found in the query AABB.
+ * @export
  * @return {boolean} false to terminate the query.
  */
 box2d.b2QueryCallback.prototype.ReportFixture = function (fixture)
@@ -19493,30 +19493,30 @@ box2d.b2QueryCallback.prototype.ReportFixture = function (fixture)
 	return true;
 }
 
-/** 
- * Callback class for ray casts. 
- * See b2World::RayCast 
- * @export 
+/**
+ * Callback class for ray casts.
+ * See b2World::RayCast
+ * @export
  * @constructor
  */
 box2d.b2RayCastCallback = function ()
 {
 }
 
-/** 
- * Called for each fixture found in the query. You control how 
- * the ray cast proceeds by returning a float: 
- * return -1: ignore this fixture and continue 
- * return 0: terminate the ray cast 
- * return fraction: clip the ray to this point 
+/**
+ * Called for each fixture found in the query. You control how
+ * the ray cast proceeds by returning a float:
+ * return -1: ignore this fixture and continue
+ * return 0: terminate the ray cast
+ * return fraction: clip the ray to this point
  * return 1: don't clip the ray and continue
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Fixture} fixture the fixture hit by the ray
  * @param {box2d.b2Vec2} point the point of initial intersection
- * @param {box2d.b2Vec2} normal the normal vector at the point 
+ * @param {box2d.b2Vec2} normal the normal vector at the point
  *  	  of intersection
- * @param {number} fraction 
+ * @param {number} fraction
  */
 box2d.b2RayCastCallback.prototype.ReportFixture = function (fixture, point, normal, fraction)
 {
@@ -19667,9 +19667,9 @@ This might be faster than computing sin+cos.
 However, we can compute sin+cos of the same angle fast.
 */
 
-/** 
- * This is an internal class. 
- * @export 
+/**
+ * This is an internal class.
+ * @export
  * @constructor
  */
 box2d.b2Island = function ()
@@ -19683,83 +19683,83 @@ box2d.b2Island = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {*}
  */
 box2d.b2Island.prototype.m_allocator = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactListener}
  */
 box2d.b2Island.prototype.m_listener = null;
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Body>}
  */
 box2d.b2Island.prototype.m_bodies = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Contact>}
  */
 box2d.b2Island.prototype.m_contacts = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Joint>}
  */
 box2d.b2Island.prototype.m_joints = null;
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Position>}
  */
 box2d.b2Island.prototype.m_positions = null;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Velocity>}
  */
 box2d.b2Island.prototype.m_velocities = null;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Island.prototype.m_bodyCount = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Island.prototype.m_jointCount = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Island.prototype.m_contactCount = 0;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Island.prototype.m_bodyCapacity = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Island.prototype.m_contactCapacity = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Island.prototype.m_jointCapacity = 0;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {number} bodyCapacity
  * @param {number} contactCapacity
- * @param {number} jointCapacity 
- * @param allocator 
- * @param {box2d.b2ContactListener} listener 
+ * @param {number} jointCapacity
+ * @param allocator
+ * @param {box2d.b2ContactListener} listener
  */
 box2d.b2Island.prototype.Initialize = function (bodyCapacity, contactCapacity, jointCapacity, allocator, listener)
 {
@@ -19822,8 +19822,8 @@ box2d.b2Island.prototype.Initialize = function (bodyCapacity, contactCapacity, j
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2Island.prototype.Clear = function ()
 {
@@ -19832,9 +19832,9 @@ box2d.b2Island.prototype.Clear = function ()
 	this.m_jointCount = 0;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2Body} body
  */
 box2d.b2Island.prototype.AddBody = function (body)
@@ -19845,8 +19845,8 @@ box2d.b2Island.prototype.AddBody = function (body)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Contact} contact
  */
 box2d.b2Island.prototype.AddContact = function (contact)
@@ -19856,8 +19856,8 @@ box2d.b2Island.prototype.AddContact = function (contact)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Joint} joint
  */
 box2d.b2Island.prototype.AddJoint = function (joint)
@@ -19866,13 +19866,13 @@ box2d.b2Island.prototype.AddJoint = function (joint)
 	this.m_joints[this.m_jointCount++] = joint;
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Profile} profile 
- * @param {box2d.b2TimeStep} step 
- * @param {box2d.b2Vec2} gravity 
- * @param {boolean} allowSleep 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Profile} profile
+ * @param {box2d.b2TimeStep} step
+ * @param {box2d.b2Vec2} gravity
+ * @param {boolean} allowSleep
  */
 box2d.b2Island.prototype.Solve = function (profile, step, gravity, allowSleep)
 {
@@ -19900,7 +19900,7 @@ box2d.b2Island.prototype.Solve = function (profile, step, gravity, allowSleep)
 			v.x += h * (b.m_gravityScale * gravity.x + b.m_invMass * b.m_force.x);
 			v.y += h * (b.m_gravityScale * gravity.y + b.m_invMass * b.m_force.y);
 			w += h * b.m_invI * b.m_torque;
-	
+
 			// Apply damping.
 			// ODE: dv/dt + c * v = 0
 			// Solution: v(t) = v0 * exp(-c * t)
@@ -20052,8 +20052,8 @@ box2d.b2Island.prototype.Solve = function (profile, step, gravity, allowSleep)
 				continue;
 			}
 
-			if ((b.m_flags & box2d.b2BodyFlag.e_autoSleepFlag) === 0 || 
-				b.m_angularVelocity * b.m_angularVelocity > angTolSqr || 
+			if ((b.m_flags & box2d.b2BodyFlag.e_autoSleepFlag) === 0 ||
+				b.m_angularVelocity * b.m_angularVelocity > angTolSqr ||
 				box2d.b2DotVV(b.m_linearVelocity, b.m_linearVelocity) > linTolSqr)
 			{
 				b.m_sleepTime = 0;
@@ -20078,11 +20078,11 @@ box2d.b2Island.prototype.Solve = function (profile, step, gravity, allowSleep)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2TimeStep} subStep 
- * @param {number} toiIndexA 
- * @param {number} toiIndexB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2TimeStep} subStep
+ * @param {number} toiIndexA
+ * @param {number} toiIndexB
  */
 box2d.b2Island.prototype.SolveTOI = function (subStep, toiIndexA, toiIndexB)
 {
@@ -20219,8 +20219,8 @@ box2d.b2Island.prototype.SolveTOI = function (subStep, toiIndexA, toiIndexB)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {Array.<box2d.b2ContactVelocityConstraint>} constraints
  */
 box2d.b2Island.prototype.Report = function (constraints)
@@ -20481,13 +20481,13 @@ goog.provide('box2d.b2GrowableStack');
 
 goog.require('box2d.b2Settings');
 
-/** 
- * This is a growable LIFO stack with an initial capacity of N. 
- * If the stack size exceeds the initial capacity, the heap is 
- * used to increase the size of the stack. 
- * @export 
- * @constructor 
- * @param {number} N 
+/**
+ * This is a growable LIFO stack with an initial capacity of N.
+ * If the stack size exceeds the initial capacity, the heap is
+ * used to increase the size of the stack.
+ * @export
+ * @constructor
+ * @param {number} N
  */
 box2d.b2GrowableStack = function (N)
 {
@@ -20495,18 +20495,18 @@ box2d.b2GrowableStack = function (N)
 }
 
 /**
- * @export 
+ * @export
  * @type {Array.<*>}
  */
 box2d.b2GrowableStack.prototype.m_stack = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2GrowableStack.prototype.m_count = 0;
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2GrowableStack}
  */
 box2d.b2GrowableStack.prototype.Reset = function ()
@@ -20516,9 +20516,9 @@ box2d.b2GrowableStack.prototype.Reset = function ()
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {*} element 
+ * @export
+ * @return {void}
+ * @param {*} element
  */
 box2d.b2GrowableStack.prototype.Push = function (element)
 {
@@ -20527,7 +20527,7 @@ box2d.b2GrowableStack.prototype.Push = function (element)
 }
 
 /**
- * @export 
+ * @export
  * @return {*}
  */
 box2d.b2GrowableStack.prototype.Pop = function ()
@@ -20540,7 +20540,7 @@ box2d.b2GrowableStack.prototype.Pop = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2GrowableStack.prototype.GetCount = function ()
@@ -20572,12 +20572,12 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Collision');
 goog.require('box2d.b2GrowableStack');
 
-/** 
- * A node in the dynamic tree. The client does not interact with 
- * this directly. 
- * @export 
- * @constructor 
- * @param {number=} id 
+/**
+ * A node in the dynamic tree. The client does not interact with
+ * this directly.
+ * @export
+ * @constructor
+ * @param {number=} id
  */
 box2d.b2TreeNode = function (id)
 {
@@ -20587,58 +20587,58 @@ box2d.b2TreeNode = function (id)
 };
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2TreeNode.prototype.m_id = 0;
 
-/** 
- * Enlarged AABB 
- * @export 
+/**
+ * Enlarged AABB
+ * @export
  * @type {box2d.b2AABB}
  */
 box2d.b2TreeNode.prototype.aabb = null;
 
 /**
- * @export 
+ * @export
  * @type {*}
  */
 box2d.b2TreeNode.prototype.userData = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2TreeNode}
  */
 box2d.b2TreeNode.prototype.parent = null; // or box2d.b2TreeNode.prototype.next
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2TreeNode}
  */
 box2d.b2TreeNode.prototype.child1 = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2TreeNode}
  */
 box2d.b2TreeNode.prototype.child2 = null;
 
-/** 
- * leaf = 0, free node = -1 
- * @export 
+/**
+ * leaf = 0, free node = -1
+ * @export
  * @type {number}
  */
 box2d.b2TreeNode.prototype.height = 0;
 
 /**
- * @export 
- * @return {boolean} 
+ * @export
+ * @return {boolean}
  */
 box2d.b2TreeNode.prototype.IsLeaf = function ()
 {
 	return this.child1 === null;
 }
 
-/** 
+/**
  * A dynamic tree arranges data in a binary tree to accelerate
  * queries such as volume queries and ray casts. Leafs are proxies
  * with an AABB. In the tree we expand the proxy AABB by b2_fatAABBFactor
@@ -20646,7 +20646,7 @@ box2d.b2TreeNode.prototype.IsLeaf = function ()
  * object to move by small amounts without triggering a tree update.
  *
  * Nodes are pooled and relocatable, so we use node indices rather than pointers.
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2DynamicTree = function ()
@@ -20654,7 +20654,7 @@ box2d.b2DynamicTree = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2TreeNode}
  */
 box2d.b2DynamicTree.prototype.m_root = null;
@@ -20664,21 +20664,21 @@ box2d.b2DynamicTree.prototype.m_root = null;
 //int32 box2d.b2DynamicTree.prototype.m_nodeCapacity;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2TreeNode}
  */
 box2d.b2DynamicTree.prototype.m_freeList = null;
 
-/** 
- * This is used to incrementally traverse the tree for 
- * re-balancing. 
- * @export 
+/**
+ * This is used to incrementally traverse the tree for
+ * re-balancing.
+ * @export
  * @type {number}
  */
 box2d.b2DynamicTree.prototype.m_path = 0;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DynamicTree.prototype.m_insertionCount = 0;
@@ -20692,9 +20692,9 @@ box2d.b2DynamicTree.s_subInput = new box2d.b2RayCastInput();
 box2d.b2DynamicTree.s_combinedAABB = new box2d.b2AABB();
 box2d.b2DynamicTree.s_aabb = new box2d.b2AABB();
 
-/** 
- * Get proxy user data. 
- * @export 
+/**
+ * Get proxy user data.
+ * @export
  * @return {*} the proxy user data or 0 if the id is invalid.
  * @param {box2d.b2TreeNode} proxy
  */
@@ -20704,11 +20704,11 @@ box2d.b2DynamicTree.prototype.GetUserData = function (proxy)
 	return proxy.userData;
 }
 
-/** 
- * Get the fat AABB for a proxy. 
- * @export 
- * @return {box2d.b2AABB} 
- * @param {box2d.b2TreeNode} proxy 
+/**
+ * Get the fat AABB for a proxy.
+ * @export
+ * @return {box2d.b2AABB}
+ * @param {box2d.b2TreeNode} proxy
  */
 box2d.b2DynamicTree.prototype.GetFatAABB = function (proxy)
 {
@@ -20716,13 +20716,13 @@ box2d.b2DynamicTree.prototype.GetFatAABB = function (proxy)
 	return proxy.aabb;
 }
 
-/** 
- * Query an AABB for overlapping proxies. The callback class is 
- * called for each proxy that overlaps the supplied AABB. 
- * @export 
- * @return {void} 
+/**
+ * Query an AABB for overlapping proxies. The callback class is
+ * called for each proxy that overlaps the supplied AABB.
+ * @export
+ * @return {void}
  * @param {function(!box2d.b2TreeNode): boolean} callback
- * @param {box2d.b2AABB} aabb 
+ * @param {box2d.b2AABB} aabb
  */
 box2d.b2DynamicTree.prototype.Query = function (callback, aabb)
 {
@@ -20764,8 +20764,8 @@ box2d.b2DynamicTree.prototype.Query = function (callback, aabb)
  * The callback also performs the any collision filtering. This has performance
  * roughly equal to k * log(n), where k is the number of collisions and n is the
  * number of proxies in the tree.
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {function(!box2d.b2RayCastInput, !box2d.b2TreeNode): number} callback a callback class that is called for each proxy that is hit by the ray.
  * @param {box2d.b2RayCastInput} input the ray-cast input data. The ray extends from p1 to p1 + maxFraction * (p2 - p1).
  */
@@ -20859,7 +20859,7 @@ box2d.b2DynamicTree.prototype.RayCast = function (callback, input)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2TreeNode}
  */
 box2d.b2DynamicTree.prototype.AllocateNode = function ()
@@ -20882,8 +20882,8 @@ box2d.b2DynamicTree.prototype.AllocateNode = function ()
 box2d.b2DynamicTree.prototype.s_node_id = 0;
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2TreeNode} node
  */
 box2d.b2DynamicTree.prototype.FreeNode = function (node)
@@ -20893,13 +20893,13 @@ box2d.b2DynamicTree.prototype.FreeNode = function (node)
 	this.m_freeList = node;
 }
 
-/** 
- * Create a proxy. Provide a tight fitting AABB and a userData 
- * pointer. 
- * @export 
+/**
+ * Create a proxy. Provide a tight fitting AABB and a userData
+ * pointer.
+ * @export
  * @return {box2d.b2TreeNode}
- * @param {box2d.b2AABB} aabb 
- * @param {*} userData 
+ * @param {box2d.b2AABB} aabb
+ * @param {*} userData
  */
 box2d.b2DynamicTree.prototype.CreateProxy = function (aabb, userData)
 {
@@ -20920,10 +20920,10 @@ box2d.b2DynamicTree.prototype.CreateProxy = function (aabb, userData)
 	return node;
 }
 
-/** 
- * Destroy a proxy. This asserts if the id is invalid. 
- * @export 
- * @return {void} 
+/**
+ * Destroy a proxy. This asserts if the id is invalid.
+ * @export
+ * @return {void}
  * @param {box2d.b2TreeNode} proxy
  */
 box2d.b2DynamicTree.prototype.DestroyProxy = function (proxy)
@@ -20934,16 +20934,16 @@ box2d.b2DynamicTree.prototype.DestroyProxy = function (proxy)
 	this.FreeNode(proxy);
 }
 
-/** 
- * Move a proxy with a swepted AABB. If the proxy has moved 
- * outside of its fattened AABB, then the proxy is removed from 
- * the tree and re-inserted. Otherwise the function returns 
- * immediately. 
- * @export 
+/**
+ * Move a proxy with a swepted AABB. If the proxy has moved
+ * outside of its fattened AABB, then the proxy is removed from
+ * the tree and re-inserted. Otherwise the function returns
+ * immediately.
+ * @export
  * @return {boolean} true if the proxy was re-inserted.
  * @param {box2d.b2TreeNode} proxy
- * @param {box2d.b2AABB} aabb 
- * @param {box2d.b2Vec2} displacement 
+ * @param {box2d.b2AABB} aabb
+ * @param {box2d.b2Vec2} displacement
  */
 box2d.b2DynamicTree.prototype.MoveProxy = function (proxy, aabb, displacement)
 {
@@ -20970,8 +20970,8 @@ box2d.b2DynamicTree.prototype.MoveProxy = function (proxy, aabb, displacement)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2TreeNode} leaf
  */
 box2d.b2DynamicTree.prototype.InsertLeaf = function (leaf)
@@ -21117,8 +21117,8 @@ box2d.b2DynamicTree.prototype.InsertLeaf = function (leaf)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2TreeNode} leaf
  */
 box2d.b2DynamicTree.prototype.RemoveLeaf = function (leaf)
@@ -21183,9 +21183,9 @@ box2d.b2DynamicTree.prototype.RemoveLeaf = function (leaf)
 /**
  * Perform a left or right rotation if node A is imbalanced.
  * Returns the new root index.
- * @export 
- * @param {box2d.b2TreeNode} A 
- * @return {box2d.b2TreeNode} 
+ * @export
+ * @param {box2d.b2TreeNode} A
+ * @return {box2d.b2TreeNode}
  */
 box2d.b2DynamicTree.prototype.Balance = function (A)
 {
@@ -21256,7 +21256,7 @@ box2d.b2DynamicTree.prototype.Balance = function (A)
 
 		return C;
 	}
-	
+
 	// Rotate B up
 	if (balance < -1)
 	{
@@ -21316,11 +21316,11 @@ box2d.b2DynamicTree.prototype.Balance = function (A)
 	return A;
 }
 
-/** 
- * Compute the height of the binary tree in O(N) time. Should 
- * not be called often. 
- * @export 
- * @return {number} 
+/**
+ * Compute the height of the binary tree in O(N) time. Should
+ * not be called often.
+ * @export
+ * @return {number}
  */
 box2d.b2DynamicTree.prototype.GetHeight = function ()
 {
@@ -21332,10 +21332,10 @@ box2d.b2DynamicTree.prototype.GetHeight = function ()
 	return this.m_root.height;
 }
 
-/** 
- * Get the ratio of the sum of the node areas to the root area. 
- * @export 
- * @return {number} 
+/**
+ * Get the ratio of the sum of the node areas to the root area.
+ * @export
+ * @return {number}
  */
 box2d.b2DynamicTree.prototype.GetAreaRatio = function ()
 {
@@ -21384,11 +21384,11 @@ box2d.b2DynamicTree.prototype.GetAreaRatio = function ()
 	return totalArea / rootArea;
 }
 
-/** 
- * Compute the height of a sub-tree. 
- * @export 
- * @return {number} 
- * @param {box2d.b2TreeNode} node 
+/**
+ * Compute the height of a sub-tree.
+ * @export
+ * @return {number}
+ * @param {box2d.b2TreeNode} node
  */
 box2d.b2DynamicTree.prototype.ComputeHeightNode = function (node)
 {
@@ -21403,8 +21403,8 @@ box2d.b2DynamicTree.prototype.ComputeHeightNode = function (node)
 }
 
 /**
- * @export 
- * @return {number} 
+ * @export
+ * @return {number}
  */
 box2d.b2DynamicTree.prototype.ComputeHeight = function ()
 {
@@ -21413,9 +21413,9 @@ box2d.b2DynamicTree.prototype.ComputeHeight = function ()
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2TreeNode} index 
+ * @export
+ * @return {void}
+ * @param {box2d.b2TreeNode} index
  */
 box2d.b2DynamicTree.prototype.ValidateStructure = function (index)
 {
@@ -21450,8 +21450,8 @@ box2d.b2DynamicTree.prototype.ValidateStructure = function (index)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2TreeNode} index
  */
 box2d.b2DynamicTree.prototype.ValidateMetrics = function (index)
@@ -21490,10 +21490,10 @@ box2d.b2DynamicTree.prototype.ValidateMetrics = function (index)
 	this.ValidateMetrics(child2);
 }
 
-/** 
- * Validate this tree. For testing. 
- * @export 
- * @return {void} 
+/**
+ * Validate this tree. For testing.
+ * @export
+ * @return {void}
  */
 box2d.b2DynamicTree.prototype.Validate = function ()
 {
@@ -21511,11 +21511,11 @@ box2d.b2DynamicTree.prototype.Validate = function ()
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(this.GetHeight() === this.ComputeHeight()); }
 }
 
-/** 
- * Get the maximum balance of an node in the tree. The balance 
- * is the difference in height of the two children of a node. 
- * @export 
- * @return {number} 
+/**
+ * Get the maximum balance of an node in the tree. The balance
+ * is the difference in height of the two children of a node.
+ * @export
+ * @return {number}
  */
 box2d.b2DynamicTree.prototype.GetMaxBalance = function ()
 {
@@ -21563,14 +21563,14 @@ box2d.b2DynamicTree.prototype.GetMaxBalance = function ()
 	return maxBalance;
 }
 
-/** 
- * Build an optimal tree. Very expensive. For testing. 
- * @export 
- * @return {void} 
+/**
+ * Build an optimal tree. Very expensive. For testing.
+ * @export
+ * @return {void}
  */
 box2d.b2DynamicTree.prototype.RebuildBottomUp = function ()
 {
-	/* 
+	/*
 	int32* nodes = (int32*)b2Alloc(m_nodeCount * sizeof(int32));
 	int32 count = 0;
 
@@ -21649,9 +21649,9 @@ box2d.b2DynamicTree.prototype.RebuildBottomUp = function ()
 /**
  * Shift the world origin. Useful for large worlds.
  * The shift formula is: position -= newOrigin
- * @export 
+ * @export
  * @param {box2d.b2Vec2} newOrigin the new origin with respect to the old origin
- * @return {void} 
+ * @return {void}
  */
 box2d.b2DynamicTree.prototype.ShiftOrigin = function (newOrigin)
 {
@@ -21713,8 +21713,8 @@ goog.provide('box2d.b2BroadPhase')
 goog.require('box2d.b2Settings');
 goog.require('box2d.b2DynamicTree')
 
-/** 
- * @export 
+/**
+ * @export
  * @constructor
  */
 box2d.b2Pair = function ()
@@ -21722,23 +21722,23 @@ box2d.b2Pair = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2TreeNode}
  */
 box2d.b2Pair.prototype.proxyA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2TreeNode}
  */
 box2d.b2Pair.prototype.proxyB = null;
 
-/** 
- * The broad-phase is used for computing pairs and performing 
- * volume queries and ray casts. This broad-phase does not 
- * persist pairs. Instead, this reports potentially new pairs. 
- * It is up to the client to consume the new pairs and to track 
- * subsequent overlap. 
- * @export 
+/**
+ * The broad-phase is used for computing pairs and performing
+ * volume queries and ray casts. This broad-phase does not
+ * persist pairs. Instead, this reports potentially new pairs.
+ * It is up to the client to consume the new pairs and to track
+ * subsequent overlap.
+ * @export
  * @constructor
  */
 box2d.b2BroadPhase = function ()
@@ -21749,50 +21749,50 @@ box2d.b2BroadPhase = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2DynamicTree}
  */
 box2d.b2BroadPhase.prototype.m_tree = null;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2BroadPhase.prototype.m_proxyCount = 0;
 
 //box2d.b2BroadPhase.prototype.m_moveCapacity = 16;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2BroadPhase.prototype.m_moveCount = 0;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2TreeNode>}
  */
 box2d.b2BroadPhase.prototype.m_moveBuffer = null;
 
 //box2d.b2BroadPhase.prototype.m_pairCapacity = 16;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2BroadPhase.prototype.m_pairCount = 0;
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Pair>}
  */
 box2d.b2BroadPhase.prototype.m_pairBuffer = null;
 
 //box2d.b2BroadPhase.prototype.m_queryProxyId = 0;
 
-/** 
- * Create a proxy with an initial AABB. Pairs are not reported 
- * until UpdatePairs is called. 
- * @export 
- * @return {box2d.b2TreeNode} 
- * @param {box2d.b2AABB} aabb 
- * @param {*} userData 
+/**
+ * Create a proxy with an initial AABB. Pairs are not reported
+ * until UpdatePairs is called.
+ * @export
+ * @return {box2d.b2TreeNode}
+ * @param {box2d.b2AABB} aabb
+ * @param {*} userData
  */
 box2d.b2BroadPhase.prototype.CreateProxy = function (aabb, userData)
 {
@@ -21802,11 +21802,11 @@ box2d.b2BroadPhase.prototype.CreateProxy = function (aabb, userData)
 	return proxy;
 }
 
-/** 
- * Destroy a proxy. It is up to the client to remove any pairs. 
- * @export 
- * @return {void} 
- * @param {box2d.b2TreeNode} proxy 
+/**
+ * Destroy a proxy. It is up to the client to remove any pairs.
+ * @export
+ * @return {void}
+ * @param {box2d.b2TreeNode} proxy
  */
 box2d.b2BroadPhase.prototype.DestroyProxy = function (proxy)
 {
@@ -21815,15 +21815,15 @@ box2d.b2BroadPhase.prototype.DestroyProxy = function (proxy)
 	this.m_tree.DestroyProxy(proxy);
 }
 
-/** 
- * Call MoveProxy as many times as you like, then when you are 
- * done call UpdatePairs to finalized the proxy pairs (for your 
- * time step). 
- * @export 
- * @return {void} 
- * @param {box2d.b2TreeNode} proxy 
- * @param {box2d.b2AABB} aabb 
- * @param {box2d.b2Vec2} displacement 
+/**
+ * Call MoveProxy as many times as you like, then when you are
+ * done call UpdatePairs to finalized the proxy pairs (for your
+ * time step).
+ * @export
+ * @return {void}
+ * @param {box2d.b2TreeNode} proxy
+ * @param {box2d.b2AABB} aabb
+ * @param {box2d.b2Vec2} displacement
  */
 box2d.b2BroadPhase.prototype.MoveProxy = function (proxy, aabb, displacement)
 {
@@ -21834,47 +21834,47 @@ box2d.b2BroadPhase.prototype.MoveProxy = function (proxy, aabb, displacement)
 	}
 }
 
-/** 
- * Call to trigger a re-processing of it's pairs on the next 
- * call to UpdatePairs. 
- * @export 
- * @return {void} 
- * @param {box2d.b2TreeNode} proxy 
+/**
+ * Call to trigger a re-processing of it's pairs on the next
+ * call to UpdatePairs.
+ * @export
+ * @return {void}
+ * @param {box2d.b2TreeNode} proxy
  */
 box2d.b2BroadPhase.prototype.TouchProxy = function (proxy)
 {
 	this.BufferMove(proxy);
 }
 
-/** 
- * Get the fat AABB for a proxy. 
- * @export 
+/**
+ * Get the fat AABB for a proxy.
+ * @export
  * @return {box2d.b2AABB}
- * @param {box2d.b2TreeNode} proxy 
+ * @param {box2d.b2TreeNode} proxy
  */
 box2d.b2BroadPhase.prototype.GetFatAABB = function (proxy)
 {
 	return this.m_tree.GetFatAABB(proxy);
 }
 
-/** 
- * Get user data from a proxy. Returns NULL if the id is 
- * invalid. 
- * @export 
- * @return {*} 
- * @param {box2d.b2TreeNode} proxy 
+/**
+ * Get user data from a proxy. Returns NULL if the id is
+ * invalid.
+ * @export
+ * @return {*}
+ * @param {box2d.b2TreeNode} proxy
  */
 box2d.b2BroadPhase.prototype.GetUserData = function (proxy)
 {
 	return this.m_tree.GetUserData(proxy);
 }
 
-/** 
- * Test overlap of fat AABBs. 
- * @export 
- * @return {boolean} 
+/**
+ * Test overlap of fat AABBs.
+ * @export
+ * @return {boolean}
  * @param {box2d.b2TreeNode} proxyA
- * @param {box2d.b2TreeNode} proxyB 
+ * @param {box2d.b2TreeNode} proxyB
  */
 box2d.b2BroadPhase.prototype.TestOverlap = function (proxyA, proxyB)
 {
@@ -21883,51 +21883,51 @@ box2d.b2BroadPhase.prototype.TestOverlap = function (proxyA, proxyB)
 	return box2d.b2TestOverlapAABB(aabbA, aabbB);
 }
 
-/** 
- * Get the number of proxies. 
- * @export 
- * @return {number} 
+/**
+ * Get the number of proxies.
+ * @export
+ * @return {number}
  */
 box2d.b2BroadPhase.prototype.GetProxyCount = function ()
 {
 	return this.m_proxyCount;
 }
 
-/** 
- * Get the height of the embedded tree. 
- * @export 
- * @return {number} 
+/**
+ * Get the height of the embedded tree.
+ * @export
+ * @return {number}
  */
 box2d.b2BroadPhase.prototype.GetTreeHeight = function ()
 {
 	return this.m_tree.GetHeight();
 }
 
-/** 
- * Get the balance of the embedded tree. 
- * @export 
- * @return {number} 
+/**
+ * Get the balance of the embedded tree.
+ * @export
+ * @return {number}
  */
 box2d.b2BroadPhase.prototype.GetTreeBalance = function ()
 {
 	return this.m_tree.GetMaxBalance();
 }
 
-/** 
- * Get the quality metric of the embedded tree. 
- * @export 
- * @return {number} 
+/**
+ * Get the quality metric of the embedded tree.
+ * @export
+ * @return {number}
  */
 box2d.b2BroadPhase.prototype.GetTreeQuality = function ()
 {
 	return this.m_tree.GetAreaRatio();
 }
 
-/** 
- * Shift the world origin. Useful for large worlds. The shift 
- * formula is: position -= newOrigin 
- * @export 
- * @return {void} 
+/**
+ * Shift the world origin. Useful for large worlds. The shift
+ * formula is: position -= newOrigin
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} newOrigin the new origin with respect to the old origin
  */
 box2d.b2BroadPhase.prototype.ShiftOrigin = function (newOrigin)
@@ -21935,12 +21935,12 @@ box2d.b2BroadPhase.prototype.ShiftOrigin = function (newOrigin)
 	this.m_tree.ShiftOrigin(newOrigin);
 }
 
-/** 
- * Update the pairs. This results in pair callbacks. This can 
- * only add pairs. 
- * @export 
- * @return {void} 
- * @param contactManager 
+/**
+ * Update the pairs. This results in pair callbacks. This can
+ * only add pairs.
+ * @export
+ * @return {void}
+ * @param contactManager
  */
 box2d.b2BroadPhase.prototype.UpdatePairs = function (contactManager)
 {
@@ -22034,28 +22034,28 @@ box2d.b2BroadPhase.prototype.UpdatePairs = function (contactManager)
 	//this.m_tree.Rebalance(4);
 }
 
-/** 
- * Query an AABB for overlapping proxies. The callback class is 
- * called for each proxy that overlaps the supplied AABB. 
- * @export 
- * @return {void} 
- * @param callback 
- * @param {box2d.b2AABB} aabb 
+/**
+ * Query an AABB for overlapping proxies. The callback class is
+ * called for each proxy that overlaps the supplied AABB.
+ * @export
+ * @return {void}
+ * @param callback
+ * @param {box2d.b2AABB} aabb
  */
 box2d.b2BroadPhase.prototype.Query = function (callback, aabb)
 {
 	this.m_tree.Query(callback, aabb);
 }
 
-/** 
- * Ray-cast against the proxies in the tree. This relies on the 
- * callback to perform a exact ray-cast in the case were the 
- * proxy contains a shape. The callback also performs the any 
- * collision filtering. This has performance roughly equal to k 
- * * log(n), where k is the number of collisions and n is the 
+/**
+ * Ray-cast against the proxies in the tree. This relies on the
+ * callback to perform a exact ray-cast in the case were the
+ * proxy contains a shape. The callback also performs the any
+ * collision filtering. This has performance roughly equal to k
+ * * log(n), where k is the number of collisions and n is the
  * number of proxies in the tree.
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param callback a callback class that is called for each proxy that is hit by the ray.
  * @param {box2d.b2RayCastInput} input the ray-cast input data. The ray extends from p1 to p1 + maxFraction * (p2 - p1).
  */
@@ -22065,9 +22065,9 @@ box2d.b2BroadPhase.prototype.RayCast = function (callback, input)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2TreeNode} proxy 
+ * @export
+ * @return {void}
+ * @param {box2d.b2TreeNode} proxy
  */
 box2d.b2BroadPhase.prototype.BufferMove = function (proxy)
 {
@@ -22076,9 +22076,9 @@ box2d.b2BroadPhase.prototype.BufferMove = function (proxy)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2TreeNode} proxy 
+ * @export
+ * @return {void}
+ * @param {box2d.b2TreeNode} proxy
  */
 box2d.b2BroadPhase.prototype.UnBufferMove = function (proxy)
 {
@@ -22086,11 +22086,11 @@ box2d.b2BroadPhase.prototype.UnBufferMove = function (proxy)
 	this.m_moveBuffer[i] = null;
 }
 
-/** 
- * This is used to sort pairs. 
- * @return {number} 
- * @param {box2d.b2Pair} pair1 
- * @param {box2d.b2Pair} pair2 
+/**
+ * This is used to sort pairs.
+ * @return {number}
+ * @param {box2d.b2Pair} pair1
+ * @param {box2d.b2Pair} pair2
  */
 box2d.b2PairLessThan = function (pair1, pair2)
 {
@@ -22128,8 +22128,8 @@ goog.require('box2d.b2Collision');
 goog.require('box2d.b2BroadPhase');
 goog.require('box2d.b2ContactFactory');
 
-/** 
- * Delegate of box2d.b2World. 
+/**
+ * Delegate of box2d.b2World.
  * @constructor
  */
 box2d.b2ContactManager = function ()
@@ -22140,45 +22140,45 @@ box2d.b2ContactManager = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2BroadPhase}
  */
 box2d.b2ContactManager.prototype.m_broadPhase = null;
 /**
- * @export 
- * @type {box2d.b2Contact} 
+ * @export
+ * @type {box2d.b2Contact}
  */
 box2d.b2ContactManager.prototype.m_contactList = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2ContactManager.prototype.m_contactCount = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactFilter}
  */
 box2d.b2ContactManager.prototype.m_contactFilter = box2d.b2ContactFilter.b2_defaultFilter;
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactListener}
  */
 box2d.b2ContactManager.prototype.m_contactListener = box2d.b2ContactListener.b2_defaultListener;
 /**
- * @export 
+ * @export
  * @type {*}
  */
-box2d.b2ContactManager.prototype.m_allocator = null; 
+box2d.b2ContactManager.prototype.m_allocator = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactFactory}
  */
 box2d.b2ContactManager.prototype.m_contactFactory = null;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2Contact} c
  */
 box2d.b2ContactManager.prototype.Destroy = function (c)
@@ -22246,11 +22246,11 @@ box2d.b2ContactManager.prototype.Destroy = function (c)
 	--this.m_contactCount;
 }
 
-/** 
- * This is the top level collision call for the time step. Here 
- * all the narrow phase collision is processed for the world 
- * contact list. 
- * @export 
+/**
+ * This is the top level collision call for the time step. Here
+ * all the narrow phase collision is processed for the world
+ * contact list.
+ * @export
  * @return {void}
  */
 box2d.b2ContactManager.prototype.Collide = function ()
@@ -22321,18 +22321,18 @@ box2d.b2ContactManager.prototype.Collide = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2ContactManager.prototype.FindNewContacts = function ()
 {
 	this.m_broadPhase.UpdatePairs(this);
 }
 
-/** 
- * Broad-phase callback. 
- * @export 
- * @return {void} 
+/**
+ * Broad-phase callback.
+ * @export
+ * @return {void}
  * @param {box2d.b2FixtureProxy} proxyUserDataA
  * @param {box2d.b2FixtureProxy} proxyUserDataB
  */
@@ -22483,11 +22483,11 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Math');
 goog.require('box2d.b2Joint');
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Joint}
- * @param {box2d.b2JointDef} def 
- * @param allocator 
+ * @param {box2d.b2JointDef} def
+ * @param allocator
  */
 box2d.b2JointFactory.Create = function (def, allocator)
 {
@@ -22575,11 +22575,11 @@ box2d.b2JointFactory.Create = function (def, allocator)
 	return joint;
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Joint} joint 
- * @param allocator 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Joint} joint
+ * @param allocator
  */
 box2d.b2JointFactory.Destroy = function (joint, allocator)
 {
@@ -22607,8 +22607,8 @@ goog.provide('box2d.b2Draw');
 
 goog.require('box2d.b2Settings');
 
-/** 
- * Color for debug drawing. Each value has the range [0,1]. 
+/**
+ * Color for debug drawing. Each value has the range [0,1].
  * @export
  * @constructor
  * @param {number} rr
@@ -22623,17 +22623,17 @@ box2d.b2Color = function (rr, gg, bb)
 }
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Color.prototype.r = 0.5;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Color.prototype.g = 0.5;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Color.prototype.b = 0.5;
@@ -22684,29 +22684,29 @@ box2d.b2Color.MakeStyleString = function (r, g, b, a)
 }
 
 /**
- * @export 
- * @const 
+ * @export
+ * @const
  * @type {box2d.b2Color}
  */
 box2d.b2Color.RED = new box2d.b2Color(1,0,0);
 /**
- * @export 
- * @const 
+ * @export
+ * @const
  * @type {box2d.b2Color}
  */
 box2d.b2Color.GREEN	= new box2d.b2Color(0,1,0);
 /**
- * @export 
- * @const 
+ * @export
+ * @const
  * @type {box2d.b2Color}
  */
 box2d.b2Color.BLUE = new box2d.b2Color(0,0,1);
 
-/** 
- * @export 
+/**
+ * @export
  * @enum
  */
-box2d.b2DrawFlags = 
+box2d.b2DrawFlags =
 {
 	e_none				: 0,
 	e_shapeBit			: 0x0001, ///< draw shapes
@@ -22726,10 +22726,10 @@ goog.exportProperty(box2d.b2DrawFlags, 'e_centerOfMassBit', box2d.b2DrawFlags.e_
 goog.exportProperty(box2d.b2DrawFlags, 'e_controllerBit'  , box2d.b2DrawFlags.e_controllerBit  );
 goog.exportProperty(box2d.b2DrawFlags, 'e_all'            , box2d.b2DrawFlags.e_all            );
 
-/** 
- * Implement and register this class with a b2World to provide 
- * debug drawing of physics entities in your game. 
- * @export 
+/**
+ * Implement and register this class with a b2World to provide
+ * debug drawing of physics entities in your game.
+ * @export
  * @constructor
  */
 box2d.b2Draw = function ()
@@ -22737,25 +22737,25 @@ box2d.b2Draw = function ()
 }
 
 /**
- * @export 
- * @type {box2d.b2DrawFlags} 
+ * @export
+ * @type {box2d.b2DrawFlags}
  */
 box2d.b2Draw.prototype.m_drawFlags = box2d.b2DrawFlags.e_none;
 
-/** 
- * Set the drawing flags. 
- * @export 
- * @return {void} 
- * @param {box2d.b2DrawFlags} flags 
+/**
+ * Set the drawing flags.
+ * @export
+ * @return {void}
+ * @param {box2d.b2DrawFlags} flags
  */
 box2d.b2Draw.prototype.SetFlags = function (flags)
 {
 	this.m_drawFlags = flags;
 }
 
-/** 
- * Get the drawing flags. 
- * @export 
+/**
+ * Get the drawing flags.
+ * @export
  * @return {box2d.b2DrawFlags}
  */
 box2d.b2Draw.prototype.GetFlags = function ()
@@ -22763,22 +22763,22 @@ box2d.b2Draw.prototype.GetFlags = function ()
 	return this.m_drawFlags;
 }
 
-/** 
- * Append flags to the current flags. 
- * @export 
- * @return {void} 
- * @param {box2d.b2DrawFlags} flags 
+/**
+ * Append flags to the current flags.
+ * @export
+ * @return {void}
+ * @param {box2d.b2DrawFlags} flags
  */
 box2d.b2Draw.prototype.AppendFlags = function (flags)
 {
 	this.m_drawFlags |= flags;
 }
 
-/** 
- * Clear flags from the current flags. 
- * @export 
- * @return {void} 
- * @param {box2d.b2DrawFlags} flags 
+/**
+ * Clear flags from the current flags.
+ * @export
+ * @return {void}
+ * @param {box2d.b2DrawFlags} flags
  */
 box2d.b2Draw.prototype.ClearFlags = function (flags)
 {
@@ -22786,88 +22786,88 @@ box2d.b2Draw.prototype.ClearFlags = function (flags)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Transform} xf 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Transform} xf
  */
 box2d.b2Draw.prototype.PushTransform = function (xf)
 {
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Transform} xf 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Transform} xf
  */
 box2d.b2Draw.prototype.PopTransform = function (xf)
 {
 }
 
-/** 
- * Draw a closed polygon provided in CCW order. 
- * @export 
- * @return {void} 
+/**
+ * Draw a closed polygon provided in CCW order.
+ * @export
+ * @return {void}
  * @param {Array.<box2d.b2Vec2>} vertices
  * @param {number} vertexCount
- * @param {box2d.b2Color} color 
+ * @param {box2d.b2Color} color
  */
 box2d.b2Draw.prototype.DrawPolygon = function (vertices, vertexCount, color)
 {
 }
 
-/** 
- * Draw a solid closed polygon provided in CCW order. 
- * @export 
- * @return {void} 
+/**
+ * Draw a solid closed polygon provided in CCW order.
+ * @export
+ * @return {void}
  * @param {Array.<box2d.b2Vec2>} vertices
  * @param {number} vertexCount
- * @param {box2d.b2Color} color 
+ * @param {box2d.b2Color} color
  */
 box2d.b2Draw.prototype.DrawSolidPolygon = function (vertices, vertexCount, color)
 {
 }
 
-/** 
- * Draw a circle. 
- * @export 
- * @return {void} 
+/**
+ * Draw a circle.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} center
  * @param {number} radius
- * @param {box2d.b2Color} color 
+ * @param {box2d.b2Color} color
  */
 box2d.b2Draw.prototype.DrawCircle = function (center, radius, color)
 {
 }
 
-/** 
- * Draw a solid circle. 
- * @export 
- * @return {void} 
+/**
+ * Draw a solid circle.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} center
  * @param {number} radius
  * @param {box2d.b2Vec2} axis
- * @param {box2d.b2Color} color 
+ * @param {box2d.b2Color} color
  */
 box2d.b2Draw.prototype.DrawSolidCircle = function (center, radius, axis, color)
 {
 }
 
-/** 
- * Draw a line segment. 
- * @export 
- * @return {void} 
+/**
+ * Draw a line segment.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} p1
  * @param {box2d.b2Vec2} p2
- * @param {box2d.b2Color} color 
+ * @param {box2d.b2Color} color
  */
 box2d.b2Draw.prototype.DrawSegment = function (p1, p2, color)
 {
 }
 
-/** 
- * Draw a transform. Choose your own length scale. 
- * @export 
- * @return {void} 
+/**
+ * Draw a transform. Choose your own length scale.
+ * @export
+ * @return {void}
  * @param {box2d.b2Transform} xf a transform.
  */
 box2d.b2Draw.prototype.DrawTransform = function (xf)
@@ -22898,43 +22898,43 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Collision');
 goog.require('box2d.b2Shape');
 
-/** 
- * This holds contact filtering data. 
- * @export 
- * @constructor 
+/**
+ * This holds contact filtering data.
+ * @export
+ * @constructor
  */
 box2d.b2Filter = function ()
 {
 };
 
-/** 
- * The collision category bits. Normally you would just set one 
- * bit. 
- * @export 
+/**
+ * The collision category bits. Normally you would just set one
+ * bit.
+ * @export
  * @type {number}
  */
 box2d.b2Filter.prototype.categoryBits = 0x0001;
 
-/** 
- * The collision mask bits. This states the categories that this 
- * shape would accept for collision. 
- * @export 
+/**
+ * The collision mask bits. This states the categories that this
+ * shape would accept for collision.
+ * @export
  * @type {number}
  */
 box2d.b2Filter.prototype.maskBits = 0xFFFF;
 
-/** 
- * Collision groups allow a certain group of objects to never 
- * collide (negative) or always collide (positive). Zero means 
- * no collision group. Non-zero group filtering always wins 
- * against the mask bits. 
- * @export 
+/**
+ * Collision groups allow a certain group of objects to never
+ * collide (negative) or always collide (positive). Zero means
+ * no collision group. Non-zero group filtering always wins
+ * against the mask bits.
+ * @export
  * @type {number}
  */
 box2d.b2Filter.prototype.groupIndex = 0;
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Filter}
  */
 box2d.b2Filter.prototype.Clone = function ()
@@ -22942,10 +22942,10 @@ box2d.b2Filter.prototype.Clone = function ()
 	return new box2d.b2Filter().Copy(this);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Filter} 
- * @param {box2d.b2Filter} other 
+/**
+ * @export
+ * @return {box2d.b2Filter}
+ * @param {box2d.b2Filter} other
  */
 box2d.b2Filter.prototype.Copy = function (other)
 {
@@ -22956,73 +22956,73 @@ box2d.b2Filter.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * A fixture definition is used to create a fixture. This class 
- * defines an abstract fixture definition. You can reuse fixture 
- * definitions safely. 
- * @export 
- * @constructor 
+/**
+ * A fixture definition is used to create a fixture. This class
+ * defines an abstract fixture definition. You can reuse fixture
+ * definitions safely.
+ * @export
+ * @constructor
  */
 box2d.b2FixtureDef = function ()
 {
 	this.filter = new box2d.b2Filter();
 }
 
-/** 
- * The shape, this must be set. The shape will be cloned, so you 
- * can create the shape on the stack. 
- * @export 
+/**
+ * The shape, this must be set. The shape will be cloned, so you
+ * can create the shape on the stack.
+ * @export
  * @type {box2d.b2Shape}
  */
 box2d.b2FixtureDef.prototype.shape = null;
 
-/** 
- * Use this to store application specific fixture data. 
- * @export 
+/**
+ * Use this to store application specific fixture data.
+ * @export
  * @type {*}
  */
 box2d.b2FixtureDef.prototype.userData = null;
 
-/** 
- * The friction coefficient, usually in the range [0,1]. 
- * @export 
+/**
+ * The friction coefficient, usually in the range [0,1].
+ * @export
  * @type {number}
  */
 box2d.b2FixtureDef.prototype.friction = 0.2;
 
-/** 
- * The restitution (elasticity) usually in the range [0,1]. 
- * @export 
+/**
+ * The restitution (elasticity) usually in the range [0,1].
+ * @export
  * @type {number}
  */
 box2d.b2FixtureDef.prototype.restitution = 0;
 
-/** 
- * The density, usually in kg/m^2. 
- * @export 
+/**
+ * The density, usually in kg/m^2.
+ * @export
  * @type {number}
  */
 box2d.b2FixtureDef.prototype.density = 0;
 
-/** 
- * A sensor shape collects contact information but never 
- * generates a collision response. 
- * @export 
+/**
+ * A sensor shape collects contact information but never
+ * generates a collision response.
+ * @export
  * @type {boolean}
  */
 box2d.b2FixtureDef.prototype.isSensor = false;
 
-/** 
- * Contact filtering data. 
- * @export 
+/**
+ * Contact filtering data.
+ * @export
  * @type {box2d.b2Filter}
  */
 box2d.b2FixtureDef.prototype.filter = null;
 
-/** 
- * This proxy is used internally to connect fixtures to the 
- * broad-phase. 
- * @export 
+/**
+ * This proxy is used internally to connect fixtures to the
+ * broad-phase.
+ * @export
  * @constructor
  */
 box2d.b2FixtureProxy = function ()
@@ -23031,45 +23031,45 @@ box2d.b2FixtureProxy = function ()
 };
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2AABB}
  */
 box2d.b2FixtureProxy.prototype.aabb = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Fixture}
  */
 box2d.b2FixtureProxy.prototype.fixture = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FixtureProxy.prototype.childIndex = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2TreeNode}
  */
 box2d.b2FixtureProxy.prototype.proxy = null;
 
-/** 
- * @export 
- * @return {Array.<box2d.b2FixtureProxy>} 
- * @param {number} length 
+/**
+ * @export
+ * @return {Array.<box2d.b2FixtureProxy>}
+ * @param {number} length
  */
 box2d.b2FixtureProxy.MakeArray = function (length)
 {
 	return box2d.b2MakeArray(length, function (i) { return new box2d.b2FixtureProxy(); });
 }
 
-/** 
- * A fixture is used to attach a shape to a body for collision 
- * detection. A fixture inherits its transform from its parent. 
- * Fixtures hold additional non-geometric data such as friction, 
- * collision filters, etc. 
- * Fixtures are created via box2d.b2Body::CreateFixture. 
+/**
+ * A fixture is used to attach a shape to a body for collision
+ * detection. A fixture inherits its transform from its parent.
+ * Fixtures hold additional non-geometric data such as friction,
+ * collision filters, etc.
+ * Fixtures are created via box2d.b2Body::CreateFixture.
  * warning you cannot reuse fixtures.
- * @export 
- * @constructor 
+ * @export
+ * @constructor
  */
 box2d.b2Fixture = function ()
 {
@@ -23080,72 +23080,72 @@ box2d.b2Fixture = function ()
 }
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Fixture.prototype.m_density = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Fixture}
  */
 box2d.b2Fixture.prototype.m_next = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2Fixture.prototype.m_body = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Shape}
  */
 box2d.b2Fixture.prototype.m_shape = null;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Fixture.prototype.m_friction = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Fixture.prototype.m_restitution = 0;
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2FixtureProxy>}
  */
 box2d.b2Fixture.prototype.m_proxies = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Fixture.prototype.m_proxyCount = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Filter}
  */
 box2d.b2Fixture.prototype.m_filter = null;
 
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2Fixture.prototype.m_isSensor = false;
 
 /**
- * @export 
+ * @export
  * @type {*}
  */
 box2d.b2Fixture.prototype.m_userData = null;
 
-/** 
- * Get the type of the child shape. You can use this to down 
- * cast to the concrete shape. 
- * @export 
+/**
+ * Get the type of the child shape. You can use this to down
+ * cast to the concrete shape.
+ * @export
  * @return {box2d.b2ShapeType} the shape type.
  */
 box2d.b2Fixture.prototype.GetType = function ()
@@ -23153,12 +23153,12 @@ box2d.b2Fixture.prototype.GetType = function ()
 	return this.m_shape.GetType();
 }
 
-/** 
- * Get the child shape. You can modify the child shape, however 
- * you should not change the number of vertices because this 
- * will crash some collision caching mechanisms. 
+/**
+ * Get the child shape. You can modify the child shape, however
+ * you should not change the number of vertices because this
+ * will crash some collision caching mechanisms.
  * Manipulating the shape may lead to non-physical behavior.
- * @export 
+ * @export
  * @return {box2d.b2Shape}
  */
 box2d.b2Fixture.prototype.GetShape = function ()
@@ -23166,9 +23166,9 @@ box2d.b2Fixture.prototype.GetShape = function ()
 	return this.m_shape;
 }
 
-/** 
- * Is this fixture a sensor (non-solid)? 
- * @export 
+/**
+ * Is this fixture a sensor (non-solid)?
+ * @export
  * @return {boolean} true if the shape is a sensor.
  */
 box2d.b2Fixture.prototype.IsSensor = function ()
@@ -23176,42 +23176,42 @@ box2d.b2Fixture.prototype.IsSensor = function ()
 	return this.m_isSensor;
 }
 
-/** 
- * Get the contact filtering data. 
- * @export 
- * @return {box2d.b2Filter} 
+/**
+ * Get the contact filtering data.
+ * @export
+ * @return {box2d.b2Filter}
  */
 box2d.b2Fixture.prototype.GetFilterData = function ()
 {
 	return this.m_filter;
 }
 
-/** 
- * Get the user data that was assigned in the fixture 
+/**
+ * Get the user data that was assigned in the fixture
  * definition. Use this to store your application specific data.
- * @export 
- * @return {*} 
+ * @export
+ * @return {*}
  */
 box2d.b2Fixture.prototype.GetUserData = function ()
 {
 	return this.m_userData;
 }
 
-/** 
- * Set the user data. Use this to store your application 
- * specific data. 
- * @export 
- * @param {*} data 
+/**
+ * Set the user data. Use this to store your application
+ * specific data.
+ * @export
+ * @param {*} data
  */
 box2d.b2Fixture.prototype.SetUserData = function (data)
 {
 	this.m_userData = data;
 }
 
-/** 
- * Get the parent body of this fixture. This is NULL if the 
- * fixture is not attached. 
- * @export 
+/**
+ * Get the parent body of this fixture. This is NULL if the
+ * fixture is not attached.
+ * @export
  * @return {box2d.b2Body} the parent body.
  */
 box2d.b2Fixture.prototype.GetBody = function ()
@@ -23219,9 +23219,9 @@ box2d.b2Fixture.prototype.GetBody = function ()
 	return this.m_body;
 }
 
-/** 
- * Get the next fixture in the parent body's fixture list. 
- * @export 
+/**
+ * Get the next fixture in the parent body's fixture list.
+ * @export
  * @return {box2d.b2Fixture} the next shape.
  */
 box2d.b2Fixture.prototype.GetNext = function ()
@@ -23229,77 +23229,77 @@ box2d.b2Fixture.prototype.GetNext = function ()
 	return this.m_next;
 }
 
-/** 
- * Set the density of this fixture. This will _not_ 
- * automatically adjust the mass of the body. You must call 
- * box2d.b2Body::ResetMassData to update the body's mass. 
- * @export 
- * @return {void} 
- * @param {number} density 
+/**
+ * Set the density of this fixture. This will _not_
+ * automatically adjust the mass of the body. You must call
+ * box2d.b2Body::ResetMassData to update the body's mass.
+ * @export
+ * @return {void}
+ * @param {number} density
  */
 box2d.b2Fixture.prototype.SetDensity = function (density)
 {
 	this.m_density = density;
 }
 
-/** 
- * Get the density of this fixture. 
- * @export 
- * @return {number} 
+/**
+ * Get the density of this fixture.
+ * @export
+ * @return {number}
  */
 box2d.b2Fixture.prototype.GetDensity = function ()
 {
 	return this.m_density;
 }
 
-/** 
- * Get the coefficient of friction. 
- * @export 
- * @return {number} 
+/**
+ * Get the coefficient of friction.
+ * @export
+ * @return {number}
  */
 box2d.b2Fixture.prototype.GetFriction = function ()
 {
 	return this.m_friction;
 }
 
-/** 
- * Set the coefficient of friction. This will _not_ change the 
- * friction of existing contacts. 
- * @export 
- * @return {void} 
- * @param {number} friction 
+/**
+ * Set the coefficient of friction. This will _not_ change the
+ * friction of existing contacts.
+ * @export
+ * @return {void}
+ * @param {number} friction
  */
 box2d.b2Fixture.prototype.SetFriction = function (friction)
 {
 	this.m_friction = friction;
 }
 
-/** 
- * Get the coefficient of restitution. 
- * @export 
- * @return {number} 
+/**
+ * Get the coefficient of restitution.
+ * @export
+ * @return {number}
  */
 box2d.b2Fixture.prototype.GetRestitution = function ()
 {
 	return this.m_restitution;
 }
 
-/** 
- * Set the coefficient of restitution. This will _not_ change 
- * the restitution of existing contacts. 
- * @export 
- * @return {void} 
- * @param {number} restitution 
+/**
+ * Set the coefficient of restitution. This will _not_ change
+ * the restitution of existing contacts.
+ * @export
+ * @return {void}
+ * @param {number} restitution
  */
 box2d.b2Fixture.prototype.SetRestitution = function (restitution)
 {
 	this.m_restitution = restitution;
 }
 
-/** 
- * Test a point for containment in this fixture. 
- * @export 
- * @return {boolean} 
+/**
+ * Test a point for containment in this fixture.
+ * @export
+ * @return {boolean}
  * @param {box2d.b2Vec2} p a point in world coordinates.
  */
 box2d.b2Fixture.prototype.TestPoint = function (p)
@@ -23307,26 +23307,26 @@ box2d.b2Fixture.prototype.TestPoint = function (p)
 	return this.m_shape.TestPoint(this.m_body.GetTransform(), p);
 }
 
-/** 
- * Cast a ray against this shape. 
- * @export 
- * @return {boolean} 
+/**
+ * Cast a ray against this shape.
+ * @export
+ * @return {boolean}
  * @param {box2d.b2RayCastOutput} output ray-cast results.
  * @param {box2d.b2RayCastInput} input the ray-cast input parameters.
- * @param {number} childIndex 
+ * @param {number} childIndex
  */
 box2d.b2Fixture.prototype.RayCast = function (output, input, childIndex)
 {
 	return this.m_shape.RayCast(output, input, this.m_body.GetTransform(), childIndex);
 }
 
-/** 
- * Get the mass data for this fixture. The mass data is based on 
- * the density and the shape. The rotational inertia is about 
- * the shape's origin. This operation may be expensive. 
- * @export 
- * @return {box2d.b2MassData} 
- * @param {box2d.b2MassData=} massData 
+/**
+ * Get the mass data for this fixture. The mass data is based on
+ * the density and the shape. The rotational inertia is about
+ * the shape's origin. This operation may be expensive.
+ * @export
+ * @return {box2d.b2MassData}
+ * @param {box2d.b2MassData=} massData
  */
 box2d.b2Fixture.prototype.GetMassData = function (massData)
 {
@@ -23337,13 +23337,13 @@ box2d.b2Fixture.prototype.GetMassData = function (massData)
 	return massData;
 }
 
-/** 
- * Get the fixture's AABB. This AABB may be enlarge and/or 
- * stale. If you need a more accurate AABB, compute it using the 
- * shape and the body transform. 
- * @export 
- * @return {box2d.b2AABB} 
- * @param {number} childIndex 
+/**
+ * Get the fixture's AABB. This AABB may be enlarge and/or
+ * stale. If you need a more accurate AABB, compute it using the
+ * shape and the body transform.
+ * @export
+ * @return {box2d.b2AABB}
+ * @param {number} childIndex
  */
 box2d.b2Fixture.prototype.GetAABB = function (childIndex)
 {
@@ -23351,13 +23351,13 @@ box2d.b2Fixture.prototype.GetAABB = function (childIndex)
 	return this.m_proxies[childIndex].aabb;
 }
 
-/** 
- * We need separation create/destroy functions from the 
- * constructor/destructor because the destructor cannot access 
- * the allocator (no destructor arguments allowed by C++). 
- * @export 
- * @return {void} 
- * @param {box2d.b2Body} body 
+/**
+ * We need separation create/destroy functions from the
+ * constructor/destructor because the destructor cannot access
+ * the allocator (no destructor arguments allowed by C++).
+ * @export
+ * @return {void}
+ * @param {box2d.b2Body} body
  * @param {box2d.b2FixtureDef} def
  */
 box2d.b2Fixture.prototype.Create = function (body, def)
@@ -23390,8 +23390,8 @@ box2d.b2Fixture.prototype.Create = function (body, def)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2Fixture.prototype.Destroy = function ()
 {
@@ -23406,12 +23406,12 @@ box2d.b2Fixture.prototype.Destroy = function ()
 	this.m_shape = null;
 }
 
-/** 
- * These support body activation/deactivation. 
- * @export 
- * @return {void} 
- * @param {box2d.b2BroadPhase} broadPhase 
- * @param {box2d.b2Transform} xf 
+/**
+ * These support body activation/deactivation.
+ * @export
+ * @return {void}
+ * @param {box2d.b2BroadPhase} broadPhase
+ * @param {box2d.b2Transform} xf
  */
 box2d.b2Fixture.prototype.CreateProxies = function (broadPhase, xf)
 {
@@ -23430,10 +23430,10 @@ box2d.b2Fixture.prototype.CreateProxies = function (broadPhase, xf)
 	}
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2BroadPhase} broadPhase 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2BroadPhase} broadPhase
  */
 box2d.b2Fixture.prototype.DestroyProxies = function (broadPhase)
 {
@@ -23444,21 +23444,21 @@ box2d.b2Fixture.prototype.DestroyProxies = function (broadPhase)
 		broadPhase.DestroyProxy(proxy.proxy);
 		proxy.proxy = null;
 	}
-	
+
 	this.m_proxyCount = 0;
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2BroadPhase} broadPhase 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2BroadPhase} broadPhase
  * @param {box2d.b2Transform} transform1
  * @param {box2d.b2Transform} transform2
  */
 box2d.b2Fixture.prototype.Synchronize = function (broadPhase, transform1, transform2)
 {
 	if (this.m_proxyCount === 0)
-	{	
+	{
 		return;
 	}
 
@@ -23471,11 +23471,11 @@ box2d.b2Fixture.prototype.Synchronize = function (broadPhase, transform1, transf
 		var aabb2 = box2d.b2Fixture.prototype.Synchronize.s_aabb2;
 		this.m_shape.ComputeAABB(aabb1, transform1, i);
 		this.m_shape.ComputeAABB(aabb2, transform2, i);
-	
+
 		proxy.aabb.Combine2(aabb1, aabb2);
-	
+
 		var displacement = box2d.b2SubVV(transform2.p, transform1.p, box2d.b2Fixture.prototype.Synchronize.s_displacement);
-	
+
 		broadPhase.MoveProxy(proxy.proxy, proxy.aabb, displacement);
 	}
 }
@@ -23483,14 +23483,14 @@ box2d.b2Fixture.prototype.Synchronize.s_aabb1 = new box2d.b2AABB();
 box2d.b2Fixture.prototype.Synchronize.s_aabb2 = new box2d.b2AABB();
 box2d.b2Fixture.prototype.Synchronize.s_displacement = new box2d.b2Vec2();
 
-/** 
- * Set the contact filtering data. This will not update contacts 
- * until the next time step when either parent body is active 
- * and awake. 
- * This automatically calls Refilter. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Filter} filter 
+/**
+ * Set the contact filtering data. This will not update contacts
+ * until the next time step when either parent body is active
+ * and awake.
+ * This automatically calls Refilter.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Filter} filter
  */
 box2d.b2Fixture.prototype.SetFilterData = function (filter)
 {
@@ -23500,10 +23500,10 @@ box2d.b2Fixture.prototype.SetFilterData = function (filter)
 }
 
 /**
- * Call this if you want to establish collision that was 
- * previously disabled by box2d.b2ContactFilter::ShouldCollide. 
- * @export 
- * @return {void} 
+ * Call this if you want to establish collision that was
+ * previously disabled by box2d.b2ContactFilter::ShouldCollide.
+ * @export
+ * @return {void}
  */
 box2d.b2Fixture.prototype.Refilter = function ()
 {
@@ -23543,10 +23543,10 @@ box2d.b2Fixture.prototype.Refilter = function ()
 	}
 }
 
-/** 
- * Set if this fixture is a sensor. 
- * @export 
- * @return {void} 
+/**
+ * Set if this fixture is a sensor.
+ * @export
+ * @return {void}
  * @param {boolean} sensor
  */
 box2d.b2Fixture.prototype.SetSensor = function (sensor)
@@ -23558,11 +23558,11 @@ box2d.b2Fixture.prototype.SetSensor = function (sensor)
 	}
 }
 
-/** 
- * Dump this fixture to the log file. 
- * @export 
+/**
+ * Dump this fixture to the log file.
+ * @export
  * @return {void}
- * @param {number} bodyIndex 
+ * @param {number} bodyIndex
  */
 box2d.b2Fixture.prototype.Dump = function (bodyIndex)
 {
@@ -23576,9 +23576,9 @@ box2d.b2Fixture.prototype.Dump = function (bodyIndex)
 		box2d.b2Log("    fd.filter.categoryBits = %d;\n", this.m_filter.categoryBits);
 		box2d.b2Log("    fd.filter.maskBits = %d;\n", this.m_filter.maskBits);
 		box2d.b2Log("    fd.filter.groupIndex = %d;\n", this.m_filter.groupIndex);
-	
+
 		this.m_shape.Dump();
-	
+
 		box2d.b2Log("\n");
 		box2d.b2Log("    fd.shape = shape;\n");
 		box2d.b2Log("\n");
@@ -23615,10 +23615,10 @@ goog.require('box2d.b2Fixture');
  * static: zero mass, zero velocity, may be manually moved
  * kinematic: zero mass, non-zero velocity set by user, moved by solver
  * dynamic: positive mass, non-zero velocity determined by forces, moved by solver
- * @export 
+ * @export
  * @enum
  */
-box2d.b2BodyType = 
+box2d.b2BodyType =
 {
 	b2_unknown			: -1,
 	b2_staticBody		: 0,
@@ -23632,12 +23632,12 @@ goog.exportProperty(box2d.b2BodyType, 'b2_kinematicBody', box2d.b2BodyType.b2_ki
 goog.exportProperty(box2d.b2BodyType, 'b2_dynamicBody'  , box2d.b2BodyType.b2_dynamicBody  );
 goog.exportProperty(box2d.b2BodyType, 'b2_bulletBody'   , box2d.b2BodyType.b2_bulletBody   );
 
-/** 
- * A body definition holds all the data needed to construct a 
- * rigid body. 
- * You can safely re-use body definitions. Shapes are added to a 
- * body after construction. 
- * @export 
+/**
+ * A body definition holds all the data needed to construct a
+ * rigid body.
+ * You can safely re-use body definitions. Shapes are added to a
+ * body after construction.
+ * @export
  * @constructor
  */
 box2d.b2BodyDef = function ()
@@ -23646,125 +23646,125 @@ box2d.b2BodyDef = function ()
 	this.linearVelocity = new box2d.b2Vec2(0, 0);
 }
 
-/** 
- * The body type: static, kinematic, or dynamic. 
- * Note: if a dynamic body would have zero mass, the mass is set 
- * to one. 
+/**
+ * The body type: static, kinematic, or dynamic.
+ * Note: if a dynamic body would have zero mass, the mass is set
+ * to one.
  * @export
- * @type {box2d.b2BodyType} 
- */ 
+ * @type {box2d.b2BodyType}
+ */
 box2d.b2BodyDef.prototype.type = box2d.b2BodyType.b2_staticBody;
 
-/** 
- * The world position of the body. Avoid creating bodies at the 
- * origin since this can lead to many overlapping shapes. 
- * @export 
- * @type {box2d.b2Vec2} 
+/**
+ * The world position of the body. Avoid creating bodies at the
+ * origin since this can lead to many overlapping shapes.
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2BodyDef.prototype.position = null;
 
-/** 
- * The world angle of the body in radians. 
- * @export 
- * @type {number} 
+/**
+ * The world angle of the body in radians.
+ * @export
+ * @type {number}
  */
 box2d.b2BodyDef.prototype.angle = 0;
 
-/** 
- * The linear velocity of the body's origin in world 
- * co-ordinates. 
- * @export 
+/**
+ * The linear velocity of the body's origin in world
+ * co-ordinates.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2BodyDef.prototype.linearVelocity = null;
 
-/** 
- * The angular velocity of the body. 
- * @export 
+/**
+ * The angular velocity of the body.
+ * @export
  * @type {number}
  */
 box2d.b2BodyDef.prototype.angularVelocity = 0;
 
-/** 
- * Linear damping is use to reduce the linear velocity. The 
- * damping parameter can be larger than 1.0f but the damping 
- * effect becomes sensitive to the time step when the damping 
- * parameter is large. 
- * @export 
+/**
+ * Linear damping is use to reduce the linear velocity. The
+ * damping parameter can be larger than 1.0f but the damping
+ * effect becomes sensitive to the time step when the damping
+ * parameter is large.
+ * @export
  * @type {number}
  */
 box2d.b2BodyDef.prototype.linearDamping = 0;
 
-/** 
- * Angular damping is use to reduce the angular velocity. The 
- * damping parameter can be larger than 1.0f but the damping 
- * effect becomes sensitive to the time step when the damping 
- * parameter is large. 
- * @export 
+/**
+ * Angular damping is use to reduce the angular velocity. The
+ * damping parameter can be larger than 1.0f but the damping
+ * effect becomes sensitive to the time step when the damping
+ * parameter is large.
+ * @export
  * @type {number}
  */
 box2d.b2BodyDef.prototype.angularDamping = 0;
 
-/** 
- * Set this flag to false if this body should never fall asleep. 
- * Note that this increases CPU usage. 
- * @export 
+/**
+ * Set this flag to false if this body should never fall asleep.
+ * Note that this increases CPU usage.
+ * @export
  * @type {boolean}
  */
 box2d.b2BodyDef.prototype.allowSleep = true;
 
-/** 
- * Is this body initially awake or sleeping? 
- * @export 
+/**
+ * Is this body initially awake or sleeping?
+ * @export
  * @type {boolean}
  */
 box2d.b2BodyDef.prototype.awake = true;
 
-/** 
- * Should this body be prevented from rotating? Useful for 
- * characters. 
- * @export 
+/**
+ * Should this body be prevented from rotating? Useful for
+ * characters.
+ * @export
  * @type {boolean}
  */
 box2d.b2BodyDef.prototype.fixedRotation = false;
 
-/** 
- * Is this a fast moving body that should be prevented from 
- * tunneling through other moving bodies? Note that all bodies 
- * are prevented from tunneling through kinematic and static 
- * bodies. This setting is only considered on dynamic bodies. 
- * warning You should use this flag sparingly since it increases 
- * processing time. 
- * @export 
+/**
+ * Is this a fast moving body that should be prevented from
+ * tunneling through other moving bodies? Note that all bodies
+ * are prevented from tunneling through kinematic and static
+ * bodies. This setting is only considered on dynamic bodies.
+ * warning You should use this flag sparingly since it increases
+ * processing time.
+ * @export
  * @type {boolean}
  */
 box2d.b2BodyDef.prototype.bullet = false;
 
-/** 
- * Does this body start out active? 
- * @export 
+/**
+ * Does this body start out active?
+ * @export
  * @type {boolean}
  */
 box2d.b2BodyDef.prototype.active = true;
 
-/** 
- * Use this to store application specific body data. 
- * @export 
+/**
+ * Use this to store application specific body data.
+ * @export
  * @type {*}
  */
 box2d.b2BodyDef.prototype.userData = null;
 
-/** 
- * Scale the gravity applied to this body. 
- * @export 
+/**
+ * Scale the gravity applied to this body.
+ * @export
  * @type {number}
  */
 box2d.b2BodyDef.prototype.gravityScale = 1;
 
-/** 
+/**
  * @enum
  */
-box2d.b2BodyFlag = 
+box2d.b2BodyFlag =
 {
 	e_none				: 0,
 	e_islandFlag		: 0x0001,
@@ -23784,10 +23784,10 @@ goog.exportProperty(box2d.b2BodyFlag, 'e_fixedRotationFlag', box2d.b2BodyFlag.e_
 goog.exportProperty(box2d.b2BodyFlag, 'e_activeFlag'       , box2d.b2BodyFlag.e_activeFlag       );
 goog.exportProperty(box2d.b2BodyFlag, 'e_toiFlag'          , box2d.b2BodyFlag.e_toiFlag          );
 
-/** 
- * A rigid body. These are created via 
- * box2d.b2World::CreateBody. 
- * @export 
+/**
+ * A rigid body. These are created via
+ * box2d.b2World::CreateBody.
+ * @export
  * @constructor
  * @param {box2d.b2BodyDef} bd
  * @param {box2d.b2World} world
@@ -23883,167 +23883,167 @@ box2d.b2Body = function (bd, world)
 }
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2BodyFlag}
  */
 box2d.b2Body.prototype.m_flags = box2d.b2BodyFlag.e_none;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_islandIndex = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2World}
  */
 box2d.b2Body.prototype.m_world = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Transform}
  */
 box2d.b2Body.prototype.m_xf = null; // the body origin transform
 /**
- * @export 
+ * @export
  * @type {box2d.b2Transform}
  */
 box2d.b2Body.prototype.m_out_xf = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Sweep}
  */
 box2d.b2Body.prototype.m_sweep = null; // the swept motion for CCD
 /**
- * @export 
+ * @export
  * @type {box2d.b2Sweep}
  */
 box2d.b2Body.prototype.m_out_sweep = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2JointEdge}
  */
 box2d.b2Body.prototype.m_jointList = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactEdge}
  */
 box2d.b2Body.prototype.m_contactList = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2Body.prototype.m_prev = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2Body.prototype.m_next = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2Body.prototype.m_linearVelocity = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2Body.prototype.m_out_linearVelocity = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_angularVelocity = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_linearDamping = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_angularDamping = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_gravityScale = 1;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2Body.prototype.m_force = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_torque = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_sleepTime = 0;
 /**
- * @export 
- * @type {box2d.b2BodyType} 
+ * @export
+ * @type {box2d.b2BodyType}
  */
 box2d.b2Body.prototype.m_type = box2d.b2BodyType.b2_staticBody;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_mass = 1;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_invMass = 1;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_I = 0; // Rotational inertia about the center of mass.
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_invI = 0;
 /**
- * @export 
+ * @export
  * @type {*}
  */
 box2d.b2Body.prototype.m_userData = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Fixture}
  */
 box2d.b2Body.prototype.m_fixtureList = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_fixtureCount = 0;
-/** 
- * @see box2d.b2Controller list 
- * @export 
+/**
+ * @see box2d.b2Controller list
+ * @export
  * @type {box2d.b2ControllerEdge}
  */
 box2d.b2Body.prototype.m_controllerList = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2Body.prototype.m_controllerCount = 0;
 
-/** 
- * Creates a fixture and attach it to this body. Use this 
- * function if you need to set some fixture parameters, like 
- * friction. Otherwise you can create the fixture directly from 
- * a shape. 
- * If the density is non-zero, this function automatically 
- * updates the mass of the body. Contacts are not created until 
- * the next time step. 
+/**
+ * Creates a fixture and attach it to this body. Use this
+ * function if you need to set some fixture parameters, like
+ * friction. Otherwise you can create the fixture directly from
+ * a shape.
+ * If the density is non-zero, this function automatically
+ * updates the mass of the body. Contacts are not created until
+ * the next time step.
  * warning This function is locked during callbacks.
- * @export 
+ * @export
  * @return {box2d.b2Fixture}
  * @param {box2d.b2FixtureDef} def the fixture definition.
  */
@@ -24083,15 +24083,15 @@ box2d.b2Body.prototype.CreateFixture = function (def)
 	return fixture;
 }
 
-/** 
- * Creates a fixture from a shape and attach it to this body. 
- * This is a convenience function. Use b2FixtureDef if you need 
- * to set parameters like friction, restitution, user data, or 
- * filtering. 
- * If the density is non-zero, this function automatically 
- * updates the mass of the body. 
+/**
+ * Creates a fixture from a shape and attach it to this body.
+ * This is a convenience function. Use b2FixtureDef if you need
+ * to set parameters like friction, restitution, user data, or
+ * filtering.
+ * If the density is non-zero, this function automatically
+ * updates the mass of the body.
  * warning This function is locked during callbacks.
- * @export 
+ * @export
  * @return {box2d.b2Fixture}
  * @param {box2d.b2Shape} shape the shape to be cloned.
  * @param {number} density the shape density (set to zero for static bodies).
@@ -24107,16 +24107,16 @@ box2d.b2Body.prototype.CreateFixture2 = function (shape, density)
 }
 box2d.b2Body.prototype.CreateFixture2.s_def = new box2d.b2FixtureDef();
 
-/** 
- * Destroy a fixture. This removes the fixture from the 
- * broad-phase and destroys all contacts associated with this 
- * fixture. This will automatically adjust the mass of the body 
- * if the body is dynamic and the fixture has positive density. 
- * All fixtures attached to a body are implicitly destroyed when 
- * the body is destroyed. 
+/**
+ * Destroy a fixture. This removes the fixture from the
+ * broad-phase and destroys all contacts associated with this
+ * fixture. This will automatically adjust the mass of the body
+ * if the body is dynamic and the fixture has positive density.
+ * All fixtures attached to a body are implicitly destroyed when
+ * the body is destroyed.
  * warning This function is locked during callbacks.
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Fixture} fixture the fixture to be removed.
  */
 box2d.b2Body.prototype.DestroyFixture = function (fixture)
@@ -24187,13 +24187,13 @@ box2d.b2Body.prototype.DestroyFixture = function (fixture)
 	this.ResetMassData();
 }
 
-/** 
- * Set the position of the body's origin and rotation. 
- * Manipulating a body's transform may cause non-physical 
- * behavior. 
+/**
+ * Set the position of the body's origin and rotation.
+ * Manipulating a body's transform may cause non-physical
+ * behavior.
  * Note: contacts are updated on the next call to b2World::Step.
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} position the world position of the body's local origin.
  * @param {number} angle the world rotation in radians.
  */
@@ -24203,11 +24203,11 @@ box2d.b2Body.prototype.SetTransformVecRadians = function (position, angle)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {number} x 
- * @param {number} y 
- * @param {number} angle 
+ * @export
+ * @return {void}
+ * @param {number} x
+ * @param {number} y
+ * @param {number} angle
  */
 box2d.b2Body.prototype.SetTransformXYRadians = function (x, y, angle)
 {
@@ -24217,8 +24217,8 @@ box2d.b2Body.prototype.SetTransformXYRadians = function (x, y, angle)
 		return;
 	}
 
-	if ((this.m_xf.p.x === x) && 
-		(this.m_xf.p.y === y) && 
+	if ((this.m_xf.p.x === x) &&
+		(this.m_xf.p.y === y) &&
 		(this.m_xf.q.GetAngleRadians()) === angle)
 	{
 		return;
@@ -24241,20 +24241,20 @@ box2d.b2Body.prototype.SetTransformXYRadians = function (x, y, angle)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Transform} xf 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Transform} xf
  */
 box2d.b2Body.prototype.SetTransform = function (xf)
 {
 	this.SetTransformVecRadians(xf.p, xf.GetAngleRadians());
 }
 
-/** 
- * Get the body transform for the body's origin. 
- * @export 
+/**
+ * Get the body transform for the body's origin.
+ * @export
  * @return {box2d.b2Transform} the world transform of the body's origin.
- * @param {box2d.b2Transform=} out 
+ * @param {box2d.b2Transform=} out
  */
 box2d.b2Body.prototype.GetTransform = function (out)
 {
@@ -24262,11 +24262,11 @@ box2d.b2Body.prototype.GetTransform = function (out)
 	return out.Copy(this.m_xf);
 }
 
-/** 
- * Get the world body origin position. 
- * @export 
+/**
+ * Get the world body origin position.
+ * @export
  * @return {box2d.b2Vec2} the world position of the body's origin.
- * @param {box2d.b2Vec2=} out 
+ * @param {box2d.b2Vec2=} out
  */
 box2d.b2Body.prototype.GetPosition = function (out)
 {
@@ -24275,9 +24275,9 @@ box2d.b2Body.prototype.GetPosition = function (out)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Vec2} position 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Vec2} position
  */
 box2d.b2Body.prototype.SetPosition = function (position)
 {
@@ -24285,19 +24285,19 @@ box2d.b2Body.prototype.SetPosition = function (position)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {number} x
- * @param {number} y 
+ * @param {number} y
  */
 box2d.b2Body.prototype.SetPositionXY = function (x, y)
 {
 	this.SetTransformXYRadians(x, y, this.GetAngleRadians());
 }
 
-/** 
- * Get the angle in radians. 
- * @export 
+/**
+ * Get the angle in radians.
+ * @export
  * @return {number} the current world rotation angle in radians.
  */
 box2d.b2Body.prototype.GetAngle = function ()
@@ -24310,9 +24310,9 @@ box2d.b2Body.prototype.GetAngleRadians = box2d.b2Body.prototype.GetAngle;
 box2d.b2Body.prototype.GetAngleDegrees = function () { return box2d.b2RadToDeg(this.GetAngle()); }
 
 /**
- * @export 
- * @return {void} 
- * @param {number} angle 
+ * @export
+ * @return {void}
+ * @param {number} angle
  */
 box2d.b2Body.prototype.SetAngle = function (angle)
 {
@@ -24323,11 +24323,11 @@ box2d.b2Body.prototype.SetAngleRadians = box2d.b2Body.prototype.SetAngle;
 
 box2d.b2Body.prototype.SetAngleDegrees = function (angle) { this.SetAngle(box2d.b2DegToRad(angle)); }
 
-/** 
- * Get the world position of the center of mass. 
- * @export 
+/**
+ * Get the world position of the center of mass.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2=} out 
+ * @param {box2d.b2Vec2=} out
  */
 box2d.b2Body.prototype.GetWorldCenter = function (out)
 {
@@ -24335,11 +24335,11 @@ box2d.b2Body.prototype.GetWorldCenter = function (out)
 	return out.Copy(this.m_sweep.c);
 }
 
-/** 
- * Get the local position of the center of mass. 
- * @export 
+/**
+ * Get the local position of the center of mass.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2=} out 
+ * @param {box2d.b2Vec2=} out
  */
 box2d.b2Body.prototype.GetLocalCenter = function (out)
 {
@@ -24347,10 +24347,10 @@ box2d.b2Body.prototype.GetLocalCenter = function (out)
 	return out.Copy(this.m_sweep.localCenter);
 }
 
-/** 
- * Set the linear velocity of the center of mass. 
- * @export 
- * @return {void} 
+/**
+ * Set the linear velocity of the center of mass.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} v the new linear velocity of the center of mass.
  */
 box2d.b2Body.prototype.SetLinearVelocity = function (v)
@@ -24368,11 +24368,11 @@ box2d.b2Body.prototype.SetLinearVelocity = function (v)
 	this.m_linearVelocity.Copy(v);
 }
 
-/** 
- * Get the linear velocity of the center of mass. 
- * @export 
+/**
+ * Get the linear velocity of the center of mass.
+ * @export
  * @return {box2d.b2Vec2} the linear velocity of the center of mass.
- * @param {box2d.b2Vec2=} out 
+ * @param {box2d.b2Vec2=} out
  */
 box2d.b2Body.prototype.GetLinearVelocity = function (out)
 {
@@ -24380,10 +24380,10 @@ box2d.b2Body.prototype.GetLinearVelocity = function (out)
 	return out.Copy(this.m_linearVelocity);
 }
 
-/** 
- * Set the angular velocity. 
- * @export 
- * @return {void} 
+/**
+ * Set the angular velocity.
+ * @export
+ * @return {void}
  * @param {number} w the new angular velocity in radians/second.
  */
 box2d.b2Body.prototype.SetAngularVelocity = function (w)
@@ -24401,9 +24401,9 @@ box2d.b2Body.prototype.SetAngularVelocity = function (w)
 	this.m_angularVelocity = w;
 }
 
-/** 
- * Get the angular velocity. 
- * @export 
+/**
+ * Get the angular velocity.
+ * @export
  * @return {number} the angular velocity in radians/second.
  */
 box2d.b2Body.prototype.GetAngularVelocity = function ()
@@ -24412,8 +24412,8 @@ box2d.b2Body.prototype.GetAngularVelocity = function ()
 }
 
 /**
- * @export 
- * @return {box2d.b2BodyDef} 
+ * @export
+ * @return {box2d.b2BodyDef}
  * @param {box2d.b2BodyDef} bd
  */
 box2d.b2Body.prototype.GetDefinition = function (bd)
@@ -24434,15 +24434,15 @@ box2d.b2Body.prototype.GetDefinition = function (bd)
 	return bd;
 }
 
-/** 
- * Apply a force at a world point. If the force is not applied 
- * at the center of mass, it will generate a torque and affect 
- * the angular velocity. This wakes up the body. 
- * @export 
- * @return {void} 
+/**
+ * Apply a force at a world point. If the force is not applied
+ * at the center of mass, it will generate a torque and affect
+ * the angular velocity. This wakes up the body.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} force the world force vector, usually in Newtons (N).
- * @param {box2d.b2Vec2} point the world position of the point of application. 
- * @param {boolean=} wake also wake up the body 
+ * @param {box2d.b2Vec2} point the world position of the point of application.
+ * @param {boolean=} wake also wake up the body
  */
 box2d.b2Body.prototype.ApplyForce = function (force, point, wake)
 {
@@ -24467,12 +24467,12 @@ box2d.b2Body.prototype.ApplyForce = function (force, point, wake)
 	}
 }
 
-/** 
- * Apply a force to the center of mass. This wakes up the body. 
- * @export 
- * @return {void} 
+/**
+ * Apply a force to the center of mass. This wakes up the body.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} force the world force vector, usually in Newtons (N).
- * @param {boolean=} wake also wake up the body 
+ * @param {boolean=} wake also wake up the body
  */
 box2d.b2Body.prototype.ApplyForceToCenter = function (force, wake)
 {
@@ -24496,14 +24496,14 @@ box2d.b2Body.prototype.ApplyForceToCenter = function (force, wake)
 	}
 }
 
-/** 
- * Apply a torque. This affects the angular velocity without 
- * affecting the linear velocity of the center of mass. This 
- * wakes up the body. 
- * @export 
- * @return {void} 
+/**
+ * Apply a torque. This affects the angular velocity without
+ * affecting the linear velocity of the center of mass. This
+ * wakes up the body.
+ * @export
+ * @return {void}
  * @param {number} torque about the z-axis (out of the screen), usually in N-m.
- * @param {boolean=} wake also wake up the body 
+ * @param {boolean=} wake also wake up the body
  */
 box2d.b2Body.prototype.ApplyTorque = function (torque, wake)
 {
@@ -24526,16 +24526,16 @@ box2d.b2Body.prototype.ApplyTorque = function (torque, wake)
 	}
 }
 
-/** 
- * Apply an impulse at a point. This immediately modifies the 
- * velocity. It also modifies the angular velocity if the point 
- * of application is not at the center of mass. This wakes up 
- * the body. 
- * @export 
- * @return {void} 
+/**
+ * Apply an impulse at a point. This immediately modifies the
+ * velocity. It also modifies the angular velocity if the point
+ * of application is not at the center of mass. This wakes up
+ * the body.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} impulse the world impulse vector, usually in N-seconds or kg-m/s.
  * @param {box2d.b2Vec2} point the world position of the point of application.
- * @param {boolean=} wake also wake up the body 
+ * @param {boolean=} wake also wake up the body
  */
 box2d.b2Body.prototype.ApplyLinearImpulse = function (impulse, point, wake)
 {
@@ -24560,12 +24560,12 @@ box2d.b2Body.prototype.ApplyLinearImpulse = function (impulse, point, wake)
 	}
 }
 
-/** 
- * Apply an angular impulse. 
- * @export 
- * @return {void} 
+/**
+ * Apply an angular impulse.
+ * @export
+ * @return {void}
  * @param {number} impulse the angular impulse in units of kg*m*m/s
- * @param {boolean=} wake also wake up the body 
+ * @param {boolean=} wake also wake up the body
  */
 box2d.b2Body.prototype.ApplyAngularImpulse = function (impulse, wake)
 {
@@ -24588,9 +24588,9 @@ box2d.b2Body.prototype.ApplyAngularImpulse = function (impulse, wake)
 	}
 }
 
-/** 
- * Get the total mass of the body. 
- * @export 
+/**
+ * Get the total mass of the body.
+ * @export
  * @return {number} the mass, usually in kilograms (kg).
  */
 box2d.b2Body.prototype.GetMass = function ()
@@ -24598,10 +24598,10 @@ box2d.b2Body.prototype.GetMass = function ()
 	return this.m_mass;
 }
 
-/** 
- * Get the rotational inertia of the body about the local 
- * origin. 
- * @export 
+/**
+ * Get the rotational inertia of the body about the local
+ * origin.
+ * @export
  * @return {number} the rotational inertia, usually in kg-m^2.
  */
 box2d.b2Body.prototype.GetInertia = function ()
@@ -24609,9 +24609,9 @@ box2d.b2Body.prototype.GetInertia = function ()
 	return this.m_I + this.m_mass * box2d.b2DotVV(this.m_sweep.localCenter, this.m_sweep.localCenter);
 }
 
-/** 
- * Get the mass data of the body. 
- * @export 
+/**
+ * Get the mass data of the body.
+ * @export
  * @return {box2d.b2MassData} a struct containing the mass, inertia and center of the body.
  * @param {box2d.b2MassData} data
  */
@@ -24623,15 +24623,15 @@ box2d.b2Body.prototype.GetMassData = function (data)
 	return data;
 }
 
-/** 
- * Set the mass properties to override the mass properties of 
- * the fixtures. 
- * Note that this changes the center of mass position. 
- * Note that creating or destroying fixtures can also alter the 
- * mass. 
- * This function has no effect if the body isn't dynamic. 
- * @export 
- * @return {void} 
+/**
+ * Set the mass properties to override the mass properties of
+ * the fixtures.
+ * Note that this changes the center of mass position.
+ * Note that creating or destroying fixtures can also alter the
+ * mass.
+ * This function has no effect if the body isn't dynamic.
+ * @export
+ * @return {void}
  * @param {box2d.b2MassData} massData the mass properties.
  */
 box2d.b2Body.prototype.SetMassData = function (massData)
@@ -24677,13 +24677,13 @@ box2d.b2Body.prototype.SetMassData = function (massData)
 }
 box2d.b2Body.prototype.SetMassData.s_oldCenter = new box2d.b2Vec2();
 
-/** 
- * This resets the mass properties to the sum of the mass 
- * properties of the fixtures. This normally does not need to be 
- * called unless you called SetMassData to override the mass and 
- * you later want to reset the mass. 
- * @export 
- * @return {void} 
+/**
+ * This resets the mass properties to the sum of the mass
+ * properties of the fixtures. This normally does not need to be
+ * called unless you called SetMassData to override the mass and
+ * you later want to reset the mass.
+ * @export
+ * @return {void}
  */
 box2d.b2Body.prototype.ResetMassData = function ()
 {
@@ -24761,85 +24761,85 @@ box2d.b2Body.prototype.ResetMassData.s_localCenter = new box2d.b2Vec2();
 box2d.b2Body.prototype.ResetMassData.s_oldCenter = new box2d.b2Vec2();
 box2d.b2Body.prototype.ResetMassData.s_massData = new box2d.b2MassData();
 
-/** 
- * Get the world coordinates of a point given the local 
- * coordinates. 
- * @export 
+/**
+ * Get the world coordinates of a point given the local
+ * coordinates.
+ * @export
  * @return {box2d.b2Vec2} the same point expressed in world coordinates.
  * @param {box2d.b2Vec2} localPoint a point on the body measured relative the the body's origin.
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Body.prototype.GetWorldPoint = function (localPoint, out)
 {
 	return box2d.b2MulXV(this.m_xf, localPoint, out);
 }
 
-/** 
- * Get the world coordinates of a vector given the local 
- * coordinates. 
- * @export 
+/**
+ * Get the world coordinates of a vector given the local
+ * coordinates.
+ * @export
  * @return {box2d.b2Vec2} the same vector expressed in world coordinates.
  * @param {box2d.b2Vec2} localVector a vector fixed in the body.
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Body.prototype.GetWorldVector = function (localVector, out)
 {
 	return box2d.b2MulRV(this.m_xf.q, localVector, out);
 }
 
-/** 
- * Gets a local point relative to the body's origin given a 
- * world point. 
- * @export 
+/**
+ * Gets a local point relative to the body's origin given a
+ * world point.
+ * @export
  * @return {box2d.b2Vec2} the corresponding local point relative to the body's origin.
  * @param {box2d.b2Vec2} worldPoint a point in world coordinates.
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Body.prototype.GetLocalPoint = function (worldPoint, out)
 {
 	return box2d.b2MulTXV(this.m_xf, worldPoint, out);
 }
 
-/** 
- * Gets a local vector given a world vector. 
- * @export 
+/**
+ * Gets a local vector given a world vector.
+ * @export
  * @return {box2d.b2Vec2} the corresponding local vector.
  * @param {box2d.b2Vec2} worldVector a vector in world coordinates.
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Body.prototype.GetLocalVector = function (worldVector, out)
 {
 	return box2d.b2MulTRV(this.m_xf.q, worldVector, out);
 }
 
-/** 
- * Get the world linear velocity of a world point attached to 
- * this body. 
- * @export 
+/**
+ * Get the world linear velocity of a world point attached to
+ * this body.
+ * @export
  * @return {box2d.b2Vec2} the world velocity of a point.
  * @param {box2d.b2Vec2} worldPoint a point in world coordinates.
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Body.prototype.GetLinearVelocityFromWorldPoint = function (worldPoint, out)
 {
 	return box2d.b2AddVCrossSV(this.m_linearVelocity, this.m_angularVelocity, box2d.b2SubVV(worldPoint, this.m_sweep.c, box2d.b2Vec2.s_t0), out);
 }
 
-/** 
- * Get the world velocity of a local point. 
- * @export 
+/**
+ * Get the world velocity of a local point.
+ * @export
  * @return {box2d.b2Vec2} the world velocity of a point.
  * @param {box2d.b2Vec2} localPoint a point in local coordinates.
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2Body.prototype.GetLinearVelocityFromLocalPoint = function (localPoint, out)
 {
 	return this.GetLinearVelocityFromWorldPoint(this.GetWorldPoint(localPoint, out), out);
 }
 
-/** 
- * Get the linear damping of the body. 
- * @export 
+/**
+ * Get the linear damping of the body.
+ * @export
  * @return {number}
  */
 box2d.b2Body.prototype.GetLinearDamping = function ()
@@ -24847,9 +24847,9 @@ box2d.b2Body.prototype.GetLinearDamping = function ()
 	return this.m_linearDamping;
 }
 
-/** 
- * Set the linear damping of the body. 
- * @export 
+/**
+ * Set the linear damping of the body.
+ * @export
  * @param {number} linearDamping
  */
 box2d.b2Body.prototype.SetLinearDamping = function (linearDamping)
@@ -24857,9 +24857,9 @@ box2d.b2Body.prototype.SetLinearDamping = function (linearDamping)
 	this.m_linearDamping = linearDamping;
 }
 
-/** 
- * Get the angular damping of the body. 
- * @export 
+/**
+ * Get the angular damping of the body.
+ * @export
  * @return {number}
  */
 box2d.b2Body.prototype.GetAngularDamping = function ()
@@ -24867,20 +24867,20 @@ box2d.b2Body.prototype.GetAngularDamping = function ()
 	return this.m_angularDamping;
 }
 
-/** 
- * Set the angular damping of the body. 
- * @export 
- * @return {void} 
- * @param {number} angularDamping 
+/**
+ * Set the angular damping of the body.
+ * @export
+ * @return {void}
+ * @param {number} angularDamping
  */
 box2d.b2Body.prototype.SetAngularDamping = function (angularDamping)
 {
 	this.m_angularDamping = angularDamping;
 }
 
-/** 
- * Get the gravity scale of the body. 
- * @export 
+/**
+ * Get the gravity scale of the body.
+ * @export
  * @return {number}
  */
 box2d.b2Body.prototype.GetGravityScale = function ()
@@ -24888,23 +24888,23 @@ box2d.b2Body.prototype.GetGravityScale = function ()
 	return this.m_gravityScale;
 }
 
-/** 
- * Set the gravity scale of the body. 
- * @export 
- * @return {void} 
- * @param {number} scale 
+/**
+ * Set the gravity scale of the body.
+ * @export
+ * @return {void}
+ * @param {number} scale
  */
 box2d.b2Body.prototype.SetGravityScale = function (scale)
 {
 	this.m_gravityScale = scale;
 }
 
-/** 
- * Set the type of this body. This may alter the mass and 
- * velocity. 
- * @export 
- * @return {void} 
- * @param {box2d.b2BodyType} type 
+/**
+ * Set the type of this body. This may alter the mass and
+ * velocity.
+ * @export
+ * @return {void}
+ * @param {box2d.b2BodyType} type
  */
 box2d.b2Body.prototype.SetType = function (type)
 {
@@ -24959,9 +24959,9 @@ box2d.b2Body.prototype.SetType = function (type)
 	}
 }
 
-/** 
- * Get the type of this body. 
- * @export 
+/**
+ * Get the type of this body.
+ * @export
  * @return {box2d.b2BodyType}
  */
 box2d.b2Body.prototype.GetType = function ()
@@ -24969,12 +24969,12 @@ box2d.b2Body.prototype.GetType = function ()
 	return this.m_type;
 }
 
-/** 
- * Should this body be treated like a bullet for continuous 
- * collision detection? 
- * @export 
- * @return {void} 
- * @param {boolean} flag 
+/**
+ * Should this body be treated like a bullet for continuous
+ * collision detection?
+ * @export
+ * @return {void}
+ * @param {boolean} flag
  */
 box2d.b2Body.prototype.SetBullet = function (flag)
 {
@@ -24988,10 +24988,10 @@ box2d.b2Body.prototype.SetBullet = function (flag)
 	}
 }
 
-/** 
- * Is this body treated like a bullet for continuous collision 
- * detection? 
- * @export 
+/**
+ * Is this body treated like a bullet for continuous collision
+ * detection?
+ * @export
  * @return {boolean}
  */
 box2d.b2Body.prototype.IsBullet = function ()
@@ -24999,12 +24999,12 @@ box2d.b2Body.prototype.IsBullet = function ()
 	return (this.m_flags & box2d.b2BodyFlag.e_bulletFlag) === box2d.b2BodyFlag.e_bulletFlag;
 }
 
-/** 
- * You can disable sleeping on this body. If you disable 
- * sleeping, the body will be woken. 
- * @export 
- * @return {void} 
- * @param {boolean} flag 
+/**
+ * You can disable sleeping on this body. If you disable
+ * sleeping, the body will be woken.
+ * @export
+ * @return {void}
+ * @param {boolean} flag
  */
 box2d.b2Body.prototype.SetSleepingAllowed = function (flag)
 {
@@ -25019,9 +25019,9 @@ box2d.b2Body.prototype.SetSleepingAllowed = function (flag)
 	}
 }
 
-/** 
- * Is this body allowed to sleep 
- * @export 
+/**
+ * Is this body allowed to sleep
+ * @export
  * @return {boolean}
  */
 box2d.b2Body.prototype.IsSleepingAllowed = function ()
@@ -25029,11 +25029,11 @@ box2d.b2Body.prototype.IsSleepingAllowed = function ()
 	return (this.m_flags & box2d.b2BodyFlag.e_autoSleepFlag) === box2d.b2BodyFlag.e_autoSleepFlag;
 }
 
-/** 
- * Set the sleep state of the body. A sleeping body has very low CPU cost. 
- * @export 
- * @return {void} 
- * @param {boolean} flag set to true to wake the body, false to 
+/**
+ * Set the sleep state of the body. A sleeping body has very low CPU cost.
+ * @export
+ * @return {void}
+ * @param {boolean} flag set to true to wake the body, false to
  *  	  put it to sleep.
  */
 box2d.b2Body.prototype.SetAwake = function (flag)
@@ -25057,9 +25057,9 @@ box2d.b2Body.prototype.SetAwake = function (flag)
 	}
 }
 
-/** 
- * Get the sleeping state of this body. 
- * @export 
+/**
+ * Get the sleeping state of this body.
+ * @export
  * @return {boolean} true if the body is awake.
  */
 box2d.b2Body.prototype.IsAwake = function ()
@@ -25081,9 +25081,9 @@ box2d.b2Body.prototype.IsAwake = function ()
  * Joints connected to an inactive body are implicitly inactive.
  * An inactive body is still owned by a b2World object and remains
  * in the body list.
- * @export 
- * @return {void} 
- * @param {boolean} flag 
+ * @export
+ * @return {void}
+ * @param {boolean} flag
  */
 box2d.b2Body.prototype.SetActive = function (flag)
 {
@@ -25130,9 +25130,9 @@ box2d.b2Body.prototype.SetActive = function (flag)
 	}
 }
 
-/** 
- * Get the active state of the body. 
- * @export 
+/**
+ * Get the active state of the body.
+ * @export
  * @return {boolean}
  */
 box2d.b2Body.prototype.IsActive = function ()
@@ -25140,12 +25140,12 @@ box2d.b2Body.prototype.IsActive = function ()
 	return (this.m_flags & box2d.b2BodyFlag.e_activeFlag) === box2d.b2BodyFlag.e_activeFlag;
 }
 
-/** 
- * Set this body to have fixed rotation. This causes the mass to 
- * be reset. 
- * @export 
- * @return {void} 
- * @param {boolean} flag 
+/**
+ * Set this body to have fixed rotation. This causes the mass to
+ * be reset.
+ * @export
+ * @return {void}
+ * @param {boolean} flag
  */
 box2d.b2Body.prototype.SetFixedRotation = function (flag)
 {
@@ -25169,9 +25169,9 @@ box2d.b2Body.prototype.SetFixedRotation = function (flag)
 	this.ResetMassData();
 }
 
-/** 
- * Does this body have fixed rotation? 
- * @export 
+/**
+ * Does this body have fixed rotation?
+ * @export
  * @return {boolean}
  */
 box2d.b2Body.prototype.IsFixedRotation = function ()
@@ -25179,9 +25179,9 @@ box2d.b2Body.prototype.IsFixedRotation = function ()
 	return (this.m_flags & box2d.b2BodyFlag.e_fixedRotationFlag) === box2d.b2BodyFlag.e_fixedRotationFlag;
 }
 
-/** 
- * Get the list of all fixtures attached to this body. 
- * @export 
+/**
+ * Get the list of all fixtures attached to this body.
+ * @export
  * @return {box2d.b2Fixture}
  */
 box2d.b2Body.prototype.GetFixtureList = function ()
@@ -25189,9 +25189,9 @@ box2d.b2Body.prototype.GetFixtureList = function ()
 	return this.m_fixtureList;
 }
 
-/** 
- * Get the list of all joints attached to this body. 
- * @export 
+/**
+ * Get the list of all joints attached to this body.
+ * @export
  * @return {box2d.b2JointEdge}
  */
 box2d.b2Body.prototype.GetJointList = function ()
@@ -25199,11 +25199,11 @@ box2d.b2Body.prototype.GetJointList = function ()
 	return this.m_jointList;
 }
 
-/** 
- * Get the list of all contacts attached to this body. 
- * warning this list changes during the time step and you may 
- * miss some collisions if you don't use b2ContactListener. 
- * @export 
+/**
+ * Get the list of all contacts attached to this body.
+ * warning this list changes during the time step and you may
+ * miss some collisions if you don't use b2ContactListener.
+ * @export
  * @return {box2d.b2ContactEdge}
  */
 box2d.b2Body.prototype.GetContactList = function ()
@@ -25211,9 +25211,9 @@ box2d.b2Body.prototype.GetContactList = function ()
 	return this.m_contactList;
 }
 
-/** 
- * Get the next body in the world's body list. 
- * @export 
+/**
+ * Get the next body in the world's body list.
+ * @export
  * @return {box2d.b2Body}
  */
 box2d.b2Body.prototype.GetNext = function ()
@@ -25221,32 +25221,32 @@ box2d.b2Body.prototype.GetNext = function ()
 	return this.m_next;
 }
 
-/** 
- * Get the user data pointer that was provided in the body 
- * definition. 
- * @export 
- * @return {*} 
+/**
+ * Get the user data pointer that was provided in the body
+ * definition.
+ * @export
+ * @return {*}
  */
 box2d.b2Body.prototype.GetUserData = function ()
 {
 	return this.m_userData;
 }
 
-/** 
- * Set the user data. Use this to store your application 
- * specific data. 
- * @export 
- * @return {void} 
- * @param {*} data 
+/**
+ * Set the user data. Use this to store your application
+ * specific data.
+ * @export
+ * @return {void}
+ * @param {*} data
  */
 box2d.b2Body.prototype.SetUserData = function (data)
 {
 	this.m_userData = data;
 }
 
-/** 
- * Get the parent world of this body. 
- * @export 
+/**
+ * Get the parent world of this body.
+ * @export
  * @return {box2d.b2World}
  */
 box2d.b2Body.prototype.GetWorld = function ()
@@ -25255,8 +25255,8 @@ box2d.b2Body.prototype.GetWorld = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2Body.prototype.SynchronizeFixtures = function ()
 {
@@ -25274,8 +25274,8 @@ box2d.b2Body.prototype.SynchronizeFixtures = function ()
 box2d.b2Body.prototype.SynchronizeFixtures.s_xf1 = new box2d.b2Transform();
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2Body.prototype.SynchronizeTransform = function ()
 {
@@ -25284,12 +25284,12 @@ box2d.b2Body.prototype.SynchronizeTransform = function ()
 	box2d.b2SubVV(this.m_sweep.c, this.m_xf.p, this.m_xf.p);
 }
 
-/** 
- * This is used to prevent connected bodies from colliding. 
+/**
+ * This is used to prevent connected bodies from colliding.
  * It may lie, depending on the collideConnected flag.
- * @export 
- * @return {boolean} 
- * @param {box2d.b2Body} other 
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2Body} other
  */
 box2d.b2Body.prototype.ShouldCollide = function (other)
 {
@@ -25315,9 +25315,9 @@ box2d.b2Body.prototype.ShouldCollide = function (other)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {number} alpha 
+ * @export
+ * @return {void}
+ * @param {number} alpha
  */
 box2d.b2Body.prototype.Advance = function (alpha)
 {
@@ -25330,9 +25330,9 @@ box2d.b2Body.prototype.Advance = function (alpha)
 	box2d.b2SubVV(this.m_sweep.c, this.m_xf.p, this.m_xf.p);
 }
 
-/** 
- * Dump this body to a log file 
- * @export 
+/**
+ * Dump this body to a log file
+ * @export
  * @return {void}
  */
 box2d.b2Body.prototype.Dump = function ()
@@ -25340,7 +25340,7 @@ box2d.b2Body.prototype.Dump = function ()
 	if (box2d.DEBUG)
 	{
 		var bodyIndex = this.m_islandIndex;
-	
+
 		box2d.b2Log("if (true)\n");
 		box2d.b2Log("{\n");
 		box2d.b2Log("  /*box2d.b2BodyDef*/ var bd = new box2d.b2BodyDef();\n");
@@ -25387,9 +25387,9 @@ box2d.b2Body.prototype.Dump = function ()
 	}
 }
 
-/** 
- * @see box2d.b2Controller list 
- * @export 
+/**
+ * @see box2d.b2Controller list
+ * @export
  * @return {box2d.b2ControllerEdge}
  */
 box2d.b2Body.prototype.GetControllerList = function ()
@@ -25397,9 +25397,9 @@ box2d.b2Body.prototype.GetControllerList = function ()
 	return this.m_controllerList;
 }
 
-/** 
- * @see box2d.b2Controller list 
- * @export 
+/**
+ * @see box2d.b2Controller list
+ * @export
  * @return {number}
  */
 box2d.b2Body.prototype.GetControllerCount = function ()
@@ -25440,16 +25440,16 @@ goog.require('box2d.b2WorldCallbacks');
 goog.require('box2d.b2JointFactory');
 
 /**
- * The world class manages all physics entities, dynamic 
- * simulation, and asynchronous queries. The world also contains 
- * efficient memory management facilities. 
+ * The world class manages all physics entities, dynamic
+ * simulation, and asynchronous queries. The world also contains
+ * efficient memory management facilities.
  */
 
 /**
- * @export 
+ * @export
  * @enum
  */
-box2d.b2WorldFlag = 
+box2d.b2WorldFlag =
 {
 	e_none			: 0,
 	e_newFixture	: 0x1,
@@ -25461,9 +25461,9 @@ goog.exportProperty(box2d.b2WorldFlag, 'e_newFixture' , box2d.b2WorldFlag.e_newF
 goog.exportProperty(box2d.b2WorldFlag, 'e_locked'     , box2d.b2WorldFlag.e_locked     );
 goog.exportProperty(box2d.b2WorldFlag, 'e_clearForces', box2d.b2WorldFlag.e_clearForces);
 
-/** 
- * Construct a world object. 
- * @export 
+/**
+ * Construct a world object.
+ * @export
  * @constructor
  * @param {box2d.b2Vec2} gravity the world gravity vector.
  */
@@ -25497,132 +25497,132 @@ box2d.b2World = function (gravity)
 //b2StackAllocator m_stackAllocator;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2WorldFlag}
  */
 box2d.b2World.prototype.m_flags = box2d.b2WorldFlag.e_none;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2ContactManager}
  */
 box2d.b2World.prototype.m_contactManager = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Body}
  */
 box2d.b2World.prototype.m_bodyList = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Joint}
  */
 box2d.b2World.prototype.m_jointList = null;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2World.prototype.m_bodyCount = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2World.prototype.m_jointCount = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2World.prototype.m_gravity = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2World.prototype.m_out_gravity = null;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2World.prototype.m_allowSleep = true;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2DestructionListener}
  */
 box2d.b2World.prototype.m_destructionListener = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Draw}
  */
 box2d.b2World.prototype.m_debugDraw = null;
 
-/** 
- * This is used to compute the time step ratio to support a 
- * variable time step. 
- * @export 
+/**
+ * This is used to compute the time step ratio to support a
+ * variable time step.
+ * @export
  * @type {number}
  */
 box2d.b2World.prototype.m_inv_dt0 = 0;
 
-/** 
- * These are for debugging the solver. 
- * @export 
+/**
+ * These are for debugging the solver.
+ * @export
  * @type {boolean}
  */
 box2d.b2World.prototype.m_warmStarting = true;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2World.prototype.m_continuousPhysics = true;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2World.prototype.m_subStepping = false;
 
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2World.prototype.m_stepComplete = true;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Profile}
  */
 box2d.b2World.prototype.m_profile = null;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Island}
  */
 box2d.b2World.prototype.m_island = null;
 
 /**
- * @export 
+ * @export
  * @type {Array.<?box2d.b2Body>}
  */
 box2d.b2World.prototype.s_stack = null;
 
-/** 
- * @see box2d.b2Controller list 
- * @export 
+/**
+ * @see box2d.b2Controller list
+ * @export
  * @type {box2d.b2Controller}
  */
 box2d.b2World.prototype.m_controllerList = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2World.prototype.m_controllerCount = 0;
 
-/** 
- * Enable/disable sleep. 
- * @export 
- * @return {void} 
- * @param {boolean} flag 
+/**
+ * Enable/disable sleep.
+ * @export
+ * @return {void}
+ * @param {boolean} flag
  */
 box2d.b2World.prototype.SetAllowSleeping = function (flag)
 {
@@ -25641,8 +25641,8 @@ box2d.b2World.prototype.SetAllowSleeping = function (flag)
 	}
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {boolean}
  */
 box2d.b2World.prototype.GetAllowSleeping = function ()
@@ -25650,10 +25650,10 @@ box2d.b2World.prototype.GetAllowSleeping = function ()
 	return this.m_allowSleep;
 }
 
-/** 
- * Enable/disable warm starting. For testing. 
- * @export 
- * @return {void} 
+/**
+ * Enable/disable warm starting. For testing.
+ * @export
+ * @return {void}
  * @param {boolean} flag
  */
 box2d.b2World.prototype.SetWarmStarting = function (flag)
@@ -25661,8 +25661,8 @@ box2d.b2World.prototype.SetWarmStarting = function (flag)
 	this.m_warmStarting = flag;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {boolean}
  */
 box2d.b2World.prototype.GetWarmStarting = function ()
@@ -25670,10 +25670,10 @@ box2d.b2World.prototype.GetWarmStarting = function ()
 	return this.m_warmStarting;
 }
 
-/** 
- * Enable/disable continuous physics. For testing. 
- * @export 
- * @return {void} 
+/**
+ * Enable/disable continuous physics. For testing.
+ * @export
+ * @return {void}
  * @param {boolean} flag
  */
 box2d.b2World.prototype.SetContinuousPhysics = function (flag)
@@ -25681,8 +25681,8 @@ box2d.b2World.prototype.SetContinuousPhysics = function (flag)
 	this.m_continuousPhysics = flag;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {boolean}
  */
 box2d.b2World.prototype.GetContinuousPhysics = function ()
@@ -25690,11 +25690,11 @@ box2d.b2World.prototype.GetContinuousPhysics = function ()
 	return this.m_continuousPhysics;
 }
 
-/** 
- * Enable/disable single stepped continuous physics. For 
- * testing. 
- * @export 
- * @return {void} 
+/**
+ * Enable/disable single stepped continuous physics. For
+ * testing.
+ * @export
+ * @return {void}
  * @param {boolean} flag
  */
 box2d.b2World.prototype.SetSubStepping = function (flag)
@@ -25702,8 +25702,8 @@ box2d.b2World.prototype.SetSubStepping = function (flag)
 	this.m_subStepping = flag;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {boolean}
  */
 box2d.b2World.prototype.GetSubStepping = function ()
@@ -25711,11 +25711,11 @@ box2d.b2World.prototype.GetSubStepping = function ()
 	return this.m_subStepping;
 }
 
-/** 
- * Get the world body list. With the returned body, use 
- * b2Body::GetNext to get the next body in the world list. A 
- * NULL body indicates the end of the list. 
- * @export 
+/**
+ * Get the world body list. With the returned body, use
+ * b2Body::GetNext to get the next body in the world list. A
+ * NULL body indicates the end of the list.
+ * @export
  * @return {box2d.b2Body} the head of the world body list.
  */
 box2d.b2World.prototype.GetBodyList = function ()
@@ -25723,11 +25723,11 @@ box2d.b2World.prototype.GetBodyList = function ()
 	return this.m_bodyList;
 }
 
-/** 
- * Get the world joint list. With the returned joint, use 
- * b2Joint::GetNext to get the next joint in the world list. A 
- * NULL joint indicates the end of the list. 
- * @export 
+/**
+ * Get the world joint list. With the returned joint, use
+ * b2Joint::GetNext to get the next joint in the world list. A
+ * NULL joint indicates the end of the list.
+ * @export
  * @return {box2d.b2Joint} the head of the world joint list.
  */
 box2d.b2World.prototype.GetJointList = function ()
@@ -25735,14 +25735,14 @@ box2d.b2World.prototype.GetJointList = function ()
 	return this.m_jointList;
 }
 
-/** 
- * Get the world contact list. With the returned contact, use 
- * box2d.b2Contact::GetNext to get the next contact in the world 
- * list. A NULL contact indicates the end of the list. 
- * warning contacts are created and destroyed in the middle of a 
- * time step. 
+/**
+ * Get the world contact list. With the returned contact, use
+ * box2d.b2Contact::GetNext to get the next contact in the world
+ * list. A NULL contact indicates the end of the list.
+ * warning contacts are created and destroyed in the middle of a
+ * time step.
  * Use box2d.b2ContactListener to avoid missing contacts.
- * @export 
+ * @export
  * @return {box2d.b2Contact} the head of the world contact list.
  */
 box2d.b2World.prototype.GetContactList = function ()
@@ -25750,43 +25750,43 @@ box2d.b2World.prototype.GetContactList = function ()
 	return this.m_contactManager.m_contactList;
 }
 
-/** 
- * Get the number of bodies. 
- * @export 
- * @return {number} 
+/**
+ * Get the number of bodies.
+ * @export
+ * @return {number}
  */
 box2d.b2World.prototype.GetBodyCount = function ()
 {
 	return this.m_bodyCount;
 }
 
-/** 
- * Get the number of joints. 
- * @export 
- * @return {number} 
+/**
+ * Get the number of joints.
+ * @export
+ * @return {number}
  */
 box2d.b2World.prototype.GetJointCount = function ()
 {
 	return this.m_jointCount;
 }
 
-/** 
- * Get the number of contacts (each may have 0 or more contact 
- * points). 
- * @export 
- * @return {number} 
+/**
+ * Get the number of contacts (each may have 0 or more contact
+ * points).
+ * @export
+ * @return {number}
  */
 box2d.b2World.prototype.GetContactCount = function ()
 {
 	return this.m_contactManager.m_contactCount;
 }
 
-/** 
- * Change the global gravity vector. 
- * @export 
- * @return {void} 
+/**
+ * Change the global gravity vector.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} gravity
- * @param {boolean=} wake also wake up the bodies 
+ * @param {boolean=} wake also wake up the bodies
  */
 box2d.b2World.prototype.SetGravity = function (gravity, wake)
 {
@@ -25806,11 +25806,11 @@ box2d.b2World.prototype.SetGravity = function (gravity, wake)
 	}
 }
 
-/** 
- * Get the global gravity vector. 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2=} out 
+/**
+ * Get the global gravity vector.
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2=} out
  */
 box2d.b2World.prototype.GetGravity = function (out)
 {
@@ -25818,9 +25818,9 @@ box2d.b2World.prototype.GetGravity = function (out)
 	return out.Copy(this.m_gravity);
 }
 
-/** 
- * Is the world locked (in the middle of a time step). 
- * @export 
+/**
+ * Is the world locked (in the middle of a time step).
+ * @export
  * @return {boolean}
  */
 box2d.b2World.prototype.IsLocked = function ()
@@ -25828,11 +25828,11 @@ box2d.b2World.prototype.IsLocked = function ()
 	return (this.m_flags & box2d.b2WorldFlag.e_locked) > 0;
 }
 
-/** 
- * Set flag to control automatic clearing of forces after each 
- * time step. 
- * @export 
- * @return {void} 
+/**
+ * Set flag to control automatic clearing of forces after each
+ * time step.
+ * @export
+ * @return {void}
  * @param {boolean} flag
  */
 box2d.b2World.prototype.SetAutoClearForces = function (flag)
@@ -25847,10 +25847,10 @@ box2d.b2World.prototype.SetAutoClearForces = function (flag)
 	}
 }
 
-/** 
- * Get the flag that controls automatic clearing of forces after 
- * each time step. 
- * @export 
+/**
+ * Get the flag that controls automatic clearing of forces after
+ * each time step.
+ * @export
  * @return {boolean}
  */
 box2d.b2World.prototype.GetAutoClearForces = function ()
@@ -25858,9 +25858,9 @@ box2d.b2World.prototype.GetAutoClearForces = function ()
 	return (this.m_flags & box2d.b2WorldFlag.e_clearForces) === box2d.b2WorldFlag.e_clearForces;
 }
 
-/** 
- * Get the contact manager for testing. 
- * @export 
+/**
+ * Get the contact manager for testing.
+ * @export
  * @return {box2d.b2ContactManager}
  */
 box2d.b2World.prototype.GetContactManager = function ()
@@ -25868,21 +25868,21 @@ box2d.b2World.prototype.GetContactManager = function ()
 	return this.m_contactManager;
 }
 
-/** 
- * Get the current profile. 
- * @export 
- * @return {box2d.b2Profile} 
+/**
+ * Get the current profile.
+ * @export
+ * @return {box2d.b2Profile}
  */
 box2d.b2World.prototype.GetProfile = function ()
 {
 	return this.m_profile;
 }
 
-/** 
- * Register a destruction listener. The listener is owned by you 
- * and must remain in scope. 
- * @export 
- * @return {void} 
+/**
+ * Register a destruction listener. The listener is owned by you
+ * and must remain in scope.
+ * @export
+ * @return {void}
  * @param {box2d.b2DestructionListener} listener
  */
 box2d.b2World.prototype.SetDestructionListener = function (listener)
@@ -25890,13 +25890,13 @@ box2d.b2World.prototype.SetDestructionListener = function (listener)
 	this.m_destructionListener = listener;
 }
 
-/** 
- * Register a contact filter to provide specific control over 
- * collision. Otherwise the default filter is used 
- * (b2_defaultFilter). The listener is owned by you and must 
- * remain in scope. 
- * @export 
- * @return {void} 
+/**
+ * Register a contact filter to provide specific control over
+ * collision. Otherwise the default filter is used
+ * (b2_defaultFilter). The listener is owned by you and must
+ * remain in scope.
+ * @export
+ * @return {void}
  * @param {box2d.b2ContactFilter} filter
  */
 box2d.b2World.prototype.SetContactFilter = function (filter)
@@ -25904,11 +25904,11 @@ box2d.b2World.prototype.SetContactFilter = function (filter)
 	this.m_contactManager.m_contactFilter = filter;
 }
 
-/** 
- * Register a contact event listener. The listener is owned by 
- * you and must remain in scope. 
- * @export 
- * @return {void} 
+/**
+ * Register a contact event listener. The listener is owned by
+ * you and must remain in scope.
+ * @export
+ * @return {void}
  * @param {box2d.b2ContactListener} listener
  */
 box2d.b2World.prototype.SetContactListener = function (listener)
@@ -25916,13 +25916,13 @@ box2d.b2World.prototype.SetContactListener = function (listener)
 	this.m_contactManager.m_contactListener = listener;
 }
 
-/** 
- * Register a routine for debug drawing. The debug draw 
- * functions are called inside with b2World::DrawDebugData 
- * method. The debug draw object is owned by you and must remain 
- * in scope. 
- * @export 
- * @return {void} 
+/**
+ * Register a routine for debug drawing. The debug draw
+ * functions are called inside with b2World::DrawDebugData
+ * method. The debug draw object is owned by you and must remain
+ * in scope.
+ * @export
+ * @return {void}
  * @param {box2d.b2Draw} debugDraw
  */
 box2d.b2World.prototype.SetDebugDraw = function (debugDraw)
@@ -25930,11 +25930,11 @@ box2d.b2World.prototype.SetDebugDraw = function (debugDraw)
 	this.m_debugDraw = debugDraw;
 }
 
-/** 
- * Create a rigid body given a definition. No reference to the 
- * definition is retained. 
+/**
+ * Create a rigid body given a definition. No reference to the
+ * definition is retained.
  * warning This function is locked during callbacks.
- * @export 
+ * @export
  * @return {box2d.b2Body}
  * @param {box2d.b2BodyDef} def
  */
@@ -25961,15 +25961,15 @@ box2d.b2World.prototype.CreateBody = function (def)
 	return b;
 }
 
-/** 
- * Destroy a rigid body given a definition. No reference to the 
- * definition is retained. This function is locked during 
- * callbacks. 
- * warning This automatically deletes all associated shapes and 
- * joints. 
- * warning This function is locked during callbacks. 
- * @export 
- * @return {void} 
+/**
+ * Destroy a rigid body given a definition. No reference to the
+ * definition is retained. This function is locked during
+ * callbacks.
+ * warning This automatically deletes all associated shapes and
+ * joints.
+ * warning This function is locked during callbacks.
+ * @export
+ * @return {void}
  * @param {box2d.b2Body} b
  */
 box2d.b2World.prototype.DestroyBody = function (b)
@@ -26059,14 +26059,14 @@ box2d.b2World.prototype.DestroyBody = function (b)
 	--this.m_bodyCount;
 }
 
-/** 
- * Create a joint to constrain bodies together. No reference to 
- * the definition is retained. This may cause the connected 
- * bodies to cease colliding. 
+/**
+ * Create a joint to constrain bodies together. No reference to
+ * the definition is retained. This may cause the connected
+ * bodies to cease colliding.
  * warning This function is locked during callbacks.
- * @export 
+ * @export
  * @return {box2d.b2Joint}
- * @param {box2d.b2JointDef} def 
+ * @param {box2d.b2JointDef} def
  */
 box2d.b2World.prototype.CreateJoint = function (def)
 {
@@ -26128,12 +26128,12 @@ box2d.b2World.prototype.CreateJoint = function (def)
 	return j;
 }
 
-/** 
- * Destroy a joint. This may cause the connected bodies to begin 
- * colliding. 
+/**
+ * Destroy a joint. This may cause the connected bodies to begin
+ * colliding.
  * warning This function is locked during callbacks.
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Joint} j
  */
 box2d.b2World.prototype.DestroyJoint = function (j)
@@ -26231,11 +26231,11 @@ box2d.b2World.prototype.DestroyJoint = function (j)
 	}
 }
 
-/** 
- * Find islands, integrate and solve constraints, solve position 
- * constraints 
- * @export 
- * @return {void} 
+/**
+ * Find islands, integrate and solve constraints, solve position
+ * constraints
+ * @export
+ * @return {void}
  * @param {box2d.b2TimeStep} step
  */
 box2d.b2World.prototype.Solve = function (step)
@@ -26255,7 +26255,7 @@ box2d.b2World.prototype.Solve = function (step)
 	island.Initialize(this.m_bodyCount,
 					  this.m_contactManager.m_contactCount,
 					  this.m_jointCount,
-					  null, // this.m_stackAllocator, 
+					  null, // this.m_stackAllocator,
 					  this.m_contactManager.m_contactListener);
 
 	// Clear all the island flags.
@@ -26424,26 +26424,26 @@ box2d.b2World.prototype.Solve = function (step)
 			{
 				continue;
 			}
-	
+
 			if (b.GetType() === box2d.b2BodyType.b2_staticBody)
 			{
 				continue;
 			}
-	
+
 			// Update fixtures (for broad-phase).
 			b.SynchronizeFixtures();
 		}
-	
+
 		// Look for new contacts.
 		this.m_contactManager.FindNewContacts();
 		this.m_profile.broadphase = timer.GetMilliseconds();
 	}
 }
 
-/** 
- * Find TOI contacts and solve them. 
- * @export 
- * @return {void} 
+/**
+ * Find TOI contacts and solve them.
+ * @export
+ * @return {void}
  * @param {box2d.b2TimeStep} step
  */
 box2d.b2World.prototype.SolveTOI = function (step)
@@ -26713,7 +26713,7 @@ box2d.b2World.prototype.SolveTOI = function (step)
 					{
 						continue;
 					}
-					
+
 					// Add the other body to the island.
 					other.m_flags |= box2d.b2BodyFlag.e_islandFlag;
 
@@ -26774,11 +26774,11 @@ box2d.b2World.prototype.SolveTOI.s_backup2 = new box2d.b2Sweep();
 box2d.b2World.prototype.SolveTOI.s_toi_input = new box2d.b2TOIInput();
 box2d.b2World.prototype.SolveTOI.s_toi_output = new box2d.b2TOIOutput();
 
-/** 
- * Take a time step. This performs collision detection, 
- * integration, and constraint solution. 
- * @export 
- * @return {void} 
+/**
+ * Take a time step. This performs collision detection,
+ * integration, and constraint solution.
+ * @export
+ * @return {void}
  * @param {number} dt the amount of time to simulate, this should not vary.
  * @param {number} velocityIterations for the velocity constraint solver.
  * @param {number} positionIterations for the position constraint solver.
@@ -26854,18 +26854,18 @@ box2d.b2World.prototype.Step = function (dt, velocityIterations, positionIterati
 box2d.b2World.prototype.Step.s_step = new box2d.b2TimeStep();
 
 /**
- * Manually clear the force buffer on all bodies. By default, 
- * forces are cleared automatically after each call to Step. The 
- * default behavior is modified by calling SetAutoClearForces. 
- * The purpose of this function is to support sub-stepping. 
- * Sub-stepping is often used to maintain a fixed sized time 
- * step under a variable frame-rate. 
- * When you perform sub-stepping you will disable auto clearing 
- * of forces and instead call ClearForces after all sub-steps 
- * are complete in one pass of your game loop. 
+ * Manually clear the force buffer on all bodies. By default,
+ * forces are cleared automatically after each call to Step. The
+ * default behavior is modified by calling SetAutoClearForces.
+ * The purpose of this function is to support sub-stepping.
+ * Sub-stepping is often used to maintain a fixed sized time
+ * step under a variable frame-rate.
+ * When you perform sub-stepping you will disable auto clearing
+ * of forces and instead call ClearForces after all sub-steps
+ * are complete in one pass of your game loop.
  * @see SetAutoClearForces
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2World.prototype.ClearForces = function ()
 {
@@ -26876,12 +26876,12 @@ box2d.b2World.prototype.ClearForces = function ()
 	}
 }
 
-/** 
- * Query the world for all fixtures that potentially overlap the 
- * provided AABB. 
- * @export 
- * @return {void} 
- * @param {box2d.b2QueryCallback | function(box2d.b2Fixture): 
+/**
+ * Query the world for all fixtures that potentially overlap the
+ * provided AABB.
+ * @export
+ * @return {void}
+ * @param {box2d.b2QueryCallback | function(box2d.b2Fixture):
  *  	  boolean} callback a user implemented callback class.
  * @param {box2d.b2AABB} aabb the query box.
  */
@@ -26890,8 +26890,8 @@ box2d.b2World.prototype.QueryAABB = function (callback, aabb)
 	/** @type {box2d.b2BroadPhase} */ var broadPhase = this.m_contactManager.m_broadPhase;
 
 	/**
-	 * @return {boolean} 
-	 * @param {box2d.b2TreeNode} proxy 
+	 * @return {boolean}
+	 * @param {box2d.b2TreeNode} proxy
 	 */
 	var WorldQueryWrapper = function (proxy)
 	{
@@ -26912,10 +26912,10 @@ box2d.b2World.prototype.QueryAABB = function (callback, aabb)
 	broadPhase.Query(WorldQueryWrapper, aabb);
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2QueryCallback | function(box2d.b2Fixture): 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2QueryCallback | function(box2d.b2Fixture):
  *  	  boolean} callback
  * @param {box2d.b2Shape} shape
  * @param {box2d.b2Transform} transform
@@ -26925,8 +26925,8 @@ box2d.b2World.prototype.QueryShape = function (callback, shape, transform)
 	/** @type {box2d.b2BroadPhase} */ var broadPhase = this.m_contactManager.m_broadPhase;
 
 	/**
-	 * @return {boolean} 
-	 * @param {box2d.b2TreeNode} proxy 
+	 * @return {boolean}
+	 * @param {box2d.b2TreeNode} proxy
 	 */
 	var WorldQueryWrapper = function (proxy)
 	{
@@ -26954,10 +26954,10 @@ box2d.b2World.prototype.QueryShape = function (callback, shape, transform)
 }
 box2d.b2World.prototype.QueryShape.s_aabb = new box2d.b2AABB();
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2QueryCallback | function(box2d.b2Fixture): 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2QueryCallback | function(box2d.b2Fixture):
  *  	  boolean} callback
  * @param {box2d.b2Vec2} point
  */
@@ -26966,8 +26966,8 @@ box2d.b2World.prototype.QueryPoint = function (callback, point)
 	/** @type {box2d.b2BroadPhase} */ var broadPhase = this.m_contactManager.m_broadPhase;
 
 	/**
-	 * @return {boolean} 
-	 * @param {box2d.b2TreeNode} proxy 
+	 * @return {boolean}
+	 * @param {box2d.b2TreeNode} proxy
 	 */
 	var WorldQueryWrapper = function (proxy)
 	{
@@ -26996,14 +26996,14 @@ box2d.b2World.prototype.QueryPoint = function (callback, point)
 }
 box2d.b2World.prototype.QueryPoint.s_aabb = new box2d.b2AABB();
 
-/** 
- * Ray-cast the world for all fixtures in the path of the ray. 
- * Your callback controls whether you get the closest point, any 
- * point, or n-points. The ray-cast ignores shapes that contain 
- * the starting point. 
- * @export 
- * @return {void} 
- * @param {box2d.b2RayCastCallback | function(box2d.b2Fixture, 
+/**
+ * Ray-cast the world for all fixtures in the path of the ray.
+ * Your callback controls whether you get the closest point, any
+ * point, or n-points. The ray-cast ignores shapes that contain
+ * the starting point.
+ * @export
+ * @return {void}
+ * @param {box2d.b2RayCastCallback | function(box2d.b2Fixture,
  *  	  box2d.b2Vec2, box2d.b2Vec2, number)} callback a user
  *  	  implemented callback class.
  * @param {box2d.b2Vec2} point1 the ray starting point
@@ -27014,9 +27014,9 @@ box2d.b2World.prototype.RayCast = function (callback, point1, point2)
 	/** @type {box2d.b2BroadPhase} */ var broadPhase = this.m_contactManager.m_broadPhase;
 
 	/**
-	 * @return {number} 
-	 * @param {box2d.b2RayCastInput} input 
-	 * @param {box2d.b2TreeNode} proxy 
+	 * @return {number}
+	 * @param {box2d.b2RayCastInput} input
+	 * @param {box2d.b2TreeNode} proxy
 	 */
 	var WorldRayCastWrapper = function (input, proxy)
 	{
@@ -27055,11 +27055,11 @@ box2d.b2World.prototype.RayCast.s_input = new box2d.b2RayCastInput();
 box2d.b2World.prototype.RayCast.s_output = new box2d.b2RayCastOutput();
 box2d.b2World.prototype.RayCast.s_point = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {box2d.b2Fixture} 
+/**
+ * @export
+ * @return {box2d.b2Fixture}
  * @param {box2d.b2Vec2} point1
- * @param {box2d.b2Vec2} point2 
+ * @param {box2d.b2Vec2} point2
  */
 box2d.b2World.prototype.RayCastOne = function (point1, point2)
 {
@@ -27067,10 +27067,10 @@ box2d.b2World.prototype.RayCastOne = function (point1, point2)
 	/** @type {number} */ var min_fraction = 1;
 
 	/**
-	 * @return {number} 
-	 * @param {box2d.b2Fixture} fixture 
-	 * @param {box2d.b2Vec2} point 
-	 * @param {box2d.b2Vec2} normal 
+	 * @return {number}
+	 * @param {box2d.b2Fixture} fixture
+	 * @param {box2d.b2Vec2} point
+	 * @param {box2d.b2Vec2} normal
 	 * @param {number} fraction
 	 */
 	function WorldRayCastOneWrapper(fixture, point, normal, fraction)
@@ -27089,11 +27089,11 @@ box2d.b2World.prototype.RayCastOne = function (point1, point2)
 	return result;
 }
 
-/** 
- * @export 
- * @return {Array.<box2d.b2Fixture>} 
+/**
+ * @export
+ * @return {Array.<box2d.b2Fixture>}
  * @param {box2d.b2Vec2} point1
- * @param {box2d.b2Vec2} point2 
+ * @param {box2d.b2Vec2} point2
  * @param {Array.<box2d.b2Fixture>} out
  */
 box2d.b2World.prototype.RayCastAll = function (point1, point2, out)
@@ -27101,10 +27101,10 @@ box2d.b2World.prototype.RayCastAll = function (point1, point2, out)
 	out.length = 0;
 
 	/**
-	 * @return {number} 
-	 * @param {box2d.b2Fixture} fixture 
-	 * @param {box2d.b2Vec2} point 
-	 * @param {box2d.b2Vec2} normal 
+	 * @return {number}
+	 * @param {box2d.b2Fixture} fixture
+	 * @param {box2d.b2Vec2} point
+	 * @param {box2d.b2Vec2} normal
 	 * @param {number} fraction
 	 */
 	function WorldRayCastAllWrapper(fixture, point, normal, fraction)
@@ -27118,11 +27118,11 @@ box2d.b2World.prototype.RayCastAll = function (point1, point2, out)
 	return out;
 }
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Fixture} fixture 
- * @param {box2d.b2Color} color 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Fixture} fixture
+ * @param {box2d.b2Color} color
  */
 box2d.b2World.prototype.DrawShape = function (fixture, color)
 {
@@ -27181,9 +27181,9 @@ box2d.b2World.prototype.DrawShape = function (fixture, color)
 	}
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2Joint} joint
  */
 box2d.b2World.prototype.DrawJoint = function (joint)
@@ -27235,8 +27235,8 @@ box2d.b2World.prototype.DrawJoint.s_s2 = new box2d.b2Vec2();
 
 /**
  * Call this to draw shapes and other debug draw data.
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 box2d.b2World.prototype.DrawDebugData = function ()
 {
@@ -27338,7 +27338,7 @@ box2d.b2World.prototype.DrawDebugData = function ()
 					vs[1].SetXY(aabb.upperBound.x, aabb.lowerBound.y);
 					vs[2].SetXY(aabb.upperBound.x, aabb.upperBound.y);
 					vs[3].SetXY(aabb.lowerBound.x, aabb.upperBound.y);
-	
+
 					this.m_debugDraw.DrawPolygon(vs, 4, color);
 				}
 			}
@@ -27369,9 +27369,9 @@ box2d.b2World.prototype.DrawDebugData.s_color = new box2d.b2Color(0, 0, 0);
 box2d.b2World.prototype.DrawDebugData.s_vs = box2d.b2Vec2.MakeArray(4);
 box2d.b2World.prototype.DrawDebugData.s_xf = new box2d.b2Transform();
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2BroadPhase} broadPhase
  */
 box2d.b2World.prototype.SetBroadPhase = function (broadPhase)
@@ -27389,9 +27389,9 @@ box2d.b2World.prototype.SetBroadPhase = function (broadPhase)
 	}
 }
 
-/** 
- * Get the number of broad-phase proxies. 
- * @export 
+/**
+ * Get the number of broad-phase proxies.
+ * @export
  * @return {number}
  */
 box2d.b2World.prototype.GetProxyCount = function ()
@@ -27399,9 +27399,9 @@ box2d.b2World.prototype.GetProxyCount = function ()
 	return this.m_contactManager.m_broadPhase.GetProxyCount();
 }
 
-/** 
- * Get the height of the dynamic tree. 
- * @export 
+/**
+ * Get the height of the dynamic tree.
+ * @export
  * @return {number}
  */
 box2d.b2World.prototype.GetTreeHeight = function ()
@@ -27409,9 +27409,9 @@ box2d.b2World.prototype.GetTreeHeight = function ()
 	return this.m_contactManager.m_broadPhase.GetTreeHeight();
 }
 
-/** 
- * Get the balance of the dynamic tree. 
- * @export 
+/**
+ * Get the balance of the dynamic tree.
+ * @export
  * @return {number}
  */
 box2d.b2World.prototype.GetTreeBalance = function ()
@@ -27419,10 +27419,10 @@ box2d.b2World.prototype.GetTreeBalance = function ()
 	return this.m_contactManager.m_broadPhase.GetTreeBalance();
 }
 
-/** 
- * Get the quality metric of the dynamic tree. The smaller the 
- * better. The minimum is 1. 
- * @export 
+/**
+ * Get the quality metric of the dynamic tree. The smaller the
+ * better. The minimum is 1.
+ * @export
  * @return {number}
  */
 box2d.b2World.prototype.GetTreeQuality = function ()
@@ -27430,11 +27430,11 @@ box2d.b2World.prototype.GetTreeQuality = function ()
 	return this.m_contactManager.m_broadPhase.GetTreeQuality();
 }
 
-/** 
- * Shift the world origin. Useful for large worlds. 
+/**
+ * Shift the world origin. Useful for large worlds.
  * The body shift formula is: position -= newOrigin
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} newOrigin the new origin with respect to the old origin
  */
 box2d.b2World.prototype.ShiftOrigin = function (newOrigin)
@@ -27460,10 +27460,10 @@ box2d.b2World.prototype.ShiftOrigin = function (newOrigin)
 	this.m_contactManager.m_broadPhase.ShiftOrigin(newOrigin);
 }
 
-/** 
- * Dump the world into the log file. 
+/**
+ * Dump the world into the log file.
  * warning this should be called outside of a time step.
- * @export 
+ * @export
  * @return {void}
  */
 box2d.b2World.prototype.Dump = function ()
@@ -27474,10 +27474,10 @@ box2d.b2World.prototype.Dump = function ()
 		{
 			return;
 		}
-	
+
 		box2d.b2Log("/** @type {box2d.b2Vec2} */ var g = new box2d.b2Vec2(%.15f, %.15f);\n", this.m_gravity.x, this.m_gravity.y);
 		box2d.b2Log("this.m_world.SetGravity(g);\n");
-	
+
 		box2d.b2Log("/** @type {Array.<box2d.b2Body>} */ var bodies = new Array(%d);\n", this.m_bodyCount);
 		box2d.b2Log("/** @type {Array.<box2d.b2Joint>} */ var joints = new Array(%d);\n", this.m_jointCount);
 		var i = 0;
@@ -27487,14 +27487,14 @@ box2d.b2World.prototype.Dump = function ()
 			b.Dump();
 			++i;
 		}
-	
+
 		i = 0;
 		for (/** @type {box2d.b2Joint} */ var j = this.m_jointList; j; j = j.m_next)
 		{
 			j.m_index = i;
 			++i;
 		}
-	
+
 		// First pass on joints, skip gear joints.
 		for (/* type {box2d.b2Joint} */ var j = this.m_jointList; j; j = j.m_next)
 		{
@@ -27502,13 +27502,13 @@ box2d.b2World.prototype.Dump = function ()
 			{
 				continue;
 			}
-	
+
 			box2d.b2Log("if (true)\n");
 			box2d.b2Log("{\n");
 			j.Dump();
 			box2d.b2Log("}\n");
 		}
-	
+
 		// Second pass on joints, only gear joints.
 		for (/* type {box2d.b2Joint} */ var j = this.m_jointList; j; j = j.m_next)
 		{
@@ -27516,7 +27516,7 @@ box2d.b2World.prototype.Dump = function ()
 			{
 				continue;
 			}
-	
+
 			box2d.b2Log("if (true)\n");
 			box2d.b2Log("{\n");
 			j.Dump();
@@ -27526,9 +27526,9 @@ box2d.b2World.prototype.Dump = function ()
 }
 
 /**
- * @see box2d.b2Controller list 
- * @export 
- * @return {box2d.b2Controller} 
+ * @see box2d.b2Controller list
+ * @export
+ * @return {box2d.b2Controller}
  * @param {box2d.b2Controller} controller
  */
 box2d.b2World.prototype.AddController = function (controller)
@@ -27546,8 +27546,8 @@ box2d.b2World.prototype.AddController = function (controller)
 
 /**
  * @see box2d.b2Controller list
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2Controller} controller
  */
 box2d.b2World.prototype.RemoveController = function (controller)
@@ -27589,13 +27589,13 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Joint');
 goog.require('box2d.b2Math');
 
-/** 
- * Definition for a {@link box2d.b2AreaJoint}, which connects a 
- * group a bodies together so they maintain a constant area 
- * within them. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Definition for a {@link box2d.b2AreaJoint}, which connects a
+ * group a bodies together so they maintain a constant area
+ * within them.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2AreaJointDef = function ()
 {
@@ -27607,35 +27607,35 @@ box2d.b2AreaJointDef = function ()
 goog.inherits(box2d.b2AreaJointDef, box2d.b2JointDef);
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2World}
  */
 box2d.b2AreaJointDef.prototype.world = null;
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Body>}
  */
 box2d.b2AreaJointDef.prototype.bodies = null;
 
-/** 
- * The mass-spring-damper frequency in Hertz. A value of 0 
- * disables softness. 
- * @export 
+/**
+ * The mass-spring-damper frequency in Hertz. A value of 0
+ * disables softness.
+ * @export
  * @type {number}
  */
 box2d.b2AreaJointDef.prototype.frequencyHz = 0;
 
-/** 
- * The damping ratio. 0 = no damping, 1 = critical damping. 
- * @export 
+/**
+ * The damping ratio. 0 = no damping, 1 = critical damping.
+ * @export
  * @type {number}
  */
 box2d.b2AreaJointDef.prototype.dampingRatio = 0;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2Body} body
  */
 box2d.b2AreaJointDef.prototype.AddBody = function (body)
@@ -27652,14 +27652,14 @@ box2d.b2AreaJointDef.prototype.AddBody = function (body)
 	}
 }
 
-/** 
- * A distance joint constrains two points on two bodies to 
- * remain at a fixed distance from each other. You can view this 
- * as a massless, rigid rod. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2AreaJointDef} def 
+/**
+ * A distance joint constrains two points on two bodies to
+ * remain at a fixed distance from each other. You can view this
+ * as a massless, rigid rod.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2AreaJointDef} def
  */
 box2d.b2AreaJoint = function (def)
 {
@@ -27705,24 +27705,24 @@ box2d.b2AreaJoint = function (def)
 goog.inherits(box2d.b2AreaJoint, box2d.b2Joint);
 
 /**
- * @export 
+ * @export
  * @type {Array.<box2d.b2Body>}
  */
 box2d.b2AreaJoint.prototype.m_bodies = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2AreaJoint.prototype.m_frequencyHz = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2AreaJoint.prototype.m_dampingRatio = 0;
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2AreaJoint.prototype.m_impulse = 0;
@@ -27735,32 +27735,32 @@ box2d.b2AreaJoint.prototype.m_joints = null;
 box2d.b2AreaJoint.prototype.m_deltas = null;
 box2d.b2AreaJoint.prototype.m_delta = null;
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2AreaJoint.prototype.GetAnchorA = function (out)
 {
 	return out.SetZero();
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2AreaJoint.prototype.GetAnchorB = function (out)
 {
 	return out.SetZero();
 }
 
-/** 
- * Get the reaction force given the inverse time step. 
+/**
+ * Get the reaction force given the inverse time step.
  * Unit is N.
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2AreaJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -27768,22 +27768,22 @@ box2d.b2AreaJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return out.SetZero();
 }
 
-/** 
- * Get the reaction torque given the inverse time step. 
+/**
+ * Get the reaction torque given the inverse time step.
  * Unit is N*m. This is always zero for a distance joint.
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2AreaJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return 0;
 }
 
-/** 
- * Set/get frequency in Hz. 
- * @export 
- * @return {void} 
+/**
+ * Set/get frequency in Hz.
+ * @export
+ * @return {void}
  * @param {number} hz
  */
 box2d.b2AreaJoint.prototype.SetFrequency = function (hz)
@@ -27796,8 +27796,8 @@ box2d.b2AreaJoint.prototype.SetFrequency = function (hz)
 	}
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2AreaJoint.prototype.GetFrequency = function ()
@@ -27805,10 +27805,10 @@ box2d.b2AreaJoint.prototype.GetFrequency = function ()
 	return this.m_frequencyHz;
 }
 
-/** 
- * Set/get damping ratio. 
- * @export 
- * @return {void} 
+/**
+ * Set/get damping ratio.
+ * @export
+ * @return {void}
  * @param {number} ratio
  */
 box2d.b2AreaJoint.prototype.SetDampingRatio = function (ratio)
@@ -27821,8 +27821,8 @@ box2d.b2AreaJoint.prototype.SetDampingRatio = function (ratio)
 	}
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2AreaJoint.prototype.GetDampingRatio = function ()
@@ -27830,9 +27830,9 @@ box2d.b2AreaJoint.prototype.GetDampingRatio = function ()
 	return this.m_dampingRatio;
 }
 
-/** 
- * Dump joint to dmLog 
- * @export 
+/**
+ * Dump joint to dmLog
+ * @export
  * @return {void}
  */
 box2d.b2AreaJoint.prototype.Dump = function ()
@@ -27843,9 +27843,9 @@ box2d.b2AreaJoint.prototype.Dump = function ()
 	}
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2AreaJoint.prototype.InitVelocityConstraints = function (data)
@@ -27881,9 +27881,9 @@ box2d.b2AreaJoint.prototype.InitVelocityConstraints = function (data)
 	}
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2AreaJoint.prototype.SolveVelocityConstraints = function (data)
@@ -27917,10 +27917,10 @@ box2d.b2AreaJoint.prototype.SolveVelocityConstraints = function (data)
 	}
 }
 
-/** 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+/**
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2AreaJoint.prototype.SolvePositionConstraints = function (data)
 {
@@ -28007,12 +28007,12 @@ goog.require('box2d.b2Controller');
 goog.require('box2d.b2Math');
 goog.require('box2d.b2WorldCallbacks');
 
-/** 
- * Calculates buoyancy forces for fluids in the form of a half 
- * plane. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Controller} 
+/**
+ * Calculates buoyancy forces for fluids in the form of a half
+ * plane.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Controller}
  */
 box2d.b2BuoyancyController = function ()
 {
@@ -28025,71 +28025,71 @@ box2d.b2BuoyancyController = function ()
 
 goog.inherits(box2d.b2BuoyancyController, box2d.b2Controller);
 
-/** 
- * The outer surface normal 
- * @export 
- * @type {box2d.b2Vec2} 
+/**
+ * The outer surface normal
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2BuoyancyController.prototype.normal = null;
-/** 
- * The height of the fluid surface along the normal 
- * @export 
- * @type {number} 
+/**
+ * The height of the fluid surface along the normal
+ * @export
+ * @type {number}
  */
 box2d.b2BuoyancyController.prototype.offset = 0;
-/** 
- * The fluid density 
- * @export 
- * @type {number} 
+/**
+ * The fluid density
+ * @export
+ * @type {number}
  */
 box2d.b2BuoyancyController.prototype.density = 0;
-/** 
- * Fluid velocity, for drag calculations 
- * @export 
- * @type {box2d.b2Vec2} 
+/**
+ * Fluid velocity, for drag calculations
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2BuoyancyController.prototype.velocity = null;
-/** 
- * Linear drag co-efficient 
- * @export 
- * @type {number} 
+/**
+ * Linear drag co-efficient
+ * @export
+ * @type {number}
  */
 box2d.b2BuoyancyController.prototype.linearDrag = 0;
-/** 
- * Linear drag co-efficient 
- * @export 
- * @type {number} 
+/**
+ * Linear drag co-efficient
+ * @export
+ * @type {number}
  */
 box2d.b2BuoyancyController.prototype.angularDrag = 0;
-/** 
- * If false, bodies are assumed to be uniformly dense, otherwise 
- * use the shapes densities 
- * @export 
- * @type {boolean} 
+/**
+ * If false, bodies are assumed to be uniformly dense, otherwise
+ * use the shapes densities
+ * @export
+ * @type {boolean}
  */
 box2d.b2BuoyancyController.prototype.useDensity = false; //False by default to prevent a gotcha
-/** 
+/**
  * If true, gravity is taken from the world instead of the
- * @export 
- * @type {boolean} 
+ * @export
+ * @type {boolean}
  */
 box2d.b2BuoyancyController.prototype.useWorldGravity = true;
-/** 
- * Gravity vector, if the world's gravity is not used 
- * @export 
- * @type {box2d.b2Vec2} 
+/**
+ * Gravity vector, if the world's gravity is not used
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2BuoyancyController.prototype.gravity = null;
 
-/** 
- * @see box2d.b2Controller::Step 
- * @export 
- * @return {void} 
- * @param {box2d.b2TimeStep} step 
+/**
+ * @see box2d.b2Controller::Step
+ * @export
+ * @return {void}
+ * @param {box2d.b2TimeStep} step
  */
 box2d.b2BuoyancyController.prototype.Step = function (step)
 {
-	if (!this.m_bodyList) 
+	if (!this.m_bodyList)
 		return;
 	if (this.useWorldGravity)
 	{
@@ -28151,10 +28151,10 @@ box2d.b2BuoyancyController.prototype.Step = function (step)
 	}
 }
 
-/** 
- * @see b2Controller::Draw 
- * @export 
- * @return {void} 
+/**
+ * @see b2Controller::Draw
+ * @export
+ * @return {void}
  * @param {box2d.b2Draw} debugDraw
  */
 box2d.b2BuoyancyController.prototype.Draw = function (debugDraw)
@@ -28196,13 +28196,13 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Controller');
 goog.require('box2d.b2Math');
 
-/** 
- * Applies top down linear damping to the controlled bodies 
- * The damping is calculated by multiplying velocity by a matrix 
- * in local co-ordinates. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Controller} 
+/**
+ * Applies top down linear damping to the controlled bodies
+ * The damping is calculated by multiplying velocity by a matrix
+ * in local co-ordinates.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Controller}
  */
 box2d.b2TensorDampingController = function ()
 {
@@ -28224,10 +28224,10 @@ box2d.b2TensorDampingController = function ()
 
 goog.inherits(box2d.b2TensorDampingController, box2d.b2Controller);
 
-/** 
- * Tensor to use in damping model 
- * @export 
- * @type {box2d.b2Mat22} 
+/**
+ * Tensor to use in damping model
+ * @export
+ * @type {box2d.b2Mat22}
  */
 box2d.b2TensorDampingController.prototype.T = new box2d.b2Mat22();
 /*Some examples (matrixes in format (row1; row2))
@@ -28237,19 +28237,19 @@ box2d.b2TensorDampingController.prototype.T = new box2d.b2Mat22();
 */
 //By the way, tensor in this case just means matrix, don't let the terminology get you down.
 
-/** 
- * Set this to a positive number to clamp the maximum amount of 
- * damping done. 
- * @export 
- * @type {number} 
+/**
+ * Set this to a positive number to clamp the maximum amount of
+ * damping done.
+ * @export
+ * @type {number}
  */
 box2d.b2TensorDampingController.prototype.maxTimestep = 0;
 // Typically one wants maxTimestep to be 1/(max eigenvalue of T), so that damping will never cause something to reverse direction
 
-/** 
- * @see b2Controller::Step 
- * @return {void} 
- * @param {box2d.b2TimeStep} step 
+/**
+ * @see b2Controller::Step
+ * @return {void}
+ * @param {box2d.b2TimeStep} step
  */
 box2d.b2TensorDampingController.prototype.Step = function (step)
 {
@@ -28265,10 +28265,10 @@ box2d.b2TensorDampingController.prototype.Step = function (step)
 			continue;
 		var damping = body.GetWorldVector(
 			box2d.b2MulMV(
-				this.T, 
+				this.T,
 				body.GetLocalVector(
-					body.GetLinearVelocity(), 
-					box2d.b2Vec2.s_t0), 
+					body.GetLinearVelocity(),
+					box2d.b2Vec2.s_t0),
 				box2d.b2Vec2.s_t1),
 			box2d.b2TensorDampingController.prototype.Step.s_damping);
 //		body->SetLinearVelocity(body->GetLinearVelocity() + timestep * damping);
@@ -28277,11 +28277,11 @@ box2d.b2TensorDampingController.prototype.Step = function (step)
 }
 box2d.b2TensorDampingController.prototype.Step.s_damping = new box2d.b2Vec2();
 
-/** 
- * Sets damping independantly along the x and y axes 
- * @return {void} 
- * @param {number} xDamping 
- * @param {number} yDamping 
+/**
+ * Sets damping independantly along the x and y axes
+ * @return {void}
+ * @param {number} xDamping
+ * @param {number} yDamping
  */
 box2d.b2TensorDampingController.prototype.SetAxisAligned = function (xDamping, yDamping)
 {
@@ -28323,16 +28323,16 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Joint');
 goog.require('box2d.b2Math');
 
-/** 
- * Distance joint definition. This requires defining an anchor 
- * point on both bodies and the non-zero length of the distance 
- * joint. The definition uses local anchor points so that the 
- * initial configuration can violate the constraint slightly. 
- * This helps when saving and loading a game. 
+/**
+ * Distance joint definition. This requires defining an anchor
+ * point on both bodies and the non-zero length of the distance
+ * joint. The definition uses local anchor points so that the
+ * initial configuration can violate the constraint slightly.
+ * This helps when saving and loading a game.
  * warning Do not use a zero or short length.
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2DistanceJointDef = function ()
 {
@@ -28344,49 +28344,49 @@ box2d.b2DistanceJointDef = function ()
 
 goog.inherits(box2d.b2DistanceJointDef, box2d.b2JointDef);
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJointDef.prototype.localAnchorA = null;
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJointDef.prototype.localAnchorB = null;
 
-/** 
- * The natural length between the anchor points. 
- * @export 
+/**
+ * The natural length between the anchor points.
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJointDef.prototype.length = 1;
 
-/** 
- * The mass-spring-damper frequency in Hertz. A value of 0 
- * disables softness. 
- * @export 
+/**
+ * The mass-spring-damper frequency in Hertz. A value of 0
+ * disables softness.
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJointDef.prototype.frequencyHz = 0;
 
-/** 
- * The damping ratio. 0 = no damping, 1 = critical damping. 
- * @export 
+/**
+ * The damping ratio. 0 = no damping, 1 = critical damping.
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJointDef.prototype.dampingRatio = 0;
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Body} b1 
- * @param {box2d.b2Body} b2 
- * @param {box2d.b2Vec2} anchor1 
- * @param {box2d.b2Vec2} anchor2 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Body} b1
+ * @param {box2d.b2Body} b2
+ * @param {box2d.b2Vec2} anchor1
+ * @param {box2d.b2Vec2} anchor2
  */
 box2d.b2DistanceJointDef.prototype.Initialize = function (b1, b2, anchor1, anchor2)
 {
@@ -28399,14 +28399,14 @@ box2d.b2DistanceJointDef.prototype.Initialize = function (b1, b2, anchor1, ancho
 	this.dampingRatio = 0;
 }
 
-/** 
- * A distance joint constrains two points on two bodies to 
- * remain at a fixed distance from each other. You can view this 
- * as a massless, rigid rod. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2DistanceJointDef} def 
+/**
+ * A distance joint constrains two points on two bodies to
+ * remain at a fixed distance from each other. You can view this
+ * as a massless, rigid rod.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2DistanceJointDef} def
  */
 box2d.b2DistanceJoint = function (def)
 {
@@ -28434,157 +28434,157 @@ box2d.b2DistanceJoint = function (def)
 goog.inherits(box2d.b2DistanceJoint, box2d.b2Joint);
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_frequencyHz = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_dampingRatio = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_bias = 0;
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJoint.prototype.m_localAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJoint.prototype.m_localAnchorB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_gamma = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_impulse = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_length = 0;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJoint.prototype.m_u = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJoint.prototype.m_rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJoint.prototype.m_rB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJoint.prototype.m_localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_invIB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2DistanceJoint.prototype.m_mass = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2DistanceJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2DistanceJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJoint.prototype.m_lalcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2DistanceJoint.prototype.m_lalcB = null;
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2DistanceJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetWorldPoint(this.m_localAnchorA, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2DistanceJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * Get the reaction force given the inverse time step. 
+/**
+ * Get the reaction force given the inverse time step.
  * Unit is N.
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2DistanceJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -28592,37 +28592,37 @@ box2d.b2DistanceJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return out.SetXY(inv_dt * this.m_impulse * this.m_u.x, inv_dt * this.m_impulse * this.m_u.y);
 }
 
-/** 
- * Get the reaction torque given the inverse time step. 
+/**
+ * Get the reaction torque given the inverse time step.
  * Unit is N*m. This is always zero for a distance joint.
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2DistanceJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return 0;
 }
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2DistanceJoint.prototype.GetLocalAnchorA = function (out) { return out.Copy(this.m_localAnchorA); }
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2DistanceJoint.prototype.GetLocalAnchorB = function (out) { return out.Copy(this.m_localAnchorB); }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {number} length
  */
 box2d.b2DistanceJoint.prototype.SetLength = function (length)
@@ -28630,8 +28630,8 @@ box2d.b2DistanceJoint.prototype.SetLength = function (length)
 	this.m_length = length;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2DistanceJoint.prototype.GetLength = function ()
@@ -28639,10 +28639,10 @@ box2d.b2DistanceJoint.prototype.GetLength = function ()
 	return this.m_length;
 }
 
-/** 
- * Set/get frequency in Hz. 
- * @export 
- * @return {void} 
+/**
+ * Set/get frequency in Hz.
+ * @export
+ * @return {void}
  * @param {number} hz
  */
 box2d.b2DistanceJoint.prototype.SetFrequency = function (hz)
@@ -28650,8 +28650,8 @@ box2d.b2DistanceJoint.prototype.SetFrequency = function (hz)
 	this.m_frequencyHz = hz;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2DistanceJoint.prototype.GetFrequency = function ()
@@ -28659,10 +28659,10 @@ box2d.b2DistanceJoint.prototype.GetFrequency = function ()
 	return this.m_frequencyHz;
 }
 
-/** 
- * Set/get damping ratio. 
- * @export 
- * @return {void} 
+/**
+ * Set/get damping ratio.
+ * @export
+ * @return {void}
  * @param {number} ratio
  */
 box2d.b2DistanceJoint.prototype.SetDampingRatio = function (ratio)
@@ -28670,8 +28670,8 @@ box2d.b2DistanceJoint.prototype.SetDampingRatio = function (ratio)
 	this.m_dampingRatio = ratio;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2DistanceJoint.prototype.GetDampingRatio = function ()
@@ -28679,9 +28679,9 @@ box2d.b2DistanceJoint.prototype.GetDampingRatio = function ()
 	return this.m_dampingRatio;
 }
 
-/** 
- * Dump joint to dmLog 
- * @export 
+/**
+ * Dump joint to dmLog
+ * @export
  * @return {void}
  */
 box2d.b2DistanceJoint.prototype.Dump = function ()
@@ -28690,7 +28690,7 @@ box2d.b2DistanceJoint.prototype.Dump = function ()
 	{
 		var indexA = this.m_bodyA.m_islandIndex;
 		var indexB = this.m_bodyB.m_islandIndex;
-	
+
 		box2d.b2Log("  /*box2d.b2DistanceJointDef*/ var jd = new box2d.b2DistanceJointDef();\n");
 		box2d.b2Log("  jd.bodyA = bodies[%d];\n", indexA);
 		box2d.b2Log("  jd.bodyB = bodies[%d];\n", indexB);
@@ -28704,9 +28704,9 @@ box2d.b2DistanceJoint.prototype.Dump = function ()
 	}
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2DistanceJoint.prototype.InitVelocityConstraints = function (data)
@@ -28821,9 +28821,9 @@ box2d.b2DistanceJoint.prototype.InitVelocityConstraints = function (data)
 }
 box2d.b2DistanceJoint.prototype.InitVelocityConstraints.s_P = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2DistanceJoint.prototype.SolveVelocityConstraints = function (data)
@@ -28865,9 +28865,9 @@ box2d.b2DistanceJoint.prototype.SolveVelocityConstraints.s_vpB = new box2d.b2Vec
 box2d.b2DistanceJoint.prototype.SolveVelocityConstraints.s_P = new box2d.b2Vec2();
 
 /**
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2DistanceJoint.prototype.SolvePositionConstraints = function (data)
 {
@@ -28946,11 +28946,11 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Joint');
 goog.require('box2d.b2Math');
 
-/** 
- * Friction joint definition. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Friction joint definition.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2FrictionJointDef = function ()
 {
@@ -28962,40 +28962,40 @@ box2d.b2FrictionJointDef = function ()
 
 goog.inherits(box2d.b2FrictionJointDef, box2d.b2JointDef);
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJointDef.prototype.localAnchorA = null;
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJointDef.prototype.localAnchorB = null;
 
-/** 
- * The maximum friction force in N. 
- * @export 
+/**
+ * The maximum friction force in N.
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJointDef.prototype.maxForce = 0;
 
-/** 
- * The maximum friction torque in N-m. 
- * @export 
+/**
+ * The maximum friction torque in N-m.
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJointDef.prototype.maxTorque = 0;
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Body} bA 
- * @param {box2d.b2Body} bB 
- * @param {box2d.b2Vec2} anchor 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Body} bA
+ * @param {box2d.b2Body} bB
+ * @param {box2d.b2Vec2} anchor
  */
 box2d.b2FrictionJointDef.prototype.Initialize = function (bA, bB, anchor)
 {
@@ -29005,13 +29005,13 @@ box2d.b2FrictionJointDef.prototype.Initialize = function (bA, bB, anchor)
 	this.bodyB.GetLocalPoint(anchor, this.localAnchorB);
 }
 
-/** 
- * Friction joint. This is used for top-down friction. It 
- * provides 2D translational friction and angular friction. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2FrictionJointDef} def 
+/**
+ * Friction joint. This is used for top-down friction. It
+ * provides 2D translational friction and angular friction.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2FrictionJointDef} def
  */
 box2d.b2FrictionJoint = function (def)
 {
@@ -29040,129 +29040,129 @@ box2d.b2FrictionJoint = function (def)
 goog.inherits(box2d.b2FrictionJoint, box2d.b2Joint);
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJoint.prototype.m_localAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJoint.prototype.m_localAnchorB = null;
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJoint.prototype.m_linearImpulse = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_angularImpulse = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_maxForce = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_maxTorque = 0;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJoint.prototype.m_rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJoint.prototype.m_rB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJoint.prototype.m_localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_invIB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2FrictionJoint.prototype.m_linearMass = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2FrictionJoint.prototype.m_angularMass = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2FrictionJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2FrictionJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJoint.prototype.m_lalcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2FrictionJoint.prototype.m_lalcB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2FrictionJoint.prototype.m_K = null;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2FrictionJoint.prototype.InitVelocityConstraints = function (data)
@@ -29254,9 +29254,9 @@ box2d.b2FrictionJoint.prototype.InitVelocityConstraints = function (data)
 	data.velocities[this.m_indexB].w = wB;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2FrictionJoint.prototype.SolveVelocityConstraints = function (data)
@@ -29291,8 +29291,8 @@ box2d.b2FrictionJoint.prototype.SolveVelocityConstraints = function (data)
 	{
 //		b2Vec2 Cdot = vB + b2Cross(wB, m_rB) - vA - b2Cross(wA, m_rA);
 		var Cdot = box2d.b2SubVV(
-			box2d.b2AddVCrossSV(vB, wB, this.m_rB, box2d.b2Vec2.s_t0), 
-			box2d.b2AddVCrossSV(vA, wA, this.m_rA, box2d.b2Vec2.s_t1), 
+			box2d.b2AddVCrossSV(vB, wB, this.m_rB, box2d.b2Vec2.s_t0),
+			box2d.b2AddVCrossSV(vA, wA, this.m_rA, box2d.b2Vec2.s_t1),
 			box2d.b2FrictionJoint.prototype.SolveVelocityConstraints.s_Cdot);
 
 //		b2Vec2 impulse = -b2Mul(m_linearMass, Cdot);
@@ -29333,40 +29333,40 @@ box2d.b2FrictionJoint.prototype.SolveVelocityConstraints.s_Cdot = new box2d.b2Ve
 box2d.b2FrictionJoint.prototype.SolveVelocityConstraints.s_impulseV = new box2d.b2Vec2();
 box2d.b2FrictionJoint.prototype.SolveVelocityConstraints.s_oldImpulseV = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+/**
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2FrictionJoint.prototype.SolvePositionConstraints = function (data)
 {
 	return true;
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2FrictionJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetWorldPoint(this.m_localAnchorA, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2FrictionJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2FrictionJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -29374,36 +29374,36 @@ box2d.b2FrictionJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return out.SetXY(inv_dt * this.m_linearImpulse.x, inv_dt * this.m_linearImpulse.y);
 }
 
-/** 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2FrictionJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return inv_dt * this.m_angularImpulse;
 }
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2FrictionJoint.prototype.GetLocalAnchorA = function (out) { return out.Copy(this.m_localAnchorA); }
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2FrictionJoint.prototype.GetLocalAnchorB = function (out) { return out.Copy(this.m_localAnchorB); }
 
-/** 
- * Set the maximum friction force in N. 
- * @export 
- * @return {void} 
+/**
+ * Set the maximum friction force in N.
+ * @export
+ * @return {void}
  * @param {number} force
  */
 box2d.b2FrictionJoint.prototype.SetMaxForce = function (force)
@@ -29411,9 +29411,9 @@ box2d.b2FrictionJoint.prototype.SetMaxForce = function (force)
 	this.m_maxForce = force;
 }
 
-/** 
- * Get the maximum friction force in N. 
- * @export 
+/**
+ * Get the maximum friction force in N.
+ * @export
  * @return {number}
  */
 box2d.b2FrictionJoint.prototype.GetMaxForce = function ()
@@ -29421,10 +29421,10 @@ box2d.b2FrictionJoint.prototype.GetMaxForce = function ()
 	return this.m_maxForce;
 }
 
-/** 
- * Set the maximum friction torque in N*m. 
- * @export 
- * @return {void} 
+/**
+ * Set the maximum friction torque in N*m.
+ * @export
+ * @return {void}
  * @param {number} torque
  */
 box2d.b2FrictionJoint.prototype.SetMaxTorque = function (torque)
@@ -29432,9 +29432,9 @@ box2d.b2FrictionJoint.prototype.SetMaxTorque = function (torque)
 	this.m_maxTorque = torque;
 }
 
-/** 
- * Get the maximum friction torque in N*m. 
- * @export 
+/**
+ * Get the maximum friction torque in N*m.
+ * @export
  * @return {number}
  */
 box2d.b2FrictionJoint.prototype.GetMaxTorque = function ()
@@ -29442,9 +29442,9 @@ box2d.b2FrictionJoint.prototype.GetMaxTorque = function ()
 	return this.m_maxTorque;
 }
 
-/** 
- * Dump joint to dmLog 
- * @export 
+/**
+ * Dump joint to dmLog
+ * @export
  * @return {void}
  */
 box2d.b2FrictionJoint.prototype.Dump = function ()
@@ -29453,7 +29453,7 @@ box2d.b2FrictionJoint.prototype.Dump = function ()
 	{
 		var indexA = this.m_bodyA.m_islandIndex;
 		var indexB = this.m_bodyB.m_islandIndex;
-	
+
 		box2d.b2Log("  /*box2d.b2FrictionJointDef*/ var jd = new box2d.b2FrictionJointDef();\n");
 		box2d.b2Log("  jd.bodyA = bodies[%d];\n", indexA);
 		box2d.b2Log("  jd.bodyB = bodies[%d];\n", indexB);
@@ -29490,12 +29490,12 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Joint');
 goog.require('box2d.b2Math');
 
-/** 
- * Mouse joint definition. This requires a world target point, 
- * tuning parameters, and the time step. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Mouse joint definition. This requires a world target point,
+ * tuning parameters, and the time step.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2MouseJointDef = function ()
 {
@@ -29506,49 +29506,49 @@ box2d.b2MouseJointDef = function ()
 
 goog.inherits(box2d.b2MouseJointDef, box2d.b2JointDef);
 
-/** 
- * The initial world target point. This is assumed to coincide 
- * with the body anchor initially. 
- * @export 
- * @type {box2d.b2Vec2} 
+/**
+ * The initial world target point. This is assumed to coincide
+ * with the body anchor initially.
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2MouseJointDef.prototype.target = null;
 
-/** 
- * The maximum constraint force that can be exerted to move the 
- * candidate body. Usually you will express as some multiple of 
- * the weight (multiplier * mass * gravity). 
- * @export 
- * @type {number} 
+/**
+ * The maximum constraint force that can be exerted to move the
+ * candidate body. Usually you will express as some multiple of
+ * the weight (multiplier * mass * gravity).
+ * @export
+ * @type {number}
  */
 box2d.b2MouseJointDef.prototype.maxForce = 0;
 
-/** 
- * The response speed. 
- * @export 
- * @type {number} 
+/**
+ * The response speed.
+ * @export
+ * @type {number}
  */
 box2d.b2MouseJointDef.prototype.frequencyHz = 5;
 
-/** 
- * The damping ratio. 0 = no damping, 1 = critical damping. 
- * @export 
- * @type {number} 
+/**
+ * The damping ratio. 0 = no damping, 1 = critical damping.
+ * @export
+ * @type {number}
  */
 box2d.b2MouseJointDef.prototype.dampingRatio = 0.7;
 
-/** 
- * A mouse joint is used to make a point on a body track a 
- * specified world point. This a soft constraint with a maximum 
- * force. This allows the constraint to stretch and without 
- * applying huge forces. 
- * NOTE: this joint is not documented in the manual because it 
- * was developed to be used in the testbed. If you want to learn 
- * how to use the mouse joint, look at the testbed. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2MouseJointDef} def 
+/**
+ * A mouse joint is used to make a point on a body track a
+ * specified world point. This a soft constraint with a maximum
+ * force. This allows the constraint to stretch and without
+ * applying huge forces.
+ * NOTE: this joint is not documented in the manual because it
+ * was developed to be used in the testbed. If you want to learn
+ * how to use the mouse joint, look at the testbed.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2MouseJointDef} def
  */
 box2d.b2MouseJoint = function (def)
 {
@@ -29588,108 +29588,108 @@ box2d.b2MouseJoint = function (def)
 goog.inherits(box2d.b2MouseJoint, box2d.b2Joint);
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MouseJoint.prototype.m_localAnchorB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MouseJoint.prototype.m_targetA = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MouseJoint.prototype.m_frequencyHz = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MouseJoint.prototype.m_dampingRatio = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MouseJoint.prototype.m_beta = 0;
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MouseJoint.prototype.m_impulse = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MouseJoint.prototype.m_maxForce = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MouseJoint.prototype.m_gamma = 0;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MouseJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MouseJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MouseJoint.prototype.m_rB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MouseJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MouseJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MouseJoint.prototype.m_invIB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2MouseJoint.prototype.m_mass = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MouseJoint.prototype.m_C = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2MouseJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MouseJoint.prototype.m_lalcB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2MouseJoint.prototype.m_K = null;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} target
  */
 box2d.b2MouseJoint.prototype.SetTarget = function (target)
@@ -29702,9 +29702,9 @@ box2d.b2MouseJoint.prototype.SetTarget = function (target)
 }
 
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2MouseJoint.prototype.GetTarget = function (out)
 {
@@ -29712,8 +29712,8 @@ box2d.b2MouseJoint.prototype.GetTarget = function (out)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {number} maxForce
  */
 box2d.b2MouseJoint.prototype.SetMaxForce = function (maxForce)
@@ -29722,7 +29722,7 @@ box2d.b2MouseJoint.prototype.SetMaxForce = function (maxForce)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2MouseJoint.prototype.GetMaxForce = function ()
@@ -29731,8 +29731,8 @@ box2d.b2MouseJoint.prototype.GetMaxForce = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {number} hz
  */
 box2d.b2MouseJoint.prototype.SetFrequency = function (hz)
@@ -29741,7 +29741,7 @@ box2d.b2MouseJoint.prototype.SetFrequency = function (hz)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2MouseJoint.prototype.GetFrequency = function ()
@@ -29750,8 +29750,8 @@ box2d.b2MouseJoint.prototype.GetFrequency = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {number} ratio
  */
 box2d.b2MouseJoint.prototype.SetDampingRatio = function (ratio)
@@ -29760,7 +29760,7 @@ box2d.b2MouseJoint.prototype.SetDampingRatio = function (ratio)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2MouseJoint.prototype.GetDampingRatio = function ()
@@ -29769,8 +29769,8 @@ box2d.b2MouseJoint.prototype.GetDampingRatio = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2MouseJoint.prototype.InitVelocityConstraints = function (data)
@@ -29852,8 +29852,8 @@ box2d.b2MouseJoint.prototype.InitVelocityConstraints = function (data)
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2MouseJoint.prototype.SolveVelocityConstraints = function (data)
@@ -29866,11 +29866,11 @@ box2d.b2MouseJoint.prototype.SolveVelocityConstraints = function (data)
 	var Cdot = box2d.b2AddVCrossSV(vB, wB, this.m_rB, box2d.b2MouseJoint.prototype.SolveVelocityConstraints.s_Cdot);
 //	b2Vec2 impulse = b2Mul(m_mass, -(Cdot + m_C + m_gamma * m_impulse));
 	var impulse = box2d.b2MulMV(
-		this.m_mass, 
+		this.m_mass,
 		box2d.b2AddVV(
-			Cdot, 
-			box2d.b2AddVV(this.m_C, 
-				box2d.b2MulSV(this.m_gamma, this.m_impulse, box2d.b2Vec2.s_t0), 
+			Cdot,
+			box2d.b2AddVV(this.m_C,
+				box2d.b2MulSV(this.m_gamma, this.m_impulse, box2d.b2Vec2.s_t0),
 				box2d.b2Vec2.s_t0),
 			box2d.b2Vec2.s_t0).SelfNeg(),
 		box2d.b2MouseJoint.prototype.SolveVelocityConstraints.s_impulse);
@@ -29899,18 +29899,18 @@ box2d.b2MouseJoint.prototype.SolveVelocityConstraints.s_impulse = new box2d.b2Ve
 box2d.b2MouseJoint.prototype.SolveVelocityConstraints.s_oldImpulse = new box2d.b2Vec2();
 
 /**
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2MouseJoint.prototype.SolvePositionConstraints = function (data)
 {
 	return true;
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
  * @param {box2d.b2Vec2} out
  */
 box2d.b2MouseJoint.prototype.GetAnchorA = function (out)
@@ -29918,20 +29918,20 @@ box2d.b2MouseJoint.prototype.GetAnchorA = function (out)
 	return out.Copy(this.m_targetA);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2MouseJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2MouseJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -29939,18 +29939,18 @@ box2d.b2MouseJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return box2d.b2MulSV(inv_dt, this.m_impulse, out);
 }
 
-/** 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2MouseJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return 0;
 }
 
-/** 
- * The mouse joint does not support dumping. 
+/**
+ * The mouse joint does not support dumping.
  * @export
  */
 box2d.b2MouseJoint.prototype.Dump = function ()
@@ -29961,10 +29961,10 @@ box2d.b2MouseJoint.prototype.Dump = function ()
 	}
 }
 
-/** 
- * Implement b2Joint::ShiftOrigin 
- * @export 
- * @return {void} 
+/**
+ * Implement b2Joint::ShiftOrigin
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} newOrigin
  */
 box2d.b2MouseJoint.prototype.ShiftOrigin = function (newOrigin)
@@ -29996,11 +29996,11 @@ goog.require('box2d.b2Settings');
 goog.require('box2d.b2Controller');
 goog.require('box2d.b2Math');
 
-/** 
- * Applies a force every frame 
- * @export 
- * @constructor 
- * @extends {box2d.b2Controller} 
+/**
+ * Applies a force every frame
+ * @export
+ * @constructor
+ * @extends {box2d.b2Controller}
  */
 box2d.b2ConstantForceController = function ()
 {
@@ -30011,18 +30011,18 @@ box2d.b2ConstantForceController = function ()
 
 goog.inherits(box2d.b2ConstantForceController, box2d.b2Controller);
 
-/** 
- * The force to apply 
- * @export 
- * @type {box2d.b2Vec2} 
+/**
+ * The force to apply
+ * @export
+ * @type {box2d.b2Vec2}
  */
 box2d.b2ConstantAccelController.prototype.F = null;
 
-/** 
- * @see box2d.b2Controller::Step 
- * @export 
- * @return {void} 
- * @param {box2d.b2TimeStep} step 
+/**
+ * @see box2d.b2Controller::Step
+ * @export
+ * @return {void}
+ * @param {box2d.b2TimeStep} step
  */
 box2d.b2ConstantForceController.prototype.Step = function (step)
 {
@@ -30060,18 +30060,18 @@ goog.require('box2d.b2Joint');
 goog.require('box2d.b2Math');
 
 /**
- * @export 
- * @const 
- * @type {number} 
+ * @export
+ * @const
+ * @type {number}
  */
 box2d.b2_minPulleyLength = 2;
 
-/** 
- * Pulley joint definition. This requires two ground anchors, 
- * two dynamic body anchor points, and a pulley ratio. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Pulley joint definition. This requires two ground anchors,
+ * two dynamic body anchor points, and a pulley ratio.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2PulleyJointDef = function ()
 {
@@ -30087,67 +30087,67 @@ box2d.b2PulleyJointDef = function ()
 
 goog.inherits(box2d.b2PulleyJointDef, box2d.b2JointDef);
 
-/** 
- * The first ground anchor in world coordinates. This point 
- * never moves. 
- * @export 
+/**
+ * The first ground anchor in world coordinates. This point
+ * never moves.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJointDef.prototype.groundAnchorA = null;
 
-/** 
- * The second ground anchor in world coordinates. This point 
- * never moves. 
- * @export 
+/**
+ * The second ground anchor in world coordinates. This point
+ * never moves.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJointDef.prototype.groundAnchorB = null;
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJointDef.prototype.localAnchorA = null;
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJointDef.prototype.localAnchorB = null;
 
-/** 
- * The a reference length for the segment attached to bodyA. 
- * @export 
+/**
+ * The a reference length for the segment attached to bodyA.
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJointDef.prototype.lengthA = 0;
 
-/** 
- * The a reference length for the segment attached to bodyB. 
- * @export 
+/**
+ * The a reference length for the segment attached to bodyB.
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJointDef.prototype.lengthB = 0;
 
-/** 
- * The pulley ratio, used to simulate a block-and-tackle. 
- * @export 
+/**
+ * The pulley ratio, used to simulate a block-and-tackle.
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJointDef.prototype.ratio = 1;
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Body} bA 
- * @param {box2d.b2Body} bB 
- * @param {box2d.b2Vec2} groundA 
- * @param {box2d.b2Vec2} groundB 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Body} bA
+ * @param {box2d.b2Body} bB
+ * @param {box2d.b2Vec2} groundA
+ * @param {box2d.b2Vec2} groundB
  * @param {box2d.b2Vec2} anchorA
  * @param {box2d.b2Vec2} anchorB
- * @param {number} r 
+ * @param {number} r
  */
 box2d.b2PulleyJointDef.prototype.Initialize = function (bA, bB, groundA, groundB, anchorA, anchorB, r)
 {
@@ -30163,19 +30163,19 @@ box2d.b2PulleyJointDef.prototype.Initialize = function (bA, bB, groundA, groundB
 	if (box2d.ENABLE_ASSERTS) { box2d.b2Assert(this.ratio > box2d.b2_epsilon); }
 }
 
-/** 
- * The pulley joint is connected to two bodies and two fixed ground points. 
- * The pulley supports a ratio such that: 
- * lengthA + ratio * lengthB <= constant 
- * Yes, the force transmitted is scaled by the ratio. 
+/**
+ * The pulley joint is connected to two bodies and two fixed ground points.
+ * The pulley supports a ratio such that:
+ * lengthA + ratio * lengthB <= constant
+ * Yes, the force transmitted is scaled by the ratio.
  * Warning: the pulley joint can get a bit squirrelly by itself.
- * They often work better when combined with prismatic joints. 
- * You should also cover the the anchor points with static 
- * shapes to prevent one side from going to zero length. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2PulleyJointDef} def 
+ * They often work better when combined with prismatic joints.
+ * You should also cover the the anchor points with static
+ * shapes to prevent one side from going to zero length.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2PulleyJointDef} def
  */
 box2d.b2PulleyJoint = function (def)
 {
@@ -30217,145 +30217,145 @@ box2d.b2PulleyJoint = function (def)
 goog.inherits(box2d.b2PulleyJoint, box2d.b2Joint);
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_groundAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_groundAnchorB = null;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_lengthA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_lengthB = 0;
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_localAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_localAnchorB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_constant = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_ratio = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_impulse = 0;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_uA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_uB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_rB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_invIB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2PulleyJoint.prototype.m_mass = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2PulleyJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2PulleyJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_lalcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2PulleyJoint.prototype.m_lalcB = null;
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2PulleyJoint.prototype.InitVelocityConstraints = function (data)
@@ -30461,9 +30461,9 @@ box2d.b2PulleyJoint.prototype.InitVelocityConstraints = function (data)
 box2d.b2PulleyJoint.prototype.InitVelocityConstraints.s_PA = new box2d.b2Vec2();
 box2d.b2PulleyJoint.prototype.InitVelocityConstraints.s_PB = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2PulleyJoint.prototype.SolveVelocityConstraints = function (data)
@@ -30503,10 +30503,10 @@ box2d.b2PulleyJoint.prototype.SolveVelocityConstraints.s_vpB = new box2d.b2Vec2(
 box2d.b2PulleyJoint.prototype.SolveVelocityConstraints.s_PA = new box2d.b2Vec2();
 box2d.b2PulleyJoint.prototype.SolveVelocityConstraints.s_PB = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+/**
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2PulleyJoint.prototype.SolvePositionConstraints = function (data)
 {
@@ -30593,30 +30593,30 @@ box2d.b2PulleyJoint.prototype.SolvePositionConstraints = function (data)
 box2d.b2PulleyJoint.prototype.SolvePositionConstraints.s_PA = new box2d.b2Vec2();
 box2d.b2PulleyJoint.prototype.SolvePositionConstraints.s_PB = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PulleyJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetWorldPoint(this.m_localAnchorA, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PulleyJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2PulleyJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -30626,39 +30626,39 @@ box2d.b2PulleyJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return out.SetXY(inv_dt * this.m_impulse * this.m_uB.x, inv_dt * this.m_impulse * this.m_uB.y);
 }
 
-/** 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2PulleyJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return 0;
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PulleyJoint.prototype.GetGroundAnchorA = function (out)
 {
 	return out.Copy(this.m_groundAnchorA);
 }
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2PulleyJoint.prototype.GetGroundAnchorB = function (out)
 {
 	return out.Copy(this.m_groundAnchorB);
 }
 
-/** 
- * Get the current length of the segment attached to bodyA. 
- * @export 
+/**
+ * Get the current length of the segment attached to bodyA.
+ * @export
  * @return {number}
  */
 box2d.b2PulleyJoint.prototype.GetLengthA = function ()
@@ -30666,9 +30666,9 @@ box2d.b2PulleyJoint.prototype.GetLengthA = function ()
 	return this.m_lengthA;
 }
 
-/** 
- * Get the current length of the segment attached to bodyB. 
- * @export 
+/**
+ * Get the current length of the segment attached to bodyB.
+ * @export
  * @return {number}
  */
 box2d.b2PulleyJoint.prototype.GetLengthB = function ()
@@ -30676,9 +30676,9 @@ box2d.b2PulleyJoint.prototype.GetLengthB = function ()
 	return this.m_lengthB;
 }
 
-/** 
- * Get the pulley ratio. 
- * @export 
+/**
+ * Get the pulley ratio.
+ * @export
  * @return {number}
  */
 box2d.b2PulleyJoint.prototype.GetRatio = function ()
@@ -30686,9 +30686,9 @@ box2d.b2PulleyJoint.prototype.GetRatio = function ()
 	return this.m_ratio;
 }
 
-/** 
- * Get the current length of the segment attached to bodyA. 
- * @export 
+/**
+ * Get the current length of the segment attached to bodyA.
+ * @export
  * @return {number}
  */
 box2d.b2PulleyJoint.prototype.GetCurrentLengthA = function ()
@@ -30703,9 +30703,9 @@ box2d.b2PulleyJoint.prototype.GetCurrentLengthA = function ()
 }
 box2d.b2PulleyJoint.prototype.GetCurrentLengthA.s_p = new box2d.b2Vec2();
 
-/** 
- * Get the current length of the segment attached to bodyB. 
- * @export 
+/**
+ * Get the current length of the segment attached to bodyB.
+ * @export
  * @return {number}
  */
 box2d.b2PulleyJoint.prototype.GetCurrentLengthB = function ()
@@ -30720,9 +30720,9 @@ box2d.b2PulleyJoint.prototype.GetCurrentLengthB = function ()
 }
 box2d.b2PulleyJoint.prototype.GetCurrentLengthB.s_p = new box2d.b2Vec2();
 
-/** 
- * Dump joint to dmLog 
- * @export 
+/**
+ * Dump joint to dmLog
+ * @export
  * @return {void}
  */
 box2d.b2PulleyJoint.prototype.Dump = function ()
@@ -30731,7 +30731,7 @@ box2d.b2PulleyJoint.prototype.Dump = function ()
 	{
 		var indexA = this.m_bodyA.m_islandIndex;
 		var indexB = this.m_bodyB.m_islandIndex;
-	
+
 		box2d.b2Log("  /*box2d.b2PulleyJointDef*/ var jd = new box2d.b2PulleyJointDef();\n");
 		box2d.b2Log("  jd.bodyA = bodies[%d];\n", indexA);
 		box2d.b2Log("  jd.bodyB = bodies[%d];\n", indexB);
@@ -30747,10 +30747,10 @@ box2d.b2PulleyJoint.prototype.Dump = function ()
 	}
 }
 
-/** 
- * Implement b2Joint::ShiftOrigin 
- * @export 
- * @return {void} 
+/**
+ * Implement b2Joint::ShiftOrigin
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} newOrigin
  */
 box2d.b2PulleyJoint.prototype.ShiftOrigin = function (newOrigin)
@@ -30781,12 +30781,12 @@ goog.provide('box2d.b2CircleShape');
 
 goog.require('box2d.b2Shape');
 
-/** 
- * A circle shape. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Shape} 
- * @param {number=} radius 
+/**
+ * A circle shape.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Shape}
+ * @param {number=} radius
  */
 box2d.b2CircleShape = function (radius)
 {
@@ -30798,14 +30798,14 @@ box2d.b2CircleShape = function (radius)
 goog.inherits(box2d.b2CircleShape, box2d.b2Shape);
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2CircleShape.prototype.m_p = null;
 
-/** 
- * Implement box2d.b2Shape. 
- * @export 
+/**
+ * Implement box2d.b2Shape.
+ * @export
  * @return {box2d.b2Shape}
  */
 box2d.b2CircleShape.prototype.Clone = function ()
@@ -30814,8 +30814,8 @@ box2d.b2CircleShape.prototype.Clone = function ()
 }
 
 /**
- * @export 
- * @return {box2d.b2Shape} 
+ * @export
+ * @return {box2d.b2Shape}
  * @param {box2d.b2Shape} other
  */
 box2d.b2CircleShape.prototype.Copy = function (other)
@@ -30828,9 +30828,9 @@ box2d.b2CircleShape.prototype.Copy = function (other)
 	return this;
 }
 
-/** 
- * Implement box2d.b2Shape. 
- * @export 
+/**
+ * Implement box2d.b2Shape.
+ * @export
  * @return {number}
  */
 box2d.b2CircleShape.prototype.GetChildCount = function ()
@@ -30838,12 +30838,12 @@ box2d.b2CircleShape.prototype.GetChildCount = function ()
 	return 1;
 }
 
-/** 
- * Implement box2d.b2Shape. 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2Transform} transform 
- * @param {box2d.b2Vec2} p 
+/**
+ * Implement box2d.b2Shape.
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2Transform} transform
+ * @param {box2d.b2Vec2} p
  */
 box2d.b2CircleShape.prototype.TestPoint = function (transform, p)
 {
@@ -30854,18 +30854,18 @@ box2d.b2CircleShape.prototype.TestPoint = function (transform, p)
 box2d.b2CircleShape.prototype.TestPoint.s_center = new box2d.b2Vec2();
 box2d.b2CircleShape.prototype.TestPoint.s_d = new box2d.b2Vec2();
 
-/** 
- * Implement box2d.b2Shape. 
- * Collision Detection in Interactive 3D Environments by Gino 
- * van den Bergen From Section 3.1.2 
- * x = s + a * r 
- * norm(x) = radius 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2RayCastOutput} output 
- * @param {box2d.b2RayCastInput} input 
- * @param {box2d.b2Transform} transform 
- * @param {number} childIndex 
+/**
+ * Implement box2d.b2Shape.
+ * Collision Detection in Interactive 3D Environments by Gino
+ * van den Bergen From Section 3.1.2
+ * x = s + a * r
+ * norm(x) = radius
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2RayCastOutput} output
+ * @param {box2d.b2RayCastInput} input
+ * @param {box2d.b2Transform} transform
+ * @param {number} childIndex
  */
 box2d.b2CircleShape.prototype.RayCast = function (output, input, transform, childIndex)
 {
@@ -30903,13 +30903,13 @@ box2d.b2CircleShape.prototype.RayCast.s_position = new box2d.b2Vec2();
 box2d.b2CircleShape.prototype.RayCast.s_s = new box2d.b2Vec2();
 box2d.b2CircleShape.prototype.RayCast.s_r = new box2d.b2Vec2();
 
-/** 
- * @see box2d.b2Shape::ComputeAABB 
- * @export 
- * @return {void} 
- * @param {box2d.b2AABB} aabb 
- * @param {box2d.b2Transform} transform 
- * @param {number} childIndex 
+/**
+ * @see box2d.b2Shape::ComputeAABB
+ * @export
+ * @return {void}
+ * @param {box2d.b2AABB} aabb
+ * @param {box2d.b2Transform} transform
+ * @param {number} childIndex
  */
 box2d.b2CircleShape.prototype.ComputeAABB = function (aabb, transform, childIndex)
 {
@@ -30919,12 +30919,12 @@ box2d.b2CircleShape.prototype.ComputeAABB = function (aabb, transform, childInde
 }
 box2d.b2CircleShape.prototype.ComputeAABB.s_p = new box2d.b2Vec2();
 
-/** 
- * @see box2d.b2Shape::ComputeMass 
- * @export 
- * @return {void} 
- * @param {box2d.b2MassData} massData 
- * @param {number} density 
+/**
+ * @see box2d.b2Shape::ComputeMass
+ * @export
+ * @return {void}
+ * @param {box2d.b2MassData} massData
+ * @param {number} density
  */
 box2d.b2CircleShape.prototype.ComputeMass = function (massData, density)
 {
@@ -30937,9 +30937,9 @@ box2d.b2CircleShape.prototype.ComputeMass = function (massData, density)
 }
 
 /**
- * @return {void} 
- * @param {box2d.b2DistanceProxy} proxy 
- * @param {number} index 
+ * @return {void}
+ * @param {box2d.b2DistanceProxy} proxy
+ * @param {number} index
  */
 box2d.b2CircleShape.prototype.SetupDistanceProxy = function (proxy, index)
 {
@@ -30950,7 +30950,7 @@ box2d.b2CircleShape.prototype.SetupDistanceProxy = function (proxy, index)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  * @param {box2d.b2Vec2} normal
  * @param {number} offset
@@ -30986,9 +30986,9 @@ box2d.b2CircleShape.prototype.ComputeSubmergedArea = function (normal, offset, x
 	return area;
 }
 
-/** 
- * Dump this shape to the log file. 
- * @export 
+/**
+ * Dump this shape to the log file.
+ * @export
  * @return {void}
  */
 box2d.b2CircleShape.prototype.Dump = function ()
@@ -31022,7 +31022,7 @@ goog.require('box2d.b2Math');
 goog.require('box2d.b2Draw');
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2RopeDef = function ()
@@ -31048,13 +31048,13 @@ box2d.b2RopeDef = function ()
 /*float32*/ box2d.b2RopeDef.prototype.k2 = 0.9;
 
 /**
- * Bending stiffness. Values above 0.5 can make the simulation 
- * blow up. 
+ * Bending stiffness. Values above 0.5 can make the simulation
+ * blow up.
  */
 /*float32*/ box2d.b2RopeDef.prototype.k3 = 0.1;
 
 /**
- * @export 
+ * @export
  * @constructor
  */
 box2d.b2Rope = function ()
@@ -31078,8 +31078,8 @@ box2d.b2Rope = function ()
 /*float32*/ box2d.b2Rope.prototype.m_k2 = 1;
 /*float32*/ box2d.b2Rope.prototype.m_k3 = 0.1;
 
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2Rope.prototype.GetVertexCount = function ()
@@ -31088,7 +31088,7 @@ box2d.b2Rope.prototype.GetVertexCount = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {Array.<box2d.b2Vec2>}
  */
 box2d.b2Rope.prototype.GetVertices = function ()
@@ -31097,8 +31097,8 @@ box2d.b2Rope.prototype.GetVertices = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2RopeDef} def
  */
 box2d.b2Rope.prototype.Initialize = function (def)
@@ -31167,10 +31167,10 @@ box2d.b2Rope.prototype.Initialize = function (def)
 }
 
 /**
- * @export 
- * @return {void} 
- * @param {number} h 
- * @param {number} iterations 
+ * @export
+ * @return {void}
+ * @param {number} h
+ * @param {number} iterations
  */
 box2d.b2Rope.prototype.Step = function (/*float32*/ h, /*int32*/ iterations)
 {
@@ -31208,7 +31208,7 @@ box2d.b2Rope.prototype.Step = function (/*float32*/ h, /*int32*/ iterations)
 }
 
 /**
- * @export 
+ * @export
  * @return {void}
  */
 box2d.b2Rope.prototype.SolveC2 = function ()
@@ -31244,7 +31244,7 @@ box2d.b2Rope.prototype.SolveC2 = function ()
 box2d.b2Rope.s_d = new box2d.b2Vec2();
 
 /**
- * @export 
+ * @export
  * @return {void}
  * @param {number} angle
  */
@@ -31258,7 +31258,7 @@ box2d.b2Rope.prototype.SetAngleRadians = function (angle)
 }
 
 /**
- * @export 
+ * @export
  * @return {void}
  */
 box2d.b2Rope.prototype.SolveC3 = function ()
@@ -31338,8 +31338,8 @@ box2d.b2Rope.s_Jd2 = new box2d.b2Vec2();
 box2d.b2Rope.s_J1 = new box2d.b2Vec2();
 box2d.b2Rope.s_J2 = new box2d.b2Vec2();
 
-/** 
- * @export 
+/**
+ * @export
  * @return {void}
  * @param {box2d.b2Draw} draw
  */
@@ -31376,17 +31376,17 @@ goog.provide('box2d.b2WheelJoint');
 goog.require('box2d.b2Settings');
 goog.require('box2d.b2Math');
 
-/** 
- * Wheel joint definition. This requires defining a line of 
- * motion using an axis and an anchor point. The definition uses 
- * local anchor points and a local axis so that the initial 
- * configuration can violate the constraint slightly. The joint 
- * translation is zero when the local anchor points coincide in 
- * world space. Using local anchors and a local axis helps when 
- * saving and loading a game. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Wheel joint definition. This requires defining a line of
+ * motion using an axis and an anchor point. The definition uses
+ * local anchor points and a local axis so that the initial
+ * configuration can violate the constraint slightly. The joint
+ * translation is zero when the local anchor points coincide in
+ * world space. Using local anchors and a local axis helps when
+ * saving and loading a game.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2WheelJointDef = function ()
 {
@@ -31399,69 +31399,69 @@ box2d.b2WheelJointDef = function ()
 
 goog.inherits(box2d.b2WheelJointDef, box2d.b2JointDef);
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJointDef.prototype.localAnchorA = null;
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJointDef.prototype.localAnchorB = null;
 
-/** 
- * The local translation axis in bodyA. 
- * @export 
+/**
+ * The local translation axis in bodyA.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJointDef.prototype.localAxisA = null;
 
-/** 
- * Enable/disable the joint motor. 
- * @export 
+/**
+ * Enable/disable the joint motor.
+ * @export
  * @type {boolean}
  */
 box2d.b2WheelJointDef.prototype.enableMotor = false;
 
-/** 
- * The maximum motor torque, usually in N-m. 
- * @export 
+/**
+ * The maximum motor torque, usually in N-m.
+ * @export
  * @type {number}
  */
 box2d.b2WheelJointDef.prototype.maxMotorTorque = 0;
 
-/** 
- * The desired motor speed in radians per second. 
- * @export 
+/**
+ * The desired motor speed in radians per second.
+ * @export
  * @type {number}
  */
 box2d.b2WheelJointDef.prototype.motorSpeed = 0;
 
-/** 
- * Suspension frequency, zero indicates no suspension 
- * @export 
+/**
+ * Suspension frequency, zero indicates no suspension
+ * @export
  * @type {number}
  */
 box2d.b2WheelJointDef.prototype.frequencyHz = 2;
 
-/** 
- * Suspension damping ratio, one indicates critical damping 
- * @export 
+/**
+ * Suspension damping ratio, one indicates critical damping
+ * @export
  * @type {number}
  */
 box2d.b2WheelJointDef.prototype.dampingRatio = 0.7;
 
-/** 
- * @export 
- * @return {void} 
- * @param {box2d.b2Body} bA 
- * @param {box2d.b2Body} bB 
- * @param {box2d.b2Vec2} anchor 
- * @param {box2d.b2Vec2} axis 
+/**
+ * @export
+ * @return {void}
+ * @param {box2d.b2Body} bA
+ * @param {box2d.b2Body} bB
+ * @param {box2d.b2Vec2} anchor
+ * @param {box2d.b2Vec2} axis
  */
 box2d.b2WheelJointDef.prototype.Initialize = function (bA, bB, anchor, axis)
 {
@@ -31472,17 +31472,17 @@ box2d.b2WheelJointDef.prototype.Initialize = function (bA, bB, anchor, axis)
 	this.bodyA.GetLocalVector(axis, this.localAxisA);
 }
 
-/** 
- * A wheel joint. This joint provides two degrees of freedom: 
- * translation along an axis fixed in bodyA and rotation in the 
- * plane. You can use a joint limit to restrict the range of 
- * motion and a joint motor to drive the rotation or to model 
- * rotational friction. 
+/**
+ * A wheel joint. This joint provides two degrees of freedom:
+ * translation along an axis fixed in bodyA and rotation in the
+ * plane. You can use a joint limit to restrict the range of
+ * motion and a joint motor to drive the rotation or to model
+ * rotational friction.
  * This joint is designed for vehicle suspensions.
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2WheelJointDef} def 
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2WheelJointDef} def
  */
 box2d.b2WheelJoint = function (def)
 {
@@ -31519,204 +31519,204 @@ box2d.b2WheelJoint = function (def)
 goog.inherits(box2d.b2WheelJoint, box2d.b2Joint);
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_frequencyHz = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_dampingRatio = 0;
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_localAnchorA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_localAnchorB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_localXAxisA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_localYAxisA = null;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_impulse = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_motorImpulse = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_springImpulse = 0;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_maxMotorTorque = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_motorSpeed = 0;
 /**
- * @export 
+ * @export
  * @type {boolean}
  */
 box2d.b2WheelJoint.prototype.m_enableMotor = false;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_invIB = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_ax = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_ay = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_sAx = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_sBx = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_sAy = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_sBy = 0;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_mass = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_motorMass = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_springMass = 0;
 
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_bias = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2WheelJoint.prototype.m_gamma = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2WheelJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2WheelJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_lalcA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_lalcB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2WheelJoint.prototype.m_rB = null;
 
-/** 
- * Get the motor speed, usually in radians per second. 
- * @export 
+/**
+ * Get the motor speed, usually in radians per second.
+ * @export
  * @return {number}
  */
 box2d.b2WheelJoint.prototype.GetMotorSpeed = function ()
@@ -31725,7 +31725,7 @@ box2d.b2WheelJoint.prototype.GetMotorSpeed = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2WheelJoint.prototype.GetMaxMotorTorque = function ()
@@ -31734,8 +31734,8 @@ box2d.b2WheelJoint.prototype.GetMaxMotorTorque = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {number} hz
  */
 box2d.b2WheelJoint.prototype.SetSpringFrequencyHz = function (hz)
@@ -31744,7 +31744,7 @@ box2d.b2WheelJoint.prototype.SetSpringFrequencyHz = function (hz)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2WheelJoint.prototype.GetSpringFrequencyHz = function ()
@@ -31753,8 +31753,8 @@ box2d.b2WheelJoint.prototype.GetSpringFrequencyHz = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {number} ratio
  */
 box2d.b2WheelJoint.prototype.SetSpringDampingRatio = function (ratio)
@@ -31763,7 +31763,7 @@ box2d.b2WheelJoint.prototype.SetSpringDampingRatio = function (ratio)
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2WheelJoint.prototype.GetSpringDampingRatio = function ()
@@ -31772,8 +31772,8 @@ box2d.b2WheelJoint.prototype.GetSpringDampingRatio = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2WheelJoint.prototype.InitVelocityConstraints = function (data)
@@ -31811,8 +31811,8 @@ box2d.b2WheelJoint.prototype.InitVelocityConstraints = function (data)
 	var rB = box2d.b2MulRV(qB, this.m_lalcB, this.m_rB);
 //	box2d.b2Vec2 d = cB + rB - cA - rA;
 	var d = box2d.b2SubVV(
-		box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0), 
-		box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1), 
+		box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0),
+		box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1),
 		box2d.b2WheelJoint.prototype.InitVelocityConstraints.s_d);
 
 	// Point to line constraint
@@ -31908,8 +31908,8 @@ box2d.b2WheelJoint.prototype.InitVelocityConstraints = function (data)
 
 //		box2d.b2Vec2 P = m_impulse * m_ay + m_springImpulse * m_ax;
 		var P = box2d.b2AddVV(
-			box2d.b2MulSV(this.m_impulse, this.m_ay, box2d.b2Vec2.s_t0), 
-			box2d.b2MulSV(this.m_springImpulse, this.m_ax, box2d.b2Vec2.s_t1), 
+			box2d.b2MulSV(this.m_impulse, this.m_ay, box2d.b2Vec2.s_t0),
+			box2d.b2MulSV(this.m_springImpulse, this.m_ax, box2d.b2Vec2.s_t1),
 			box2d.b2WheelJoint.prototype.InitVelocityConstraints.s_P);
 //		float32 LA = m_impulse * m_sAy + m_springImpulse * m_sAx + m_motorImpulse;
 		/*float32*/ var LA = this.m_impulse * this.m_sAy + this.m_springImpulse * this.m_sAx + this.m_motorImpulse;
@@ -31940,8 +31940,8 @@ box2d.b2WheelJoint.prototype.InitVelocityConstraints.s_d = new box2d.b2Vec2();
 box2d.b2WheelJoint.prototype.InitVelocityConstraints.s_P = new box2d.b2Vec2();
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2WheelJoint.prototype.SolveVelocityConstraints = function (data)
@@ -32019,9 +32019,9 @@ box2d.b2WheelJoint.prototype.SolveVelocityConstraints = function (data)
 box2d.b2WheelJoint.prototype.SolveVelocityConstraints.s_P = new box2d.b2Vec2();
 
 /**
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2WheelJoint.prototype.SolvePositionConstraints = function (data)
 {
@@ -32040,8 +32040,8 @@ box2d.b2WheelJoint.prototype.SolvePositionConstraints = function (data)
 	var rB = box2d.b2MulRV(qB, this.m_lalcB, this.m_rB);
 //	box2d.b2Vec2 d = (cB - cA) + rB - rA;
 	var d = box2d.b2AddVV(
-		box2d.b2SubVV(cB, cA, box2d.b2Vec2.s_t0), 
-		box2d.b2SubVV(rB, rA, box2d.b2Vec2.s_t1), 
+		box2d.b2SubVV(cB, cA, box2d.b2Vec2.s_t0),
+		box2d.b2SubVV(rB, rA, box2d.b2Vec2.s_t1),
 		box2d.b2WheelJoint.prototype.SolvePositionConstraints.s_d);
 
 //	box2d.b2Vec2 ay = b2Mul(qA, m_localYAxisA);
@@ -32090,9 +32090,9 @@ box2d.b2WheelJoint.prototype.SolvePositionConstraints.s_d = new box2d.b2Vec2();
 box2d.b2WheelJoint.prototype.SolvePositionConstraints.s_P = new box2d.b2Vec2();
 
 /**
- * @export 
- * @return {box2d.b2WheelJointDef} 
- * @param {box2d.b2WheelJointDef} def 
+ * @export
+ * @return {box2d.b2WheelJointDef}
+ * @param {box2d.b2WheelJointDef} def
  */
 box2d.b2WheelJoint.prototype.GetDefinition = function (def)
 {
@@ -32100,30 +32100,30 @@ box2d.b2WheelJoint.prototype.GetDefinition = function (def)
 	return def;
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2WheelJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetWorldPoint(this.m_localAnchorA, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {box2d.b2Vec2} out 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2WheelJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetWorldPoint(this.m_localAnchorB, out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2WheelJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -32134,42 +32134,42 @@ box2d.b2WheelJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return out;
 }
 
-/** 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2WheelJoint.prototype.GetReactionTorque = function (inv_dt)
 {
 	return inv_dt * this.m_motorImpulse;
 }
 
-/** 
- * The local anchor point relative to bodyA's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyA's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2WheelJoint.prototype.GetLocalAnchorA = function (out) { return out.Copy(this.m_localAnchorA); }
 
-/** 
- * The local anchor point relative to bodyB's origin. 
- * @export 
+/**
+ * The local anchor point relative to bodyB's origin.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2WheelJoint.prototype.GetLocalAnchorB = function (out) { return out.Copy(this.m_localAnchorB); }
 
-/** 
- * The local joint axis relative to bodyA. 
- * @export 
+/**
+ * The local joint axis relative to bodyA.
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2WheelJoint.prototype.GetLocalAxisA = function (out) { return out.Copy(this.m_localXAxisA); }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2WheelJoint.prototype.GetJointTranslation = function ()
@@ -32187,7 +32187,7 @@ box2d.b2WheelJoint.prototype.GetJointTranslation = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {number}
  */
 box2d.b2WheelJoint.prototype.GetJointSpeed = function ()
@@ -32198,7 +32198,7 @@ box2d.b2WheelJoint.prototype.GetJointSpeed = function ()
 }
 
 /**
- * @export 
+ * @export
  * @return {boolean}
  */
 box2d.b2WheelJoint.prototype.IsMotorEnabled = function ()
@@ -32207,8 +32207,8 @@ box2d.b2WheelJoint.prototype.IsMotorEnabled = function ()
 }
 
 /**
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {boolean} flag
  */
 box2d.b2WheelJoint.prototype.EnableMotor = function (flag)
@@ -32218,10 +32218,10 @@ box2d.b2WheelJoint.prototype.EnableMotor = function (flag)
 	this.m_enableMotor = flag;
 }
 
-/** 
- * Set the motor speed, usually in radians per second. 
- * @export 
- * @return {void} 
+/**
+ * Set the motor speed, usually in radians per second.
+ * @export
+ * @return {void}
  * @param {number} speed
  */
 box2d.b2WheelJoint.prototype.SetMotorSpeed = function (speed)
@@ -32231,10 +32231,10 @@ box2d.b2WheelJoint.prototype.SetMotorSpeed = function (speed)
 	this.m_motorSpeed = speed;
 }
 
-/** 
- * Set/Get the maximum motor force, usually in N-m. 
- * @export 
- * @return {void} 
+/**
+ * Set/Get the maximum motor force, usually in N-m.
+ * @export
+ * @return {void}
  * @param {number} force
  */
 box2d.b2WheelJoint.prototype.SetMaxMotorTorque = function (force)
@@ -32244,21 +32244,21 @@ box2d.b2WheelJoint.prototype.SetMaxMotorTorque = function (force)
 	this.m_maxMotorTorque = force;
 }
 
-/** 
- * Get the current motor torque given the inverse time step, 
- * usually in N-m. 
- * @export 
+/**
+ * Get the current motor torque given the inverse time step,
+ * usually in N-m.
+ * @export
  * @return {number}
- * @param {number} inv_dt 
+ * @param {number} inv_dt
  */
 box2d.b2WheelJoint.prototype.GetMotorTorque = function (inv_dt)
 {
 	return inv_dt * this.m_motorImpulse;
 }
 
-/** 
- * Dump to b2Log 
- * @export 
+/**
+ * Dump to b2Log
+ * @export
  * @return {void}
  */
 box2d.b2WheelJoint.prototype.Dump = function ()
@@ -32267,7 +32267,7 @@ box2d.b2WheelJoint.prototype.Dump = function ()
 	{
 		var indexA = this.m_bodyA.m_islandIndex;
 		var indexB = this.m_bodyB.m_islandIndex;
-	
+
 		box2d.b2Log("  /*box2d.b2WheelJointDef*/ var jd = new box2d.b2WheelJointDef();\n");
 		box2d.b2Log("  jd.bodyA = bodies[%d];\n", indexA);
 		box2d.b2Log("  jd.bodyB = bodies[%d];\n", indexB);
@@ -32307,11 +32307,11 @@ goog.provide('box2d.b2MotorJoint');
 goog.require('box2d.b2Settings');
 goog.require('box2d.b2Math');
 
-/** 
- * Motor joint definition. 
- * @export 
- * @constructor 
- * @extends {box2d.b2JointDef} 
+/**
+ * Motor joint definition.
+ * @export
+ * @constructor
+ * @extends {box2d.b2JointDef}
  */
 box2d.b2MotorJointDef = function ()
 {
@@ -32322,47 +32322,47 @@ box2d.b2MotorJointDef = function ()
 
 goog.inherits(box2d.b2MotorJointDef, box2d.b2JointDef);
 
-/** 
- * Position of bodyB minus the position of bodyA, in bodyA's 
- * frame, in meters. 
- * @export 
+/**
+ * Position of bodyB minus the position of bodyA, in bodyA's
+ * frame, in meters.
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MotorJointDef.prototype.linearOffset = null;
 
-/** 
- * The bodyB angle minus bodyA angle in radians. 
- * @export 
+/**
+ * The bodyB angle minus bodyA angle in radians.
+ * @export
  * @type {number}
  */
 box2d.b2MotorJointDef.prototype.angularOffset = 0;
 
-/** 
- * The maximum motor force in N. 
- * @export 
+/**
+ * The maximum motor force in N.
+ * @export
  * @type {number}
  */
 box2d.b2MotorJointDef.prototype.maxForce = 1;
 
-/** 
- * The maximum motor torque in N-m. 
- * @export 
+/**
+ * The maximum motor torque in N-m.
+ * @export
  * @type {number}
  */
 box2d.b2MotorJointDef.prototype.maxTorque = 1;
 
-/** 
- * Position correction factor in the range [0,1]. 
- * @export 
+/**
+ * Position correction factor in the range [0,1].
+ * @export
  * @type {number}
  */
 box2d.b2MotorJointDef.prototype.correctionFactor = 0.3;
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Body} bA 
- * @param {box2d.b2Body} bB 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Body} bA
+ * @param {box2d.b2Body} bB
  */
 box2d.b2MotorJointDef.prototype.Initialize = function (bA, bB)
 {
@@ -32377,14 +32377,14 @@ box2d.b2MotorJointDef.prototype.Initialize = function (bA, bB)
 	this.angularOffset = angleB - angleA;
 }
 
-/** 
- * A motor joint is used to control the relative motion between 
- * two bodies. A typical usage is to control the movement of a 
- * dynamic body with respect to the ground. 
- * @export 
- * @constructor 
- * @extends {box2d.b2Joint} 
- * @param {box2d.b2MotorJointDef} def 
+/**
+ * A motor joint is used to control the relative motion between
+ * two bodies. A typical usage is to control the movement of a
+ * dynamic body with respect to the ground.
+ * @export
+ * @constructor
+ * @extends {box2d.b2Joint}
+ * @param {box2d.b2MotorJointDef} def
  */
 box2d.b2MotorJoint = function (def)
 {
@@ -32412,152 +32412,152 @@ goog.inherits(box2d.b2MotorJoint, box2d.b2Joint);
 
 // Solver shared
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MotorJoint.prototype.m_linearOffset = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_angularOffset = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MotorJoint.prototype.m_linearImpulse = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_angularImpulse = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_maxForce = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_maxTorque = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_correctionFactor = 0.3;
 
 // Solver temp
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_indexA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_indexB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MotorJoint.prototype.m_rA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MotorJoint.prototype.m_rB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MotorJoint.prototype.m_localCenterA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MotorJoint.prototype.m_localCenterB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Vec2}
  */
 box2d.b2MotorJoint.prototype.m_linearError = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_angularError = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_invMassA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_invMassB = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_invIA = 0;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_invIB = 0;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2MotorJoint.prototype.m_linearMass = null;
 /**
- * @export 
+ * @export
  * @type {number}
  */
 box2d.b2MotorJoint.prototype.m_angularMass = 0;
 
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2MotorJoint.prototype.m_qA = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Rot}
  */
 box2d.b2MotorJoint.prototype.m_qB = null;
 /**
- * @export 
+ * @export
  * @type {box2d.b2Mat22}
  */
 box2d.b2MotorJoint.prototype.m_K = null;
 
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2MotorJoint.prototype.GetAnchorA = function (out)
 {
 	return this.m_bodyA.GetPosition(out);
 }
 /**
- * @export 
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2MotorJoint.prototype.GetAnchorB = function (out)
 {
 	return this.m_bodyB.GetPosition(out);
 }
 
-/** 
- * @export 
- * @return {box2d.b2Vec2} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {box2d.b2Vec2}
+ * @param {number} inv_dt
  * @param {box2d.b2Vec2} out
  */
 box2d.b2MotorJoint.prototype.GetReactionForce = function (inv_dt, out)
@@ -32566,10 +32566,10 @@ box2d.b2MotorJoint.prototype.GetReactionForce = function (inv_dt, out)
 	return box2d.b2MulSV(inv_dt, this.m_linearImpulse, out);
 }
 
-/** 
- * @export 
- * @return {number} 
- * @param {number} inv_dt 
+/**
+ * @export
+ * @return {number}
+ * @param {number} inv_dt
  */
 box2d.b2MotorJoint.prototype.GetReactionTorque = function (inv_dt)
 {
@@ -32577,9 +32577,9 @@ box2d.b2MotorJoint.prototype.GetReactionTorque = function (inv_dt)
 }
 
 /**
- * Set the position correction factor in the range [0,1]. 
- * @return {void} 
- * @param {number} factor 
+ * Set the position correction factor in the range [0,1].
+ * @return {void}
+ * @param {number} factor
  */
 box2d.b2MotorJoint.prototype.SetCorrectionFactor = function (factor)
 {
@@ -32588,18 +32588,18 @@ box2d.b2MotorJoint.prototype.SetCorrectionFactor = function (factor)
 }
 
 /**
- * Get the position correction factor in the range [0,1]. 
- * @return {number} 
+ * Get the position correction factor in the range [0,1].
+ * @return {number}
  */
 box2d.b2MotorJoint.prototype.GetCorrectionFactor = function ()
 {
 	return this.m_correctionFactor;
 }
 
-/** 
- * Set/get the target linear offset, in frame A, in meters. 
- * @export 
- * @return {void} 
+/**
+ * Set/get the target linear offset, in frame A, in meters.
+ * @export
+ * @return {void}
  * @param {box2d.b2Vec2} linearOffset
  */
 box2d.b2MotorJoint.prototype.SetLinearOffset = function (linearOffset)
@@ -32611,20 +32611,20 @@ box2d.b2MotorJoint.prototype.SetLinearOffset = function (linearOffset)
 		this.m_linearOffset.Copy(linearOffset);
 	}
 }
-/** 
- * @export 
+/**
+ * @export
  * @return {box2d.b2Vec2}
- * @param {box2d.b2Vec2} out 
+ * @param {box2d.b2Vec2} out
  */
 box2d.b2MotorJoint.prototype.GetLinearOffset = function (out)
 {
 	return out.Copy(this.m_linearOffset);
 }
 
-/** 
- * Set/get the target angular offset, in radians. 
- * @export 
- * @return {void} 
+/**
+ * Set/get the target angular offset, in radians.
+ * @export
+ * @return {void}
  * @param {number} angularOffset
  */
 box2d.b2MotorJoint.prototype.SetAngularOffset = function (angularOffset)
@@ -32636,8 +32636,8 @@ box2d.b2MotorJoint.prototype.SetAngularOffset = function (angularOffset)
 		this.m_angularOffset = angularOffset;
 	}
 }
-/** 
- * @export 
+/**
+ * @export
  * @return {number}
  */
 box2d.b2MotorJoint.prototype.GetAngularOffset = function ()
@@ -32645,10 +32645,10 @@ box2d.b2MotorJoint.prototype.GetAngularOffset = function ()
 	return this.m_angularOffset;
 }
 
-/** 
- * Set the maximum friction force in N. 
- * @export 
- * @return {void} 
+/**
+ * Set the maximum friction force in N.
+ * @export
+ * @return {void}
  * @param {number} force
  */
 box2d.b2MotorJoint.prototype.SetMaxForce = function (force)
@@ -32657,9 +32657,9 @@ box2d.b2MotorJoint.prototype.SetMaxForce = function (force)
 	this.m_maxForce = force;
 }
 
-/** 
- * Get the maximum friction force in N. 
- * @export 
+/**
+ * Get the maximum friction force in N.
+ * @export
  * @return {number}
  */
 box2d.b2MotorJoint.prototype.GetMaxForce = function ()
@@ -32667,10 +32667,10 @@ box2d.b2MotorJoint.prototype.GetMaxForce = function ()
 	return this.m_maxForce;
 }
 
-/** 
- * Set the maximum friction torque in N*m. 
- * @export 
- * @return {void} 
+/**
+ * Set the maximum friction torque in N*m.
+ * @export
+ * @return {void}
  * @param {number} torque
  */
 box2d.b2MotorJoint.prototype.SetMaxTorque = function (torque)
@@ -32679,9 +32679,9 @@ box2d.b2MotorJoint.prototype.SetMaxTorque = function (torque)
 	this.m_maxTorque = torque;
 }
 
-/** 
- * Get the maximum friction torque in N*m. 
- * @export 
+/**
+ * Get the maximum friction torque in N*m.
+ * @export
  * @return {number}
  */
 box2d.b2MotorJoint.prototype.GetMaxTorque = function ()
@@ -32689,9 +32689,9 @@ box2d.b2MotorJoint.prototype.GetMaxTorque = function ()
 	return this.m_maxTorque;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2MotorJoint.prototype.InitVelocityConstraints = function (data)
@@ -32720,7 +32720,7 @@ box2d.b2MotorJoint.prototype.InitVelocityConstraints = function (data)
 	// Compute the effective mass matrix.
 //	this.m_rA = b2Mul(qA, -this.m_localCenterA);
 	var rA = box2d.b2MulRV(qA, box2d.b2NegV(this.m_localCenterA, box2d.b2Vec2.s_t0), this.m_rA);
-//	this.m_rB = b2Mul(qB, -this.m_localCenterB); 
+//	this.m_rB = b2Mul(qB, -this.m_localCenterB);
 	var rB = box2d.b2MulRV(qB, box2d.b2NegV(this.m_localCenterB, box2d.b2Vec2.s_t0), this.m_rB);
 
 	// J = [-I -r1_skew I r2_skew]
@@ -32734,14 +32734,14 @@ box2d.b2MotorJoint.prototype.InitVelocityConstraints = function (data)
 
 	/*float32*/ var mA = this.m_invMassA, mB = this.m_invMassB;
 	/*float32*/ var iA = this.m_invIA, iB = this.m_invIB;
-	 
+
 	/*b2Mat22*/ var K = this.m_K;
 	K.ex.x = mA + mB + iA * rA.y * rA.y + iB * rB.y * rB.y;
 	K.ex.y = -iA * rA.x * rA.y - iB * rB.x * rB.y;
 	K.ey.x = K.ex.y;
 	K.ey.y = mA + mB + iA * rA.x * rA.x + iB * rB.x * rB.x;
 
-//	this.m_linearMass = K.GetInverse(); 
+//	this.m_linearMass = K.GetInverse();
 	K.GetInverse(this.m_linearMass);
 
 	this.m_angularMass = iA + iB;
@@ -32753,12 +32753,12 @@ box2d.b2MotorJoint.prototype.InitVelocityConstraints = function (data)
 //	this.m_linearError = cB + rB - cA - rA - b2Mul(qA, this.m_linearOffset);
 	box2d.b2SubVV(
 		box2d.b2SubVV(
-			box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0), 
-			box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1), 
+			box2d.b2AddVV(cB, rB, box2d.b2Vec2.s_t0),
+			box2d.b2AddVV(cA, rA, box2d.b2Vec2.s_t1),
 			box2d.b2Vec2.s_t2),
-		box2d.b2MulRV(qA, this.m_linearOffset, box2d.b2Vec2.s_t3), 
+		box2d.b2MulRV(qA, this.m_linearOffset, box2d.b2Vec2.s_t3),
 		this.m_linearError);
-	this.m_angularError = aB - aA - this.m_angularOffset; 
+	this.m_angularError = aB - aA - this.m_angularOffset;
 
 	if (data.step.warmStarting)
 	{
@@ -32788,9 +32788,9 @@ box2d.b2MotorJoint.prototype.InitVelocityConstraints = function (data)
 	data.velocities[this.m_indexB].w = wB;
 }
 
-/** 
- * @export 
- * @return {void} 
+/**
+ * @export
+ * @return {void}
  * @param {box2d.b2SolverData} data
  */
 box2d.b2MotorJoint.prototype.SolveVelocityConstraints = function (data)
@@ -32826,12 +32826,12 @@ box2d.b2MotorJoint.prototype.SolveVelocityConstraints = function (data)
 		var rB = this.m_rB;
 
 //		b2Vec2 Cdot = vB + b2CrossSV(wB, rB) - vA - b2CrossSV(wA, rA) + inv_h * this.m_correctionFactor * this.m_linearError;
-		var Cdot = 
+		var Cdot =
 			box2d.b2AddVV(
 				box2d.b2SubVV(
-					box2d.b2AddVV(vB, box2d.b2CrossSV(wB, rB, box2d.b2Vec2.s_t0), box2d.b2Vec2.s_t0), 
-					box2d.b2AddVV(vA, box2d.b2CrossSV(wA, rA, box2d.b2Vec2.s_t1), box2d.b2Vec2.s_t1), box2d.b2Vec2.s_t2), 
-				box2d.b2MulSV(inv_h * this.m_correctionFactor, this.m_linearError, box2d.b2Vec2.s_t3), 
+					box2d.b2AddVV(vB, box2d.b2CrossSV(wB, rB, box2d.b2Vec2.s_t0), box2d.b2Vec2.s_t0),
+					box2d.b2AddVV(vA, box2d.b2CrossSV(wA, rA, box2d.b2Vec2.s_t1), box2d.b2Vec2.s_t1), box2d.b2Vec2.s_t2),
+				box2d.b2MulSV(inv_h * this.m_correctionFactor, this.m_linearError, box2d.b2Vec2.s_t3),
 				box2d.b2MotorJoint.prototype.SolveVelocityConstraints.s_Cdot);
 
 //		b2Vec2 impulse = -b2Mul(this.m_linearMass, Cdot);
@@ -32873,19 +32873,19 @@ box2d.b2MotorJoint.prototype.SolveVelocityConstraints.s_Cdot = new box2d.b2Vec2(
 box2d.b2MotorJoint.prototype.SolveVelocityConstraints.s_impulse = new box2d.b2Vec2();
 box2d.b2MotorJoint.prototype.SolveVelocityConstraints.s_oldImpulse = new box2d.b2Vec2();
 
-/** 
- * @export 
- * @return {boolean} 
- * @param {box2d.b2SolverData} data 
+/**
+ * @export
+ * @return {boolean}
+ * @param {box2d.b2SolverData} data
  */
 box2d.b2MotorJoint.prototype.SolvePositionConstraints = function (data)
 {
 	return true;
 }
 
-/** 
- * Dump to b2Log 
- * @export 
+/**
+ * Dump to b2Log
+ * @export
  * @return {void}
  */
 box2d.b2MotorJoint.prototype.Dump = function ()
@@ -33000,18 +33000,18 @@ goog.require('box2d.b2TensorDampingController');
 * @param {Phaser.Game} game - Reference to the current game instance.
 */
 Phaser.Physics.Box2D = function (game, config) {
-    
+
     /**
     * @property {Phaser.Game} game - Local reference to game.
     */
     this.game = game;
-    
+
     /**
     * @property {number} ptmRatio - Pixels to Meters ratio.
     * @default 50
     */
     this.ptmRatio = 50;
-    
+
     /**
     * @property {box2d.b2World} world - The Box2D world in which the simulation is run.
     * @protected
@@ -33116,7 +33116,7 @@ Phaser.Physics.Box2D = function (game, config) {
     */
     this.mouseJoint = null;
 
-    //  Pixel to meter function overrides. 
+    //  Pixel to meter function overrides.
     if (config.hasOwnProperty('mpx') && config.hasOwnProperty('pxm'))
     {
         this.mpx = config.mpx;
@@ -33308,7 +33308,7 @@ Phaser.Physics.Box2D.prototype = {
         if (typeof bottom === 'undefined') { bottom = true; }
         if (typeof collisionCategory === 'undefined') { collisionCategory = 1; }
         if (typeof collisionMask === 'undefined') { collisionCategory = 0xFFFFFFFF; }
-        
+
         this.setBounds(this.game.world.bounds.x, this.game.world.bounds.y, this.game.world.bounds.width, this.game.world.bounds.height, left, right, top, bottom, collisionCategory, collisionMask);
 
     },
@@ -33357,7 +33357,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             this.removeBody(this.walls.bottom);
         }
-        
+
         // Prepare shape and fixture definitions for use below
         var polygonShape = new box2d.b2PolygonShape();
 
@@ -33371,15 +33371,15 @@ Phaser.Physics.Box2D.prototype = {
         // should somehow get outside the bounds, it will be brought back (provided it
         // didn't get all the way outside the polygon wall as well of course)
         var boundThickness = this.pxm(100);
-        
+
         var bounds = this.game.world.bounds;
 
         if (left)
         {
             this.walls.left = this.createBody(0, 0, 0);
-            
+
             polygonShape.SetAsOrientedBox(boundThickness, this.pxm(bounds.height) + boundThickness, new box2d.b2Vec2(boundThickness, 0), 0);
-            
+
             var f = this.walls.left.data.CreateFixture(fixtureDef);
             f.id = this.getNextFixtureId();
         }
@@ -33387,9 +33387,9 @@ Phaser.Physics.Box2D.prototype = {
         if (right)
         {
             this.walls.right = this.createBody(0, 0, 0);
-            
+
             polygonShape.SetAsOrientedBox(boundThickness, this.pxm(bounds.height) + boundThickness, new box2d.b2Vec2(this.pxm(-bounds.width) - boundThickness, 0), 0);
-            
+
             var f = this.walls.right.data.CreateFixture(fixtureDef);
             f.id = this.getNextFixtureId();
         }
@@ -33399,7 +33399,7 @@ Phaser.Physics.Box2D.prototype = {
             this.walls.top = this.createBody(0, 0, 0);
 
             polygonShape.SetAsOrientedBox(this.pxm(bounds.width) + boundThickness, boundThickness, new box2d.b2Vec2(0, boundThickness), 0);
-    
+
             var f = this.walls.top.data.CreateFixture(fixtureDef);
             f.id = this.getNextFixtureId();
         }
@@ -33409,7 +33409,7 @@ Phaser.Physics.Box2D.prototype = {
             this.walls.bottom = this.createBody(0, 0, 0);
 
             polygonShape.SetAsOrientedBox(this.pxm(bounds.width) + boundThickness, boundThickness, new box2d.b2Vec2(0, this.pxm(-bounds.height) - boundThickness), 0);
-    
+
             var f = this.walls.bottom.data.CreateFixture(fixtureDef);
             f.id = this.getNextFixtureId();
         }
@@ -33426,7 +33426,7 @@ Phaser.Physics.Box2D.prototype = {
         this.paused = true;
 
     },
-    
+
     /**
     * Resumes a paused Box2D world.
     *
@@ -33450,7 +33450,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             return;
         }
-        
+
         if (this.useElapsedTime)
         {
             this.world.Step(this.game.time.physicsElapsed, this.velocityIterations, this.positionIterations);
@@ -33521,7 +33521,7 @@ Phaser.Physics.Box2D.prototype = {
     * @return {Phaser.Physics.P2.Body} The body
     */
     createCircle: function (x, y, radius, offsetX, offsetY) {
-    
+
         var body = this.createBody(x, y, 2);
 
         return body.setCircle(radius, offsetX, offsetY);
@@ -33542,7 +33542,7 @@ Phaser.Physics.Box2D.prototype = {
     * @return {Phaser.Physics.P2.Body} The body
     */
     createRectangle: function (x, y, width, height, offsetX, offsetY, rotation) {
-    
+
         var body = this.createBody(x, y, 2);
 
         return body.setRectangle(width, height, offsetX, offsetY, rotation);
@@ -33561,7 +33561,7 @@ Phaser.Physics.Box2D.prototype = {
     * @return {Phaser.Physics.P2.Body} The body
     */
     createPolygon: function (x, y, vertices, firstIndex, count) {
-    
+
         var body = this.createBody(x, y, 2);
 
         return body.setPolygon(vertices, firstIndex, count);
@@ -33623,7 +33623,7 @@ Phaser.Physics.Box2D.prototype = {
     getBodies: function () {
 
         var output = [];
-        
+
         for (var b = this.world.GetBodyList(); b; b = b.GetNext())
         {
             output.push(b);
@@ -33703,7 +33703,7 @@ Phaser.Physics.Box2D.prototype = {
         return v / this.ptmRatio;
 
     },
-    
+
     /**
     * Runs the standard 'debug draw' rendering. What actually gets drawn will depend
     * on the current status of the flags set in the debug draw object held by the b2World.
@@ -33714,20 +33714,20 @@ Phaser.Physics.Box2D.prototype = {
     * @param {object} context - The context to render to.
     */
     renderDebugDraw: function(context) {
-        
+
         if (!this.game.physics.box2d) {
             return;
         }
-        
+
         var world = this.game.physics.box2d;
-        
+
         world.debugDraw.start(context);
-    
+
         world.world.DrawDebugData();
-        
+
         world.debugDraw.stop();
     },
-    
+
     /**
     * Renders information about the body as text. This is intended to be used internally by Phaser.Utils.Debug.
     * To make use of this from your code you would call something like game.debug.bodyInfo(sprite, x, y)
@@ -33737,12 +33737,12 @@ Phaser.Physics.Box2D.prototype = {
     * @param {Phaser.Physics.Box2D} body - The Body to render the info of.
     */
     renderBodyInfo: function (debug, body) {
-    
+
         debug.line('Position: x: ' + body.x.toFixed(3) + ' y: ' + body.y.toFixed(3));
         debug.line('Rotation: ' + body.rotation.toFixed(3) + ' degrees');
         debug.line('Velocity: x: ' + body.velocity.x.toFixed(3) + ' y: ' + body.velocity.y.toFixed(3));
         debug.line('Angular velocity: ' + body.angularVelocity.toFixed(3) + ' degrees/sec');
-    
+
     },
 
     /**
@@ -33757,14 +33757,14 @@ Phaser.Physics.Box2D.prototype = {
     * @return {Array} All fixtures found at the given point.
     */
     getFixturesAtPoint: function (x, y, onlyOne, onlyDynamic) {
-        
+
         if (typeof onlyOne === 'undefined') { onlyOne = false; }
         if (typeof onlyDynamic === 'undefined') { onlyDynamic = false; }
-        
+
         var worldx = this.pxm(-x);
         var worldy = this.pxm(-y);
         var worldPoint = new box2d.b2Vec2(worldx, worldy);
-        
+
         // Make a small box.
         var aabb = new box2d.b2AABB();
         var d = new box2d.b2Vec2();
@@ -33784,18 +33784,18 @@ Phaser.Physics.Box2D.prototype = {
             {
                 return true;
             }
-         
+
             if (fixture.TestPoint(worldPoint))
             {
                 hitFixtures.push(fixture);
                 return !onlyOne;
             }
-         
+
             return true;
         };
 
         this.world.QueryAABB(callback, aabb);
-        
+
         return hitFixtures;
 
     },
@@ -33812,33 +33812,33 @@ Phaser.Physics.Box2D.prototype = {
     * @return {Array} All bodies that have fixtures at the given point.
     */
     getBodiesAtPoint: function (x, y, onlyOne, onlyDynamic) {
-        
+
         if (typeof onlyOne === 'undefined') { onlyOne = false; }
         if (typeof onlyDynamic === 'undefined') { onlyDynamic = false; }
-        
+
         var fixtures = this.getFixturesAtPoint(x, y, onlyOne, onlyDynamic);
-        
+
         if (fixtures.length < 1)
         {
             return fixtures;
         }
-        
+
         var bodies = [];
 
         for (var i = 0; i < fixtures.length; i++)
         {
             bodies.push(fixtures[i].GetBody().parent);
         }
-        
+
         // http://stackoverflow.com/questions/9229645/remove-duplicates-from-javascript-array/9229821
         bodies.filter(function(elem, pos) {
             return bodies.indexOf(elem) === pos;
         });
-        
+
         return bodies;
 
-    },    
-    
+    },
+
     /**
     * If there is a dynamic body under the given point, a mouse joint will be created
     * to drag that body around. Use the mouseDragMove and mouseDragEnd functions to
@@ -33848,19 +33848,19 @@ Phaser.Physics.Box2D.prototype = {
     * @param {Phaser.Point} point - The location for the drag start (pixel coordinates)
     */
     mouseDragStart: function (point) {
-        
+
         this.mouseDragEnd();
-        
+
         var fixturesAtPoint = this.getFixturesAtPoint(point.x, point.y, true, true);
-        
+
         if ( fixturesAtPoint.length < 1 ) {
             return;
         }
-        
+
         var worldx = this.pxm(-point.x);
         var worldy = this.pxm(-point.y);
         var worldPoint = new box2d.b2Vec2(worldx, worldy);
-        
+
         var jd = new box2d.b2MouseJointDef();
         jd.bodyA = this.mouseJointBody;
         jd.bodyB = fixturesAtPoint[0].GetBody();
@@ -33869,7 +33869,7 @@ Phaser.Physics.Box2D.prototype = {
         this.mouseJoint = this.world.CreateJoint(jd);
         jd.bodyB.SetAwake(true);
     },
-    
+
     /**
     * Updates the target location of the active mouse joint, if there is one. If there
     * is no mouse joint active, this does nothing.
@@ -33883,15 +33883,15 @@ Phaser.Physics.Box2D.prototype = {
         {
             return;
         }
-        
+
         var worldx = this.pxm(-point.x);
         var worldy = this.pxm(-point.y);
         var worldPoint = new box2d.b2Vec2(worldx, worldy);
-    
+
         this.mouseJoint.SetTarget(worldPoint);
-    
+
     },
-    
+
     /**
     * Ends the active mouse joint if there is one. If there is no mouse joint active, does nothing.
     *
@@ -33904,9 +33904,9 @@ Phaser.Physics.Box2D.prototype = {
             this.world.DestroyJoint(this.mouseJoint);
             this.mouseJoint = null;
         }
-    
+
     },
-    
+
     /**
     * Creates a distance joint.
     *
@@ -33923,19 +33923,19 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2DistanceJoint} The created joint.
     */
     distanceJoint: function (bodyA, bodyB, length, ax, ay, bx, by, frequency, damping) {
-        
+
         if ( typeof ax === 'undefined' ) { ax = 0; }
         if ( typeof ay === 'undefined' ) { ay = 0; }
         if ( typeof bx === 'undefined' ) { bx = 0; }
-        if ( typeof by === 'undefined' ) { by = 0; }        
+        if ( typeof by === 'undefined' ) { by = 0; }
         if ( typeof frequency === 'undefined' ) { frequency = 0; }
         if ( typeof damping === 'undefined' ) { damping = 0; }
-        
+
         ax = this.pxm(-ax);
         ay = this.pxm(-ay);
         bx = this.pxm(-bx);
-        by = this.pxm(-by);        
-        
+        by = this.pxm(-by);
+
         // Could be a sprite
         if (bodyA['body'])
         {
@@ -33946,7 +33946,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             bodyB = bodyB['body'];
         }
-        
+
         var jd = new box2d.b2DistanceJointDef();
 
         jd.bodyA = bodyA.data;
@@ -33954,7 +33954,7 @@ Phaser.Physics.Box2D.prototype = {
 
         jd.localAnchorA.SetXY( ax, ay );
         jd.localAnchorB.SetXY( bx, by );
-        
+
         if (length === null || typeof length === 'undefined')
         {
             // Set length to current
@@ -33971,15 +33971,15 @@ Phaser.Physics.Box2D.prototype = {
         {
             length = this.pxm(length);
         }
-        
+
         jd.length = length;
         jd.frequencyHz = frequency;
         jd.dampingRatio = damping;
-        
+
         return this.world.CreateJoint(jd);
 
     },
-    
+
     /**
     * Creates a rope joint.
     *
@@ -33994,17 +33994,17 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2RopeJoint} The created joint.
     */
     ropeJoint: function (bodyA, bodyB, length, ax, ay, bx, by) {
-        
+
         if ( typeof ax === 'undefined' ) { ax = 0; }
         if ( typeof ay === 'undefined' ) { ay = 0; }
         if ( typeof bx === 'undefined' ) { bx = 0; }
         if ( typeof by === 'undefined' ) { by = 0; }
-        
+
         ax = this.pxm(-ax);
         ay = this.pxm(-ay);
         bx = this.pxm(-bx);
-        by = this.pxm(-by);        
-        
+        by = this.pxm(-by);
+
         // Could be a sprite
         if (bodyA['body'])
         {
@@ -34015,7 +34015,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             bodyB = bodyB['body'];
         }
-        
+
         var jd = new box2d.b2RopeJointDef();
 
         jd.bodyA = bodyA.data;
@@ -34023,7 +34023,7 @@ Phaser.Physics.Box2D.prototype = {
 
         jd.localAnchorA.SetXY( ax, ay );
         jd.localAnchorB.SetXY( bx, by );
-        
+
         if (length === null || typeof length === 'undefined')
         {
             // Set length to current
@@ -34040,13 +34040,13 @@ Phaser.Physics.Box2D.prototype = {
         {
             length = this.pxm(length);
         }
-        
+
         jd.maxLength = length;
-        
+
         return this.world.CreateJoint(jd);
 
     },
-    
+
     /**
     * Creates a revolute joint.
     *
@@ -34066,7 +34066,7 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2RevoluteJoint} The created joint.
     */
     revoluteJoint: function (bodyA, bodyB, ax, ay, bx, by, motorSpeed, motorTorque, motorEnabled, lowerLimit, upperLimit, limitEnabled) {
-        
+
         if ( typeof ax === 'undefined' ) { ax = 0; }
         if ( typeof ay === 'undefined' ) { ay = 0; }
         if ( typeof bx === 'undefined' ) { bx = 0; }
@@ -34077,12 +34077,12 @@ Phaser.Physics.Box2D.prototype = {
         if ( typeof lowerLimit === 'undefined' ) { lowerLimit = 0; }
         if ( typeof upperLimit === 'undefined' ) { upperLimit = 0; }
         if ( typeof limitEnabled === 'undefined' ) { limitEnabled = false; }
-        
+
         ax = this.pxm(-ax);
         ay = this.pxm(-ay);
         bx = this.pxm(-bx);
-        by = this.pxm(-by);        
-        
+        by = this.pxm(-by);
+
         // Could be a sprite
         if (bodyA['body'])
         {
@@ -34093,7 +34093,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             bodyB = bodyB['body'];
         }
-        
+
         var jd = new box2d.b2RevoluteJointDef();
 
         jd.bodyA = bodyA.data;
@@ -34101,18 +34101,18 @@ Phaser.Physics.Box2D.prototype = {
 
         jd.localAnchorA.SetXY( ax, ay );
         jd.localAnchorB.SetXY( bx, by );
-        
+
         jd.motorSpeed = Phaser.Math.degToRad(-motorSpeed);
         jd.maxMotorTorque = motorTorque;
         jd.enableMotor = motorEnabled;
         jd.lowerAngle = Phaser.Math.degToRad(lowerLimit);
         jd.upperAngle = Phaser.Math.degToRad(upperLimit);
         jd.enableLimit = limitEnabled;
-        
+
         return this.world.CreateJoint(jd);
 
     },
-    
+
     /**
     * Creates a prismatic joint.
     *
@@ -34135,7 +34135,7 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2PrismaticJoint} The created joint.
     */
     prismaticJoint: function (bodyA, bodyB, axisX, axisY, ax, ay, bx, by, motorSpeed, motorForce, motorEnabled, lowerLimit, upperLimit, limitEnabled, offsetAngle) {
-        
+
         if ( typeof axisX === 'undefined' ) { axisX = 1; }
         if ( typeof axisY === 'undefined' ) { axisY = 0; }
         if ( typeof ax === 'undefined' ) { ax = 0; }
@@ -34149,21 +34149,21 @@ Phaser.Physics.Box2D.prototype = {
         if ( typeof limitEnabled === 'undefined' ) { limitEnabled = false; }
         if ( typeof motorEnabled === 'undefined' ) { motorEnabled = false; }
         if ( typeof offsetAngle === 'undefined' ) { offsetAngle = 0; }
-        
+
         // Axis is only for direction, so don't need pxm conversion
         axisX *= -1;
         axisY *= -1;
-        
+
         ax = this.pxm(-ax);
         ay = this.pxm(-ay);
         bx = this.pxm(-bx);
         by = this.pxm(-by);
-        
+
         // These are relative to axis, which has been converted already, so only do size change
         motorSpeed = this.pxm(motorSpeed);
         lowerLimit = this.pxm(lowerLimit);
         upperLimit = this.pxm(upperLimit);
-        
+
         // Could be a sprite
         if (bodyA['body'])
         {
@@ -34174,7 +34174,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             bodyB = bodyB['body'];
         }
-        
+
         var jd = new box2d.b2PrismaticJointDef();
 
         jd.bodyA = bodyA.data;
@@ -34183,7 +34183,7 @@ Phaser.Physics.Box2D.prototype = {
         jd.localAxisA.SetXY( axisX, axisY );
         jd.localAnchorA.SetXY( ax, ay );
         jd.localAnchorB.SetXY( bx, by );
-        
+
         jd.motorSpeed = motorSpeed;
         jd.maxMotorForce = motorForce;
         jd.enableMotor = motorEnabled;
@@ -34191,11 +34191,11 @@ Phaser.Physics.Box2D.prototype = {
         jd.upperTranslation = upperLimit;
         jd.enableLimit = limitEnabled;
         jd.referenceAngle = Phaser.Math.degToRad(-offsetAngle);
-        
+
         return this.world.CreateJoint(jd);
 
     },
-    
+
     /**
     * Creates a friction joint.
     *
@@ -34211,19 +34211,19 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2FrictionJoint} The created joint.
     */
     frictionJoint: function (bodyA, bodyB, maxForce, maxTorque, ax, ay, bx, by) {
-        
+
         if ( typeof ax === 'undefined' ) { ax = 0; }
         if ( typeof ay === 'undefined' ) { ay = 0; }
         if ( typeof bx === 'undefined' ) { bx = 0; }
         if ( typeof by === 'undefined' ) { by = 0; }
         if ( typeof maxForce === 'undefined' ) { maxForce = 0; }
         if ( typeof maxTorque === 'undefined' ) { maxTorque = 0; }
-        
+
         ax = this.pxm(-ax);
         ay = this.pxm(-ay);
         bx = this.pxm(-bx);
         by = this.pxm(-by);
-        
+
         // Could be a sprite
         if (bodyA['body'])
         {
@@ -34234,7 +34234,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             bodyB = bodyB['body'];
         }
-        
+
         var jd = new box2d.b2FrictionJointDef();
 
         jd.bodyA = bodyA.data;
@@ -34242,14 +34242,14 @@ Phaser.Physics.Box2D.prototype = {
 
         jd.localAnchorA.SetXY( ax, ay );
         jd.localAnchorB.SetXY( bx, by );
-        
+
         jd.maxForce = maxForce;
         jd.maxTorque = maxTorque;
-        
+
         return this.world.CreateJoint(jd);
 
     },
-    
+
     /**
     * Creates a weld joint.
     *
@@ -34265,19 +34265,19 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2WeldJoint} The created joint.
     */
     weldJoint: function (bodyA, bodyB, ax, ay, bx, by, frequency, damping) {
-        
+
         if ( typeof ax === 'undefined' ) { ax = 0; }
         if ( typeof ay === 'undefined' ) { ay = 0; }
         if ( typeof bx === 'undefined' ) { bx = 0; }
         if ( typeof by === 'undefined' ) { by = 0; }
         if ( typeof frequency === 'undefined' ) { frequency = 0; }
         if ( typeof damping === 'undefined' ) { damping = 0; }
-        
+
         ax = this.pxm(-ax);
         ay = this.pxm(-ay);
         bx = this.pxm(-bx);
         by = this.pxm(-by);
-        
+
         // Could be a sprite
         if (bodyA['body'])
         {
@@ -34288,7 +34288,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             bodyB = bodyB['body'];
         }
-        
+
         var jd = new box2d.b2WeldJointDef();
 
         jd.bodyA = bodyA.data;
@@ -34296,14 +34296,14 @@ Phaser.Physics.Box2D.prototype = {
 
         jd.localAnchorA.SetXY( ax, ay );
         jd.localAnchorB.SetXY( bx, by );
-        
+
         jd.frequencyHz = frequency;
         jd.dampingRatio = damping;
-        
+
         return this.world.CreateJoint(jd);
 
     },
-    
+
     /**
     * Creates a motor joint.
     *
@@ -34319,17 +34319,17 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2MotorJoint} The created joint.
     */
     motorJoint: function (bodyA, bodyB, maxForce, maxTorque, correctionFactor, offsetX, offsetY, offsetAngle) {
-        
+
         if ( typeof offsetX === 'undefined' ) { offsetX = 0; }
         if ( typeof offsetY === 'undefined' ) { offsetY = 0; }
         if ( typeof offsetAngle === 'undefined' ) { offsetAngle = 0; }
         if ( typeof maxForce === 'undefined' ) { maxForce = 0; }
         if ( typeof maxTorque === 'undefined' ) { maxTorque = 0; }
         if ( typeof correctionFactor === 'undefined' ) { correctionFactor = 1; }
-        
+
         offsetX = this.pxm(-offsetX);
         offsetY = this.pxm(-offsetY);
-        
+
         // Could be a sprite
         if (bodyA['body'])
         {
@@ -34340,22 +34340,22 @@ Phaser.Physics.Box2D.prototype = {
         {
             bodyB = bodyB['body'];
         }
-        
+
         var jd = new box2d.b2MotorJointDef();
 
         jd.bodyA = bodyA.data;
         jd.bodyB = bodyB.data;
         jd.linearOffset.SetXY( offsetX, offsetY );
-        
+
         jd.maxForce = maxForce;
         jd.maxTorque = maxTorque;
         jd.angularOffset = Phaser.Math.degToRad(-offsetAngle);
         jd.correctionFactor = correctionFactor;
-        
+
         return this.world.CreateJoint(jd);
 
     },
-    
+
     /**
     * Creates a wheel joint.
     *
@@ -34376,7 +34376,7 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2WheelJoint} The created joint.
     */
     wheelJoint: function (bodyA, bodyB, ax, ay, bx, by, axisX, axisY, frequency, damping, motorSpeed, motorTorque, motorEnabled) {
-        
+
         if ( typeof axisX === 'undefined' ) { axisX = 0; }
         if ( typeof axisY === 'undefined' ) { axisY = 1; }
         if ( typeof ax === 'undefined' ) { ax = 0; }
@@ -34388,11 +34388,11 @@ Phaser.Physics.Box2D.prototype = {
         if ( typeof motorEnabled === 'undefined' ) { motorEnabled = false; }
         if ( typeof frequency === 'undefined' ) { frequency = 0; }
         if ( typeof damping === 'undefined' ) { damping = 0; }
-                
+
         // Axis is only for direction, so don't need pxm conversion
         axisX *= -1;
         axisY *= -1;
-        
+
         ax = this.pxm(-ax);
         ay = this.pxm(-ay);
         bx = this.pxm(-bx);
@@ -34408,7 +34408,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             bodyB = bodyB['body'];
         }
-        
+
         var jd = new box2d.b2WheelJointDef();
 
         jd.bodyA = bodyA.data;
@@ -34417,7 +34417,7 @@ Phaser.Physics.Box2D.prototype = {
         jd.localAxisA.SetXY( axisX, axisY );
         jd.localAnchorA.SetXY( ax, ay );
         jd.localAnchorB.SetXY( bx, by );
-        
+
         jd.motorSpeed = Phaser.Math.degToRad(-motorSpeed);
         jd.maxMotorTorque = motorTorque;
         jd.enableMotor = motorEnabled;
@@ -34427,7 +34427,7 @@ Phaser.Physics.Box2D.prototype = {
         return this.world.CreateJoint(jd);
 
     },
-    
+
     /**
     * Creates a pulley joint.
     *
@@ -34448,7 +34448,7 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2PulleyJoint} The created joint.
     */
     pulleyJoint: function (bodyA, bodyB, ax, ay, bx, by, gax, gay, gbx, gby, ratio, lengthA, lengthB) {
-        
+
         if ( typeof ax === 'undefined' ) { ax = 0; }
         if ( typeof ay === 'undefined' ) { ay = 0; }
         if ( typeof bx === 'undefined' ) { bx = 0; }
@@ -34460,7 +34460,7 @@ Phaser.Physics.Box2D.prototype = {
         if ( typeof ratio === 'undefined' ) { ratio = 1; }
         if ( typeof lengthA === 'undefined' ) { lengthA = 100; }
         if ( typeof lengthB === 'undefined' ) { lengthB = 100; }
-        
+
         ax = this.pxm(-ax);
         ay = this.pxm(-ay);
         bx = this.pxm(-bx);
@@ -34471,7 +34471,7 @@ Phaser.Physics.Box2D.prototype = {
         gby = this.pxm(-gby);
         lengthA = this.pxm(lengthA);
         lengthB = this.pxm(lengthB);
-                
+
         // Could be a sprite
         if (bodyA['body'])
         {
@@ -34482,7 +34482,7 @@ Phaser.Physics.Box2D.prototype = {
         {
             bodyB = bodyB['body'];
         }
-        
+
         var jd = new box2d.b2PulleyJointDef();
 
         jd.bodyA = bodyA.data;
@@ -34492,15 +34492,15 @@ Phaser.Physics.Box2D.prototype = {
         jd.localAnchorB.SetXY( bx, by );
         jd.groundAnchorA.SetXY( gax, gay );
         jd.groundAnchorB.SetXY( gbx, gby );
-        
+
         jd.lengthA = lengthA;
         jd.lengthB = lengthB;
         jd.ratio = ratio;
-        
+
         return this.world.CreateJoint(jd);
 
     },
-    
+
     /**
     * Creates a gear joint.
     *
@@ -34511,9 +34511,9 @@ Phaser.Physics.Box2D.prototype = {
     * @return {box2d.b2PulleyJoint} The created joint.
     */
     gearJoint: function (joint1, joint2, ratio) {
-        
+
         if ( typeof ratio === 'undefined' ) { ratio = 1; }
-        
+
         var jd = new box2d.b2GearJointDef();
         jd.joint1 = joint1;
         jd.joint2 = joint2;
@@ -34521,7 +34521,7 @@ Phaser.Physics.Box2D.prototype = {
 
         jd.bodyA = joint1.GetBodyA();
         jd.bodyB = joint2.GetBodyB();
-        
+
         return this.world.CreateJoint(jd);
 
     },
@@ -34636,7 +34636,7 @@ Phaser.Physics.Box2D.prototype = {
         return map.layers[layer].bodies;
 
     },
-    
+
     /**
     * Casts a ray and finds intersecting fixtures in the world.
     *
@@ -34650,10 +34650,10 @@ Phaser.Physics.Box2D.prototype = {
     * @return {Array} array of hits, as objects with body, fixture, point and normal properties. Eg. [ {body,fixture,point:{x,y},normal:{x,y}}, {body,fixture,point:{x,y},normal:{x,y}} ]
     */
     raycast: function (x1, y1, x2, y2, closestHitOnly, filterFunction) {
-        
+
         if ( typeof closestHitOnly === 'undefined' ) { closestHitOnly = true; }
         if ( typeof filterFunction === 'undefined' ) { filterFunction = null; }
-        
+
         x1 = this.pxm(-x1);
         y1 = this.pxm(-y1);
         x2 = this.pxm(-x2);
@@ -34661,12 +34661,12 @@ Phaser.Physics.Box2D.prototype = {
 
         var point1 = new box2d.b2Vec2(x1, y1);
         var point2 = new box2d.b2Vec2(x2, y2);
-        
+
         var output = [];
-                
+
         var callback = new Phaser.Physics.Box2D.RayCastCallback(this, closestHitOnly, filterFunction);
         this.world.RayCast(callback, point1, point2);
-        
+
         // Need to convert coordinates of hit points to pixels before returning
         for (var i = 0; i < callback.hits.length; i++ )
         {
@@ -34675,11 +34675,11 @@ Phaser.Physics.Box2D.prototype = {
             hit.normal = { x: -hit.normal.x, y: -hit.normal.y };
             output.push(hit);
         }
-        
+
         return output;
 
     },
-    
+
     /**
     * Finds all fixtures with AABBs overlapping the given area. This does NOT mean
     * that the fixtures themselves are actually overlapping the given area.
@@ -34692,23 +34692,23 @@ Phaser.Physics.Box2D.prototype = {
     * @return {Array} array of hits, as objects with body and fixture properties. Eg. [ {body,fixture}, {body,fixture} ]
     */
     queryAABB: function (x, y, width, height) {
-                
+
         x = this.pxm(-x);
         y = this.pxm(-y);
         width = this.pxm(width);
         height = this.pxm(height);
-        
+
         var aabb = new box2d.b2AABB();
         aabb.lowerBound.SetXY( x - width, y - height );
         aabb.upperBound.SetXY( x, y );
-        
+
         var callback = new Phaser.Physics.Box2D.QueryCallback(this);
         this.world.QueryAABB(callback, aabb);
-        
+
         return callback.hits;
 
     },
-    
+
     /**
     * Finds all fixtures that overlap the given fixture.
     *
@@ -34717,10 +34717,10 @@ Phaser.Physics.Box2D.prototype = {
     * @return {Array} array of hits, as objects with body and fixture properties. Eg. [ {body,fixture}, {body,fixture} ]
     */
     queryFixture: function (fixture) {
-                
+
         var callback = new Phaser.Physics.Box2D.QueryCallback(this);
         this.world.QueryShape(callback, fixture.GetShape(), fixture.GetBody().GetTransform());
-        
+
         return callback.hits;
 
     }
@@ -34740,19 +34740,19 @@ Phaser.Physics.Box2D.RayCastCallback = function(world, closestHitOnly, filterFun
 {
     this.world = world;
     this.closestHitOnly = closestHitOnly;
-    this.filterFunction = filterFunction;    
+    this.filterFunction = filterFunction;
     this.hits = [];
 };
 
 /**
  * Internally used callback function for raycasting. Checks each reported fixture as it is discovered,
  * to see which should be ignored and which should be used.
- * 
- * @param {box2d.b2Fixture} fixture 
- * @param {box2d.b2Vec2} point 
- * @param {box2d.b2Vec2} normal 
- * @param {number} fraction 
- * @return {number} 
+ *
+ * @param {box2d.b2Fixture} fixture
+ * @param {box2d.b2Vec2} point
+ * @param {box2d.b2Vec2} normal
+ * @param {number} fraction
+ * @return {number}
  */
 Phaser.Physics.Box2D.RayCastCallback.prototype.ReportFixture = function (fixture, point, normal, fraction)
 {
@@ -34768,21 +34768,21 @@ Phaser.Physics.Box2D.RayCastCallback.prototype.ReportFixture = function (fixture
             return -1;
         }
     }
-    
+
     // If we are looking for the closest hit, we will have returned 'fraction' from any previously
     // reported hits to clip the ray length, so we know this hit is closer than what we already had.
     if (this.closestHitOnly)
     {
         this.hits = [];
     }
-    
+
     var hit = {};
     hit.body = fixture.GetBody().parent;
     hit.fixture = fixture;
     hit.point = { x: point.x, y: point.y };
     hit.normal = { x: normal.x, y: normal.y };
     this.hits.push(hit);
-    
+
     if (this.closestHitOnly)
     {
         return fraction;
@@ -34803,24 +34803,24 @@ Phaser.Physics.Box2D.RayCastCallback.prototype.ReportFixture = function (fixture
  */
 Phaser.Physics.Box2D.QueryCallback = function(world)
 {
-    this.world = world;  
+    this.world = world;
     this.hits = [];
 };
 
 /**
  * Internally used callback function for raycasting. Checks each reported fixture as it is discovered,
  * to see which should be ignored and which should be used.
- * 
+ *
  * @param {box2d.b2Fixture} fixture
- * @return {number} 
+ * @return {number}
  */
 Phaser.Physics.Box2D.QueryCallback.prototype.ReportFixture = function (fixture)
-{    
+{
     var hit = {};
     hit.body = fixture.GetBody().parent;
     hit.fixture = fixture;
     this.hits.push(hit);
-    
+
     return true;
 };
 
@@ -34841,17 +34841,17 @@ Phaser.Physics.Box2D.renderBody = function(context, body, color, filled) {
     {
         filled = true;
     }
-    
+
     var world = body.game.physics.box2d;
     var b = body.data;
     var xf = b.GetTransform();
-    
+
     world.debugDraw.start(context);
-    
+
     world.debugDraw.PushTransform(xf);
-    
+
     var rgbcolor = Phaser.Color.webToColor(color);
-        
+
     var b2color = world.debugDraw.color;
     b2color.r = rgbcolor.r / 255;
     b2color.g = rgbcolor.g / 255;
@@ -34863,7 +34863,7 @@ Phaser.Physics.Box2D.renderBody = function(context, body, color, filled) {
     }
 
     world.debugDraw.PopTransform();
-    
+
     world.debugDraw.stop();
 
 };
@@ -35081,7 +35081,7 @@ Phaser.Physics.Box2D.Body = function (game, sprite, x, y, density, world) {
     * @private
     */
     this._categoryPostsolveCallbackContext = {};
-    
+
     //  Set-up the default shape
     if (sprite)
     {
@@ -35093,7 +35093,7 @@ Phaser.Physics.Box2D.Body = function (game, sprite, x, y, density, world) {
 Phaser.Physics.Box2D.Body.prototype = {
 
     /**
-    * Sets a callback to be fired any time a fixture in this Body begins or ends contact with a fixture in the given Body. 
+    * Sets a callback to be fired any time a fixture in this Body begins or ends contact with a fixture in the given Body.
     * The callback will be sent 6 parameters:
     *     this body
     *     the body that was contacted
@@ -35203,7 +35203,7 @@ Phaser.Physics.Box2D.Body.prototype = {
         }
 
     },
-    
+
     /**
     * Sets a callback to be fired when PreSolve is done for contacts between a fixture in this body and a fixture in the given Body.
     * The callback will be sent 6 parameters:
@@ -35315,7 +35315,7 @@ Phaser.Physics.Box2D.Body.prototype = {
         }
 
     },
-    
+
     /**
     * Sets a callback to be fired when PostSolve is done for contacts between a fixture in this body and a fixture in the given Body.
     * The callback will be sent 6 parameters:
@@ -35482,8 +35482,8 @@ Phaser.Physics.Box2D.Body.prototype = {
     * Apply force at the center of mass. This will not cause any rotation.
     *
     * @method Phaser.Physics.Box2D.Body#applyForce
-    * @param {number} x - 
-    * @param {number} y - 
+    * @param {number} x -
+    * @param {number} y -
     */
     applyForce: function (x, y) {
 
@@ -35533,13 +35533,13 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @param {box2d.b2Vec2} worldPoint - The input world point.
     */
     toLocalPoint: function (out, worldPoint) {
-    
+
         out.x = this.world.pxm(-worldPoint.x);
         out.y = this.world.pxm(-worldPoint.y);
-        this.data.GetLocalPoint(out, out);        
+        this.data.GetLocalPoint(out, out);
         out.x = this.world.mpx(-out.x);
         out.y = this.world.mpx(-out.y);
-        
+
         return out;
 
     },
@@ -35555,7 +35555,7 @@ Phaser.Physics.Box2D.Body.prototype = {
 
         out.x = this.world.pxm(-localPoint.x);
         out.y = this.world.pxm(-localPoint.y);
-        this.data.GetWorldPoint(out, out);        
+        this.data.GetWorldPoint(out, out);
         out.x = this.world.mpx(-out.x);
         out.y = this.world.mpx(-out.y);
 
@@ -35573,10 +35573,10 @@ Phaser.Physics.Box2D.Body.prototype = {
 
         out.x = this.world.pxm(-worldVector.x);
         out.y = this.world.pxm(-worldVector.y);
-        this.data.GetLocalVector(out, out);        
+        this.data.GetLocalVector(out, out);
         out.x = this.world.mpx(-out.x);
         out.y = this.world.mpx(-out.y);
-        
+
         return out;
 
     },
@@ -35592,7 +35592,7 @@ Phaser.Physics.Box2D.Body.prototype = {
 
         out.x = this.world.pxm(-localVector.x);
         out.y = this.world.pxm(-localVector.y);
-        this.data.GetWorldVector(out, out);        
+        this.data.GetWorldVector(out, out);
         out.x = this.world.mpx(-out.x);
         out.y = this.world.mpx(-out.y);
 
@@ -35635,7 +35635,7 @@ Phaser.Physics.Box2D.Body.prototype = {
         var direction = new box2d.b2Vec2();
         this.toWorldVector(direction, {x:0,y:magnitude});
         this.data.SetLinearVelocity(direction);
-        
+
     },
 
     /**
@@ -35661,14 +35661,14 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @param {number} power - The magnitude of the thrust force.
     */
     thrust: function (power) {
-    
-        // Magnitude should be multiplied by the mass of the body, so that user  
+
+        // Magnitude should be multiplied by the mass of the body, so that user
         // will see the same results regardless of the size of the sprite.
         var magnitude = this.world.pxm(power) * this.data.GetMass();
-        
+
         var force = new box2d.b2Vec2();
         this.toWorldVector(force, {x:0,y:magnitude});
-        
+
         this.data.ApplyForce( force, this.data.GetWorldCenter(), true );
 
     },
@@ -35680,14 +35680,14 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @param {number} power - The magnitude of the thrust force.
     */
     reverse: function (power) {
-    
-        // Magnitude should be multiplied by the mass of the body, so that user  
+
+        // Magnitude should be multiplied by the mass of the body, so that user
         // will see the same results regardless of the size of the sprite.
         var magnitude = -this.world.pxm(power) * this.data.GetMass();
-        
+
         var force = new box2d.b2Vec2();
         this.toWorldVector(force, {x:0,y:magnitude});
-        
+
         this.data.ApplyForce( force, this.data.GetWorldCenter(), true );
 
     },
@@ -35770,7 +35770,7 @@ Phaser.Physics.Box2D.Body.prototype = {
 
         if (this.sprite) {
             this.sprite.x = this.world.mpx(-this.data.GetPosition().x);
-            this.sprite.y = this.world.mpx(-this.data.GetPosition().y);        
+            this.sprite.y = this.world.mpx(-this.data.GetPosition().y);
             this.sprite.rotation = this.data.GetAngle();
         }
 
@@ -35901,8 +35901,8 @@ Phaser.Physics.Box2D.Body.prototype = {
         if (typeof height === 'undefined') { height = 16; }
         if (typeof offsetX === 'undefined') { offsetX = 0; }
         if (typeof offsetY === 'undefined') { offsetY = 0; }
-        if (typeof rotation === 'undefined') { rotation = 0; }   
-    
+        if (typeof rotation === 'undefined') { rotation = 0; }
+
         width = this.world.pxm(width);
         height = this.world.pxm(height);
 
@@ -35963,10 +35963,10 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @return {box2d.b2Fixture} The fixture that was added to the Body.
     */
     addChain: function (vertices, firstIndex, count, loop) {
-    
+
         if (typeof vertices === 'undefined') { return null; }
         if (vertices.length < 4) { return null; }
-    
+
         if (typeof firstIndex === 'undefined') { firstIndex = 0; }
         if (typeof count === 'undefined') { count = (vertices.length - firstIndex) / 2; }
 
@@ -36005,9 +36005,9 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @return {box2d.b2Fixture} The fixture that was added to the Body.
     */
     addLoop: function (vertices, firstIndex, count) {
-        
+
         return this.addChain(vertices, firstIndex, count, true);
-        
+
     },
 
     /**
@@ -36020,10 +36020,10 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @return {box2d.b2Fixture} The last fixture that was added to the Body.
     */
     addPolygon: function (vertices, firstIndex, count) {
-    
+
         if (typeof vertices === 'undefined') { return null; }
         if (vertices.length < 6) { return null; } // need at least three vertices
-    
+
         if (typeof firstIndex === 'undefined') { firstIndex = 0; }
         if (typeof count === 'undefined') { count = (vertices.length - firstIndex) / 2; }
 
@@ -36031,24 +36031,24 @@ Phaser.Physics.Box2D.Body.prototype = {
         for (var i = firstIndex; i < (firstIndex+count); i++) {
             b2Vertices.push( { x: this.world.pxm(-vertices[2*i]), y: this.world.pxm(-vertices[2*i+1]) } );
         }
-        
+
         var poly = new Phaser.Physics.Box2D.Polygon();
         poly.setFromXYObjects(b2Vertices);
         var convexPolygons = poly.decompose(b2Vertices);
-        
+
         var lastFixture = null;
-        
+
         for (var i = 0; i < convexPolygons.length; i++)
         {
             var polygonShape = new box2d.b2PolygonShape();
             polygonShape.Set( convexPolygons[i], convexPolygons[i].length );
-    
+
             var fixtureDef = new box2d.b2FixtureDef();
             fixtureDef.shape = polygonShape;
             fixtureDef.friction = this.world.friction;
             fixtureDef.restitution = this.world.restitution;
             fixtureDef.density = this.world.density;
-    
+
             lastFixture = this.data.CreateFixture(fixtureDef);
             lastFixture.id = this.world.getNextFixtureId();
         }
@@ -36068,7 +36068,7 @@ Phaser.Physics.Box2D.Body.prototype = {
         if ( fixture.GetBody() != this.data ) {
             return false;
         }
-    
+
         this.data.DestroyFixture(fixture);
 
         return true;
@@ -36084,11 +36084,11 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @return {box2d.b2Fixture} The fixture that was added to the Body.
     */
     setCircle: function (radius, offsetX, offsetY) {
-    
+
         if (typeof radius === 'undefined') { radius = 32; }
         if (typeof offsetX === 'undefined') { offsetX = 0; }
         if (typeof offsetY === 'undefined') { offsetY = 0; }
-    
+
         this.clearFixtures();
 
         return this.addCircle(radius, offsetX, offsetY);
@@ -36145,13 +36145,13 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @return {box2d.b2Fixture} The fixture that was added to the Body.
     */
     setEdge: function (x1, y1, x2, y2) {
-    
+
         if (typeof x1 === 'undefined') { x1 = 0; }
         if (typeof y1 === 'undefined') { y1 = 0; }
         if (typeof x2 === 'undefined') { x2 = 0; }
         if (typeof y2 === 'undefined') { y2 = 0; }
-    
-        this.clearFixtures();        
+
+        this.clearFixtures();
 
         return this.addEdge(x1, y1, x2, y2);
 
@@ -36168,13 +36168,13 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @return {box2d.b2Fixture} The fixture that was added to the Body.
     */
     setChain: function (vertices, firstIndex, count, loop) {
-    
+
         if (typeof vertices === 'undefined') { return null; }
         if (vertices.length < 4) { return null; }
-    
+
         if (typeof firstIndex === 'undefined') { firstIndex = 0; }
         if (typeof count === 'undefined') { count = (vertices.length - firstIndex) / 2; }
-    
+
         this.clearFixtures();
 
         return this.addChain(vertices, firstIndex, count, loop);
@@ -36191,9 +36191,9 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @return {box2d.b2Fixture} The fixture that was added to the Body.
     */
     setLoop: function (vertices, firstIndex, count) {
-        
+
         return this.setChain(vertices, firstIndex, count, true);
-        
+
     },
 
     /**
@@ -36206,13 +36206,13 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @return {box2d.b2Fixture} The fixture that was added to the Body.
     */
     setPolygon: function (vertices, firstIndex, count) {
-    
+
         if (typeof vertices === 'undefined') { return null; }
         if (vertices.length < 4) { return null; }
-    
+
         if (typeof firstIndex === 'undefined') { firstIndex = 0; }
         if (typeof count === 'undefined') { count = (vertices.length - firstIndex) / 2; }
-    
+
         this.clearFixtures();
 
         return this.addPolygon(vertices, firstIndex, count);
@@ -36230,7 +36230,7 @@ Phaser.Physics.Box2D.Body.prototype = {
     loadPolygon: function (key, object, sprite) {
 
         if (typeof sprite === 'undefined') { sprite = null; }
-    
+
         var data = this.game.cache.getPhysicsData(key, object);
 
         for (var i = 0; i < data.length; i++)
@@ -36253,7 +36253,7 @@ Phaser.Physics.Box2D.Body.prototype = {
 
             var polygonShape = new box2d.b2PolygonShape();
             polygonShape.Set(vertices, vertices.length);
-    
+
             var fixtureDef = new box2d.b2FixtureDef();
             fixtureDef.shape = polygonShape;
             fixtureDef.friction = data[i].friction;
@@ -36280,11 +36280,11 @@ Phaser.Physics.Box2D.Body.prototype = {
     * @return {boolean} True on success, else false.
     */
     containsPoint: function (point) {
-        
+
         var worldx = this.world.pxm(-point.x);
         var worldy = this.world.pxm(-point.y);
         var worldPoint = new box2d.b2Vec2(worldx, worldy);
-        
+
         for (var f = this.data.GetFixtureList(); f; f = f.GetNext())
         {
             if (f.TestPoint(worldPoint))
@@ -36292,7 +36292,7 @@ Phaser.Physics.Box2D.Body.prototype = {
                 return true;
             }
         }
-        
+
         return false;
 
     }
@@ -36518,7 +36518,7 @@ Object.defineProperty(Phaser.Physics.Box2D.Body.prototype, "friction", {
     get: function () {
 
         var fixture = this.data.GetFixtureList();
-        
+
         if (fixture) {
             return fixture.GetFriction();
         }
@@ -36549,7 +36549,7 @@ Object.defineProperty(Phaser.Physics.Box2D.Body.prototype, "restitution", {
     get: function () {
 
         var fixture = this.data.GetFixtureList();
-        
+
         if (fixture) {
             return fixture.GetRestitution();
         }
@@ -36580,7 +36580,7 @@ Object.defineProperty(Phaser.Physics.Box2D.Body.prototype, "sensor", {
     get: function () {
 
         var fixture = this.data.GetFixtureList();
-        
+
         if (fixture) {
             return fixture.IsSensor();
         }
@@ -36635,34 +36635,34 @@ Object.defineProperty(Phaser.Physics.Box2D.Body.prototype, "mass", {
     },
 
     set: function (value) {
-        
+
         if (value === 0) {
             this.data.SetType(box2d.b2BodyType.b2_staticBody);
         }
         else {
-            
+
             // Make sure the body is dynamic, before giving it a non-zero mass.
             if (this.data.GetType() !== box2d.b2BodyType.b2_dynamicBody) {
-                
+
                 this.data.SetType(box2d.b2BodyType.b2_dynamicBody);
-                
+
             }
-        
+
             // Mass is determined by (area * density) of attached fixtures.
             // We need to find the current mass and scale the density of all
             // fixtures so that the overall mass matches the desired mass.
-            
+
             var oldMass = this.data.GetMass();
             var scaleby = value / oldMass;
-    
+
             for (var f = this.data.GetFixtureList(); f; f = f.GetNext()) {
                 var oldDensity = f.GetDensity();
                 f.SetDensity(oldDensity * scaleby);
             }
-            
+
             // Make sure the new fixture densities take effect in the body
             this.data.ResetMassData();
-        
+
         }
 
     }
@@ -36753,7 +36753,7 @@ Object.defineProperty(Phaser.Physics.Box2D.Body.prototype, "collideWorldBounds",
                 return true;
             }
         }
-        
+
         return false;
 
     },
@@ -36820,7 +36820,7 @@ Object.defineProperty(Phaser.Physics.Box2D.PointProxy.prototype, "x", {
     },
 
     set: function (value) {
-        
+
         var v = this.gettor.call(this.object);
         v.x = this.world.pxm(-value);
         this.settor.call(this.object, v);
@@ -36876,7 +36876,7 @@ Object.defineProperty(Phaser.Physics.Box2D.PointProxy.prototype, "y", {
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-/** 
+/**
  * This class implements debug drawing callbacks
  * @constructor
  * @param {number} pixelsPerMeter
@@ -36893,7 +36893,7 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.color = new box2d.b2Color(1, 1, 
 /**
  * Sets which aspects of the world to render
  *
- * @export 
+ * @export
  * @return {void}
  * @param {number} flags - a bitflag made from one or more of the following:
  *     box2d.b2DrawFlags = { e_none, e_shapeBit, e_jointBit, e_aabbBit, e_pairBit, e_centerOfMassBit, e_all }
@@ -36906,7 +36906,7 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.SetFlags = function (flags)
 /**
  * Gets which aspects of the world are currently set to be rendered
  *
- * @export 
+ * @export
  * @return {number} - the flags currently set
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.GetFlags = function ()
@@ -36917,8 +36917,8 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.GetFlags = function ()
 /**
  * Sets the canvas context to use in subsequent rendering and applies overall transform.
  *
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  * @param {CanvasRenderingContext2D} context
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.start = function (context)
@@ -36932,8 +36932,8 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.start = function (context)
 /**
  * Resets transform state to original
  *
- * @export 
- * @return {void} 
+ * @export
+ * @return {void}
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.stop = function ()
 {
@@ -36941,9 +36941,9 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.stop = function ()
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Transform} xf 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Transform} xf
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.PushTransform = function (xf)
 {
@@ -36954,9 +36954,9 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.PushTransform = function (xf)
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Transform} xf 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Transform} xf
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.PopTransform = function ()
 {
@@ -36965,11 +36965,11 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.PopTransform = function ()
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {Array.<box2d.b2Vec2>} vertices 
- * @param {number} vertexCount 
- * @param {box2d.b2Color} color 
+ * @export
+ * @return {void}
+ * @param {Array.<box2d.b2Vec2>} vertices
+ * @param {number} vertexCount
+ * @param {box2d.b2Color} color
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawPolygon = function (vertices, vertexCount, color)
 {
@@ -36979,7 +36979,7 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawPolygon = function (vertices
     }
 
     var ctx = this.context;
-    
+
     ctx.lineWidth = 1 / this.pixelsPerMeter;
 
     ctx.beginPath();
@@ -36996,11 +36996,11 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawPolygon = function (vertices
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {Array.<box2d.b2Vec2>} vertices 
- * @param {number} vertexCount 
- * @param {box2d.b2Color} color 
+ * @export
+ * @return {void}
+ * @param {Array.<box2d.b2Vec2>} vertices
+ * @param {number} vertexCount
+ * @param {box2d.b2Color} color
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawSolidPolygon = function (vertices, vertexCount, color)
 {
@@ -37010,7 +37010,7 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawSolidPolygon = function (ver
     }
 
     var ctx = this.context;
-    
+
     ctx.lineWidth = 1 / this.pixelsPerMeter;
 
     ctx.beginPath();
@@ -37029,11 +37029,11 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawSolidPolygon = function (ver
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Vec2} center 
- * @param {number} radius 
- * @param {box2d.b2Color} color 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Vec2} center
+ * @param {number} radius
+ * @param {box2d.b2Color} color
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawCircle = function (center, radius, color)
 {
@@ -37051,12 +37051,12 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawCircle = function (center, r
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Vec2} center 
- * @param {number} radius 
- * @param {box2d.b2Vec2} axis 
- * @param {box2d.b2Color} color 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Vec2} center
+ * @param {number} radius
+ * @param {box2d.b2Vec2} axis
+ * @param {box2d.b2Color} color
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawSolidCircle = function (center, radius, axis, color)
 {
@@ -37066,7 +37066,7 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawSolidCircle = function (cent
     }
 
     var ctx = this.context;
-    
+
     ctx.lineWidth = 1 / this.pixelsPerMeter;
 
     var cx = center.x;
@@ -37082,16 +37082,16 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawSolidCircle = function (cent
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Vec2} p1 
- * @param {box2d.b2Vec2} p2 
- * @param {box2d.b2Color} color 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Vec2} p1
+ * @param {box2d.b2Vec2} p2
+ * @param {box2d.b2Color} color
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawSegment = function (p1, p2, color)
 {
     var ctx = this.context;
-    
+
     ctx.lineWidth = 1 / this.pixelsPerMeter;
 
     ctx.beginPath();
@@ -37102,14 +37102,14 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawSegment = function (p1, p2, 
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Transform} xf 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Transform} xf
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawTransform = function (xf)
 {
     var ctx = this.context;
-    
+
     ctx.lineWidth = 1 / this.pixelsPerMeter;
 
     this.PushTransform(xf);
@@ -37130,11 +37130,11 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawTransform = function (xf)
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2Vec2} p 
- * @param {number} size 
- * @param {box2d.b2Color} color 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Vec2} p
+ * @param {number} size
+ * @param {box2d.b2Color} color
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawPoint = function (p, size, color)
 {
@@ -37148,10 +37148,10 @@ Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawPoint = function (p, size, c
 };
 
 /**
- * @export 
- * @return {void} 
- * @param {box2d.b2AABB} aabb 
- * @param {box2d.b2Color} color 
+ * @export
+ * @return {void}
+ * @param {box2d.b2AABB} aabb
+ * @param {box2d.b2Color} color
  */
 Phaser.Physics.Box2D.DefaultDebugDraw.prototype.DrawAABB = function (aabb, color)
 {
@@ -37307,7 +37307,7 @@ Object.defineProperty(Phaser.Physics.Box2D.DefaultDebugDraw.prototype, "centerOf
 * @license      {@link http://choosealicense.com/licenses/no-license/|No License}
 */
 
-/** 
+/**
  * This class implements a contact listener. The default behaviour is to check if the two bodies
  * that contacted had a callback set up by one of the following:
  *     Phaser.Physics.Box2D.Body.createBodyContactCallback
@@ -37319,34 +37319,34 @@ Phaser.Physics.Box2D.DefaultContactListener = function ()
 {
 };
 
-/** 
- * Called when two fixtures begin to touch. 
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
+/**
+ * Called when two fixtures begin to touch.
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
  */
 Phaser.Physics.Box2D.DefaultContactListener.prototype.BeginContact = function (contact)
 {
     this.handleContactBeginOrEnd(contact, true);
 };
 
-/** 
+/**
  * Called when two fixtures cease touching.
- * @export 
- * @return {void} 
- * @param {box2d.b2Contact} contact 
+ * @export
+ * @return {void}
+ * @param {box2d.b2Contact} contact
  */
 Phaser.Physics.Box2D.DefaultContactListener.prototype.EndContact = function (contact)
 {
     this.handleContactBeginOrEnd(contact, false);
 };
 
-/** 
+/**
  * Common code for begin and end contacts.
- * @export 
- * @param {box2d.b2Contact} contact 
- * @param {boolean} begin - true for a begin, false for an end 
- * @return {void} 
+ * @export
+ * @param {box2d.b2Contact} contact
+ * @param {boolean} begin - true for a begin, false for an end
+ * @return {void}
  */
 Phaser.Physics.Box2D.DefaultContactListener.prototype.handleContactBeginOrEnd = function (contact, begin)
 {
@@ -37360,7 +37360,7 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.handleContactBeginOrEnd = 
     var pB = bB.parent;
     var idA = pA.id;
     var idB = pB.id;
-    
+
     // Check body callbacks
     if (pA._bodyContactCallbacks[idB])
     {
@@ -37370,8 +37370,8 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.handleContactBeginOrEnd = 
     if (pB._bodyContactCallbacks[idA])
     {
         pB._bodyContactCallbacks[idA].call(pB._bodyContactCallbackContext[idA], pB, pA, fB, fA, begin, contact);
-    }   
-        
+    }
+
     // Check fixture callbacks
     if (pA._fixtureContactCallbacks[fB.id])
     {
@@ -37381,8 +37381,8 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.handleContactBeginOrEnd = 
     if (pB._fixtureContactCallbacks[fA.id])
     {
         pB._fixtureContactCallbacks[fA.id].call(pB._fixtureContactCallbackContext[fA.id], pB, pA, fB, fA, begin, contact);
-    }   
-        
+    }
+
     if (pA._fixtureContactCallbacks[fA.id])
     {
         pA._fixtureContactCallbacks[fA.id].call(pA._fixtureContactCallbackContext[fA.id], pA, pA, fA, fA, begin, contact);
@@ -37392,7 +37392,7 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.handleContactBeginOrEnd = 
     {
         pB._fixtureContactCallbacks[fB.id].call(pB._fixtureContactCallbackContext[fB.id], pB, pB, fB, fB, begin, contact);
     }
-    
+
     // Check group callbacks
     if (pA._categoryContactCallbacks[catB])
     {
@@ -37403,7 +37403,7 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.handleContactBeginOrEnd = 
     {
         pB._categoryContactCallbacks[catA].call(pB._categoryContactCallbackContext[catA], pB, pA, fB, fA, begin, contact);
     }
-    
+
     if (pA._categoryContactCallbacks[catA])
     {
         pA._categoryContactCallbacks[catA].call(pA._categoryContactCallbackContext[catA], pA, pA, fA, fA, begin, contact);
@@ -37416,15 +37416,15 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.handleContactBeginOrEnd = 
 
 };
 
-/** 
- * This is called after a contact is updated. This allows you to 
- * inspect a contact before it goes to the solver. If you are 
- * careful, you can modify the contact manifold (e.g. disable 
- * contact). 
- * @export 
- * @param {box2d.b2Contact} contact 
- * @param {box2d.b2Manifold} oldManifold 
- * @return {void} 
+/**
+ * This is called after a contact is updated. This allows you to
+ * inspect a contact before it goes to the solver. If you are
+ * careful, you can modify the contact manifold (e.g. disable
+ * contact).
+ * @export
+ * @param {box2d.b2Contact} contact
+ * @param {box2d.b2Manifold} oldManifold
+ * @return {void}
  */
 Phaser.Physics.Box2D.DefaultContactListener.prototype.PreSolve = function (contact, oldManifold)
 {
@@ -37448,8 +37448,8 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.PreSolve = function (conta
     if (pB._bodyPresolveCallbacks[idA])
     {
         pB._bodyPresolveCallbacks[idA].call(pB._bodyPresolveCallbackContext[idA], pB, pA, fB, fA, contact, oldManifold);
-    }   
-        
+    }
+
     // Check fixture callbacks
     if (pA._fixturePresolveCallbacks[fB.id])
     {
@@ -37460,7 +37460,7 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.PreSolve = function (conta
     {
         pB._fixturePresolveCallbacks[fA.id].call(pB._fixturePresolveCallbackContext[fA.id], pB, pA, fB, fA, contact, oldManifold);
     }
-    
+
     // Check group callbacks
     if (pA._categoryPresolveCallbacks[catB])
     {
@@ -37474,12 +37474,12 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.PreSolve = function (conta
 
 };
 
-/** 
- * This lets you inspect a contact after the solver is finished. 
- * @export 
+/**
+ * This lets you inspect a contact after the solver is finished.
+ * @export
  * @param {box2d.b2Contact} contact
  * @param {box2d.b2ContactImpulse} impulse
- * @return {void} 
+ * @return {void}
  */
 Phaser.Physics.Box2D.DefaultContactListener.prototype.PostSolve = function (contact, impulse)
 {
@@ -37503,8 +37503,8 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.PostSolve = function (cont
     if (pB._bodyPostsolveCallbacks[idA])
     {
         pB._bodyPostsolveCallbacks[idA].call(pB._bodyPostsolveCallbackContext[idA], pB, pA, fB, fA, contact, impulse);
-    }   
-        
+    }
+
     // Check fixture callbacks
     if (pA._fixturePostsolveCallbacks[fB.id])
     {
@@ -37515,7 +37515,7 @@ Phaser.Physics.Box2D.DefaultContactListener.prototype.PostSolve = function (cont
     {
         pB._fixturePostsolveCallbacks[fA.id].call(pB._fixturePostsolveCallbackContext[fA.id], pB, pA, fB, fA, contact, impulse);
     }
-    
+
     // Check group callbacks
     if (pA._categoryPostsolveCallbacks[catB])
     {
@@ -37562,7 +37562,7 @@ Phaser.Physics.Box2D.Polygon.prototype.setFromFlatXYCoords = function(flatXYCoor
 
 /**
  * Sets the vertices of this polygon from an array of xy objects, eg [ {x, y}, {x, y}, {x, y}, ...]
- * @param {Array} xyObjects - 
+ * @param {Array} xyObjects -
  */
 Phaser.Physics.Box2D.Polygon.prototype.setFromXYObjects = function(xyObjects) {
     this.vertices = xyObjects.concat();
@@ -37597,12 +37597,12 @@ Phaser.Physics.Box2D.Polygon.prototype.indicesAreAdjacent = function (a, b) {
 
     a = a % this.vertices.length;
     b = b % this.vertices.length;
-    
+
     if ( a == b ) { return true; }
     var diff = Math.abs(a-b);
     if ( diff < 2 ) { return true; }
     if ( diff == this.vertices.length-1 ) { return true; }
-    
+
     return false;
 };
 
@@ -37629,7 +37629,7 @@ Phaser.Physics.Box2D.Polygon.prototype.areaInTriangle = function (a, b, c) {
  * the outline in counter-clockwise order. Polygon must be made CCW first!
  * @return {boolean} True if outline turns left at the given vertex
  */
-Phaser.Physics.Box2D.Polygon.prototype.left = function(a, b, c) {    
+Phaser.Physics.Box2D.Polygon.prototype.left = function(a, b, c) {
 
     return this.areaInTriangle(a, b, c) > 0;
 
@@ -37688,7 +37688,7 @@ Phaser.Physics.Box2D.Polygon.sqdist = function(a, b) {
  * @return {boolean} true if the polygon winding was reversed
  */
 Phaser.Physics.Box2D.Polygon.prototype.makeCCW = function() {
-    
+
     // Find bottom right point
     var br = 0;
 
@@ -37706,7 +37706,7 @@ Phaser.Physics.Box2D.Polygon.prototype.makeCCW = function() {
         this.vertices.reverse();
         return true;
     }
-    
+
     return false;
 
 };
@@ -37716,10 +37716,10 @@ Phaser.Physics.Box2D.Polygon.prototype.makeCCW = function() {
  * @return {boolean} True if the polygon is convex.
  */
 Phaser.Physics.Box2D.Polygon.prototype.isConvex = function () {
-    
+
     var havePositive = false;
     var haveNegative = false;
-    
+
     for (var i = 0, len = this.vertices.length; i < len; i++)
     {
         var i0 = i;
@@ -37837,12 +37837,12 @@ Phaser.Physics.Box2D.Polygon.prototype.canSee = function (a, b) {
     {
         return false;
     }
-        
+
     if (this.leftOn(a + 1, a, b) && this.rightOn(a - 1, a, b))
     {
         return false;
     }
-    
+
     for (var i = 0; i < this.vertices.length; ++i)
     {
         // for each edge
@@ -37850,10 +37850,10 @@ Phaser.Physics.Box2D.Polygon.prototype.canSee = function (a, b) {
         {
             // ignore incident edges
             continue;
-        } 
+        }
 
         if (this.leftOn(a, b, i + 1) && this.rightOn(a, b, i))
-        { 
+        {
             // if diag intersects an edge
             if (Phaser.Physics.Box2D.Polygon.linesCross(this.at(a), this.at(b), this.at(i), this.at(i + 1)))
             {
@@ -37863,7 +37863,7 @@ Phaser.Physics.Box2D.Polygon.prototype.canSee = function (a, b) {
     }
 
     return true;
-    
+
 };
 
 /** Copies a subset of the vertices of this polygon to make a new one. Start and end points will be included.
@@ -37897,7 +37897,7 @@ Phaser.Physics.Box2D.Polygon.prototype.subPolygon = function (i, j) {
             p.addVertex( this.at(n) );
         }
     }
-    
+
     return p;
 
 };
@@ -37913,18 +37913,18 @@ Phaser.Physics.Box2D.Polygon.prototype.subPolygon = function (i, j) {
 Phaser.Physics.Box2D.Polygon.prototype.decomposeOptimal = function (level) {
 
     if (typeof level === 'undefined') { level = 0; }
-    
+
     if (level > 1)
     {
         return this.vertices;
     }
-        
+
     this.makeCCW();
-      
+
     var min = [];
     var tmp1 = [];
-    var tmp2 = [];    
-    
+    var tmp2 = [];
+
     var nDiags = Number.MAX_VALUE;
 
     for (var i = 0; i < this.vertices.length; i++)
@@ -37936,7 +37936,7 @@ Phaser.Physics.Box2D.Polygon.prototype.decomposeOptimal = function (level) {
                 if (this.canSee(i, j))
                 {
                     tmp1 = this.subPolygon(i, j).decompose(level+1);
-                    tmp2 = this.subPolygon(j, i).decompose(level+1);                    
+                    tmp2 = this.subPolygon(j, i).decompose(level+1);
 
                     if (tmp1.length + tmp2.length < nDiags)
                     {
@@ -37947,12 +37947,12 @@ Phaser.Physics.Box2D.Polygon.prototype.decomposeOptimal = function (level) {
             }
         }
     }
-    
+
     if (min.length === 0)
     {
         min.push(this.vertices);
     }
-    
+
     return min;
 
 };
@@ -37964,16 +37964,16 @@ Phaser.Physics.Box2D.Polygon.prototype.decomposeOptimal = function (level) {
 Phaser.Physics.Box2D.Polygon.prototype.decompose = function (level) {
 
     if (typeof level === 'undefined') { level = 0; }
-    
+
     this.makeCCW();
-      
+
     var min = [];
-    
+
     var bestDivision = Number.MAX_VALUE;
     var bestI;
     var bestJ;
     var foundReflex = false;
-    
+
     for (var i = 0; i < this.vertices.length; i++)
     {
         if (this.isReflex(i))
@@ -38000,7 +38000,7 @@ Phaser.Physics.Box2D.Polygon.prototype.decompose = function (level) {
             }
         }
     }
-    
+
     // Specific to Box2D, force to 8 vertices or less
     if (!foundReflex && this.vertices.length > 8 )
     {
@@ -38008,19 +38008,19 @@ Phaser.Physics.Box2D.Polygon.prototype.decompose = function (level) {
         bestJ = Math.floor(this.vertices.length / 2);
         foundReflex = true;
     }
-    
+
     if (foundReflex)
     {
         var tmp1 = this.subPolygon(bestI, bestJ).decompose(level+1);
-        var tmp2 = this.subPolygon(bestJ, bestI).decompose(level+1);        
+        var tmp2 = this.subPolygon(bestJ, bestI).decompose(level+1);
         min = tmp1.concat(tmp2);
     }
-    
+
     if (min.length === 0)
     {
         min.push(this.vertices);
     }
-    
+
     return min;
 
 };

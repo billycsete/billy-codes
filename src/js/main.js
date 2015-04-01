@@ -2,6 +2,13 @@
 'use strict';
 
 var $ = require('../../bower_components/jquery/dist/jquery');
+var Menu = require('./Menu');
+
+// Initialize Menu
+var $menuButton = $('#menu-button');
+var $menuElement = $('#menu');
+var menu = new Menu( $menuElement, $menuButton );
+
 
 // Create new Phaser game canvas
 var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'codes', { create: create, update: update });

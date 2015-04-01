@@ -73,6 +73,19 @@ module.exports = function( grunt ) {
       }
     },
 
+    // JS Hint
+    jshint: {
+      files: ['gruntfile.js'],
+      options: {
+        // options here to override JSHint defaults
+        globals: {
+          jQuery: true,
+          console: true
+        },
+        globalstrict: true
+      }
+    },
+
     // Copy
     copy: {
       main: {
@@ -90,8 +103,8 @@ module.exports = function( grunt ) {
     // Watch
     watch: {
       js : {
-        files: ['<%= jshint.files %>'],
-        tasks: ['concat', 'browserify', 'uglify']
+        files: ['src/js/**/*.js'],
+        tasks: ['js']
       },
       css: {
         files: ['src/scss/**/*.scss', 'src/scss/*.scss'],
@@ -117,7 +130,7 @@ module.exports = function( grunt ) {
 
   // Tasks
   grunt.registerTask('css', ['sass', 'autoprefixer']);
-  grunt.registerTask('js', ['browserify', 'concat', 'uglify']);
+  grunt.registerTask('js', ['jshint', 'browserify', 'concat', 'uglify']);
   grunt.registerTask('default', ['clean:dist', 'css', 'js', 'copy']);
 
 };

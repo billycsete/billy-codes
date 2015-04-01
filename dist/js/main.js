@@ -9209,7 +9209,62 @@ return jQuery;
 /*jslint node: true */
 'use strict';
 
+var $     = require('../../bower_components/jquery/dist/jquery');
+
+var proto;
+
+/**
+ * Menu
+ * @constructor
+ */
+var Menu = function( menuElement, menuButton ) {
+	this.$documentBody = $('body');
+	this.$menuElement = menuElement;
+	this.$menuButton = menuButton;
+
+	this._attachEvents();
+};
+
+proto = Menu.prototype;
+
+
+/**
+ * Show an error message
+ * @param {string} message - message to be displayed
+ */
+proto.open = function () {
+	this.$documentBody.addClass('open-menu');
+};
+
+proto.close = function () {
+	this.$documentBody.removeClass('open-menu');
+};
+
+proto.toggle = function () {
+	console.log('toggle!');
+	this.$documentBody.toggleClass('open-menu');
+};
+
+
+proto._attachEvents = function () {
+	this.$menuButton.on( 'click', this.toggle.bind(this) );
+};
+
+
+module.exports = Menu;
+
+},{"../../bower_components/jquery/dist/jquery":1}],3:[function(require,module,exports){
+/*jslint node: true */
+'use strict';
+
 var $ = require('../../bower_components/jquery/dist/jquery');
+var Menu = require('./Menu');
+
+// Initialize Menu
+var $menuButton = $('#menu-button');
+var $menuElement = $('#menu');
+var menu = new Menu( $menuElement, $menuButton );
+
 
 // Create new Phaser game canvas
 var game = new Phaser.Game('100%', '100%', Phaser.AUTO, 'codes', { create: create, update: update });
@@ -9368,4 +9423,4 @@ function mouseDragEnd() {
 	game.physics.box2d.mouseDragEnd();
 }
 
-},{"../../bower_components/jquery/dist/jquery":1}]},{},[2]);
+},{"../../bower_components/jquery/dist/jquery":1,"./Menu":2}]},{},[3]);

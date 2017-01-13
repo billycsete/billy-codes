@@ -50,6 +50,11 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
+# Built Files #
+###########
+dist
+built
+
 # Libs #
 ###########
 bower_components

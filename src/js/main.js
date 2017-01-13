@@ -1,13 +1,10 @@
 /*jslint node: true */
 'use strict';
 
-var $ = require('../../bower_components/jquery/dist/jquery');
-var Menu = require('./Menu');
-
-// Initialize Menu
-var $menuButton = $('#menu-button');
-var $menuElement = $('#menu');
-var menu = new Menu( $menuElement, $menuButton );
+// window.PIXI = require('phaser/build/custom/pixi');
+// window.p2 = require('phaser/build/custom/p2');
+// window.box2d = require('./box2d-plugin-full');
+// window.Phaser = require('phaser/build/custom/phaser-split');
 
 
 // Create new Phaser game canvas

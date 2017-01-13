@@ -19,30 +19,3 @@ html {
 html *, body * {
 	box-sizing: border-box; // 2
 }
-
-// =================================================
-// Colors
-// =================================================
-
-$white:      #fff;
-$white-grey: #f5f5f5;
-$dark-grey:  #888;
-$black:      #444;
-
-
-// =================================================
-// Breakpoints
-// =================================================
-
-$small: new-breakpoint(min-width 480px 4);
-$medium: new-breakpoint(min-width 760px 6);
-$large: new-breakpoint(min-width 1200px 12);
-
-
-// =================================================
-// Bourbon Grid Settings
-// =================================================
-
-$column: 90px;
-$gutter: 30px;
-$grid-columns: 12;

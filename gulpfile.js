@@ -57,7 +57,7 @@ gulp.task('js', function () {
 
 // Copy HTML to built directory
 gulp.task('copy', function() {
-	gulp.src('src/*.html').pipe(gulp.dest('built/'));
+	gulp.src('src/html/**/*.html').pipe(gulp.dest('built/'));
 	gulp.src('src/libs/*').pipe(gulp.dest('built/libs/'));
 });
 
@@ -76,7 +76,7 @@ gulp.task('default', ['clean'], function() {
 
 // Watch files for changes
 gulp.task('watch', function() {
-	gulp.watch('src/**/*.html', ['copy']);
+	gulp.watch('src/html/**/*.html', ['copy']);
 	// Watch .scss files
 	gulp.watch('src/scss/**/*.scss', ['css']);
 	// Watch .js files

@@ -1,0 +1,111 @@
+// =================================================
+// billy.codes/for/... pages
+// =================================================
+
+// =================================================
+// Shared
+// =================================================
+
+@import 'shared/normalize';
+
+
+// =================================================
+// Mixins
+// =================================================
+
+@mixin color-list-items($start-color: 200, $number-of-items: 10) {
+
+	$hue-rotation: 90 / $number-of-items;
+
+	@for $i from 0 through $number-of-items {
+		.list-item:nth-child(#{$i}) {
+			background-color: hsl($start-color + $i * $hue-rotation, 80, 63);
+
+			&:hover {
+				filter: contrast(160%);
+			}
+		}
+	} 
+}
+
+
+// =================================================
+// Page
+// =================================================
+
+body {
+	font-family: 'Courier';
+	font-size: 18px;
+
+	* { box-sizing: border-box; }
+}
+
+$header-height: 100px;
+$list-item-padding: 5vw;
+
+
+// =================================================
+// Navigation
+// =================================================
+
+.navigation {
+	height: $header-height;
+	display: flex;
+	align-items: center;
+	padding-left: $list-item-padding;
+
+	a {
+		color: #444;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	a:nth-child(1) {
+		&:hover {
+			color: #F44278; 
+		}
+	}
+	a:nth-child(2) {
+		&:hover {
+			color: #00C7DB;
+		}
+	}
+}
+
+
+// =================================================
+// List of links
+// =================================================
+
+.list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	height: calc(100vh - #{$header-height});
+	@include color-list-items(300, 4);
+}
+
+.list-item {
+	flex: 1;
+	background: #ccc;
+	border-top: 2px solid white;
+	padding-left: $list-item-padding;
+	color: #fff;
+	cursor: pointer;
+}
+
+.list-link {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	text-decoration: none;
+	color: #fff;
+}
+
+.list-link-text {
+	flex: 1;
+}
+

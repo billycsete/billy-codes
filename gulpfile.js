@@ -15,7 +15,7 @@ var buffer       = require('vinyl-buffer');
 
 // Build SCSS
 gulp.task('css', function() {
-	return sass('src/scss/steeze.scss', { style: 'expanded' })
+	return sass('src/scss/', { style: 'expanded' })
 		.pipe(autoprefixer('last 2 version'))
 		.pipe(gulp.dest('built/css/'))
 		.pipe(rename({suffix: '-min'}))

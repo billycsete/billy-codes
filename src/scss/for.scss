@@ -10,22 +10,106 @@
 
 
 // =================================================
+// Colors
+// =================================================
+
+$fun-hue: 281;
+$fun-saturation: 66;
+$fun-lightness: 44;
+
+$friends-hue: 350;
+$friends-saturation: 76;
+$friends-lightness: 44;
+
+$apple-hue: 108;
+$apple-saturation: 56;
+$apple-lightness: 44;
+
+$dropbox-hue: 217;
+$dropbox-saturation: 76;
+$dropbox-lightness: 44;
+
+
+.list-item-fun {
+	background-color: #ddd;
+	&:hover {
+		background-color: hsl($fun-hue, $fun-saturation, $fun-lightness);
+		.list-link {
+			color: #fff;
+		}
+	}
+
+	.list-link {
+		color: #444;
+	}
+}
+.list-item-friends {
+	background-color: #ddd;
+	&:hover {
+		background-color: hsl($friends-hue, $friends-saturation, $friends-lightness);
+		.list-link {
+			color: #fff;
+		}
+	}
+
+	.list-link {
+		color: #444;
+	}
+}
+.list-item-apple {
+	background-color: #ddd;
+	&:hover {
+		background-color: hsl($apple-hue, $apple-saturation, $apple-lightness);
+		.list-link {
+			color: #fff;
+		}
+	}
+
+	.list-link {
+		color: #444;
+	}
+}
+.list-item-dropbox {
+	background-color: #ddd;
+	&:hover {
+		background-color: hsl($dropbox-hue, $dropbox-saturation, $dropbox-lightness);
+		.list-link {
+			color: #fff;
+		}
+	}
+
+	.list-link {
+		color: #444;
+	}
+}
+
+
+// =================================================
 // Mixins
 // =================================================
 
-@mixin color-list-items($start-color: 200, $number-of-items: 10) {
-
-	$hue-rotation: 90 / $number-of-items;
+@mixin color-list-items($start-hue: 200, $saturation: 66, $number-of-items: 20) {
 
 	@for $i from 0 through $number-of-items {
 		.list-item:nth-child(#{$i}) {
-			background-color: hsl($start-color + $i * $hue-rotation, 80, 63);
-
-			&:hover {
-				filter: contrast(160%);
-			}
+			background-color: hsl($start-hue + $i * 10, $saturation, 44);
 		}
 	} 
+}
+
+
+// generate background colors for all the list items
+.list-fun {
+	@include color-list-items($fun-hue, $fun-saturation);
+}
+.list-friends {
+	@include color-list-items($friends-hue, $friends-saturation);
+}
+.list-apple {
+	@include color-list-items($apple-hue, $apple-saturation);
+}
+.list-dropbox {
+	@include color-list-items($dropbox-hue, $dropbox-saturation);
 }
 
 
@@ -85,16 +169,17 @@ $list-item-padding: 5vw;
 	flex-direction: column;
 	align-items: stretch;
 	height: calc(100vh - #{$header-height});
-	@include color-list-items(300, 4);
 }
 
 .list-item {
 	flex: 1;
-	background: #ccc;
 	border-top: 2px solid white;
 	padding-left: $list-item-padding;
-	color: #fff;
 	cursor: pointer;
+
+	&:hover {
+		filter: brightness(110%);
+	}
 }
 
 .list-link {
